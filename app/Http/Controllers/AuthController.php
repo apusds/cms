@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -15,9 +17,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if ($validator->fails()) {
-            return back()->with('error', 'Trying to spoof the System? ;P');
-        }
+        if ($validator->fails()) return back()->with('error', 'Trying to spoof the System? ;P');
 
         $data = [
             'username' => trim(strtolower($request->input('username'))),
@@ -26,7 +26,26 @@ class AuthController extends Controller
 
         if (!Auth::attempt($data)) return back()->with('error', 'Invalid Credentials!');
 
-        return "Logged in!";
+        return redirect()->intended(route('dashboard'));
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->intended(route('login'));
+    }
+
+    public function register($username) {
+        $data = [
+            'username' => trim(strtolower($username)),
+            'email' => 'studentdevelopersociety@gmail.com',
+            'password' => Hash::make('password'),
+            'role_id' => 1
+        ];
+
+        $result = DB::table(env("DB_USERS"))
+            ->insert($data);
+
+        dd($result);
     }
 
 }

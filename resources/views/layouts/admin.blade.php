@@ -5,6 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+        <!-- No Cache -->
+        <?php
+            header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+            header("Cache-Control: post-check=0, pre-check=0", false);
+            header("Pragma: no-cache");
+        ?>
+
         <title>Student Developer Society</title>
 
         <!-- Bootstrap CSS CDN -->
@@ -36,16 +43,10 @@
 
                 <ul class="list-unstyled components">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="{{ route('dashboard') }}">Home</a>
                     </li>
                     <li>
-                        <a href="./new-client.html">New Client</a>
-                    </li>
-                    <li>
-                        <a href="./add-payment.html">Add Payment</a>
-                    </li>
-                    <li>
-                        <a href="./view-invoices.html">View Invoices</a>
+                        <a href="{{ route('logout') }}">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -66,16 +67,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="./index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./new-client.html">New Client</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Add Payment</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./view-invoices.html">View Invoices</a>
+                                    <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
                                 </li>
                             </ul>
                         </div>
