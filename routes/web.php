@@ -4,7 +4,7 @@
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 
 /** Temp */
-// Route::get('/register/{username}', 'AuthController@register');
+ Route::get('/register/{username}', 'AuthController@register');
 
 /** Login */
 Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);
@@ -15,3 +15,6 @@ Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@log
 
 /** Dashboard */
 Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard', 'middleware' => 'auth']);
+
+/** Events */
+Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents']);

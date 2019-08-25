@@ -31,4 +31,8 @@ class User extends Authenticatable
     public function role() {
         return $this->belongsTo('App\Role');
     }
+
+    public function events() {
+        return $this->hasMany('App\Event', 'created_by', 'id');
+    }
 }
