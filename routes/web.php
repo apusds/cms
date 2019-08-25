@@ -4,7 +4,7 @@
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 
 /** Temp */
- Route::get('/register/{username}', 'AuthController@register');
+//Route::get('/register/{username}', 'AuthController@register');
 
 /** Login */
 Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);
