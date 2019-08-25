@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class RouteController extends Controller
 {
 
@@ -11,8 +9,12 @@ class RouteController extends Controller
         return view('welcome');
     }
 
-    public function login() {
+    public function showLogin() {
         return view('login.index');
+    }
+
+    public function showDashboard() {
+        return view('admin.index');
     }
 
 }
