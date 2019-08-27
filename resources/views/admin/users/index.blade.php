@@ -16,13 +16,13 @@
                 <div class="card">
                     <div class="card-header {{ $user->username === Auth::user()->username ? 'bg-danger' : 'bg-success' }}"></div>
                     <div class="card-body">
-                        <b>Username</b>: {{ strtolower($user->username) === strtolower(Auth::user()->username) ? "{$user->username} (You)" : $user->username }}
+                        <b>Username</b>: {{ $user->username === Auth::user()->username ? "{$user->username} (You)" : $user->username }}
                         <br>
                         <b>Role</b>: {{ $user->role->name }}
                     </div>
                     <div class="card-footer">
                         <div class="text-center">
-                            @if (strtolower($user->username) === strtolower(Auth::user()->username))
+                            @if ($user->username === Auth::user()->username)
                                 <a href="" class="btn btn-primary disabled">Manage</a>
                             @else
                                 <a href="{{ route('dashboard.users.edit') }}" class="btn btn-primary">Manage</a>
