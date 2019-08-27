@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,16 @@ class AuthController extends Controller
             ->insert($data);
 
         dd($result);
+    }
+
+    public function delete($username) {
+        if (strtolower(Auth::user()) === strtolower($username)) return back()->with('error', 'You cannot Delete yourself!');
+
+        bool: $delete = User::all()->find($username)->delete();
+
+        if (!$delete) return back()->with('error', 'Unable to find this User!');
+
+        return back()->with('message', "Done! User {$username} has been deleted!");
     }
 
 }
