@@ -12,12 +12,13 @@
             header("Pragma: no-cache");
         ?>
 
-        <title>Student Developer Society</title>
+        <title>SDS | @yield('title') </title>
 
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <!-- Custom Icons -->
@@ -48,6 +49,9 @@
                     <li class="{{ Request::routeIs('dashboard.events') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.events') }}">Events</a>
                     </li>
+                    <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.users') }}">Users</a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}">Logout</a>
                     </li>
@@ -75,12 +79,31 @@
                                 <li class="nav-item {{ Request::routeIs('dashboard.events') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
                                 </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.users') }}">Users</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
 
-                @yield('content')
+                @if ($message = Session::get('message'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
             </div>
         </div>
 

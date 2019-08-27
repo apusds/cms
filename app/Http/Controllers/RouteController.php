@@ -21,4 +21,16 @@ class RouteController extends Controller
         return view('admin.events.index');
     }
 
+    public function showUsers() {
+        return view('admin.users.index');
+    }
+
+    public function showUserCreate() {
+        return view('admin.users.create');
+    }
+
+    public function showUserEdit() {
+        return view('admin.users.edit');
+    }
+
 }

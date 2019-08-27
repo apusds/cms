@@ -35,7 +35,7 @@ class AuthController extends Controller
         return redirect()->intended(route('login'));
     }
 
-    public function register($username) {
+    public function registerTemp($username) {
         $data = [
             'username' => trim(strtolower($username)),
             'email' => 'studentdevelopersociety@gmail.com',
@@ -49,14 +49,31 @@ class AuthController extends Controller
         dd($result);
     }
 
-    public function delete($username) {
-        if (strtolower(Auth::user()) === strtolower($username)) return back()->with('error', 'You cannot Delete yourself!');
+    public function register(Request $request) {
+        $validate = Validator::make($request->all(), [
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role_id' => 'required'
+        ]);
 
-        bool: $delete = User::all()->find($username)->delete();
+        if (!$validate) return back()->with('error', 'Malformed Request.');
 
-        if (!$delete) return back()->with('error', 'Unable to find this User!');
+        $data = [
+            'username' => strtolower($request->input('username')),
+            'email' => strtolower($request->input('email')),
+            'password' => Hash::make($request->input('password')),
+            'role_id' => strtolower($request->input('role_id')),
+        ];
 
-        return back()->with('message', "Done! User {$username} has been deleted!");
+        $result = DB::table(env("DB_USERS"))
+            ->insert($data);
+
+        if (!$result) return back()->with('error', 'Unable to register new User');
+
+        return back()->with('success', 'Done!');
     }
+
+    public function delete($username) { }
 
 }
