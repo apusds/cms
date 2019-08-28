@@ -10,12 +10,12 @@ Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);
 Route::post('/login', ['as' => 'login.post', 'uses' => 'AuthController@login']);
 
-/** Logout */
-Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
-
-/** Dashboard */
-Route::group(['middleware' => ['superadmin']], function() {
+Route::group(['middleware' => ['allowed']], function() {
+    /** Dashboard */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard', 'middleware' => 'auth']);
+
+    /** Logout */
+    Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
     /** Users */
     Route::get('/dashboard/users', ['as' => 'dashboard.users', 'uses' => 'RouteController@showUsers', 'middleware' => 'auth']);
@@ -31,4 +31,8 @@ Route::group(['middleware' => ['superadmin']], function() {
     /** Events */
     Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents', 'middleware' => 'auth']);
 });
+
+Route::group(['middleware' => ['admin']], function () {  });
+
+Route::group(['middleware' => ['superadmin']], function () { });
 
