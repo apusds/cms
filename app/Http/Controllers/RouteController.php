@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+
 class RouteController extends Controller
 {
 
     public function home() {
-        return view('welcome');
+        return redirect(route('login'));
     }
 
     public function showLogin() {
@@ -29,8 +31,8 @@ class RouteController extends Controller
         return view('admin.users.create');
     }
 
-    public function showUserEdit() {
-        return view('admin.users.edit');
+    public function showUserEdit($id) {
+        return view('admin.users.edit', ['data' => User::all()->find($id)]);
     }
 
 }

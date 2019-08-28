@@ -25,7 +25,7 @@
                             @if ($user->username === Auth::user()->username)
                                 <a href="" class="btn btn-primary disabled">Manage</a>
                             @else
-                                <a href="{{ route('dashboard.users.edit') }}" class="btn btn-primary">Manage</a>
+                                <a href="{{ route('dashboard.users.edit', ['id' => $user->id]) }}" class="btn btn-primary">Manage</a>
                             @endif
                         </div>
                     </div>

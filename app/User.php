@@ -24,9 +24,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+    protected $hidden = [];
 
     public function role() {
         return $this->belongsTo('App\Role');

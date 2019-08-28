@@ -71,9 +71,31 @@ class AuthController extends Controller
 
         if (!$result) return back()->with('error', 'Unable to register new User');
 
-        return back()->with('success', 'Done!');
+        return back()->with('message', 'Done!');
     }
 
-    public function delete($username) { }
+    public function update(Request $request, $id) {
+        $user = User::all()->find($id);
+        $data = [
+            'username' => strtolower($request->input('username')),
+            'password' => $request->input('password') === "" ? bcrypt($request->input('password')) : $user->password,
+            'email' => strtolower($request->input('email')),
+            'role_id' => $request->input('role_id'),
+        ];
+
+        $result = DB::table(env("DB_USERS"))
+            ->where('id', $id)
+            ->update($data);
+
+        if (!$result) return back()->with('error', 'Unable to update User details or no changes!');
+
+        return back()->with('message', 'Done!');
+    }
+
+    public function delete($id) {
+        $user = User::all()->find($id)->delete();
+        if (!$user) return back()->with('error', 'Unable to delete User!');
+        return redirect(route('dashboard.users'))->with('message', 'User deleted!');
+    }
 
 }
