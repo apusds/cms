@@ -26,7 +26,6 @@ class AuthController extends Controller
         ];
 
         if (!Auth::attempt($data)) return back()->with('error', 'Invalid Credentials!');
-
         return redirect()->intended(route('dashboard'));
     }
 
@@ -45,7 +44,6 @@ class AuthController extends Controller
 
         $result = DB::table(env("DB_USERS"))
             ->insert($data);
-
         dd($result);
     }
 
@@ -70,11 +68,16 @@ class AuthController extends Controller
             ->insert($data);
 
         if (!$result) return back()->with('error', 'Unable to register new User');
-
         return back()->with('message', 'Done!');
     }
 
     public function update(Request $request, $id) {
+        $validate = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Malformed Request. Please check your params.');
+
         $user = User::all()->find($id);
         $data = [
             'username' => strtolower($request->input('username')),
@@ -88,7 +91,6 @@ class AuthController extends Controller
             ->update($data);
 
         if (!$result) return back()->with('error', 'Unable to update User details or no changes!');
-
         return back()->with('message', 'Done!');
     }
 
