@@ -16,7 +16,7 @@ class AllowedRoles
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role->id < 1) return redirect(route('dashboard'))->with('error', 'You have no permission to view this part of the System.');
+        if (Auth::user()->role->id < 1) return redirect(route('dashboard'))->with('error', "You don't have access to that section.");
         return $next($request);
     }
 }

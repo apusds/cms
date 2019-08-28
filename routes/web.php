@@ -19,9 +19,15 @@ Route::group(['middleware' => ['allowed']], function() {
     /** Logout */
     Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
-    /** [User]s */
+    /** [Users] */
     Route::get('/dashboard/users', ['as' => 'dashboard.users', 'uses' => 'RouteController@showUsers', 'middleware' => 'auth']);
 
+    /** Events */
+    Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents', 'middleware' => 'auth']);
+});
+
+// Special Perms for SuperAdmin Only
+Route::group(['middleware' => ['superadmin']], function () {
     /** Create [User] */
     Route::get('/dashboard/users/create', ['as' => 'dashboard.users.create', 'uses' => 'RouteController@showUserCreate', 'middleware' => 'auth']);
     Route::post('/dashboard/users/create', ['as' => 'dashboard.users.create', 'uses' => 'AuthController@register', 'middleware' => 'auth']);
@@ -32,11 +38,5 @@ Route::group(['middleware' => ['allowed']], function() {
 
     /** Delete [User] */
     Route::get('/dashboard/users/{id}/delete', ['as' => 'dashboard.users.delete', 'uses' => 'AuthController@delete', 'middleware' => 'auth']);
-
-    /** Events */
-    Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents', 'middleware' => 'auth']);
 });
-
-// Special Perms for SuperAdmin Only
-Route::group(['middleware' => ['superadmin']], function () { });
 

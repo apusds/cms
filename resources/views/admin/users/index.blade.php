@@ -5,7 +5,9 @@
 @section('content')
     <div>
         <h2 class="float-left">Users</h2>
-        <a class="btn btn-primary float-right" href="{{ route('dashboard.users.create') }}">Add</a>
+        @if (Auth::user()->isSuperAdmin())
+            <a class="btn btn-primary float-right" href="{{ route('dashboard.users.create') }}">Add</a>
+        @endif
     </div>
 
     <br><br><br>
@@ -20,15 +22,17 @@
                         <br>
                         <b>Role</b>: {{ $user->role->name }}
                     </div>
-                    <div class="card-footer">
-                        <div class="text-center">
-                            @if ($user->username === Auth::user()->username)
-                                <a href="" class="btn btn-primary disabled">Manage</a>
-                            @else
-                                <a href="{{ route('dashboard.users.edit', ['id' => $user->id]) }}" class="btn btn-primary">Manage</a>
-                            @endif
+                    @if(Auth::user()->isSuperAdmin())
+                        <div class="card-footer">
+                            <div class="text-center">
+                                @if ($user->username === Auth::user()->username)
+                                    <a href="" class="btn btn-primary disabled">Manage</a>
+                                @else
+                                    <a href="{{ route('dashboard.users.edit', ['id' => $user->id]) }}" class="btn btn-primary">Manage</a>
+                                @endif
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         @endforeach
