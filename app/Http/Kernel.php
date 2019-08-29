@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\{ Admin, AllowedRoles, SuperAdmin };
+use App\Http\Middleware\{Admin, AllowedRoles, Member, SuperAdmin};
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
         'superadmin' => SuperAdmin::class,
         'admin' => Admin::class,
         'allowed' => AllowedRoles::class,
+        'member' => Member::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

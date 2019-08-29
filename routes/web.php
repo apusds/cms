@@ -12,6 +12,8 @@ Route::group(['middleware' => ['guest']], function() {
     Route::post('/login', ['as' => 'login.post', 'uses' => 'AuthController@login']);
 });
 
+Route::group(['middleware', ['member']], function() {});
+
 Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** Dashboard */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
