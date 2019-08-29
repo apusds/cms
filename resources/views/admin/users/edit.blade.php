@@ -17,11 +17,11 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter username" value="{{ $data->username }}" required>
+            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter username" value="{{ $data->username }}">
         </div>
         <div class="form-group">
             <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter Email" value="{{ $data->email }}" required>
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter Email" value="{{ $data->email }}">
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
@@ -29,10 +29,10 @@
         </div>
         <div class="form-group">
             <label for="roleSelect">Role</label>
-            <select class="form-control" id="roleSelect" name="role_id" required>
+            <select class="form-control" id="roleSelect" name="role_id">
                 <option value="">Please select</option>
                 @foreach (\App\Role::all() as $role)
-                    <option value="{{ $role->id }}" {{ $role->id === Auth::user()->role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                    <option value="{{ $role->id }}" {{ $role->id == $data->role->id ? 'selected' : '' }}>{{ $role->name }}</option>
                 @endforeach
             </select>
         </div>

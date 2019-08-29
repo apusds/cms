@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\User;
 
 class RouteController extends Controller
@@ -21,6 +22,14 @@ class RouteController extends Controller
 
     public function showEvents() {
         return view('admin.events.index');
+    }
+
+    public function showEventCreate() {
+        return view('admin.events.create');
+    }
+
+    public function showEventEdit($id) {
+        return view('admin.events.edit', ['data' => Event::all()->find($id)]);
     }
 
     public function showUsers() {

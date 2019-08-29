@@ -62,6 +62,7 @@ class AuthController extends Controller
             'email' => strtolower($request->input('email')),
             'password' => Hash::make($request->input('password')),
             'role_id' => strtolower($request->input('role_id')),
+            'created_at' => new \DateTime()
         ];
 
         $result = DB::table(env("DB_USERS"))
@@ -84,6 +85,7 @@ class AuthController extends Controller
             'password' => $request->input('password') === "" ? bcrypt($request->input('password')) : $user->password,
             'email' => strtolower($request->input('email')),
             'role_id' => $request->input('role_id'),
+            'updated_at' => new \DateTime()
         ];
 
         $result = DB::table(env("DB_USERS"))

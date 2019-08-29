@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->string('description');
+            $table->timestamp('expiry');
             $table->timestamps();
         });
     }

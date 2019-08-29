@@ -34,6 +34,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Event', 'created_by', 'id');
     }
 
+    public function hasAllowedRole(): bool {
+        return $this->role > "0" ? true : false;
+    }
+
     public function isSuperAdmin(): bool {
         return $this->role->id === 1 ? true : false;
     }

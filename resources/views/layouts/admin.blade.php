@@ -46,7 +46,7 @@
                     <li class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">
                         <a href="{{ route('dashboard') }}">Home</a>
                     </li>
-                    <li class="{{ Request::routeIs('dashboard.events') ? 'active' : '' }}">
+                    <li class="{{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.events') }}">Events</a>
                     </li>
                     <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
@@ -76,7 +76,7 @@
                                 <li class="nav-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
                                 </li>
-                                <li class="nav-item {{ Request::routeIs('dashboard.events') ? 'active' : '' }}">
+                                <li class="nav-item {{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
