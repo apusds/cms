@@ -16,20 +16,20 @@
     <form method="POST" action="{{ route('dashboard.users.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter username" value="{{ $data->username }}">
+            <label for="inputUsername">Username (<span class="red">*</span>)</label>
+            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Enter username" value="{{ $data->username }}" required>
         </div>
         <div class="form-group">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter Email" value="{{ $data->email }}">
+            <label for="inputEmail">Email (<span class="red">*</span>)</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter Email" value="{{ $data->email }}" required>
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
             <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Update Password">
         </div>
         <div class="form-group">
-            <label for="roleSelect">Role</label>
-            <select class="form-control" id="roleSelect" name="role_id">
+            <label for="roleSelect">Role (<span class="red">*</span>)</label>
+            <select class="form-control" id="roleSelect" name="role_id" required>
                 <option value="">Please select</option>
                 @foreach (\App\Role::all() as $role)
                     <option value="{{ $role->id }}" {{ $role->id == $data->role->id ? 'selected' : '' }}>{{ $role->name }}</option>
