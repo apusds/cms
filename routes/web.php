@@ -37,6 +37,15 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Delete [Events] */
     Route::get('/dashboard/events/{id}/delete', ['as' => 'dashboard.events.delete', 'uses' => 'EventController@delete']);
+
+    /** Pages */
+    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
+
+    /** Create [Pages] */
+    Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
+
+    /** Edit [Pages] */
+    Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
 });
 
 // Special Perms for SuperAdmin Only

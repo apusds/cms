@@ -44,4 +44,16 @@ class RouteController extends Controller
         return view('admin.users.edit', ['data' => User::all()->find($id)]);
     }
 
+    public function showPages() {
+        return view('admin.pages.index');
+    }
+
+    public function showPageCreate() {
+        return view('admin.pages.create');
+    }
+
+    public function showPageEdit() {
+        return view('admin.pages.edit');
+    }
+
 }
