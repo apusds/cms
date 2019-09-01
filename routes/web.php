@@ -1,13 +1,13 @@
 <?php
 
-/** Landing */
+/** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 
 /** Temp */
 // Route::get('/register/{username}', 'AuthController@registerTemp');
 
 Route::group(['middleware' => ['guest']], function() {
-    /** Login */
+    /** [Login] */
     Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);
     Route::post('/login', ['as' => 'login.post', 'uses' => 'AuthController@login']);
 });
@@ -15,36 +15,36 @@ Route::group(['middleware' => ['guest']], function() {
 Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
-    /** Dashboard */
+    /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
 
-    /** Logout */
+    /** [Logout] */
     Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
-    /** [Users] */
+    /** [User] */
     Route::get('/dashboard/users', ['as' => 'dashboard.users', 'uses' => 'RouteController@showUsers']);
 
-    /** [Events] */
+    /** [Event] */
     Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents']);
 
-    /** Create [Events] */
+    /** Create [Event] */
     Route::get('/dashboard/events/create', ['as' => 'dashboard.events.create', 'uses' => 'RouteController@showEventCreate']);
     Route::post('/dashboard/events/create', ['as' => 'dashboard.events.create', 'uses' => 'EventController@register']);
 
-    /** Edit [Events] */
+    /** Edit [Event] */
     Route::get('/dashboard/events/{id}/edit', ['as' => 'dashboard.events.edit', 'uses' => 'RouteController@showEventEdit']);
     Route::post('/dashboard/events/{id}/edit', ['as' => 'dashboard.events.edit', 'uses' => 'EventController@update']);
 
-    /** Delete [Events] */
+    /** Delete [Event] */
     Route::get('/dashboard/events/{id}/delete', ['as' => 'dashboard.events.delete', 'uses' => 'EventController@delete']);
 
-    /** Pages */
+    /** [Page] */
     Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
 
-    /** Create [Pages] */
+    /** Create [Page] */
     Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
 
-    /** Edit [Pages] */
+    /** Edit [Page] */
     Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
 });
 
