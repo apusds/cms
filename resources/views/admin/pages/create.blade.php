@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <label for="inputTitle">Page Title (<span class="red">*</span>)</label>
-            <input type="text" class="form-control" id="inputTitle" name="uri" placeholder="Enter Page Title" required>
+            <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Enter Page Title" required>
         </div>
 
         <div class="form-group">
@@ -47,8 +47,16 @@
         <hr />
 
         <div class="form-group">
+            <label for="selectTemplate">Page Template (<span class="red">*</span>)</label>
+            <select class="form-control" id="selectTemplate" name="template" required>
+                <option value="">Please select</option>
+                <option value="0">Default Site</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="inputContent">Content (<span class="red">*</span>) - HTML Tags Supported</label>
-            <textarea id="inputContent" class="form-control" rows="15" name="content" placeholder="Example: <h3> Hello World </h3>"></textarea>
+            <textarea id="inputContent" class="form-control" rows="15" name="content" placeholder="Example: <h3> Hello World </h3>" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
