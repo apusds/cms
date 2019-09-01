@@ -25,8 +25,9 @@
             </div>
         </div>
 
-        <h3><u>SEO</u></h3>
         <hr />
+        <h3><u>SEO (Page Meta)</u></h3>
+        <br>
 
         <div class="form-group">
             <label for="inputTitle">Page Title (<span class="red">*</span>)</label>
@@ -43,8 +44,9 @@
             <textarea class="form-control" rows="3" name="keyword" id="inputKeyword" placeholder="Example: CMS, SDS, Tech, Top notch"></textarea>
         </div>
 
-        <h3><u>Page</u></h3>
         <hr />
+        <h3><u>Page</u></h3>
+        <br>
 
         <div class="form-group">
             <label for="selectTemplate">Page Template (<span class="red">*</span>)</label>
