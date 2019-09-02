@@ -12,7 +12,7 @@
 
     <br><br><br>
 
-    <form method="POST" action="">
+    <form method="POST" action=""{{ route('dashboard.pages.create') }}>
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -58,7 +58,7 @@
 
         <div class="form-group">
             <label for="summer-note">Content (<span class="red">*</span>) - HTML Tags Supported</label>
-            <textarea id="summer-note" class="form-control" rows="15" name="content" placeholder="Example: <h3> Hello World </h3>" required></textarea>
+            <textarea id="summer-note" class="form-control" rows="15" name="content" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

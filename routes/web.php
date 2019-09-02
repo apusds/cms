@@ -43,6 +43,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Create [Page] */
     Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
+    Route::post('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'PageController@create']);
 
     /** Edit [Page] */
     Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
