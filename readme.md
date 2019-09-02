@@ -6,6 +6,7 @@
 - `composer install`
 - `cp .env.example .env`
 - Update MySQL Details in `.env`
+- `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan serve`
 - Open Browser and go to `http://127.0.0.1:8000`
