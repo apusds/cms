@@ -5,7 +5,19 @@ $(document).ready(function() {
             link: [],
             air: []
         },
-        height: 300
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link', 'hr']],
+            ['view', ['fullscreen', 'codeview']]
+        ],
+        height: 300,
+        placeholder: 'Glory starts here!'
     });
 
     $("#sidebar").mCustomScrollbar({
