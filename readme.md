@@ -1,2 +1,11 @@
-# CMS-SDS
- Reposity of Madness and Laravelness
+# CMS @ Student Developer Society
+
+### <u>Installation</u>
+- `git clone git@github.com:InspectorGadget/sds-cms.git`
+- `cd sds-cms`
+- `composer install`
+- `cp .env.example .env`
+- Update MySQL Details in `.env`
+- `php artisan migrate`
+- `php artisan serve`
+- Open Browser and go to `http://127.0.0.1:8000`
