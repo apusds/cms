@@ -54,6 +54,9 @@
                     <li class="{{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.pages') }}">Pages</a>
                     </li>
+                    <li class="{{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.templates') }}">Templates</a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}">Logout</a>
                     </li>
@@ -86,6 +89,9 @@
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.pages') }}">Pages</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.templates') }}">Templates</a>
                                 </li>
                             </ul>
                         </div>
