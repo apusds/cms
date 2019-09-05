@@ -56,4 +56,12 @@ class RouteController extends Controller
         return view('admin.pages.edit');
     }
 
+    public function showTemplates() {
+        return view('admin.templates.index');
+    }
+
+    public function showTemplateCreate() {
+        return view('admin.templates.create');
+    }
+
 }

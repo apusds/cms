@@ -12,7 +12,7 @@
 
     <br><br><br>
 
-    <form method="POST" action=""{{ route('dashboard.pages.create') }}>
+    <form method="POST" action="{{ route('dashboard.pages.create') }}">
         {{ csrf_field() }}
 
         <div class="form-group">
