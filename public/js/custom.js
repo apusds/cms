@@ -1,4 +1,18 @@
 $(document).ready(function() {
+    $('#uriStatus').hide();
+
+    // URI Custom Request
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+        }
+    });
+
+    $('#inputURI').keyup(function() {
+        var URI = $("input[name=uri]").val();
+        // AJAX POST here
+    });
+
     $('#summer-note').summernote({
         popover: {
             image: [],
