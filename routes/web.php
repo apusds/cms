@@ -50,6 +50,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
 
     /** Delete [Page] */
+    /** TODO */
 
     /** [Template] */
     Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
@@ -70,5 +71,12 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
 
     /** Delete [User] */
     Route::get('/dashboard/users/{id}/delete', ['as' => 'dashboard.users.delete', 'uses' => 'AuthController@delete']);
+
+    /** [Role] */
+    Route::get('/dashboard/roles', ['as' => 'dashboard.roles', 'uses' => 'RouteController@showRoles']);
+
+    /** Create [Role] */
+    Route::post('/dashboard/roles/create', ['as' => 'dashboard.roles.create', 'uses' => 'RoleController@create']);
+
 });
 

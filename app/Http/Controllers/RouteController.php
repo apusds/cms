@@ -86,4 +86,11 @@ class RouteController extends Controller
 
     // End [Templates]
 
+    // [Roles]
+    public function showRoles() {
+        return view('admin.roles.index');
+    }
+
+    // End [Roles]
+
 }

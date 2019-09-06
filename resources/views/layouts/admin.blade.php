@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <!-- No Cache -->
         <?php
             header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
             header("Cache-Control: post-check=0, pre-check=0", false);
@@ -58,6 +57,9 @@
                     <li class="{{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.templates') }}">Templates</a>
                     </li>
+                    <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.roles') }}">Roles</a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}">Logout</a>
                     </li>
@@ -93,6 +95,9 @@
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.templates') }}">Templates</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.roles') }}">Roles</a>
                                 </li>
                             </ul>
                         </div>
