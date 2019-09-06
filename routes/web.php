@@ -15,6 +15,10 @@ Route::group(['middleware' => ['guest']], function() {
 Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
+    // [URI Checker]
+    Route::get('/api/uri/{uri}/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
+    // End [URI Checker]
+
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
 
