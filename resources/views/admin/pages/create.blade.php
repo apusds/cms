@@ -52,7 +52,13 @@
             <label for="selectTemplate">Page Template (<span class="red">*</span>)</label>
             <select class="form-control" id="selectTemplate" name="template" required>
                 <option value="">Please select</option>
-                <option value="0">Default Site</option>
+                @if (count(\App\Template::all()) > 0)
+                    @foreach (\App\Template::all() as $template)
+                        <option value="{{ $template->id }}">{{ $template->title }}</option>
+                    @endforeach
+                @else
+                    <option value="" disabled>No templates found! Please add some.</option>
+                @endif
             </select>
         </div>
 

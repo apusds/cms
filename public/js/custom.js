@@ -20,6 +20,19 @@ $(document).ready(function() {
         placeholder: 'Glory starts here!'
     });
 
+    $('#summer-note-template').summernote({
+        popover: {
+            image: [],
+            link: [],
+            air: []
+        },
+        toolbar: [
+            ['view', ['fullscreen', 'codeview']]
+        ],
+        height: 400,
+        placeholder: 'Very hard to paste? Try our Code View!'
+    });
+
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
