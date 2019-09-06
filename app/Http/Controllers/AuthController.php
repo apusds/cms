@@ -34,19 +34,6 @@ class AuthController extends Controller
         return redirect()->intended(route('login'));
     }
 
-    public function registerTemp($username) {
-        $data = [
-            'username' => trim(strtolower($username)),
-            'email' => 'studentdevelopersociety@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 1
-        ];
-
-        $result = DB::table(env("DB_USERS"))
-            ->insert($data);
-        dd($result);
-    }
-
     public function register(Request $request) {
         $validate = Validator::make($request->all(), [
             'username' => 'required',

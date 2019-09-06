@@ -10,7 +10,7 @@ class RouteController extends Controller
 {
 
     public function home() {
-        return redirect(route('login'));
+        return view('website.index');
     }
 
     public function showLogin() {

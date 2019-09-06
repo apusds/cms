@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/dashboard');
+            return redirect('/dashboard')->with('message', 'You was automatically logged in as we remember you!');
         }
 
         return $next($request);
