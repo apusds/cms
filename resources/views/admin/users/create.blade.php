@@ -31,7 +31,9 @@
             <select class="form-control" id="roleSelect" name="role_id" required>
                 <option value="">Please select</option>
                 @foreach (\App\Role::all() as $role)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                    @if($role->name !== "SuperAdmin") <!-- SuperAdmin role shouldn't be given to others -->
+                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
