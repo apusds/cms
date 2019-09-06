@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
 {
@@ -41,6 +42,12 @@ class RouteController extends Controller
     }
 
     public function showUserEdit($id) {
+        if ($id == Auth::user()->id) return back()->with('error', 'You cannot edit the details of yourself!');
+
+        if (!(User::all()->find($id))) { // If the User does not exist, break the request and page render.
+            return back()->with('error', 'This User is not found!');
+        }
+
         return view('admin.users.edit', ['data' => User::all()->find($id)]);
     }
 
