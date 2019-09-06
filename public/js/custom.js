@@ -17,10 +17,14 @@ $(document).ready(function() {
             ['view', ['fullscreen', 'codeview']]
         ],
         height: 300,
-        placeholder: 'Glory starts here!'
+        placeholder: 'Glory starts here!',
+        codemirror: {
+            theme: 'monokai'
+        }
     });
 
     $('#summer-note-template').summernote({
+        focus: true,
         popover: {
             image: [],
             link: [],
@@ -29,8 +33,16 @@ $(document).ready(function() {
         toolbar: [
             ['view', ['fullscreen', 'codeview']]
         ],
-        height: 400,
-        placeholder: 'Very hard to paste? Try our Code View!'
+        height: 500,
+        placeholder: 'Very hard to paste? Try our Code View!',
+        codemirror: {
+            theme: 'monokai'
+        },
+        callbacks: {
+            onInit: function() {
+                $("div.note-editor button.btn-codeview").click();
+            }
+        }
     });
 
     $("#sidebar").mCustomScrollbar({

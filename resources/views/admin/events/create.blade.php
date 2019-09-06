@@ -6,6 +6,7 @@
     <div>
         <h2 class="float-left">Events | Create</h2>
         <div class="float-right">
+            <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
         </div>
     </div>
 

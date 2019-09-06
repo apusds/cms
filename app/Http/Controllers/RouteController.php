@@ -21,6 +21,8 @@ class RouteController extends Controller
         return view('admin.index');
     }
 
+    // [Events]
+
     public function showEvents() {
         return view('admin.events.index');
     }
@@ -32,6 +34,10 @@ class RouteController extends Controller
     public function showEventEdit($id) {
         return view('admin.events.edit', ['data' => Event::all()->find($id)]);
     }
+
+    // End [Events]
+
+    // [Users]
 
     public function showUsers() {
         return view('admin.users.index');
@@ -48,6 +54,9 @@ class RouteController extends Controller
         return view('admin.users.edit', ['data' => User::all()->find($id)]);
     }
 
+    // End [Users]
+
+    // [Pages]
     public function showPages() {
         return view('admin.pages.index');
     }
@@ -60,6 +69,9 @@ class RouteController extends Controller
         return view('admin.pages.edit');
     }
 
+    // End [Pages]
+
+    // [Templates]
     public function showTemplates() {
         return view('admin.templates.index');
     }
@@ -71,5 +83,7 @@ class RouteController extends Controller
     public function showTemplateEdit() {
         return view('admin.templates.edit');
     }
+
+    // End [Templates]
 
 }

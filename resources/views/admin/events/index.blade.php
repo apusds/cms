@@ -6,7 +6,7 @@
     <div>
         <h2 class="float-left">Events</h2>
         @if (Auth::user()->hasAllowedRole())
-            <a class="btn btn-primary float-right" href="{{ route('dashboard.events.create') }}">New Event</a>
+            <a class="btn btn-primary float-right" href="{{ route('dashboard.events.create') }}">New</a>
         @endif
     </div>
 

@@ -5,8 +5,8 @@
 @section('content')
     <div>
         <h2 class="float-left">Events | Edit</h2>
+        <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
         @if (Auth::user()->hasAllowedRole())
-            <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
             <a class="btn btn-danger float-right" href="{{ route('dashboard.events.delete', ['id' => $data->id]) }}">Delete</a>
         @endif
     </div>

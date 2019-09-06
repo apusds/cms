@@ -35,7 +35,7 @@ class User extends Authenticatable
     }
 
     public function hasAllowedRole(): bool {
-        return $this->role > "0" ? true : false;
+        return $this->role->id > 0 ? true : false;
     }
 
     public function isSuperAdmin(): bool {
