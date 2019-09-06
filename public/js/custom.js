@@ -1,16 +1,37 @@
 $(document).ready(function() {
-    $('#uriStatus').hide();
+    const uriDiv = $('#uriStatus');
+    uriDiv.hide();
 
-    // URI Custom Request
     $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
     $('#inputURI').keyup(function() {
-        var URI = $("input[name=uri]").val();
-        // AJAX POST here
+        const URI = $("input[name=uri]").val();
+
+        if (URI === "") {
+            uriDiv.hide();
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/uri/validate',
+            data: {
+                uri: URI
+            },
+            success: (data) => {
+                if (data.status === 'OK') {
+                    uriDiv.html("<span class='green'>URI Available</span>");
+                    uriDiv.show();
+                } else {
+                    uriDiv.html("<span class='red'>URI Not available</span>");
+                    uriDiv.show();
+                }
+            }
+        });
     });
 
     $('#summer-note').summernote({

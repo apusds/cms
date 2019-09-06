@@ -25,9 +25,7 @@
                 </div>
                 <input type="text" class="form-control" id="inputURI" name="uri" placeholder="Enter URI" required>
             </div>
-            <div id="uriStatus">
-                <span class="red">URI Not available</span>
-            </div>
+            <div id="uriStatus"></div>
         </div>
 
         <hr />
