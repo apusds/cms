@@ -3,9 +3,6 @@
 /** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 
-/** Temp */
-// Route::get('/register/{username}', 'AuthController@registerTemp');
-
 Route::group(['middleware' => ['guest']], function() {
     /** [Login] */
     Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);

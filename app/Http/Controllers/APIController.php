@@ -10,7 +10,7 @@ class APIController extends Controller
 
     public function checkURI(Request $request) {
         $result = DB::table(env('DB_PAGES'))
-            ->select('*')
+            ->select('id')
             ->where('uri', strtolower(trim($request->input('uri'))))
             ->first();
 
