@@ -10,7 +10,9 @@
         </div>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <form method="POST" action="">
         {{ csrf_field() }}

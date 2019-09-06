@@ -11,7 +11,9 @@
         </div>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <form method="POST" action="{{ route('dashboard.users.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}

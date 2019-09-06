@@ -8,7 +8,9 @@
         <a class="btn btn-primary float-right" href="{{ route('dashboard.users') }}">Back</a>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <form method="POST" action="{{ route('dashboard.users.create') }}">
         {{ csrf_field() }}

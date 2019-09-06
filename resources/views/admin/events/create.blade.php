@@ -10,7 +10,9 @@
         </div>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <form method="POST" action="{{ route('dashboard.events.create') }}">
         {{ csrf_field() }}

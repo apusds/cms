@@ -10,7 +10,9 @@
         @endif
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <div class="row">
         @if (count(\App\Event::all()) > 0)

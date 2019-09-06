@@ -8,6 +8,8 @@
         <a class="btn btn-danger float-right" href="{{ route('dashboard.templates') }}">Back</a>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
 @stop

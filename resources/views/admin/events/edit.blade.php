@@ -11,7 +11,9 @@
         @endif
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <form method="POST" action="{{ route('dashboard.events.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}

@@ -8,5 +8,7 @@
         <a class="btn btn-primary float-right" href="{{ route('dashboard.templates.create') }}">Add</a>
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 @stop

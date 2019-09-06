@@ -10,7 +10,9 @@
         @endif
     </div>
 
-    <br><br><br>
+    <br><br>
+
+    <hr />
 
     <div class="row">
         @foreach(\App\User::all() as $user)
