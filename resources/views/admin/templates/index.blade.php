@@ -22,7 +22,7 @@
                             <br>
                             Template File: <b>{{ $template->template }}</b>
                             <br>
-                            Added by: <b>{{ $template->user->username }}</b>
+                            Added by: <b>{{ $template->user->username === Auth::user()->username ? "{$template->user->username} (You)" : $template->user->username }}</b>
                         </div>
                         <div class="card-footer">
                             <div class="text-center">
