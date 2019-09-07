@@ -25,4 +25,21 @@ class RoleController extends Controller
         return $result ? back()->with('message', 'Success! Role created.') : back()->with('error', 'Unable to create Role.');
     }
 
+    public function update(Request $request, $id) {
+        $validate = Validator::make($request->all(), [
+           'name' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Malformed submission, please try again!');
+
+        $result = DB::table(env('DB_ROLES'))
+            ->where('id', $id)
+            ->update([
+               'name' => trim($request->input('name')),
+               'updated_at' => new \DateTime()
+            ]);
+
+        return $result ? back()->with('message', 'Success! Role updated.') : back()->with('error', 'Unable to update Role');
+    }
+
 }

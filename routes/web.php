@@ -78,5 +78,8 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
     /** Create [Role] */
     Route::post('/dashboard/roles/create', ['as' => 'dashboard.roles.create', 'uses' => 'RoleController@create']);
 
+    /** Edit [Role] */
+    Route::get('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RouteController@showRoleEdit']);
+    Route::post('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RoleController@update']);
 });
 

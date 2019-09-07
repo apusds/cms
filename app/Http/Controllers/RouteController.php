@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -89,6 +90,13 @@ class RouteController extends Controller
     // [Roles]
     public function showRoles() {
         return view('admin.roles.index');
+    }
+
+    public function showRoleEdit($id) {
+        if ($id == 1) return back()->with('error', 'You cannot edit this role!');
+        if (!(Role::all()->find($id))) return back()->with('error', 'Invalid Role, Role not found!');
+
+        return view('admin.roles.edit', ['role' => Role::all()->find($id)]);
     }
 
     // End [Roles]

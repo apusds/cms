@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-center">
-                                <a href="" class="btn btn-primary disabled">Edit</a>
+                                <a href="{{ $role->name === 'SuperAdmin' ? '' : route('dashboard.roles.edit', ['id' => $role->id]) }}" class="btn btn-primary {{ $role->name === 'SuperAdmin' ? 'disabled' : '' }}">Edit</a>
                             </div>
                         </div>
                     </div>
