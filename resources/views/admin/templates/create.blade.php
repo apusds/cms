@@ -12,7 +12,7 @@
 
     <hr />
 
-    <form method="POST" action="">
+    <form method="POST" action="{{ route('dashboard.templates.create') }}">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -21,9 +21,8 @@
         </div>
 
         <div class="form-group">
-            <label for="summer-note-template">Content (<span class="red">*</span>)</label>
-            <textarea id="summer-note-template" class="form-control" rows="15" name="content" required></textarea>
-            <!-- TODO: Textarea site template -->
+            <label for="template">Template File Name (<span class="red">*</span>)</label>
+            <input class="form-control" id="template" name="template" placeholder="Example: event.blade.php" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

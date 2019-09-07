@@ -57,6 +57,11 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Create [Template] */
     Route::get('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'RouteController@showTemplateCreate']);
+    Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
+
+    /** Edit [Template] */
+    Route::get('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'RouteController@showTemplateEdit']);
+    Route::post('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'TemplateController@update']);
 });
 
 // Special Perms for SuperAdmin Only

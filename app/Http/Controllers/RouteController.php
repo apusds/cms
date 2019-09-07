@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Role;
+use App\Template;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,8 +82,10 @@ class RouteController extends Controller
         return view('admin.templates.create');
     }
 
-    public function showTemplateEdit() {
-        return view('admin.templates.edit');
+    public function showTemplateEdit($id) {
+        if (!(Template::all()->find($id))) return back()->with('error', 'This Template is not found!');
+
+        return view('admin.templates.edit', ['template' => Template::all()->find($id)]);
     }
 
     // End [Templates]

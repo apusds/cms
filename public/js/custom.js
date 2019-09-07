@@ -58,28 +58,6 @@ $(document).ready(function() {
         }
     });
 
-    $('#summer-note-template').summernote({
-        focus: true,
-        popover: {
-            image: [],
-            link: [],
-            air: []
-        },
-        toolbar: [
-            ['view', ['fullscreen', 'codeview']]
-        ],
-        height: 500,
-        placeholder: 'Very hard to paste? Try our Code View!',
-        codemirror: {
-            theme: 'monokai'
-        },
-        callbacks: {
-            onInit: function() {
-                $("div.note-editor button.btn-codeview").click();
-            }
-        }
-    });
-
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
