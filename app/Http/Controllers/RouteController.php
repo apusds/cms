@@ -75,10 +75,6 @@ class RouteController extends Controller
         return view('admin.templates.index');
     }
 
-    public function showTemplateCreate() {
-        return view('admin.templates.create');
-    }
-
     public function showTemplateEdit($id) {
         if (!(Template::all()->find($id))) return back()->with('error', 'This Template is not found!');
 

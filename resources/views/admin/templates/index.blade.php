@@ -5,7 +5,6 @@
 @section('content')
     <div>
         <h2 class="float-left">Templates</h2>
-        <a class="btn btn-primary float-right" href="{{ route('dashboard.templates.create') }}">Add</a>
     </div>
 
     <br><br>
@@ -28,6 +27,9 @@
                         <div class="card-footer">
                             <div class="text-center">
                                 <a href="{{ route('dashboard.templates.edit', ['id' => $template->id]) }}" class="btn btn-primary">Edit</a>
+                                @if (Auth::user()->isSuperAdmin())
+                                    <a href="{{ route('dashboard.templates.delete', ['id' => $template->id]) }}" class="btn btn-danger">Delete</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -37,4 +39,24 @@
             <h3>Eh! Make a Template. </h3>
         @endif
     </div>
+
+    <br><br>
+    <h3> Add Template </h3>
+    <hr />
+
+    <form method="POST" action="{{ route('dashboard.templates.create') }}">
+        {{ csrf_field() }}
+
+        <div class="form-group">
+            <label for="title">Template Title (<span class="red">*</span>)</label>
+            <input class="form-control" id="title" name="title" placeholder="The title for your Template" required>
+        </div>
+
+        <div class="form-group">
+            <label for="template">Template File Name (<span class="red">*</span>)</label>
+            <input class="form-control" id="template" name="template" placeholder="Example: event.blade.php" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 @stop

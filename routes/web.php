@@ -56,7 +56,6 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
 
     /** Create [Template] */
-    Route::get('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'RouteController@showTemplateCreate']);
     Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
 
     /** Edit [Template] */
@@ -86,5 +85,8 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
     /** Edit [Role] */
     Route::get('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RouteController@showRoleEdit']);
     Route::post('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RoleController@update']);
+
+    /** Delete [Template] */
+    Route::get('/dashboard/templates/{id}/delete', ['as' => 'dashboard.templates.delete', 'uses' => 'TemplateController@delete']);
 });
 

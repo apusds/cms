@@ -46,4 +46,12 @@ class TemplateController extends Controller
         return $result ? back()->with('message', 'Done! Template updated.') : back()->with('error', 'Oops! Unable to update the template rn!');
     }
 
+    public function delete($id) {
+        $result = DB::table(env('DB_TEMPLATES'))
+            ->where('id', $id)
+            ->delete();
+
+        return $result ? back()->with('message', 'Done! Template deleted.') : back()->with('error', 'Oops! Unable to delete the template rn!');
+    }
+
 }
