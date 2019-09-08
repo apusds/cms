@@ -25,9 +25,9 @@
                             <br>
                             <b>Page Title:</b> {{ $page->title }}
                             <br>
-                            <b>Description:</b> {{ $page->description }}
+                            <b>Description:</b> {{ $page->description == null ? 'Not specified' : $page->description }}
                             <br>
-                            <b>Keyword:</b> {{ $page->keyword }}
+                            <b>Keyword:</b> {{ $page->keyword == null ? 'Not specified' : $page->keyword }}
                             <br>
                             <b>Template:</b> {{ $page->template->title }} ({{ $page->template->template }})
                             <br>
@@ -35,6 +35,7 @@
                             <br>
                             <b>Edited:</b> {{ $page->updated_at != null ? $event->updated_at->diffForHumans() : "Never" }}
                             <br>
+                            <b>By:</b> {{ $page->user->username === Auth::user()->username ? "{$page->user->username} (You)" : $page->user->username }}
                         </div>
                     </div>
                 </div>
