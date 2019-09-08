@@ -65,7 +65,7 @@ class RouteController extends Controller
     }
 
     public function showPageEdit($id) {
-        if ((!Page::all()->find($id))) return back()->with('error', 'This Page is not found!');
+        if (!(Page::all()->find($id))) return back()->with('error', 'This Page is not found!');
 
         return view('admin.pages.edit', ['page' => Page::all()->find($id)]);
     }
