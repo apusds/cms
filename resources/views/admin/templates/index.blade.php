@@ -16,7 +16,7 @@
             @foreach (\App\Template::all() as $template)
                 <div class="col-sm-12 col-lg-3">
                     <div class="card">
-                        <div class="card-header bg-success"></div>
+                        <div class="card-header {{ $template->user->id === Auth::user()->id ? 'bg-danger' : 'bg-success'}}"></div>
                         <div class="card-body">
                             Template Name: <b>{{ $template->title }}</b>
                             <br>

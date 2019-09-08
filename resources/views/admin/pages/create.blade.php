@@ -70,7 +70,7 @@
             <textarea id="summer-note" class="form-control" rows="15" name="content" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
         <a href="{{ route('dashboard.pages.create') }}" class="btn btn-success">Reset Fields</a>
     </form>
 @stop
