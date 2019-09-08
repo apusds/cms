@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{ Auth, DB, Validator };
 
@@ -64,6 +65,16 @@ class PageController extends Controller
             ->delete();
 
         return $result ? back()->with('message', 'Done! Page deleted.') : back()->with('error', 'Oops! Unable to delete page.');
+    }
+
+    public function serve($name) {
+        if (count(Page::all()->where('uri', strtolower($name))) < 1) return view('errors.404');
+        $page = DB::table(env('DB_PAGES'))
+            ->where('uri', strtolower($name))
+            ->first();
+
+        // return with the data of $page
+        dd($page);
     }
 
 }

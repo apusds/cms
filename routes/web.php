@@ -2,6 +2,7 @@
 
 /** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
+Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
 
 Route::group(['middleware' => ['guest']], function() {
     /** [Login] */
