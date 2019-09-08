@@ -21,7 +21,8 @@
                     <div class="card">
                         <div class="card-header {{ $page->created_by == Auth::user()->id ? 'bg-primary' : 'bg-success' }}"></div>
                         <div class="card-body">
-                            <b>Accessible @</b><a href="{{ Request::root() }}/pages/{{ $page->uri }}" target="_blank" class="href">{{ $page->uri }}</a>
+                            <b>Accessible @</b><a href="{{ Request::root() }}/pages/{{ $page->uri }}" target="_blank" class="href">{{ Request::root() }}/pages/{{ $page->uri }}</a>
+                            <!-- To be routed -->
                             <br>
                             <b>Page Title:</b> {{ $page->title }}
                             <br>
@@ -33,9 +34,15 @@
                             <br>
                             <b>Created:</b> {{ $page->created_at->diffForHumans() }}
                             <br>
-                            <b>Edited:</b> {{ $page->updated_at != null ? $event->updated_at->diffForHumans() : "Never" }}
+                            <b>Edited:</b> {{ $page->updated_at != null ? $page->updated_at->diffForHumans() : "Never" }}
                             <br>
                             <b>By:</b> {{ $page->user->username === Auth::user()->username ? "{$page->user->username} (You)" : $page->user->username }}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-center">
+                            <a href="{{ route('dashboard.pages.edit', ['id' => $page->id]) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('dashboard.pages.delete', ['id' => $page->id]) }}" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>

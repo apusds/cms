@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{ Event, Role, Template, User };
+use App\{Event, Page, Role, Template, User};
 use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
@@ -64,8 +64,10 @@ class RouteController extends Controller
         return view('admin.pages.create');
     }
 
-    public function showPageEdit() {
-        return view('admin.pages.edit');
+    public function showPageEdit($id) {
+        if ((!Page::all()->find($id))) return back()->with('error', 'This Page is not found!');
+
+        return view('admin.pages.edit', ['page' => Page::all()->find($id)]);
     }
 
     // End [Pages]

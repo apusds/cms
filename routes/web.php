@@ -48,9 +48,10 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Edit [Page] */
     Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
+    Route::post('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'PageController@update']);
 
     /** Delete [Page] */
-    /** TODO */
+    Route::get('/dashboard/pages/{id}/delete', ['as' => 'dashboard.pages.delete', 'uses' => 'PageController@delete']);
 
     /** [Template] */
     Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
