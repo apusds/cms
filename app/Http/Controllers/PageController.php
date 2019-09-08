@@ -69,12 +69,12 @@ class PageController extends Controller
 
     public function serve($name) {
         if (count(Page::all()->where('uri', strtolower($name))) < 1) return view('errors.404');
-        $page = DB::table(env('DB_PAGES'))
-            ->where('uri', strtolower($name))
-            ->first();
+        $page = Page::all()->where('uri', strtolower($name))->first();
+
+        $explode = explode(".", $page->template->template);
 
         // return with the data of $page
-        dd($page);
+        return view("layouts.pages.{$explode[0]}", ['page' => $page]);
     }
 
 }
