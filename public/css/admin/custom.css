@@ -13,3 +13,8 @@ a {
 .green {
     color: green !important;
 }
+
+.href {
+    color: blue !important;
+    text-decoration: underline !important;
+}

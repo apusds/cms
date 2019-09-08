@@ -21,18 +21,19 @@
                     <div class="card">
                         <div class="card-header {{ $page->created_by == Auth::user()->id ? 'bg-primary' : 'bg-success' }}"></div>
                         <div class="card-body">
-                            <b>Accessible @ <a href="{{ Request::root() }}/pages/{{ $page->uri }}" target="_blank"> {{ $page->uri }} </a></b>
-                            <b>Page Title:</b>: {{ $page->title }}
+                            <b>Accessible @</b><a href="{{ Request::root() }}/pages/{{ $page->uri }}" target="_blank" class="href">{{ $page->uri }}</a>
                             <br>
-                            <b>Description:</b>: {{ $page->description }}
+                            <b>Page Title:</b> {{ $page->title }}
                             <br>
-                            <b>Keyword:</b>: {{ $page->keyword }}
+                            <b>Description:</b> {{ $page->description }}
                             <br>
-                            <b>Template:</b>: {{ $page->template()->title }}
+                            <b>Keyword:</b> {{ $page->keyword }}
                             <br>
-                            <b>Created</b>: {{ $page->created_at->diffForHumans() }}
+                            <b>Template:</b> {{ $page->template->title }} ({{ $page->template->template }})
                             <br>
-                            <b>Edited</b>: {{ $page->updated_at != null ? $event->updated_at->diffForHumans() : "Never" }}
+                            <b>Created:</b> {{ $page->created_at->diffForHumans() }}
+                            <br>
+                            <b>Edited:</b> {{ $page->updated_at != null ? $event->updated_at->diffForHumans() : "Never" }}
                             <br>
                         </div>
                     </div>

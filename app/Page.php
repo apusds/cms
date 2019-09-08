@@ -8,7 +8,7 @@ class Page extends Model
 {
 
     public function template() { // returns Template data
-        return $this->belongsTo('App\Template', 'template', 'id');
+        return $this->belongsTo('App\Template', 'template_id', 'id');
     }
 
     public function user() { // Returns User data
