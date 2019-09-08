@@ -20,7 +20,7 @@ class CreatePagesTable extends Migration
             $table->text('title');
             $table->text('description')->nullable();
             $table->text('keyword')->nullable();
-            $table->integer('template_id');
+            $table->integer('template_id')->unsigned();
             $table->longText('content');
             $table->timestamps();
         });

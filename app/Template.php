@@ -11,4 +11,8 @@ class Template extends Model
         return $this->belongsTo('App\User', 'created_by', 'id');
     }
 
+    public function pages() { // returns the amount of Pages using this template (array)
+        return $this->hasMany('App\Page', 'template_id', 'id');
+    }
+
 }

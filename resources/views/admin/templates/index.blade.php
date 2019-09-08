@@ -28,7 +28,13 @@
                             <div class="text-center">
                                 <a href="{{ route('dashboard.templates.edit', ['id' => $template->id]) }}" class="btn btn-primary">Edit</a>
                                 @if (Auth::user()->isSuperAdmin())
-                                    <a href="{{ route('dashboard.templates.delete', ['id' => $template->id]) }}" class="btn btn-danger">Delete</a>
+                                    @if (count($template->pages) > 0)
+                                        <a href="" class="btn btn-danger disabled">Delete</a>
+                                        <br><br>
+                                        <b><small>{{ count($template->pages) }} page(s) using this template</small></b>
+                                    @else
+                                        <a href="{{ route('dashboard.templates.delete', ['id' => $template->id]) }}" class="btn btn-danger">Delete</a>
+                                    @endif
                                 @endif
                             </div>
                         </div>
