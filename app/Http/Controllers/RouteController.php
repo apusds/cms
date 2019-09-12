@@ -12,7 +12,7 @@ class RouteController extends Controller
         return view('website.index');
     }
 
-    public function showLogin() {
+    public function showAdminLogin() {
         return view('login.index');
     }
 

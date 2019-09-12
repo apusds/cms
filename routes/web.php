@@ -5,9 +5,9 @@ Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
 
 Route::group(['middleware' => ['guest']], function() {
-    /** [Login] */
-    Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showLogin']);
-    Route::post('/login', ['as' => 'login.post', 'uses' => 'AuthController@login']);
+    /** [Admin] */
+    Route::get('/admin', ['as' => 'login', 'uses' => 'RouteController@showAdminLogin']);
+    Route::post('/admin', ['as' => 'login.post', 'uses' => 'AuthController@loginAdmin']);
 });
 
 Route::group(['middleware', ['member']], function() {});

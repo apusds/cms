@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\{ Auth, DB, Hash, Validator };
 class AuthController extends Controller
 {
 
-    public function login(Request $request) {
+    public function login(Request $request) {}
+    
+    public function loginAdmin(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required'
