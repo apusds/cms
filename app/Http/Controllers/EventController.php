@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\{ Auth, DB, Validator };
+use Illuminate\Support\Facades\{Auth, Date, DB, Validator};
 
 class EventController extends Controller
 {
@@ -60,9 +61,28 @@ class EventController extends Controller
     }
 
     public function delete($id) {
-        $event = \App\Event::all()->find($id)->delete();
-        if (!$event) return back()->with('error', 'Unable to Event!');
-        return redirect(route('dashboard.events'))->with('message', 'Event deleted!');
+        try {
+            Event::all()->find($id)->delete();
+            return redirect(route('dashboard.events'))->with('message', 'Event deleted!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Unable to Event!');
+        }
+    }
+
+    public function getActiveEvents() {
+        $events = DB::table(env('DB_EVENTS'))
+            ->where('expiry', '>', Carbon::now()->toDateString())
+            ->get();
+
+        return $events;
+    }
+
+    public function getExpiredEvents() {
+        $events = DB::table(env('DB_EVENTS'))
+            ->where('expiry', '<=', Carbon::now()->toDateString())
+            ->get();
+
+        return $events;
     }
 
 }

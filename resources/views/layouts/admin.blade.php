@@ -60,6 +60,15 @@
                     <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.roles') }}">Roles</a>
                     </li>
+                    <li class="{{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.website') }}">Website</a>
+                    </li>
+                    <li class="{{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.teams') }}">Teams</a>
+                    </li>
+                    <li class="{{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.gallery') }}">Gallery</a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}">Logout</a>
                     </li>
@@ -98,6 +107,15 @@
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.roles') }}">Roles</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.website') }}">Website</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.teams') }}">Teams</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.gallery') }}">Gallery</a>
                                 </li>
                             </ul>
                         </div>
