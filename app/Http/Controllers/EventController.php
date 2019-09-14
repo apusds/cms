@@ -71,6 +71,7 @@ class EventController extends Controller
 
     public function getActiveEvents() {
         $events = DB::table(env('DB_EVENTS'))
+            ->select('title')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
 
@@ -79,6 +80,7 @@ class EventController extends Controller
 
     public function getExpiredEvents() {
         $events = DB::table(env('DB_EVENTS'))
+            ->select('title')
             ->where('expiry', '<=', Carbon::now()->toDateString())
             ->get();
 
