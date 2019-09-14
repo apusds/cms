@@ -1,0 +1,19 @@
+name: Laravel-CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Testing Laravel Build
+      run: |
+        composer install
+        npm install
+        cp .env.example .env
+        npm run dev
+        php artisan key:generate
+        php artisan config:cache
