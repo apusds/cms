@@ -9,7 +9,10 @@ class RouteController extends Controller
 {
 
     public function home() {
-        return view('website.index');
+        return view('website.index', [
+            'activeEvents' => app(EventController::class)->getActiveEvents(),
+            'expiredEvents' => app(EventController::class)->getExpiredEvents()
+        ]);
     }
 
     public function showAdminLogin() {
@@ -98,5 +101,19 @@ class RouteController extends Controller
     }
 
     // End [Roles]
+
+    // [Global Settings]
+    public function showWebsite() {
+        return view('admin.website.index');
+    }
+
+    public function showTeams() {
+        return view('admin.teams.index');
+    }
+
+    public function showGallery() {
+        return view('admin.gallery.index');
+    }
+    // End [Global Settings]
 
 }

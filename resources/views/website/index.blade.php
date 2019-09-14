@@ -63,14 +63,16 @@
                 <ul>
                   <li class="drop-down"><a href="#">Upcoming</a>
                     <ul>
-                      <li><a href="#">Deep Learning</a></li>
-                      <li><a href="#">Your mom gae</a></li>
+                    @foreach($activeEvents as $ae)
+                        <li><a href="#">{{ $ae->title }}</a></li>
+                    @endforeach
                     </ul>
                   </li>
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
-                      <li><a href="#">Deep Learning</a></li>
-                      <li><a href="#">Your mom gae</a></li>
+                    @foreach($expiredEvents as $ee)
+                        <li><a href="#" class="disabled">{{ $ee->title }}</a></li>
+                    @endforeach
                     </ul>
                   </li>
                 </ul>
@@ -88,6 +90,7 @@
             <div class="col-md-6 intro-info order-md-first order-last">
               <!-- Integrate Laravel [Global -> Title] -->
               <h3><b>Student Developer Society</b></h3>
+              <h5><i>@ Asia Pacific University</i></h5>
               <!-- Integrate Laravel [Global -> Intro Description]-->
               <p>We strive to make the world a better place with Thanos JR</p>
               <div>
