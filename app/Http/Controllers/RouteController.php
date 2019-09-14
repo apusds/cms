@@ -9,7 +9,7 @@ class RouteController extends Controller
 {
 
     public function home() {
-        return view('website.index', [
+        return view('layouts.website.index', [
             'activeEvents' => app(EventController::class)->getActiveEvents(),
             'expiredEvents' => app(EventController::class)->getExpiredEvents()
         ]);
@@ -114,6 +114,7 @@ class RouteController extends Controller
     public function showGallery() {
         return view('admin.gallery.index');
     }
+
     // End [Global Settings]
 
 }
