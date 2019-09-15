@@ -51,15 +51,15 @@
                     <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.users') }}">Users</a>
                     </li>
-                    <li class="{{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.pages') }}">Pages</a>
-                    </li>
+{{--                    <li class="{{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">--}}
+{{--                        <a href="{{ route('dashboard.pages') }}">Pages</a>--}}
+{{--                    </li>--}}
 {{--                    <li class="{{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">--}}
 {{--                        <a href="{{ route('dashboard.templates') }}">Templates</a>--}}
 {{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.roles') }}">Roles</a>--}}
-{{--                    </li>--}}
+                    <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.roles') }}">Roles</a>
+                    </li>
                     <li class="{{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.website') }}">Website</a>
                     </li>
