@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\{ Hash, DB, Artisan };
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,5 +35,7 @@ class DatabaseSeeder extends Seeder
                 'announcement' => null,
                 'created_at' => new DateTime()
             ]);
+
+        Artisan::call('storage:link');
     }
 }
