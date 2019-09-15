@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
       <meta charset="utf-8">
-      <title>APU SDS</title>
+      <title>{{ $data->title }}</title>
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      <meta content="" name="keywords">
+      <meta content="{{ $data->keyword }}" name="keywords">
       <meta content="APU Student Developer Society" name="description">
 
       <!-- Favicons -->
@@ -92,7 +92,7 @@
               <h3><b>Student Developer Society</b></h3>
               <h5><i>@ Asia Pacific University</i></h5>
               <!-- Integrate Laravel [Global -> Intro Description]-->
-              <p>We strive to make the world a better place with Thanos JR</p>
+              <p>{{ $data->philosophy }}</p>
               <div>
                 <a href="#about" class="btn-get-started scrollto">Get Started</a>
               </div>
@@ -113,7 +113,7 @@
           <div class="container">
             <div class="about-content">
               <h2>About Us</h2>
-              <h3>APU Student Developer Society was founded in 2015. Till then, we are still running.</h3>
+              <h3>{{ $data->about_us }}</h3>
             </div>
           </div>
 

@@ -66,6 +66,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** [Website] */
     Route::get('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'RouteController@showWebsite']);
+    Route::post('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'WebsiteController@update']);
 
     /** [Teams] */
     Route::get('/dashboard/teams', ['as' => 'dashboard.teams', 'uses' => 'RouteController@showTeams']);
