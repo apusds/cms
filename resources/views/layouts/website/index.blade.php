@@ -63,8 +63,8 @@
               <li class="active"><a href="#intro">Home</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#team">Team</a></li>
               <li><a href="#partners">Partners</a></li>
+              <li><a href="#team">Team</a></li>
               <li><a href="">DSC</a></li>
               <li class="drop-down"><a href="">Events</a>
                 <ul>
@@ -164,6 +164,21 @@
           </div>
         </section>
 
+          <section id="partners" class="wow fadeInUp section-colorful-yellow">
+              <div class="container">
+
+                  <header class="section-header">
+                      <h3>Our Partners</h3>
+                  </header>
+
+                  <div class="owl-carousel partners-carousel">
+                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
+                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
+                  </div>
+
+              </div>
+          </section>
+
         <section id="team">
           <div class="container">
             <div class="section-header">
@@ -191,21 +206,6 @@
                 </div>
               </div>
 
-            </div>
-
-          </div>
-        </section>
-
-        <section id="partners" class="wow fadeInUp section-colorful-wakiki">
-          <div class="container">
-
-            <header class="section-header">
-              <h3>Our Partners</h3>
-            </header>
-
-            <div class="owl-carousel partners-carousel">
-              <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
-              <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
             </div>
 
           </div>
