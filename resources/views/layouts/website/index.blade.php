@@ -173,7 +173,6 @@
 
                   <div class="owl-carousel partners-carousel">
                       <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
-                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
                   </div>
 
               </div>
