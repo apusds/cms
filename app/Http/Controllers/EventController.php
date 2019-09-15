@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\{ Event, Gallery };
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\{Auth, Date, DB, Validator};
+use Illuminate\Support\Facades\{Auth, DB, File, Validator};
 
 class EventController extends Controller
 {
@@ -115,6 +115,21 @@ class EventController extends Controller
             ]);
 
         return $result ? back()->with('message', 'Done! Image uploaded') : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
+    }
+
+    public function removeFromGallery($id) {
+        $result = Gallery::all()->find($id);
+        if (!$result) return view('errors.500');
+
+        $path = $result->file;
+        File::delete(env('PUBLIC_PATH') . '/' . $path);
+
+        try {
+            $result->delete();
+            return back()->with('message', 'Done! Image deleted from Gallery');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Unable to delete Image from Gallery');
+        }
     }
 
 }

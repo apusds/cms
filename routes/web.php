@@ -53,6 +53,9 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** Upload [Gallery] */
     Route::get('/dashboard/gallery/upload', ['as' => 'dashboard.gallery.upload', 'uses' => 'RouteController@showGalleryCreate']);
     Route::post('/dashboard/gallery/upload', ['as' => 'dashboard.gallery.upload', 'uses' => 'EventController@addToGallery']);
+
+    /** Delete [Gallery] */
+    Route::get('/dashboard/gallery/{id}/delete', ['as' => 'dashboard.gallery.delete', 'uses' => 'EventController@removeFromGallery']);
 });
 
 // Special Perms for SuperAdmin Only
