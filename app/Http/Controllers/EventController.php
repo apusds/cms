@@ -71,7 +71,7 @@ class EventController extends Controller
 
     public function getActiveEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('title')
+            ->select('id', 'title')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
 
@@ -80,11 +80,41 @@ class EventController extends Controller
 
     public function getExpiredEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('title')
+            ->select('id', 'title')
             ->where('expiry', '<=', Carbon::now()->toDateString())
             ->get();
 
         return $events;
+    }
+
+    public function addToGallery(Request $request) {
+        $validate = Validator::make($request->all(), [
+            'event' => 'required',
+            'title' => 'required',
+            'file' => 'image|required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Malformed request');
+        if (!$request->hasFile('file')) return back()->with('error', 'Malformed request');
+
+        $fileNameWithExt = $request->file('file')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $ext = $request->file('file')->getClientOriginalExtension();
+        $fileNameToStore = $fileName . '_' . time() . '.' . $ext;
+
+        // Finally store the Image
+        $request->file('file')->storeAs('public/gallery', $fileNameToStore);
+
+        // Now to DB
+        $result = DB::table(env('DB_GALLERY'))
+            ->insert([
+                'event' => $request->input('event'),
+                'title' => trim($request->input('title')),
+                'file' => $fileName . '_' . time() . '.' . $ext,
+                'created_at' => new \DateTime()
+            ]);
+
+        return $result ? back()->with('message', 'Done! Image uploaded') : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
     }
 
 }

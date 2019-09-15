@@ -118,6 +118,12 @@ class RouteController extends Controller
         return view('admin.gallery.index');
     }
 
+    public function showGalleryCreate() {
+        return view('admin.gallery.create', [
+            'events' => Event::all()
+        ]);
+    }
+
     // End [Global Settings]
 
 }

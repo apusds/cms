@@ -137,28 +137,28 @@
               <div class="col-lg-12">
                 <ul id="gallery-flters">
                   <li data-filter="*" class="filter-active">All</li>
-                  <li data-filter=".filter-app">Event 1</li>
-                  <li data-filter=".filter-card">Event 2</li>
-                  <li data-filter=".filter-web">Event 3</li>
+                    @foreach (\App\Event::all() as $e)
+                      <li data-filter=".filter-{{ strtolower($e->title) }}"> {{ $e->title }} </li>
+                    @endforeach
                 </ul>
               </div>
             </div>
 
             <div class="row gallery-container">
-
-              <div class="col-lg-4 col-md-6 gallery-item filter-app" data-wow-delay="0.2s">
-                <div class="gallery-wrap">
-                  <img src="{{ asset('img/sds (1).png') }}" class="img-fluid" alt="">
-                  <div class="gallery-info">
-                    <h4><a href="#">SDS</a></h4>
-                    <p>App</p>
-                    <div>
-                      <a href="{{ asset('img/sds (1).png') }}" class="link-preview" data-lightbox="gallery" data-title="SDS" title="Preview"><i class="ion ion-eye"></i></a>
+                @foreach(\App\Gallery::all() as $i)
+                    <div class="col-lg-4 col-md-6 gallery-item filter-{{ $i->eventData()->title }}" data-wow-delay="0.2s">
+                        <div class="gallery-wrap">
+                            <img src="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="img-fluid" alt="">
+                            <div class="gallery-info">
+                                <h4><a href="#">{{ $i->title }}</a></h4>
+                                <p>{{ $i->eventData()->title }}</p>
+                                <div>
+                                    <a href="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-
+                @endforeach
             </div>
 
           </div>

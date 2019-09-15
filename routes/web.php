@@ -73,6 +73,10 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);
+
+    /** Upload [Gallery] */
+    Route::get('/dashboard/gallery/upload', ['as' => 'dashboard.gallery.upload', 'uses' => 'RouteController@showGalleryCreate']);
+    Route::post('/dashboard/gallery/upload', ['as' => 'dashboard.gallery.upload', 'uses' => 'EventController@addToGallery']);
 });
 
 // Special Perms for SuperAdmin Only

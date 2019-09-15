@@ -73,4 +73,10 @@ $(document).ready(function() {
         $('.collapse.in').toggleClass('in');
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
+
+    // Custom File Uploader
+    $(".custom-file-input").on("change", function() {
+        const fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 });
