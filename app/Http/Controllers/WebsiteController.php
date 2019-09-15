@@ -25,6 +25,7 @@ class WebsiteController extends Controller
                 'philosophy' => trim($request->input('philosophy')),
                 'keyword' => trim($request->input('keyword')) == "" ? null : trim($request->input('keyword')),
                 'about_us' => trim($request->input('about-us')),
+                'announcement' => trim($request->input('announcement')) == "" ? null : trim($request->input('announcement')),
                 'updated_at' => new \DateTime()
             ]);
 

@@ -32,6 +32,11 @@
         <br>
 
         <div class="form-group">
+            <label for="announcement">Page Announcement (Will be on top of the Page)</label>
+            <textarea class="form-control" rows="3" name="announcement" id="announcement" placeholder="Example: Our website will be in scheduled maintenance">{{ $data->announcement }}</textarea>
+        </div>
+
+        <div class="form-group">
             <label for="philosophy">Page Philosophy (<span class="red">*</span>)</label>
             <textarea class="form-control" rows="3" name="philosophy" id="philosophy" placeholder="Example: We levitate the Student's knowledge" required>{{ $data->philosophy }}</textarea>
         </div>

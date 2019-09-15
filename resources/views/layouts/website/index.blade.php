@@ -47,6 +47,13 @@
 
         <div class="container">
 
+          @if ($data->announcement !== null)
+            <div class="alert alert-warning alert-dismissible fade show">
+                <marquee><strong>Warning!</strong> {{ $data->announcement }}</marquee>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+          @endif
+
           <div class="logo float-left">
             <a href="#header" class="scrollto"><img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid"></a>
           </div>
