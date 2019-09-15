@@ -146,7 +146,7 @@
 
             <div class="row gallery-container">
                 @foreach(\App\Gallery::all() as $i)
-                    <div class="col-lg-4 col-md-6 gallery-item filter-{{ $i->eventData()->title }}" data-wow-delay="0.2s">
+                    <div class="col-lg-4 col-md-6 gallery-item filter-{{ strtolower($i->eventData()->title) }}" data-wow-delay="0.2s">
                         <div class="gallery-wrap">
                             <img src="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="img-fluid" alt="">
                             <div class="gallery-info">
