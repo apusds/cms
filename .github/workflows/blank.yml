@@ -16,4 +16,3 @@ jobs:
         cp .env.example .env
         npm run dev
         php artisan key:generate
-        php artisan config:cache
