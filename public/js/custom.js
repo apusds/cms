@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('#inputURI').keyup(function() {
         const URI = $("input[name=uri]").val();
 
-        if (URI === "") {
+        if (URI.trim() === "") {
             uriDiv.hide();
             return;
         }
