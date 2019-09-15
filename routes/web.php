@@ -2,7 +2,7 @@
 
 /** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
-Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
+//Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
 
 Route::group(['middleware' => ['guest']], function() {
     /** [Admin] */
@@ -40,29 +40,29 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** Delete [Event] */
     Route::get('/dashboard/events/{id}/delete', ['as' => 'dashboard.events.delete', 'uses' => 'EventController@delete']);
 
-    /** [Page] */
-    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
-
-    /** Create [Page] */
-    Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
-    Route::post('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'PageController@create']);
-
-    /** Edit [Page] */
-    Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
-    Route::post('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'PageController@update']);
-
-    /** Delete [Page] */
-    Route::get('/dashboard/pages/{id}/delete', ['as' => 'dashboard.pages.delete', 'uses' => 'PageController@delete']);
-
-    /** [Template] */
-    Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
-
-    /** Create [Template] */
-    Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
-
-    /** Edit [Template] */
-    Route::get('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'RouteController@showTemplateEdit']);
-    Route::post('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'TemplateController@update']);
+//    /** [Page] */
+//    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
+//
+//    /** Create [Page] */
+//    Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
+//    Route::post('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'PageController@create']);
+//
+//    /** Edit [Page] */
+//    Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
+//    Route::post('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'PageController@update']);
+//
+//    /** Delete [Page] */
+//    Route::get('/dashboard/pages/{id}/delete', ['as' => 'dashboard.pages.delete', 'uses' => 'PageController@delete']);
+//
+//    /** [Template] */
+//    Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
+//
+//    /** Create [Template] */
+//    Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
+//
+//    /** Edit [Template] */
+//    Route::get('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'RouteController@showTemplateEdit']);
+//    Route::post('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'TemplateController@update']);
 
     /** [Website] */
     Route::get('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'RouteController@showWebsite']);
