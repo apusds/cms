@@ -45,7 +45,7 @@
 
 var arraySlice = Array.prototype.slice;
 
-// helper function for logging errors
+// helper function for logging error
 // $.error breaks jQuery chaining
 var console = window.console;
 var logError = typeof console == 'undefined' ? function() {} :
@@ -2576,7 +2576,7 @@ return Item;
     // calculate columns
     var containerWidth = this.containerWidth + this.gutter;
     var cols = containerWidth / columnWidth;
-    // fix rounding errors, typically with gutters
+    // fix rounding error, typically with gutters
     var excess = columnWidth - containerWidth % columnWidth;
     // if overshoot is less than a pixel, round up, otherwise floor it
     var mathMethod = excess && excess < 1 ? 'round' : 'floor';
