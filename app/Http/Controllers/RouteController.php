@@ -24,6 +24,10 @@ class RouteController extends Controller
         return view('admin.index');
     }
 
+    public function showProfile() {
+        return view('admin.profile.index');
+    }
+
     // [Events]
 
     public function showEvents() {

@@ -20,6 +20,10 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
 
+    /** [Profile] */
+    Route::get('/dashboard/profile', ['as' => 'dashboard.profile', 'uses' => 'RouteController@showProfile']);
+    Route::post('/dashboard/profile', ['as' => 'dashboard.profile', 'uses' => 'AuthController@updatePassword']);
+
     /** [Logout] */
     Route::get('/dashboard/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 

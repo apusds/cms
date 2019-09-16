@@ -45,6 +45,9 @@
                     <li class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">
                         <a href="{{ route('dashboard') }}">Home</a>
                     </li>
+                    <li class="{{ Request::routeIs('dashboard.profile') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.profile') }}">My Profile</a>
+                    </li>
                     <li class="{{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.events') }}">Events</a>
                     </li>
@@ -92,6 +95,9 @@
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.profile') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.profile') }}">My Profile</a>
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
