@@ -13,9 +13,9 @@ Route::group(['middleware' => ['guest']], function() {
 Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
-    // [URI Checker]
-    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
-    // End [URI Checker]
+//    // [URI Checker]
+//    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
+//    // End [URI Checker]
 
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
@@ -43,16 +43,6 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** [Website] */
     Route::get('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'RouteController@showWebsite']);
     Route::post('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'WebsiteController@update']);
-
-    /** [Teams] */
-    Route::get('/dashboard/teams', ['as' => 'dashboard.teams', 'uses' => 'RouteController@showTeams']);
-
-    /** Create [Teams] */
-    Route::get('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'RouteController@showTeamsCreate']);
-    Route::post('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'TeamController@addToTeam']);
-
-    /** Delete [Teams] */
-    Route::get('/dashboard/teams/{id}/delete', ['as' => 'dashboard.teams.delete', 'uses' => 'TeamController@removeFromTeams']);
 
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);
@@ -88,8 +78,18 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
     Route::get('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RouteController@showRoleEdit']);
     Route::post('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RoleController@update']);
 
-    /** Delete [Template] */
-    Route::get('/dashboard/templates/{id}/delete', ['as' => 'dashboard.templates.delete', 'uses' => 'TemplateController@delete']);
+    /** [Teams] */
+    Route::get('/dashboard/teams', ['as' => 'dashboard.teams', 'uses' => 'RouteController@showTeams']);
+
+    /** Create [Teams] */
+    Route::get('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'RouteController@showTeamsCreate']);
+    Route::post('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'TeamController@addToTeam']);
+
+    /** Delete [Teams] */
+    Route::get('/dashboard/teams/{id}/delete', ['as' => 'dashboard.teams.delete', 'uses' => 'TeamController@removeFromTeams']);
+
+//    /** Delete [Template] */
+//    Route::get('/dashboard/templates/{id}/delete', ['as' => 'dashboard.templates.delete', 'uses' => 'TemplateController@delete']);
 });
 
 // RESERVED
