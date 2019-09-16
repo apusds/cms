@@ -78,8 +78,15 @@
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
                     @foreach($expiredEvents as $ee)
-                        <li><a href="#" class="disabled">{{ $ee->title }}</a></li>
+                        <li><a href="#" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
                     @endforeach
+                    </ul>
+                  </li>
+                  <li class="drop-down"><a href="#">DSC Events</a>
+                    <ul>
+                        @foreach($dscEvents as $dsc)
+                            <li><a href="#">{{ $dsc->title }}</a></li>
+                        @endforeach
                     </ul>
                   </li>
                 </ul>
@@ -95,10 +102,8 @@
         <div class="container d-flex h-100">
           <div class="row justify-content-center align-self-center">
             <div class="col-md-6 intro-info order-md-first order-last">
-              <!-- Integrate Laravel [Global -> Title] -->
               <h3><b>Student Developer Society</b></h3>
               <h5><i>@ Asia Pacific University</i></h5>
-              <!-- Integrate Laravel [Global -> Intro Description]-->
               <p>{{ $data->philosophy }}</p>
               <div>
                 <a href="#about" class="btn-get-started scrollto">Get Started</a>

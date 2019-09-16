@@ -12,31 +12,42 @@ class EventController extends Controller
 
     public function register(Request $request) {
         $validate = Validator::make($request->all(), [
+            'organisation' => 'required',
             'title' => 'required',
+            'file' => 'required',
             'description' => 'required',
             'expiry' => 'required'
         ]);
 
-        if (!$validate) return back()->with('error', 'Malformed Request, check your parameters.');
+        if (!$validate) return back()->with('error', 'Malformed Request!');
+        if (!$request->hasFile('file')) return back()->with('error', 'Malformed Request!');
 
-        $data = [
-            'created_by' => Auth::user()->id,
-            'title' => trim($request->input('title')),
-            'image' => $request->input('image') === null ? null : $request->input('image'),
-            'description' => trim($request->input('description')),
-            'expiry' => Carbon::parse($request->input('expiry'))->format('Y-m-d H:i:s'),
-            'created_at' => new \DateTime()
-        ];
+        $fileNameWithExt = $request->file('file')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $ext = $request->file('file')->getClientOriginalExtension();
+        $fileNameToStore = $fileName . '_' . time() . '.' . $ext;
 
-        $result = DB::table(env("DB_EVENTS"))
-            ->insert($data);
+        // Finally store them
+        $request->file('file')->storeAs('public/posters', $fileNameToStore);
 
-        if (!$result) return back()->with('error', 'Unable to create new Event.');
-        return redirect(route('dashboard.events'))->with('message', 'Successfully created the Event.');
+        $result = DB::table(env('DB_EVENTS'))
+            ->insert([
+                'created_by' => Auth::user()->id,
+                'organisation' => trim($request->input('organisation')),
+                'title' => trim($request->input('title')),
+                'file' => $fileNameToStore,
+                'description' => trim($request->input('description')),
+                'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
+                'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
+                'created_at' => new \DateTime()
+            ]);
+
+        return $result ? back()->with('message', 'Done! Event created') : back()->with('error', 'Unable to create Event');
     }
 
     public function update(Request $request, $id) {
         $validate = Validator::make($request->all(), [
+            'organisation' => 'required',
             'title' => 'required|text',
             'description' => 'required',
             'expiry' => 'required'
@@ -44,20 +55,18 @@ class EventController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed POST, please check your Input.');
 
-        $data = [
-            'title' => trim($request->input('title')),
-            'description' => trim($request->input('description')),
-            'image' => $request->input('image') === null ? null : $request->input('image'),
-            'expiry' => Carbon::parse($request->input('expiry'))->format('Y-m-d H:i:s'),
-            'updated_at' => new \DateTime(),
-        ];
-
-        $result = DB::table(env("DB_EVENTS"))
+        $result = DB::table(env('DB_EVENTS'))
             ->where('id', $id)
-            ->update($data);
+            ->update([
+                'organisation' => trim($request->input('organisation')),
+                'title' => trim($request->input('title')),
+                'description' => trim($request->input('description')),
+                'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
+                'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
+                'updated_at' => new \DateTime()
+            ]);
 
-        if (!$result) return back()->with('error', 'Unable to update this Event.');
-        return redirect(route('dashboard.events'))->with('message', 'Successfully updated the Event.');
+        return $result ? back()->with('message', 'Done! Event updated') : back()->with('error', 'Unable to update Event');
     }
 
     public function delete($id) {
@@ -72,6 +81,7 @@ class EventController extends Controller
     public function getActiveEvents() {
         $events = DB::table(env('DB_EVENTS'))
             ->select('id', 'title')
+            ->where('organisation', 'sds')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
 
@@ -80,8 +90,18 @@ class EventController extends Controller
 
     public function getExpiredEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('id', 'title')
+            ->select('id', 'title', 'organisation')
             ->where('expiry', '<=', Carbon::now()->toDateString())
+            ->get();
+
+        return $events;
+    }
+
+    public function getDSCEvents() {
+        $events = DB::table(env('DB_EVENTS'))
+            ->select('id', 'title')
+            ->where('organisation', 'dsc')
+            ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
 
         return $events;

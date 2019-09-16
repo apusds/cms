@@ -17,33 +17,25 @@
     <div class="row">
         @if (count(\App\Event::all()) > 0)
             @foreach(\App\Event::all() as $event)
-                <div class="col-sm-12 col-lg-3">
+                <div class="col-sm-12 col-lg-3" style="width: 18rem;">
                     <div class="card">
-                        <div class="card-header {{ $event->created_by == Auth::user()->id ? 'bg-primary' : 'bg-success' }}"></div>
+                        <img class="card-img-top" src="{{ asset(env('PUBLIC_PATH') . '/posters/' . $event->file) }}" alt="Image is broken">
                         <div class="card-body">
-                            <b>Event Name</b>: {{ $event->title }}
-                            <br>
-                            <b>Description</b>: {{ $event->description }}
-                            <br>
-                            <b>Created By</b>: {{ $event->created_by == Auth::user()->id ? 'You' : \App\User::all()->find($event->created_by)->username }}
-                            <br>
-                            <b>Created</b>: {{ $event->created_at->diffForHumans() }}
-                            <br>
-                            <b>Edited</b>: {{ $event->updated_at != null ? $event->updated_at->diffForHumans() : "Never" }}
-                            <br>
-                            <b>Expires in</b>: <span class="red">{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() }}</span>
+                            <h5 class="card-title">{{ $event->title }} ({{ strtoupper($event->organisation) }})</h5>
+                            <p class="card-text">Expiry: <span class="red">{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() }} ({{ $event->expiry }})</span></p>
+                            <p class="card-text">Form Enabled: <span class="red">{{ $event->form == '1' ? 'Yes' : 'No' }}</span></p>
+                            <p class="card-text">Created By: <span class="red">{{ $event->created_by == Auth::user()->id ? 'You' : \App\User::all()->find($event->created_by)->username }}</span></p>
                             @if (\Carbon\Carbon::parse($event->expiry)->diffInHours() < 3)
-                                <br>
                                 <b class="red">Note: This event will end soon.</b>
                             @endif
-                        </div>
-                        @if(Auth::user()->hasAllowedRole())
-                            <div class="card-footer">
-                                <div class="text-center">
-                                    <a href="{{ route('dashboard.events.edit', ['id' => $event->id]) }}" class="btn btn-primary">Edit Event</a>
+                            @if(Auth::user()->hasAllowedRole())
+                                <div class="card-footer">
+                                    <div class="text-center">
+                                        <a href="{{ route('dashboard.events.edit', ['id' => $event->id]) }}" class="btn btn-primary">Edit Event</a>
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
             @endforeach

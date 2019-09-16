@@ -12,6 +12,7 @@ class RouteController extends Controller
         return view('layouts.website.index', [
             'activeEvents' => app(EventController::class)->getActiveEvents(),
             'expiredEvents' => app(EventController::class)->getExpiredEvents(),
+            'dscEvents' => app(EventController::class)->getDSCEvents(),
             'data' => Website::all()->find(1)
         ]);
     }
