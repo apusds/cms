@@ -70,11 +70,17 @@ class EventController extends Controller
     }
 
     public function delete($id) {
+        $result = Event::all()->find($id);
+        if (!$result) return view('errors.500');
+
+        $path = $result->file;
+        File::delete(env('PUBLIC_PATH') . '/posters/' . $path);
+
         try {
-            Event::all()->find($id)->delete();
-            return redirect(route('dashboard.events'))->with('message', 'Event deleted!');
+            $result->delete();
+            return redirect(route('dashboard.events'))->with('message', 'Done! Event deleted!');
         } catch (\Exception $e) {
-            return back()->with('error', 'Unable to Event!');
+            return back()->with('error', 'Unable to delete Event!');
         }
     }
 
