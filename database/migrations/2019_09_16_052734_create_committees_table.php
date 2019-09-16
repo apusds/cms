@@ -17,9 +17,9 @@ class CreateCommitteesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('role');
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('linkedln');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedln')->nullable();
             $table->longText('file');
             $table->timestamps();
         });

@@ -34,9 +34,9 @@ class TeamController extends Controller
                 'name' => trim($request->input('name')),
                 'role' => trim($request->input('role')),
                 'file' => $fileNameToStore,
-                'facebook' => trim($request->input('facebook')),
-                'twitter' => trim($request->input('twitter')),
-                'linkedln' => trim($request->input('linkedln'))
+                'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
+                'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
+                'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
             ]);
 
         return $result

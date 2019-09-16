@@ -39,17 +39,17 @@
 
         <div class="form-group">
             <label for="facebook">Facebook</label>
-            <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Enter Facebook Link">
+            <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Example: https://facebook.com/raeveen">
         </div>
 
         <div class="form-group">
             <label for="twitter">Twitter</label>
-            <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Enter Facebook Link">
+            <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Example: https://twitter.com/raeveen_28">
         </div>
 
         <div class="form-group">
             <label for="linkedln">Linkedln</label>
-            <input type="text" class="form-control" id="linkedln" name="linkedln" placeholder="Enter Linkedln Link">
+            <input type="text" class="form-control" id="linkedln" name="linkedln" placeholder="Example: https://www.linkedin.com/in/raeveen-p/">
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
