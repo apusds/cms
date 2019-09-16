@@ -20,6 +20,7 @@ class CreateCommitteesTable extends Migration
             $table->string('facebook');
             $table->string('twitter');
             $table->string('linkedln');
+            $table->longText('file');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@
             @foreach (\App\Gallery::all() as $gallery)
                 <div class="col-sm-12 col-lg-3" style="width: 18rem;">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset(env('PUBLIC_PATH') . '/' . $gallery->file) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $gallery->file) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $gallery->title }}</h5>
                             <p class="card-text">{{ $gallery->eventData()->title }}</p>

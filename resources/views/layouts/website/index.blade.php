@@ -148,12 +148,12 @@
                 @foreach(\App\Gallery::all() as $i)
                     <div class="col-lg-4 col-md-6 gallery-item filter-{{ str_replace(' ', '-', strtolower($i->eventData()->title)) }}" data-wow-delay="0.2s">
                         <div class="gallery-wrap">
-                            <img src="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="img-fluid" alt="">
+                            <img src="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="img-fluid" alt="">
                             <div class="gallery-info">
                                 <h4><a href="#">{{ $i->title }}</a></h4>
                                 <p>{{ $i->eventData()->title }}</p>
                                 <div>
-                                    <a href="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,6 @@
 
                   <div class="owl-carousel partners-carousel">
                       <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
-                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
                   </div>
 
               </div>
@@ -188,23 +187,28 @@
 
             <div class="row">
 
-              <div class="col-lg-3 col-md-6 wow fadeInUp">
-                <div class="member">
-                  <img src="{{ asset('img/raeveen.jpg') }}" class="img-fluid" alt="">
-                  <div class="member-info">
-                    <div class="member-info-content">
-                      <h4>Raeveen Pasupathy</h4>
-                      <span>President</span>
-                      <div class="social">
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-google-plus"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
+              @foreach (\App\Committee::all() as $committee)
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                  <div class="member">
+                    <img src="{{ asset(env('PUBLIC_PATH') . '/committee/' . $committee->file) }}" class="img-fluid" alt="">
+                    <div class="member-info">
+                      <div class="member-info-content">
+                        <h4>{{ $committee->name }}</h4>
+                        <span>{{ $committee->role }}</span>
+                        <div class="social">
+                          @if (isset($committee->facebook))
+                            <a href="{{ $committee->facebook }}"><i class="fa fa-facebook"></i></a>
+                          @elseif (isset($committee->twitter))
+                            <a href="{{ $committee->twitter }}"><i class="fa fa-twitter"></i></a>
+                          @elseif (isset($committe->linkedln))
+                            <a href="{{ $committee->linkedln }}"><i class="fa fa-linkedin"></i></a>
+                          @endif
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              @endforeach
 
             </div>
 

@@ -49,6 +49,10 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Create [Teams] */
     Route::get('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'RouteController@showTeamsCreate']);
+    Route::post('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'TeamController@addToTeam']);
+
+    /** Delete [Teams] */
+    Route::get('/dashboard/teams/{id}/delete', ['as' => 'dashboard.teams.delete', 'uses' => 'TeamController@removeFromTeams']);
 
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);

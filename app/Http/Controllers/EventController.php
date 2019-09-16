@@ -110,7 +110,7 @@ class EventController extends Controller
             ->insert([
                 'event' => $request->input('event'),
                 'title' => trim($request->input('title')),
-                'file' => $fileName . '_' . time() . '.' . $ext,
+                'file' => $fileNameToStore,
                 'created_at' => new \DateTime()
             ]);
 
@@ -122,7 +122,7 @@ class EventController extends Controller
         if (!$result) return view('errors.500');
 
         $path = $result->file;
-        File::delete(env('PUBLIC_PATH') . '/' . $path);
+        File::delete(env('PUBLIC_PATH') . '/gallery/' . $path);
 
         try {
             $result->delete();

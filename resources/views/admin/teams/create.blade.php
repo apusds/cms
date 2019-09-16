@@ -12,7 +12,7 @@
 
     <hr />
 
-    <form>
+    <form method="POST" action="{{ route('dashboard.teams.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -51,7 +51,7 @@
             <label for="linkedln">Linkedln</label>
             <input type="text" class="form-control" id="linkedln" name="linkedln" placeholder="Enter Linkedln Link">
         </div>
-        
+
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
         <a href="{{ route('dashboard.teams') }}" class="btn btn-success">Reset Fields</a>
     </form>
