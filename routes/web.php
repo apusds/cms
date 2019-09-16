@@ -47,6 +47,9 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** [Teams] */
     Route::get('/dashboard/teams', ['as' => 'dashboard.teams', 'uses' => 'RouteController@showTeams']);
 
+    /** Create [Teams] */
+    Route::get('/dashboard/teams/create', ['as' => 'dashboard.teams.create', 'uses' => 'RouteController@showTeamsCreate']);
+
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);
 

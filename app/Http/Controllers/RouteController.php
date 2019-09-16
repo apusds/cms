@@ -114,6 +114,10 @@ class RouteController extends Controller
         return view('admin.teams.index');
     }
 
+    public function showTeamsCreate() {
+        return view('admin.teams.create');
+    }
+
     public function showGallery() {
         return view('admin.gallery.index');
     }
