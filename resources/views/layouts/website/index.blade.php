@@ -56,9 +56,12 @@
 
           <div class="logo float-left">
             <a href="#header" class="scrollto"><img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid"></a>
+            
           </div>
 
-          <nav class="main-nav float-right d-none d-lg-block">
+          <div class="float-right" style="display: flex">
+          <span><a href="#" class="btn-join">Join Us</a></span>
+          <nav class="main-nav d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
               <li class="drop-down"><a href="">Events</a>
@@ -88,12 +91,13 @@
               </li>
               <li><a href="#about">About Us</a></li>
               <li><a href="">DSC</a></li>
-              <li><a href="#gallery">Gallery</a></li>
               <li><a href="#partners">Partners</a></li>
+              <li><a href="#gallery">Gallery</a></li>
               <li><a href="#team">Team</a></li>
               <li><a href="#footer">Contact Us</a></li>
             </ul>
           </nav>
+          </div>
 
         </div>
       </header>
@@ -106,7 +110,7 @@
               <h5><i>@ Asia Pacific University</i></h5>
               <p>{{ $data->philosophy }}</p>
               <div>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                <a href="#" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
