@@ -38,9 +38,9 @@
           <div class="container">
             <div class="social-links">
               <!-- <i href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
-              <a href="https://www.facebook.com/apusds" class="facebook"><i class="fa fa-facebook"></i></a>
-              <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> -->
+              <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -61,11 +61,6 @@
           <nav class="main-nav float-right d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#partners">Partners</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="">DSC</a></li>
               <li class="drop-down"><a href="">Events</a>
                 <ul>
                   <li class="drop-down"><a href="#">Upcoming</a>
@@ -91,6 +86,11 @@
                   </li>
                 </ul>
               </li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="">DSC</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#partners">Partners</a></li>
+              <li><a href="#team">Team</a></li>
               <li><a href="#footer">Contact Us</a></li>
             </ul>
           </nav>
@@ -250,9 +250,9 @@
 
                       <div class="social-links">
                         <!-- <a href="" class="twitter"><i class="fa fa-twitter"></i></a> -->
-                        <a href="https://www.facebook.com/apusds" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <!-- <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
+                        <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
                       </div>
 
                     </div>
