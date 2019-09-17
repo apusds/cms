@@ -60,7 +60,7 @@
           </div>
 
           <div class="float-right" style="display: flex">
-          <span><a href="#" class="btn-join">Join Us</a></span>
+          <span><a href="#join" class="btn-join">Join Us</a></span>
           <nav class="main-nav d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
@@ -89,12 +89,13 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="">DSC</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#dsc">DSC</a></li>
               <li><a href="#partners">Partners</a></li>
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#team">Team</a></li>
-              <li><a href="#footer">Contact Us</a></li>
+              <li><a href="#join">Join</a></li>
+              <li><a href="#footer">Contact</a></li>
             </ul>
           </nav>
           </div>
@@ -110,7 +111,7 @@
               <h5><i>@ Asia Pacific University</i></h5>
               <p>{{ $data->philosophy }}</p>
               <div>
-                <a href="#" class="btn-get-started">Join Us</a>
+                <a href="#join" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
@@ -135,7 +136,18 @@
 
         </section>
 
-        <section id="gallery" class="section-bg">
+        <section id="partners" class="wow fadeInUp">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Our Partners</h3>
+                </header>
+                <div class="owl-carousel partners-carousel">
+                    <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-bg section-colorful-yellow">
           <div class="container">
 
             <header class="section-header">
@@ -173,25 +185,11 @@
           </div>
         </section>
 
-          <section id="partners" class="wow fadeInUp section-colorful-yellow">
-              <div class="container">
-
-                  <header class="section-header">
-                      <h3>Our Partners</h3>
-                  </header>
-
-                  <div class="owl-carousel partners-carousel">
-                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
-                  </div>
-
-              </div>
-          </section>
-
         <section id="team">
           <div class="container">
             <div class="section-header">
               <h3>Core Team</h3>
-              <p>These are the Core Team behind Student Developer Society!</p>
+              <p>These are the wizards behind Student Developer Society!</p>
             </div>
 
             <div class="row">
