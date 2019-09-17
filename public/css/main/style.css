@@ -286,7 +286,7 @@ h6 {
   display: block;
   position: absolute;
   left: 0;
-  top: calc(100% - 30px);
+  top: 10px;
   z-index: 99;
   opacity: 0;
   visibility: hidden;
