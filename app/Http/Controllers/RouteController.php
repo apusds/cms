@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Event, Page, Role, Template, User, Website};
+use App\{Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
 use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller

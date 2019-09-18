@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Page;
 
+use App\Http\Controllers\Controller;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{ Auth, DB, Validator };

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Event;
 
-use App\{ Event, Gallery };
+use App\{Event, Gallery, Http\Controllers\Controller};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\{Auth, DB, File, Validator};

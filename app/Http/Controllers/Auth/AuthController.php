@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{ Auth, DB, Hash, Validator };
@@ -10,7 +11,7 @@ class AuthController extends Controller
 {
 
     public function login(Request $request) {}
-    
+
     public function loginAdmin(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
