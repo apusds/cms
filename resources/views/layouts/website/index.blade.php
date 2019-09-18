@@ -106,17 +106,17 @@
       <section id="intro" class="clearfix">
         <div class="container d-flex h-100">
           <div class="row justify-content-center align-self-center">
-            <div class="col-md-6 intro-info order-md-first order-last">
+            <div class="col-md-6 intro-info order-md-first order-last wow fadeInLeft">
+              <h5><i>Asia Pacific University</i></h5>
               <h3><b>Student Developer Society</b></h3>
-              <h5><i>@ Asia Pacific University</i></h5>
-              <p>{{ $data->philosophy }}</p>
+              <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
                 <a href="#join" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
             <div class="col-md-6 intro-img order-md-last order-first">
-              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid">
+              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid wow fadeInRight">
             </div>
           </div>
 
@@ -125,18 +125,34 @@
 
       <main id="main">
 
-        <section id="about" class="section-colorful-yellow">
-
+        <section id="about" class="section-colorful-wakiki">
           <div class="container">
             <div class="about-content">
               <h2>About Us</h2>
               <h3>{{ $data->about_us }}</h3>
             </div>
           </div>
-
         </section>
 
-        <section id="partners" class="wow fadeInUp">
+        <section id="dsc">
+          <div class="container">
+            <div class="dsc-content">
+              <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="DSC APU" style="width: 300px">
+              <h3>{{ $data->dsc_apu }}</h3>
+              <div>
+                <a href="#" class="btn-learn-more">
+                  <span class="wave1"></span>
+                  <span class="wave2"></span>
+                  <span class="wave4"></span>
+                  <span class="wave3"></span>
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="partners" class="section-bg wow fadeInUp">
             <div class="container">
                 <header class="section-header">
                     <h3>Our Partners</h3>
@@ -147,7 +163,7 @@
             </div>
         </section>
 
-        <section id="gallery" class="section-bg section-colorful-yellow">
+        <section id="gallery" class="section-colorful-yellow">
           <div class="container">
 
             <header class="section-header">

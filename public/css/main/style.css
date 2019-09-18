@@ -281,7 +281,6 @@ h6 {
   transition: all 0.25s ease-in;
   color: #fff;
   background: #44ce6f;
-  color: #fff;
 }
 
 #intro .intro-info .btn-get-started:hover,
@@ -628,6 +627,110 @@ h6 {
   content: '';
   background-color: #ebf1fa;
   transition: .5s;
+}
+
+/* DSC APU Section
+--------------------------------*/
+#dsc {
+  padding: 40px 0;
+}
+
+#dsc img {
+  max-width: 100%;
+  transition: 0.3s;
+  padding: 15px 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+#dsc .dsc-content {
+  padding-top: 40px;
+}
+
+#dsc .dsc-content h2 {
+  color: #413e66;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#dsc .dsc-content h3 {
+  color: #696592;
+  font-weight: 400;
+  font-size: 22px;
+  font-style: italic;
+}
+
+#dsc .btn-learn-more {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 4px;
+  border: 2px solid black;
+  transition: all 1s ease;
+  color: black;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+#dsc .btn-learn-more span {
+  position: absolute;
+  content: '';
+  top: calc(2em - 0.25px);
+  left: 50%;
+  width: 20em;
+  height: 20em;
+  margin-left: -10em;
+  border-radius: 42.5%;
+  transform-origin: 50% 50%;
+  transition: all 1s ease, top 1.5s ease;
+}
+
+#dsc .btn-learn-more:hover {
+  transition: all 1s ease;
+}
+
+#dsc .btn-learn-more:hover span {
+  top: 0.5em;
+  transition: all 1s ease, top 1.5s ease;
+}
+
+#dsc .wave1 {
+  background: rgb(253, 72, 72);
+  animation: smallwave 3s infinite linear;
+}
+
+#dsc .wave2 {
+  background: rgb(255, 255, 98);
+  animation: smallwave 4s infinite linear;
+}
+
+#dsc .wave3 {
+  background: rgb(63, 180, 63);
+  animation: smallwave 5s infinite linear;
+}
+
+#dsc .wave4 {
+  background: rgb(53, 134, 215);
+  animation: smallwave 6s infinite linear;
+}
+
+@keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.5;
+  }
 }
 
 /* Join Us Section
