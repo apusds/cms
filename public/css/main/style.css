@@ -537,7 +537,7 @@ h6 {
   /* background: linear-gradient(180deg, #cac531, #f3f9a7); */
 }
 
-.section-colorful-wakiki .about-content h2, h3 {
+.section-colorful-wakiki h2, .section-colorful-wakiki h3, .section-colorful-wakiki p {
   color: black !important;
 }
 
@@ -545,7 +545,7 @@ h6 {
   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
-.section-colorful-yellow .about-content h2, p {
+.section-colorful-yellow h2, .section-colorful-yellow h3, .section-colorful-yellow p {
   color: black !important;
 }
 
@@ -630,14 +630,14 @@ h6 {
   transition: .5s;
 }
 
-/* Services Section
+/* Join Us Section
 --------------------------------*/
 
-#services {
+#join {
   padding: 60px 0 40px 0;
 }
 
-#services .box {
+#join .box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -649,12 +649,12 @@ h6 {
   text-align: center;
 }
 
-#services .box:hover {
+#join .box:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-#services .icon {
+#join .icon {
   margin: 0 auto 15px auto;
   padding-top: 12px;
   display: inline-block;
@@ -664,26 +664,26 @@ h6 {
   height: 60px;
 }
 
-#services .icon i {
+#join .icon i {
   font-size: 36px;
   line-height: 1;
 }
 
-#services .title {
+#join .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-#services .title a {
+#join .title a {
   color: #111;
 }
 
-#services .box:hover .title a {
+#join .box:hover .title a {
   color: #1bb1dc;
 }
 
-#services .description {
+#join .description {
   font-size: 14px;
   line-height: 28px;
   margin-bottom: 0;
