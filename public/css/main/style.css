@@ -208,7 +208,23 @@ h6 {
   transition: all 0.25s ease-in;
   color: #fff;
   background: #44ce6f;
-  color: #fff;
+}
+
+@media screen and (max-width: 700px) {
+    #header .btn-join {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 2px 39px;
+        padding: 8px 32px;
+        border-radius: 4px;
+        transition: all 0.25s ease-in;
+        color: #fff;
+        background: #44ce6f;
+    }
 }
 
 #header .btn-join:hover,
