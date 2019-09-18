@@ -55,7 +55,7 @@
           @endif
 
           <div class="logo float-left">
-            <a href="#header" class="scrollto"><img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid"></a>
+            <a href="#header" class="scrollto"><img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid"></a>
             
           </div>
 
@@ -116,7 +116,7 @@
             </div>
 
             <div class="col-md-6 intro-img order-md-last order-first">
-              <img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid">
+              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid">
             </div>
           </div>
 
@@ -142,7 +142,7 @@
                     <h3>Our Partners</h3>
                 </header>
                 <div class="owl-carousel partners-carousel">
-                    <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
+                    <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="">
                 </div>
             </div>
         </section>

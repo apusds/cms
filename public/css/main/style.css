@@ -254,7 +254,6 @@ h6 {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: #f5f8fd url("../img/bg.jpg") center top no-repeat;
   background-size: cover;
 }
 
