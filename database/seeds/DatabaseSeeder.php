@@ -28,9 +28,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table(env('DB_WEBSITE'))
             ->insert([
-                'title' => 'APU SDS',
+                'title' => 'APU Student Developer Society',
                 'keyword' => null,
-                'philosophy' => 'We strive to make the world a better place with Thanos JR',
+                'philosophy' => 'We strive to make the world a better place!',
                 'about_us' => 'APU Student Developer Society was founded in 2015. Till then, we are still running.',
                 'announcement' => null,
                 'created_at' => new DateTime()

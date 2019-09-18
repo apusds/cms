@@ -38,9 +38,9 @@
           <div class="container">
             <div class="social-links">
               <!-- <i href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
-              <a href="https://www.facebook.com/apusds" class="facebook"><i class="fa fa-facebook"></i></a>
-              <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> -->
+              <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -55,17 +55,15 @@
           @endif
 
           <div class="logo float-left">
-            <a href="#header" class="scrollto"><img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid"></a>
+            <a href="#header" class="scrollto"><img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid"></a>
+            
           </div>
 
-          <nav class="main-nav float-right d-none d-lg-block">
+          <div class="float-right" style="display: flex">
+          <span><a href="#join" class="btn-join">Join Us</a></span>
+          <nav class="main-nav d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#partners">Partners</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="">DSC</a></li>
               <li class="drop-down"><a href="">Events</a>
                 <ul>
                   <li class="drop-down"><a href="#">Upcoming</a>
@@ -78,15 +76,29 @@
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
                     @foreach($expiredEvents as $ee)
-                        <li><a href="#" class="disabled">{{ $ee->title }}</a></li>
+                        <li><a href="#" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
                     @endforeach
+                    </ul>
+                  </li>
+                  <li class="drop-down"><a href="#">DSC Events</a>
+                    <ul>
+                        @foreach($dscEvents as $dsc)
+                            <li><a href="#">{{ $dsc->title }}</a></li>
+                        @endforeach
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li><a href="#footer">Contact Us</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#dsc">DSC</a></li>
+              <li><a href="#partners">Partners</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#join">Join</a></li>
+              <li><a href="#footer">Contact</a></li>
             </ul>
           </nav>
+          </div>
 
         </div>
       </header>
@@ -95,18 +107,16 @@
         <div class="container d-flex h-100">
           <div class="row justify-content-center align-self-center">
             <div class="col-md-6 intro-info order-md-first order-last">
-              <!-- Integrate Laravel [Global -> Title] -->
               <h3><b>Student Developer Society</b></h3>
               <h5><i>@ Asia Pacific University</i></h5>
-              <!-- Integrate Laravel [Global -> Intro Description]-->
               <p>{{ $data->philosophy }}</p>
               <div>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                <a href="#join" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
             <div class="col-md-6 intro-img order-md-last order-first">
-              <img src="{{ asset('img/sds (1).png') }}" alt="" class="img-fluid">
+              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid">
             </div>
           </div>
 
@@ -126,7 +136,18 @@
 
         </section>
 
-        <section id="gallery" class="section-bg">
+        <section id="partners" class="wow fadeInUp">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Our Partners</h3>
+                </header>
+                <div class="owl-carousel partners-carousel">
+                    <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-bg section-colorful-yellow">
           <div class="container">
 
             <header class="section-header">
@@ -148,12 +169,12 @@
                 @foreach(\App\Gallery::all() as $i)
                     <div class="col-lg-4 col-md-6 gallery-item filter-{{ str_replace(' ', '-', strtolower($i->eventData()->title)) }}" data-wow-delay="0.2s">
                         <div class="gallery-wrap">
-                            <img src="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="img-fluid" alt="">
+                            <img src="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="img-fluid" alt="">
                             <div class="gallery-info">
                                 <h4><a href="#">{{ $i->title }}</a></h4>
                                 <p>{{ $i->eventData()->title }}</p>
                                 <div>
-                                    <a href="{{ asset(env('PUBLIC_PATH') . '/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -164,46 +185,37 @@
           </div>
         </section>
 
-          <section id="partners" class="wow fadeInUp section-colorful-yellow">
-              <div class="container">
-
-                  <header class="section-header">
-                      <h3>Our Partners</h3>
-                  </header>
-
-                  <div class="owl-carousel partners-carousel">
-                      <img src="{{ asset('img/DSC_APU_Logo_x1 (1).png') }}" alt="">
-                  </div>
-
-              </div>
-          </section>
-
         <section id="team">
           <div class="container">
             <div class="section-header">
               <h3>Core Team</h3>
-              <p>These are the Core Team behind Student Developer Society!</p>
+              <p>These are the wizards behind Student Developer Society!</p>
             </div>
 
             <div class="row">
 
-              <div class="col-lg-3 col-md-6 wow fadeInUp">
-                <div class="member">
-                  <img src="{{ asset('img/raeveen.jpg') }}" class="img-fluid" alt="">
-                  <div class="member-info">
-                    <div class="member-info-content">
-                      <h4>Raeveen Pasupathy</h4>
-                      <span>President</span>
-                      <div class="social">
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-google-plus"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
+              @foreach (\App\Committee::all() as $committee)
+                <div class="col-lg-3 col-md-6 wow fadeInUp">
+                  <div class="member">
+                    <img src="{{ asset(env('PUBLIC_PATH') . '/committee/' . $committee->file) }}" class="img-fluid" alt="">
+                    <div class="member-info">
+                      <div class="member-info-content">
+                        <h4>{{ $committee->name }}</h4>
+                        <span>{{ $committee->role }}</span>
+                        <div class="social">
+                          @if (isset($committee->facebook))
+                            <a href="{{ $committee->facebook }}"><i class="fa fa-facebook"></i></a>
+                          @elseif (isset($committee->twitter))
+                            <a href="{{ $committee->twitter }}"><i class="fa fa-twitter"></i></a>
+                          @elseif (isset($committe->linkedln))
+                            <a href="{{ $committee->linkedln }}"><i class="fa fa-linkedin"></i></a>
+                          @endif
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              @endforeach
 
             </div>
 
@@ -235,14 +247,15 @@
                       <div class="footer-links">
                         <h4>Contact Us</h4>
                           <strong>Email:</strong> <a href="mailto:studentdevelopersociety@gmail.com">studentdevelopersociety@gmail.com</a><br>
+                          <strong>Mobile:</strong> <a href="tel:60173762015">+60173762015</a><br>
                         </p>
                       </div>
 
                       <div class="social-links">
                         <!-- <a href="" class="twitter"><i class="fa fa-twitter"></i></a> -->
-                        <a href="https://www.facebook.com/apusds" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <!-- <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
+                        <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
                       </div>
 
                     </div>

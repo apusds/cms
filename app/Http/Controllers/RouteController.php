@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Event, Page, Role, Template, User, Website};
+use App\{Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
 use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
@@ -12,6 +12,7 @@ class RouteController extends Controller
         return view('layouts.website.index', [
             'activeEvents' => app(EventController::class)->getActiveEvents(),
             'expiredEvents' => app(EventController::class)->getExpiredEvents(),
+            'dscEvents' => app(EventController::class)->getDSCEvents(),
             'data' => Website::all()->find(1)
         ]);
     }
@@ -22,6 +23,10 @@ class RouteController extends Controller
 
     public function showDashboard() {
         return view('admin.index');
+    }
+
+    public function showProfile() {
+        return view('admin.profile.index');
     }
 
     // [Events]
@@ -112,6 +117,10 @@ class RouteController extends Controller
 
     public function showTeams() {
         return view('admin.teams.index');
+    }
+
+    public function showTeamsCreate() {
+        return view('admin.teams.create');
     }
 
     public function showGallery() {

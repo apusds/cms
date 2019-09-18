@@ -14,24 +14,45 @@
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.events.create') }}">
+    <form method="POST" action="{{ route('dashboard.events.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
+
         <div class="form-group">
-            <label for="inputTitle">Event Title (<span class="red">*</span>)</label>
-            <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Enter Title" required>
+            <label for="event">Organisation (<span class="red">*</span>)</label>
+            <select class="form-control" id="event" name="organisation" required>
+                <option value="">Please select</option>
+                <option value="sds">Student Developer Society</option>
+                <option value="dsc">DSC APU</option>
+            </select>
         </div>
+
         <div class="form-group">
-            <label for="inputImage">Image URL (Direct Image url)</label>
-            <input type="text" class="form-control" id="inputImage" name="image" placeholder="Enter Image URL">
+            <label for="title">Event Title (<span class="red">*</span>)</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
         </div>
+
+        <label>Poster Image (<span class="red">*</span>)</label>
+        <div class="form-group custom-file">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <input type="file" class="custom-file-input" id="customFile" name="file" required>
+        </div>
+
+        <br><br>
+
         <div class="form-group">
-            <label for="inputDescription">Description (<span class="red">*</span>)</label>
-            <textarea class="form-control" id="inputDescription" name="description" placeholder="Enter Description" required rows="5"></textarea>
+            <label for="description">Description (<span class="red">*</span>)</label>
+            <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required rows="5"></textarea>
         </div>
+
         <div class="form-group">
-            <label for="selectExpire">Expires On (<span class="red">*</span>)</label>
-            <input type="date" class="form-control" id="selectExpire" name="expiry" required>
+            <label for="expiry">Expires On (<span class="red">*</span>)</label>
+            <input type="datetime-local" class="form-control" id="expiry" name="expiry" required>
         </div>
+
+        <div class="form-group checkbox">
+            <label><input type="checkbox" value="1" name="form">Enable Sign-up Form</label>
+        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @stop

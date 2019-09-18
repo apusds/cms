@@ -195,6 +195,53 @@ h6 {
   max-height: 45px;
 }
 
+#header .btn-join {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin: 3px 20px;
+  padding: 8px 32px;
+  border-radius: 4px;
+  transition: all 0.25s ease-in;
+  color: #fff;
+  background: #44ce6f;
+}
+
+@media screen and (max-width: 700px) {
+    #header .btn-join {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 2px 39px;
+        padding: 8px 32px;
+        border-radius: 4px;
+        transition: all 0.25s ease-in;
+        color: #fff;
+        background: #44ce6f;
+    }
+}
+
+#header .btn-join:hover,
+#header .btn-join:focus {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  animation: slidebg 0.2s linear;
+}
+
+@keyframes slidebg {
+  from {
+    background-color: #44ce6f;
+  }
+  to {
+    background-position:8vw;
+  }
+}
+
 .main-pages {
   margin-top: 60px;
 }
@@ -207,7 +254,6 @@ h6 {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: #f5f8fd url("../img/bg.jpg") center top no-repeat;
   background-size: cover;
 }
 
@@ -239,9 +285,10 @@ h6 {
 }
 
 #intro .intro-info .btn-get-started:hover,
-#intro .intro-info .btn-services:hover {
-  background: purple;
-
+#intro .intro-info .btn-services:hover,
+#intro .btn-get-started:focus {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  animation: slidebg 0.2s linear;
 }
 
 /*--------------------------------------------------------------
@@ -286,7 +333,7 @@ h6 {
   display: block;
   position: absolute;
   left: 0;
-  top: calc(100% - 30px);
+  top: 30px;
   z-index: 99;
   opacity: 0;
   visibility: hidden;
