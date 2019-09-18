@@ -247,6 +247,7 @@
                       <div class="footer-links">
                         <h4>Contact Us</h4>
                           <strong>Email:</strong> <a href="mailto:studentdevelopersociety@gmail.com">studentdevelopersociety@gmail.com</a><br>
+                          <strong>Mobile:</strong> <a href="tel:60173762015">+60173762015</a><br>
                         </p>
                       </div>
 
