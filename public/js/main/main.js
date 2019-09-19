@@ -107,9 +107,35 @@
       });
 
       // Checkbox
-      $('input[type="checkbox"]').on('change', function() {
-          $('input[type="checkbox"]').not(this).prop('checked', false);
+      $('input[name="check"]').on('change', function() {
+          $('input[name="check"]').not(this).prop('checked', false);
       });
+
+      // Intake Filter
+      const intakeError = $('#intakeError');
+      intakeError.hide();
+      $('input[name="intake"]').on('keyup', function() {
+          const input = $('input[name="intake"]');
+          if (!input.val().trim().match('[ucUC]{2}')) {
+              intakeError.text('Invalid Intake');
+              intakeError.show();
+          } else {
+              intakeError.hide();
+          }
+      });
+
+      // TP Number Filter
+    const tpError = $('#tpError');
+    tpError.hide();
+    $('input[name="tp"]').on('keyup', function() {
+        const input = $('input[name="tp"]');
+        if (!input.val().trim().match('[tpTP0-9]{6}')) {
+            tpError.text('Invalid TP Number');
+            tpError.show();
+        } else {
+            tpError.hide();
+        }
+    });
 
 })(jQuery);
 

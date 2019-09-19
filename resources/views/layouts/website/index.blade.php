@@ -54,6 +54,14 @@
             </div>
           @endif
 
+          <script>
+              const msg = '{{ Session::get('alert') }}';
+              const exist = '{{ Session::has('alert') }}';
+              if (exist){
+                  alert(msg);
+              }
+          </script>
+
           <div class="logo float-left">
             <a href="#header" class="scrollto"><img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid"></a>
             
@@ -94,7 +102,6 @@
               <li><a href="#partners">Partners</a></li>
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#team">Team</a></li>
-              <li><a href="#join">Join</a></li>
               <li><a href="#footer">Contact</a></li>
             </ul>
           </nav>
@@ -273,7 +280,7 @@
 
                       <hr />
 
-                      <form method="POST" action="">
+                      <form method="POST" action="{{ route('membership.post') }}">
                           {{ csrf_field() }}
 
                           <div class="form-group">
@@ -294,32 +301,87 @@
                           <div class="form-group">
                               <label for="tp">TP Number (<span class="red">*</span>)</label>
                               <input type="text" class="form-control" id="tp" name="tp" placeholder="Enter TP Number" required>
+                              <small style="padding-left: 15px;" class="red" id="tpError"></small>
                           </div>
 
                           <div class="form-group">
                               <label for="intake">Intake (<span class="red">*</span>)</label>
                               <input type="text" class="form-control" id="intake" name="intake" placeholder="Enter Intake" required>
+                              <small style="padding-left: 15px;" class="red" id="intakeError"></small>
                           </div>
 
-                          <label for="skills">How did you find us? (<span class="red">*</span>)</label>
+                          <label for="skills">Skills (<span class="red">*</span>)</label>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="0" id="check1" name="check">
-                              <label class="form-check-label" for="check1">
+                              <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
+                              <label class="form-check-label" for="beginner">
+                                  Beginner
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
+                              <label class="form-check-label" for="web dev">
+                                  Web Dev
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
+                              <label class="form-check-label" for="backend">
+                                 Backend
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
+                              <label class="form-check-label" for="android">
+                                  Android
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
+                              <label class="form-check-label" for="deployment">
+                                  Deployment
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
+                              <label class="form-check-label" for="database">
+                                  Database
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
+                              <label class="form-check-label" for="networking">
+                                  Networking
+                              </label>
+                          </div>
+
+                          <br>
+
+                          <label for="find-us">How did you find us? (<span class="red">*</span>)</label>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
+                              <label class="form-check-label" for="facebook">
                                   Facebook
                               </label>
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="1" id="check2" name="check">
-                              <label class="form-check-label" for="check2">
+                              <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
+                              <label class="form-check-label" for="heard">
                                   Heard from friend
                               </label>
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="2" id="check3" name="check">
-                              <label class="form-check-label" for="check3">
+                              <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
+                              <label class="form-check-label" for="attended">
                                   Attended our Event/Workshop
                               </label>
                           </div>
