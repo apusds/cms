@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\{Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
 use Illuminate\Support\Facades\Auth;
+use App\{Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
 
 class RouteController extends Controller
 {
@@ -63,6 +63,17 @@ class RouteController extends Controller
     }
 
     // End [Users]
+
+    // Serve [Event Page]
+
+    public function showEvent($name) {
+        $event = Event::all()->where('identifier', trim(strtolower($name)))->first();
+        if (!$event) return view('errors.404');
+
+        return view('layouts.website.event', ['data' => $event]);
+    }
+
+    // Serve [Event Page]
 
     // [Pages]
     public function showPages() {

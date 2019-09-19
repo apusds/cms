@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('created_by');
             $table->string('organisation');
             $table->string('title');
+            $table->string('identifier');
             $table->string('file');
             $table->string('description');
             $table->string('form');

@@ -2,20 +2,20 @@
 
 /** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
-//Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
+/** End [Landing] */
 
-Route::group(['middleware' => ['guest']], function() {
-    /** [Admin] */
-    Route::get('/admin', ['as' => 'login', 'uses' => 'RouteController@showAdminLogin']);
-    Route::post('/admin', ['as' => 'login.post', 'uses' => 'Auth\AuthController@loginAdmin']);
-});
+/** [Event Page] */
+Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
+/** End [Event Page] */
+
+/** [Admin] */
+Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
+Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
+/** End [Admin] */
 
 Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
-//    // [URI Checker]
-//    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
-//    // End [URI Checker]
 
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
@@ -30,6 +30,11 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** [User] */
     Route::get('/dashboard/users', ['as' => 'dashboard.users', 'uses' => 'RouteController@showUsers']);
 
+
+
+
+
+    // ***************************************************************
     /** [Event] */
     Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents']);
 
@@ -44,10 +49,25 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** Delete [Event] */
     Route::get('/dashboard/events/{id}/delete', ['as' => 'dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
 
+    /** Event [Feedback] */
+    Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
+    // ***************************************************************
+
+
+
+
+
+    // ***************************************************************
     /** [Website] */
     Route::get('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'RouteController@showWebsite']);
     Route::post('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'Website\WebsiteController@update']);
+    // ***************************************************************
 
+
+
+
+
+    // ***************************************************************
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);
 
@@ -57,10 +77,14 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     /** Delete [Gallery] */
     Route::get('/dashboard/gallery/{id}/delete', ['as' => 'dashboard.gallery.delete', 'uses' => 'Event\EventController@removeFromGallery']);
+    // ***************************************************************
+
 });
 
 // Special Perms for SuperAdmin Only
 Route::group(['middleware' => ['superadmin', 'auth']], function () {
+
+    // ***************************************************************
     /** Create [User] */
     Route::get('/dashboard/users/create', ['as' => 'dashboard.users.create', 'uses' => 'RouteController@showUserCreate']);
     Route::post('/dashboard/users/create', ['as' => 'dashboard.users.create', 'uses' => 'Auth\AuthController@register']);
@@ -71,7 +95,13 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
 
     /** Delete [User] */
     Route::get('/dashboard/users/{id}/delete', ['as' => 'dashboard.users.delete', 'uses' => 'Auth\AuthController@delete']);
+    // ***************************************************************
 
+
+
+
+
+    // ***************************************************************
     /** [Role] */
     Route::get('/dashboard/roles', ['as' => 'dashboard.roles', 'uses' => 'RouteController@showRoles']);
 
@@ -81,7 +111,9 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
     /** Edit [Role] */
     Route::get('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RouteController@showRoleEdit']);
     Route::post('/dashboard/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'Role\RoleController@update']);
+    // ***************************************************************
 
+    // ***************************************************************
     /** [Teams] */
     Route::get('/dashboard/teams', ['as' => 'dashboard.teams', 'uses' => 'RouteController@showTeams']);
 
@@ -91,32 +123,6 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
 
     /** Delete [Teams] */
     Route::get('/dashboard/teams/{id}/delete', ['as' => 'dashboard.teams.delete', 'uses' => 'Team\TeamController@removeFromTeams']);
+    // ***************************************************************
 
-//    /** Delete [Template] */
-//    Route::get('/dashboard/templates/{id}/delete', ['as' => 'dashboard.templates.delete', 'uses' => 'TemplateController@delete']);
 });
-
-// RESERVED
-//    /** [Page] */
-//    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
-//
-//    /** Create [Page] */
-//    Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
-//    Route::post('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'PageController@create']);
-//
-//    /** Edit [Page] */
-//    Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
-//    Route::post('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'PageController@update']);
-//
-//    /** Delete [Page] */
-//    Route::get('/dashboard/pages/{id}/delete', ['as' => 'dashboard.pages.delete', 'uses' => 'PageController@delete']);
-//
-//    /** [Template] */
-//    Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
-//
-//    /** Create [Template] */
-//    Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
-//
-//    /** Edit [Template] */
-//    Route::get('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'RouteController@showTemplateEdit']);
-//    Route::post('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'TemplateController@update']);

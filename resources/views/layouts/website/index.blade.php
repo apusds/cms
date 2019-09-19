@@ -60,7 +60,7 @@
           </div>
 
           <div class="float-right" style="display: flex">
-          <span><a href="#join" class="btn-join">Join Us</a></span>
+          <span><a href="#membershipModal" class="btn-join" data-toggle="modal" data-target="#membershipModal">Join Us</a></span>
           <nav class="main-nav d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
@@ -69,21 +69,21 @@
                   <li class="drop-down"><a href="#">Upcoming</a>
                     <ul>
                     @foreach($activeEvents as $ae)
-                        <li><a href="#">{{ $ae->title }}</a></li>
+                        <li><a href="e/{{ $ae->identifier }}">{{ $ae->title }}</a></li>
                     @endforeach
                     </ul>
                   </li>
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
                     @foreach($expiredEvents as $ee)
-                        <li><a href="#" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
+                        <li><a href="e/{{ $ae->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
                     @endforeach
                     </ul>
                   </li>
                   <li class="drop-down"><a href="#">DSC Events</a>
                     <ul>
                         @foreach($dscEvents as $dsc)
-                            <li><a href="#">{{ $dsc->title }}</a></li>
+                            <li><a href="e/{{ $ae->identifier }}">{{ $dsc->title }}</a></li>
                         @endforeach
                     </ul>
                   </li>
@@ -106,17 +106,17 @@
       <section id="intro" class="clearfix">
         <div class="container d-flex h-100">
           <div class="row justify-content-center align-self-center">
-            <div class="col-md-6 intro-info order-md-first order-last">
+            <div class="col-md-6 intro-info order-md-first order-last wow fadeInLeft">
+              <h5><i>Asia Pacific University</i></h5>
               <h3><b>Student Developer Society</b></h3>
-              <h5><i>@ Asia Pacific University</i></h5>
-              <p>{{ $data->philosophy }}</p>
+              <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
-                <a href="#join" class="btn-get-started">Join Us</a>
+                <a href="#membershipModal" class="btn-get-started" data-toggle="modal" data-target="#membershipModal">Join Us</a>
               </div>
             </div>
 
             <div class="col-md-6 intro-img order-md-last order-first">
-              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid">
+              <img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid wow fadeInRight">
             </div>
           </div>
 
@@ -125,18 +125,34 @@
 
       <main id="main">
 
-        <section id="about" class="section-colorful-yellow">
-
+        <section id="about" class="section-colorful-wakiki">
           <div class="container">
             <div class="about-content">
               <h2>About Us</h2>
               <h3>{{ $data->about_us }}</h3>
             </div>
           </div>
-
         </section>
 
-        <section id="partners" class="wow fadeInUp">
+        <section id="dsc">
+          <div class="container">
+            <div class="dsc-content">
+              <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="DSC APU" style="width: 300px">
+              <h3>{{ $data->dsc_apu }}</h3>
+              <div>
+                <a href="#" class="btn-learn-more">
+                  <span class="wave1"></span>
+                  <span class="wave2"></span>
+                  <span class="wave4"></span>
+                  <span class="wave3"></span>
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="partners" class="section-bg wow fadeInUp">
             <div class="container">
                 <header class="section-header">
                     <h3>Our Partners</h3>
@@ -147,7 +163,7 @@
             </div>
         </section>
 
-        <section id="gallery" class="section-bg section-colorful-yellow">
+        <section id="gallery" class="section-colorful-yellow">
           <div class="container">
 
             <header class="section-header">
@@ -223,6 +239,105 @@
         </section>
 
       </main>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="membershipModal">
+          <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                      <h4 class="modal-title">Membership Form</h4>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <h3>Benefits</h3>
+                      <div>
+                          <ul>
+                              <li>
+                                  Get Member price for our events and workshops
+                              </li>
+                              <li>
+                                  Exclusive invitation to gatherings and activities with our Partners
+                              </li>
+                              <li>
+                                  Collaborate and build cool projects
+                              </li>
+                              <li>
+                                  Access to our Secret Base :)
+                              </li>
+                          </ul>
+                      </div>
+                      <b><i>Note: Open to APU Students only</i></b>
+
+                      <hr />
+
+                      <form method="POST" action="">
+                          {{ csrf_field() }}
+
+                          <div class="form-group">
+                              <label for="email">Email Address (<span class="red">*</span>)</label>
+                              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="name">Name (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="mobile">Mobile (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="tp">TP Number (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="tp" name="tp" placeholder="Enter TP Number" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="intake">Intake (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="intake" name="intake" placeholder="Enter Intake" required>
+                          </div>
+
+                          <label for="skills">How did you find us? (<span class="red">*</span>)</label>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="0" id="check1" name="check">
+                              <label class="form-check-label" for="check1">
+                                  Facebook
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="1" id="check2" name="check">
+                              <label class="form-check-label" for="check2">
+                                  Heard from friend
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="2" id="check3" name="check">
+                              <label class="form-check-label" for="check3">
+                                  Attended our Event/Workshop
+                              </label>
+                          </div>
+
+                          <br>
+
+                          <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+                      </form>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
 
       <footer id="footer">
         <div class="footer-top">

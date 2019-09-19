@@ -2,6 +2,10 @@
 # General
 --------------------------------------------------------------*/
 
+.red {
+    color: red;
+}
+
 body {
   background: #fff;
   color: #444;
@@ -281,7 +285,6 @@ h6 {
   transition: all 0.25s ease-in;
   color: #fff;
   background: #44ce6f;
-  color: #fff;
 }
 
 #intro .intro-info .btn-get-started:hover,
@@ -537,7 +540,7 @@ h6 {
   /* background: linear-gradient(180deg, #cac531, #f3f9a7); */
 }
 
-.section-colorful-wakiki .about-content h2, h3 {
+.section-colorful-wakiki h2, .section-colorful-wakiki h3, .section-colorful-wakiki p {
   color: black !important;
 }
 
@@ -545,7 +548,7 @@ h6 {
   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
-.section-colorful-yellow .about-content h2, p {
+.section-colorful-yellow h2, .section-colorful-yellow h3, .section-colorful-yellow p {
   color: black !important;
 }
 
@@ -630,14 +633,118 @@ h6 {
   transition: .5s;
 }
 
-/* Services Section
+/* DSC APU Section
+--------------------------------*/
+#dsc {
+  padding: 40px 0;
+}
+
+#dsc img {
+  max-width: 100%;
+  transition: 0.3s;
+  padding: 15px 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+#dsc .dsc-content {
+  padding-top: 40px;
+}
+
+#dsc .dsc-content h2 {
+  color: #413e66;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#dsc .dsc-content h3 {
+  color: #696592;
+  font-weight: 400;
+  font-size: 22px;
+  font-style: italic;
+}
+
+#dsc .btn-learn-more {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 4px;
+  border: 2px solid black;
+  transition: all 1s ease;
+  color: black;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+#dsc .btn-learn-more span {
+  position: absolute;
+  content: '';
+  top: calc(2em - 0.25px);
+  left: 50%;
+  width: 20em;
+  height: 20em;
+  margin-left: -10em;
+  border-radius: 42.5%;
+  transform-origin: 50% 50%;
+  transition: all 1s ease, top 1.5s ease;
+}
+
+#dsc .btn-learn-more:hover {
+  transition: all 1s ease;
+}
+
+#dsc .btn-learn-more:hover span {
+  top: 0.5em;
+  transition: all 1s ease, top 1.5s ease;
+}
+
+#dsc .wave1 {
+  background: rgb(253, 72, 72);
+  animation: smallwave 3s infinite linear;
+}
+
+#dsc .wave2 {
+  background: rgb(255, 255, 98);
+  animation: smallwave 4s infinite linear;
+}
+
+#dsc .wave3 {
+  background: rgb(63, 180, 63);
+  animation: smallwave 5s infinite linear;
+}
+
+#dsc .wave4 {
+  background: rgb(53, 134, 215);
+  animation: smallwave 6s infinite linear;
+}
+
+@keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Join Us Section
 --------------------------------*/
 
-#services {
+#join {
   padding: 60px 0 40px 0;
 }
 
-#services .box {
+#join .box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -649,12 +756,12 @@ h6 {
   text-align: center;
 }
 
-#services .box:hover {
+#join .box:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-#services .icon {
+#join .icon {
   margin: 0 auto 15px auto;
   padding-top: 12px;
   display: inline-block;
@@ -664,26 +771,26 @@ h6 {
   height: 60px;
 }
 
-#services .icon i {
+#join .icon i {
   font-size: 36px;
   line-height: 1;
 }
 
-#services .title {
+#join .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-#services .title a {
+#join .title a {
   color: #111;
 }
 
-#services .box:hover .title a {
+#join .box:hover .title a {
   color: #1bb1dc;
 }
 
-#services .description {
+#join .description {
   font-size: 14px;
   line-height: 28px;
   margin-bottom: 0;

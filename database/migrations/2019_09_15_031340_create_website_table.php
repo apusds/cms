@@ -19,6 +19,7 @@ class CreateWebsiteTable extends Migration
             $table->longText('keyword')->nullable();
             $table->longText('philosophy');
             $table->longText('about_us');
+            $table->longText('dsc_apu');
             $table->longText('announcement')->nullable();
             $table->timestamps();
         });

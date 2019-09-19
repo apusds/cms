@@ -35,6 +35,7 @@ class EventController extends Controller
                 'created_by' => Auth::user()->id,
                 'organisation' => trim($request->input('organisation')),
                 'title' => trim($request->input('title')),
+                'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
                 'file' => $fileNameToStore,
                 'description' => trim($request->input('description')),
                 'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
@@ -42,7 +43,9 @@ class EventController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Event created') : back()->with('error', 'Unable to create Event');
+        return $result
+            ? back()->with('message', 'Done! Event created')
+            : back()->with('error', 'Unable to create Event');
     }
 
     public function update(Request $request, $id) {
@@ -60,13 +63,16 @@ class EventController extends Controller
             ->update([
                 'organisation' => trim($request->input('organisation')),
                 'title' => trim($request->input('title')),
+                'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
                 'description' => trim($request->input('description')),
                 'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
                 'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
                 'updated_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Event updated') : back()->with('error', 'Unable to update Event');
+        return $result
+            ? back()->with('message', 'Done! Event updated')
+            : back()->with('error', 'Unable to update Event');
     }
 
     public function delete($id) {
@@ -86,7 +92,7 @@ class EventController extends Controller
 
     public function getActiveEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('id', 'title')
+            ->select('id', 'title', 'identifier')
             ->where('organisation', 'sds')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
@@ -96,7 +102,7 @@ class EventController extends Controller
 
     public function getExpiredEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('id', 'title', 'organisation')
+            ->select('id', 'title', 'organisation', 'identifier')
             ->where('expiry', '<=', Carbon::now()->toDateString())
             ->get();
 
@@ -105,7 +111,7 @@ class EventController extends Controller
 
     public function getDSCEvents() {
         $events = DB::table(env('DB_EVENTS'))
-            ->select('id', 'title')
+            ->select('id', 'title', 'identifier')
             ->where('organisation', 'dsc')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
@@ -140,7 +146,9 @@ class EventController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Image uploaded') : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
+        return $result
+            ? back()->with('message', 'Done! Image uploaded')
+            : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
     }
 
     public function removeFromGallery($id) {

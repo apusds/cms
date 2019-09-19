@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemplatesTable extends Migration
+class CreateFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('templates', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->string('created_by');
-            $table->text('title');
-            $table->string('template');
+        Schema::create('feedback', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('templates');
+        Schema::dropIfExists('feedback');
     }
 }
