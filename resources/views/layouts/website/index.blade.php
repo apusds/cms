@@ -60,7 +60,7 @@
           </div>
 
           <div class="float-right" style="display: flex">
-          <span><a href="#join" class="btn-join">Join Us</a></span>
+          <span><a href="#membershipModal" class="btn-join" data-toggle="modal" data-target="#membershipModal">Join Us</a></span>
           <nav class="main-nav d-none d-lg-block">
             <ul>
               <li class="active"><a href="#intro">Home</a></li>
@@ -111,7 +111,7 @@
               <h3><b>Student Developer Society</b></h3>
               <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
-                <a href="#join" class="btn-get-started">Join Us</a>
+                <a href="#membershipModal" class="btn-get-started" data-toggle="modal" data-target="#membershipModal">Join Us</a>
               </div>
             </div>
 
@@ -239,6 +239,105 @@
         </section>
 
       </main>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="membershipModal">
+          <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                      <h4 class="modal-title">Membership Form</h4>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <h3>Benefits</h3>
+                      <div>
+                          <ul>
+                              <li>
+                                  Get Member price for our events and workshops
+                              </li>
+                              <li>
+                                  Exclusive invitation to gatherings and activities with our Partners
+                              </li>
+                              <li>
+                                  Collaborate and build cool projects
+                              </li>
+                              <li>
+                                  Access to our Secret Base :)
+                              </li>
+                          </ul>
+                      </div>
+                      <b><i>Note: Open to APU Students only</i></b>
+
+                      <hr />
+
+                      <form method="POST" action="">
+                          {{ csrf_field() }}
+
+                          <div class="form-group">
+                              <label for="email">Email Address (<span class="red">*</span>)</label>
+                              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="name">Name (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="mobile">Mobile (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="tp">TP Number (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="tp" name="tp" placeholder="Enter TP Number" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="intake">Intake (<span class="red">*</span>)</label>
+                              <input type="text" class="form-control" id="intake" name="intake" placeholder="Enter Intake" required>
+                          </div>
+
+                          <label for="skills">How did you find us? (<span class="red">*</span>)</label>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="0" id="check1" name="check">
+                              <label class="form-check-label" for="check1">
+                                  Facebook
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="1" id="check2" name="check">
+                              <label class="form-check-label" for="check2">
+                                  Heard from friend
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="2" id="check3" name="check">
+                              <label class="form-check-label" for="check3">
+                                  Attended our Event/Workshop
+                              </label>
+                          </div>
+
+                          <br>
+
+                          <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+                      </form>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
 
       <footer id="footer">
         <div class="footer-top">
