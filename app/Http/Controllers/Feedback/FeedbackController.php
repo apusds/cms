@@ -8,8 +8,6 @@ use App\Http\Controllers\Controller;
 class FeedbackController extends Controller
 {
 
-    public function submit(Request $request) {
-        dd($request->input());
-    }
+    public function submit(Request $request) {}
 
 }

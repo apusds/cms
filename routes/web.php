@@ -8,6 +8,12 @@ Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
 /** End [Event Page] */
 
+/** Membership [Form] */
+Route::post('/api/member/submit', ['as' => 'membership.post', 'uses' => 'Member\MemberController@register']);
+
+/** Inquiry [Form] */
+Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\WebsiteController@inquire']);
+
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);

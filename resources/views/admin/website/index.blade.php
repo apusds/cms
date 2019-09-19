@@ -46,6 +46,11 @@
             <textarea class="form-control" rows="3" name="about-us" id="about-us" placeholder="Example: We are top notch!" required>{{ $data->about_us }}</textarea>
         </div>
 
+        <div class="form-group">
+            <label for="dsc">DSC (<span class="red">*</span>)</label>
+            <textarea class="form-control" rows="3" name="dsc_apu" id="dsc" placeholder="Example: We are top notch!" required>{{ $data->dsc_apu }}</textarea>
+        </div>
+
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
         <a href="{{ route('dashboard.website') }}" class="btn btn-success">Reset Fields</a>
     </form>
