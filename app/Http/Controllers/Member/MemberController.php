@@ -30,11 +30,11 @@ class MemberController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed Request!');
 
-        if (Member::all()->where('email', trim(strtolower($request->input('email'))))) {
+        if (count(Member::all()->where('email', strtolower($request->input('email')))) > 0) {
             return back()->with('alert', 'You already sent an Application. Please wait patiently :O');
         }
 
-        $result = DB::table(env('DB_MEMBER'))
+        $result = DB::table('members')
             ->insert([
                 'email' => trim(strtolower($request->input('email'))),
                 'name' => trim(strtoupper($request->input('name'))),
