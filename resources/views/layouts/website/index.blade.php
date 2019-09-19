@@ -69,21 +69,21 @@
                   <li class="drop-down"><a href="#">Upcoming</a>
                     <ul>
                     @foreach($activeEvents as $ae)
-                        <li><a href="#">{{ $ae->title }}</a></li>
+                        <li><a href="e/{{ $ae->identifier }}">{{ $ae->title }}</a></li>
                     @endforeach
                     </ul>
                   </li>
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
                     @foreach($expiredEvents as $ee)
-                        <li><a href="#" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
+                        <li><a href="e/{{ $ae->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
                     @endforeach
                     </ul>
                   </li>
                   <li class="drop-down"><a href="#">DSC Events</a>
                     <ul>
                         @foreach($dscEvents as $dsc)
-                            <li><a href="#">{{ $dsc->title }}</a></li>
+                            <li><a href="e/{{ $ae->identifier }}">{{ $dsc->title }}</a></li>
                         @endforeach
                     </ul>
                   </li>
