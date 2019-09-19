@@ -9,10 +9,9 @@ use Illuminate\Support\Facades\{ Auth, DB, Hash, Validator };
 
 class AuthController extends Controller
 {
+    // Admin Area Starts!
 
-    public function login(Request $request) {}
-
-    public function loginAdmin(Request $request) {
+    public function login(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required'
@@ -27,11 +26,6 @@ class AuthController extends Controller
 
         if (!Auth::attempt($data)) return back()->with('error', 'Invalid Credentials!');
         return redirect()->intended(route('dashboard'));
-    }
-
-    public function logout() {
-        Auth::logout();
-        return redirect()->intended(route('admin'));
     }
 
     public function register(Request $request) {
@@ -118,5 +112,11 @@ class AuthController extends Controller
             return back()->with('error', 'Unable to delete User!');
         }
     }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->intended(route('admin'));
+    }
+
 
 }

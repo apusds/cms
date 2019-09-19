@@ -33,6 +33,10 @@ class RouteController extends Controller
     public function showMemberRegister() {
         return view('register.index');
     }
+
+    public function showMemberLogin() {
+        // TODO
+    }
     // End [Member]
 
     // [Events]
