@@ -50,7 +50,6 @@ class EventController extends Controller
         $validate = Validator::make($request->all(), [
             'organisation' => 'required',
             'title' => 'required|text',
-            'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
             'description' => 'required',
             'expiry' => 'required'
         ]);
@@ -62,6 +61,7 @@ class EventController extends Controller
             ->update([
                 'organisation' => trim($request->input('organisation')),
                 'title' => trim($request->input('title')),
+                'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
                 'description' => trim($request->input('description')),
                 'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
                 'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
