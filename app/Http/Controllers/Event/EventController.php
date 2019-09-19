@@ -43,7 +43,9 @@ class EventController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Event created') : back()->with('error', 'Unable to create Event');
+        return $result
+            ? back()->with('message', 'Done! Event created')
+            : back()->with('error', 'Unable to create Event');
     }
 
     public function update(Request $request, $id) {
@@ -68,7 +70,9 @@ class EventController extends Controller
                 'updated_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Event updated') : back()->with('error', 'Unable to update Event');
+        return $result
+            ? back()->with('message', 'Done! Event updated')
+            : back()->with('error', 'Unable to update Event');
     }
 
     public function delete($id) {
@@ -142,7 +146,9 @@ class EventController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        return $result ? back()->with('message', 'Done! Image uploaded') : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
+        return $result
+            ? back()->with('message', 'Done! Image uploaded')
+            : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
     }
 
     public function removeFromGallery($id) {
