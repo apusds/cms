@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
                 'keyword' => null,
                 'philosophy' => 'We strive to make the world a better place!',
                 'about_us' => 'APU Student Developer Society was founded in 2015. Till then, we are still running.',
+                'dsc_apu' => 'Developer Student Clubs is a program with Google Developers. Through in-person meetups, university students are empowered to learn together and use technology to solve real life problems with local businesses and start-ups.',
                 'announcement' => null,
                 'created_at' => new DateTime()
             ]);
