@@ -14,7 +14,7 @@ Route::get('/register', ['as' => 'register', 'uses' => 'RouteController@showMemb
 
 // Member [Login]
 Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showMemberLogin']);
-Route::post('/login', ['as' => 'login.post', 'uses' => 'Auth\MemberController@register']);
+Route::post('/login', ['as' => 'login.post', 'uses' => 'Auth\MemberAuthController@register']);
 // End Member [Login]
 
 /** [Admin] */
