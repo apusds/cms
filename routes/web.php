@@ -135,39 +135,3 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
     // ***************************************************************
 
 });
-
-// RESERVED
-
-//    /** Delete [Template] */
-//    Route::get('/dashboard/templates/{id}/delete', ['as' => 'dashboard.templates.delete', 'uses' => 'TemplateController@delete']);
-
-// Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
-
-//    // [URI Checker]
-//    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
-//    // End [URI Checker]
-
-
-//    /** [Page] */
-//    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
-//
-//    /** Create [Page] */
-//    Route::get('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'RouteController@showPageCreate']);
-//    Route::post('/dashboard/pages/create', ['as' => 'dashboard.pages.create', 'uses' => 'PageController@create']);
-//
-//    /** Edit [Page] */
-//    Route::get('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'RouteController@showPageEdit']);
-//    Route::post('/dashboard/pages/{id}/edit', ['as' => 'dashboard.pages.edit', 'uses' => 'PageController@update']);
-//
-//    /** Delete [Page] */
-//    Route::get('/dashboard/pages/{id}/delete', ['as' => 'dashboard.pages.delete', 'uses' => 'PageController@delete']);
-//
-//    /** [Template] */
-//    Route::get('/dashboard/templates', ['as' => 'dashboard.templates', 'uses' => 'RouteController@showTemplates']);
-//
-//    /** Create [Template] */
-//    Route::post('/dashboard/templates/create', ['as' => 'dashboard.templates.create', 'uses' => 'TemplateController@create']);
-//
-//    /** Edit [Template] */
-//    Route::get('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'RouteController@showTemplateEdit']);
-//    Route::post('/dashboard/templates/{id}/edit', ['as' => 'dashboard.templates.edit', 'uses' => 'TemplateController@update']);
