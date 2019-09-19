@@ -29,16 +29,6 @@ class RouteController extends Controller
         return view('admin.profile.index');
     }
 
-    // [Member]
-    public function showMemberRegister() {
-        return view('register.index');
-    }
-
-    public function showMemberLogin() {
-        // TODO
-    }
-    // End [Member]
-
     // [Events]
 
     public function showEvents() {

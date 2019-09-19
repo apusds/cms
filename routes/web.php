@@ -8,15 +8,6 @@ Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
 /** End [Event Page] */
 
-/** Member [Register] */
-Route::get('/register', ['as' => 'register', 'uses' => 'RouteController@showMemberRegister']);
-// End Member [Register]
-
-// Member [Login]
-Route::get('/login', ['as' => 'login', 'uses' => 'RouteController@showMemberLogin']);
-Route::post('/login', ['as' => 'login.post', 'uses' => 'Auth\MemberAuthController@register']);
-// End Member [Login]
-
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
