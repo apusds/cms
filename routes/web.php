@@ -2,20 +2,26 @@
 
 /** [Landing] */
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
+/** End [Landing] */
+
+/** [Event Page] */
+Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
+/** End [Event Page] */
+
 //Route::get('/pages/{name}', ['as' => 'pages', 'uses' => 'PageController@serve']);
 
 Route::group(['middleware' => ['guest']], function() {
+
     /** [Admin] */
-    Route::get('/admin', ['as' => 'login', 'uses' => 'RouteController@showAdminLogin']);
-    Route::post('/admin', ['as' => 'login.post', 'uses' => 'Auth\AuthController@loginAdmin']);
+    Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
+    Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@loginAdmin']);
+    /** End [Admin] */
+
 });
 
 Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
-//    // [URI Checker]
-//    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
-//    // End [URI Checker]
 
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
@@ -97,6 +103,12 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
 });
 
 // RESERVED
+
+//    // [URI Checker]
+//    Route::post('/api/uri/validate', ['as' => 'api.uri.check', 'uses' => 'APIController@checkURI']);
+//    // End [URI Checker]
+
+
 //    /** [Page] */
 //    Route::get('/dashboard/pages', ['as' => 'dashboard.pages', 'uses' => 'RouteController@showPages']);
 //

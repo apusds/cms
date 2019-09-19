@@ -64,6 +64,17 @@ class RouteController extends Controller
 
     // End [Users]
 
+    // Serve [Event Page]
+
+    public function showEvent($name) {
+        $event = Event::all()->where('identifier', trim(strtolower($name)))->first();
+        if (!$event) return view('errors.404');
+
+        return view('layouts.website.event', ['data' => $event]);
+    }
+
+    // Serve [Event Page]
+
     // [Pages]
     public function showPages() {
         return view('admin.pages.index');

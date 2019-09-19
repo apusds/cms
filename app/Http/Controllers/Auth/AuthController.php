@@ -31,7 +31,7 @@ class AuthController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect()->intended(route('login'));
+        return redirect()->intended(route('admin'));
     }
 
     public function register(Request $request) {
@@ -104,7 +104,7 @@ class AuthController extends Controller
 
         if ($result) {
             auth()->logout();
-            return redirect(route('login'))->with('message', 'Please login with your new Password!');
+            return redirect(route('admin'))->with('message', 'Please login with your new Password!');
         } else {
             return back()->with('error', 'Unable to update your Password rn!');
         }
