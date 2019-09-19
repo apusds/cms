@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,10 @@ class MemberController extends Controller
         ]);
 
         if (!$validate) return back()->with('error', 'Malformed Request!');
+
+        if (Member::all()->where('email', trim(strtolower($request->input('email'))))) {
+            return back()->with('alert', 'You already sent an Application. Please wait patiently :O');
+        }
 
         $result = DB::table(env('DB_MEMBER'))
             ->insert([

@@ -51,27 +51,25 @@
                     <li class="{{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.events') }}">Events</a>
                     </li>
-                    <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.users') }}">Users</a>
-                    </li>
-{{--                    <li class="{{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.pages') }}">Pages</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.templates') }}">Templates</a>--}}
-{{--                    </li>--}}
-                    <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.roles') }}">Roles</a>
-                    </li>
                     <li class="{{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.website') }}">Website</a>
-                    </li>
-                    <li class="{{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.teams') }}">Teams</a>
                     </li>
                     <li class="{{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.gallery') }}">Gallery</a>
                     </li>
+
+                    @if (Auth::user()->isSuperAdmin())
+                        <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard.users') }}">Users</a>
+                        </li>
+                        <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard.roles') }}">Roles</a>
+                        </li>
+                        <li class="{{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard.teams') }}">Teams</a>
+                        </li>
+                    @endif
+
                     <li>
                         <a href="{{ route('logout') }}">Logout</a>
                     </li>
@@ -102,27 +100,24 @@
                                 <li class="nav-item {{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
                                 </li>
-                                <li class="nav-item {{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('dashboard.users') }}">Users</a>
-                                </li>
-{{--                                <li class="nav-item {{ Request::routeIs('dashboard.pages') || Request::routeIs('dashboard.pages.*') ? 'active' : '' }}">--}}
-{{--                                    <a class="nav-link" href="{{ route('dashboard.pages') }}">Pages</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item {{ Request::routeIs('dashboard.templates') || Request::routeIs('dashboard.templates.*') ? 'active' : '' }}">--}}
-{{--                                    <a class="nav-link" href="{{ route('dashboard.templates') }}">Templates</a>--}}
-{{--                                </li>--}}
-                                <li class="nav-item {{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('dashboard.roles') }}">Roles</a>
-                                </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.website') }}">Website</a>
-                                </li>
-                                <li class="nav-item {{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('dashboard.teams') }}">Teams</a>
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.gallery') }}">Gallery</a>
                                 </li>
+
+                                @if (Auth::user()->isSuperAdmin())
+                                    <li class="nav-item {{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{ route('dashboard.users') }}">Users</a>
+                                    </li>
+                                    <li class="nav-item {{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{ route('dashboard.roles') }}">Roles</a>
+                                    </li>
+                                    <li class="nav-item {{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{ route('dashboard.teams') }}">Teams</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
