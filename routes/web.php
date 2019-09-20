@@ -129,6 +129,10 @@ Route::group(['middleware' => ['superadmin', 'auth']], function () {
 
     /** Delete [Teams] */
     Route::get('/dashboard/teams/{id}/delete', ['as' => 'dashboard.teams.delete', 'uses' => 'Team\TeamController@removeFromTeams']);
+
+    /** Edit [Teams] */
+    Route::get('/dashboard/teams/{id}/edit', ['as' => 'dashboard.teams.edit', 'uses' => 'RouteController@showTeamsEdit']);
+    Route::post('/dashboard/teams/{id}/edit', ['as' => 'dashboard.teams.edit', 'uses' => 'Team\TeamController@update']);
     // ***************************************************************
 
 });

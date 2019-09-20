@@ -60,5 +60,30 @@ class TeamController extends Controller
         }
     }
 
+    public function update(Request $request, $id) {
+        $validate = Validator::make($request->all(), [
+            'name' => 'required',
+            'role' => 'required',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'linkedln' => 'required',
+        ]);
+
+        if (!$validate) return back()->with('error', 'Malformed Request');
+
+        $result = DB::table(env('DB_TEAM'))
+            ->where('id', $id)
+            ->update([
+                'name' => trim($request->input('name')),
+                'role' => trim($request->input('role')),
+                'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
+                'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
+                'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
+            ]);
+
+        return $result
+            ? back()->with('message', 'Done! Committee Member has been updated')
+            : back()->with('error', 'Unable to update Committee Member\' details!');
+    }
 
 }

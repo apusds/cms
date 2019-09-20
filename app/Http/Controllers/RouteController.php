@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\{Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
+use App\{Committee, Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
 
 class RouteController extends Controller
 {
@@ -132,6 +132,11 @@ class RouteController extends Controller
 
     public function showTeamsCreate() {
         return view('admin.teams.create');
+    }
+
+    public function showTeamsEdit($id) {
+        if (!(Committee::all()->find($id))) return back()->with('error', 'This Member is not found!');
+        return view('admin.teams.edit', ['data' => Committee::all()->find($id)]);
     }
 
     public function showGallery() {

@@ -22,6 +22,7 @@
                             <h5 class="card-title">{{ $committee->name }}</h5>
                             <p class="card-text">{{ $committee->role }}</p>
                             <a href="{{ route('dashboard.teams.delete', ['id' => $committee->id]) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('dashboard.teams.edit', ['id' => $committee->id]) }}" class="btn btn-primary">Edit</a>
                         </div>
                     </div>
                 </div>
