@@ -226,11 +226,13 @@
                         <h4>{{ $committee->name }}</h4>
                         <span>{{ $committee->role }}</span>
                         <div class="social">
-                          @if (isset($committee->facebook))
+                          @if ($committee->facebook !== null)
                             <a href="{{ $committee->facebook }}"><i class="fa fa-facebook"></i></a>
-                          @elseif (isset($committee->twitter))
+                          @endif
+                          @if ($committee->twitter !== null)
                             <a href="{{ $committee->twitter }}"><i class="fa fa-twitter"></i></a>
-                          @elseif (isset($committe->linkedln))
+                          @endif
+                           @if ($committee->linkedln !== null)
                             <a href="{{ $committee->linkedln }}"><i class="fa fa-linkedin"></i></a>
                           @endif
                         </div>
