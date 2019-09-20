@@ -119,6 +119,12 @@ class RouteController extends Controller
 
     // End [Roles]
 
+    // [Members]
+    public function showMembers() {
+        return view('admin.members.index');
+    }
+    // End [Members]
+
     // [Global Settings]
     public function showWebsite() {
         return view('admin.website.index', [
