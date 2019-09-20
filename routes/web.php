@@ -85,6 +85,13 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/gallery/{id}/delete', ['as' => 'dashboard.gallery.delete', 'uses' => 'Event\EventController@removeFromGallery']);
     // ***************************************************************
 
+
+
+
+
+    // ***************************************************************
+    /** [Members] */
+    Route::get('/dashboard/members', ['as' => 'dashboard.members', 'uses' => 'RouteController@showMembers']);
 });
 
 // Special Perms for SuperAdmin Only
