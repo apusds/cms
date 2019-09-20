@@ -47,11 +47,15 @@ class WebsiteController extends Controller
 
         if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
 
-        Mail::send('layouts.email.index', ['data' => $request->input()], function(Message $message) {
-            $message->to('studentdevelopersociety@gmail.com')->cc('igadget28@gmail.com');
-            $message->from('system@rtgnetworks.com', 'CMS');
-            $message->subject('[Contact Form @ CMS]');
-        });
+        try {
+            Mail::send('layouts.email.index', ['data' => $request->input()], function (Message $message) {
+                $message->to('studentdevelopersociety@gmail.com')->cc('igadget28@gmail.com');
+                $message->from('system@rtgnetworks.com', 'CMS');
+                $message->subject('[Contact Form @ CMS]');
+            });
+        } catch (\Exception $exception) {
+            return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
+        }
 
         return back()->with('alert', "Done! We will get back to you soon!");
     }
