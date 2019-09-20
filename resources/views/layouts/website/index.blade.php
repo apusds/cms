@@ -8,8 +8,8 @@
       <meta content="APU Student Developer Society" name="description">
 
       <!-- Favicons -->
-      <link href="img/favicon.png" rel="icon">
-      <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+      <link href="{{ asset('img/favicon.png') }}" rel="icon">
+      <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
       <!-- Faggot<li><a href="#partners">Partners</a></li> Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
