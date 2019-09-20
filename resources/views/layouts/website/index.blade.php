@@ -220,7 +220,7 @@
               @foreach (\App\Committee::all() as $committee)
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                   <div class="member">
-                    <img src="{{ asset(env('PUBLIC_PATH') . '/committee/' . $committee->file) }}" class="img-fluid" alt="">
+                    <img src="{{ asset(env('PUBLIC_PATH') . '/committee/' . $committee->file) }}" class="img-fluid" alt="" style="height: 250px !important;">
                     <div class="member-info">
                       <div class="member-info-content">
                         <h4>{{ $committee->name }}</h4>
