@@ -144,14 +144,14 @@
         <section id="dsc">
           <div class="container">
             <div class="dsc-content">
-              <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="DSC APU" style="width: 300px">
+              <img src="{{ asset('img/dscapu-full.png') }}" alt="DSC APU" style="width: 300px">
               <h3>{{ $data->dsc_apu }}</h3>
               <div>
                 <a href="#" class="btn-learn-more">
                   <span class="wave1"></span>
                   <span class="wave2"></span>
-                  <span class="wave4"></span>
                   <span class="wave3"></span>
+                  <span class="wave4"></span>
                   Learn More
                 </a>
               </div>
@@ -274,7 +274,7 @@
                                   Collaborate and build cool projects
                               </li>
                               <li>
-                                  Access to our Secret Base :)
+                                  Access to our Secret Base &#1F609
                               </li>
                           </ul>
                       </div>
