@@ -53,6 +53,6 @@
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
-        <a href="{{ route('dashboard.teams') }}" class="btn btn-success">Reset Fields</a>
+        <a href="{{ route('dashboard.teams.create') }}" class="btn btn-success">Reset Fields</a>
     </form>
 @stop
