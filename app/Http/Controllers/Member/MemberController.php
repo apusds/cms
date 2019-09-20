@@ -39,10 +39,10 @@ class MemberController extends Controller
                 'email' => trim(strtolower($request->input('email'))),
                 'name' => trim(strtoupper($request->input('name'))),
                 'mobile' => trim($request->input('mobile')),
-                'student_id' => trim($request->input('mobile')),
+                'student_id' => trim($request->input('tp')),
                 'intake' => trim($request->input('intake')),
                 'skills' => implode(", ", $request->input('skills')),
-                'found-us' => $data[trim($request->input('check'))],
+                'found_us' => $data[trim($request->input('check'))],
                 'created_at' => new \DateTime()
             ]);
 
