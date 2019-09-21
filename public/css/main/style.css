@@ -214,27 +214,27 @@ h6 {
   background: #44ce6f;
 }
 
-@media screen and (max-width: 700px) {
-    #header .btn-join {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        margin: 2px 39px;
-        padding: 8px 32px;
-        border-radius: 4px;
-        transition: all 0.25s ease-in;
-        color: #fff;
-        background: #44ce6f;
-    }
+@media (max-width: 700px) {
+  #header .btn-join {
+    margin: 2px 39px;
+    color: #44ce6f;
+    background: transparent;
+  }
+
+  #header .btn-join:hover,
+  #header .btn-join:focus {
+    background-image: none;
+    transition: none;
+    color: #ff9029;
+  }
 }
 
-#header .btn-join:hover,
-#header .btn-join:focus {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  animation: slidebg 0.2s linear;
+@media (min-width: 900px) {
+  #header .btn-join:hover,
+  #header .btn-join:focus {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    animation: slidebg 0.2s linear;
+  }
 }
 
 @keyframes slidebg {
@@ -1425,6 +1425,10 @@ h6 {
 }
 
 @media (max-width: 767px) {
+  #main .container {
+    padding: 30px;
+  }
+
   #intro {
     height: auto;
     padding: 80px 0 60px 0;
@@ -1435,7 +1439,7 @@ h6 {
   }
 
   #intro .intro-img {
-    width: 80%;
+    width: 60%;
   }
 
   #intro .intro-info {
