@@ -561,7 +561,7 @@ h6 {
 }
 
 #about .about-content {
-  padding-top: 40px;
+  padding-top: 5px;
 }
 
 #about .about-content h2 {
@@ -645,10 +645,6 @@ h6 {
   transition: transform 0.5s ease-in-out;
 }
 
-#dsc .dsc-content {
-  padding-top: 40px;
-}
-
 #dsc .dsc-content h2 {
   color: #413e66;
   font-family: "Montserrat", sans-serif;
@@ -659,6 +655,7 @@ h6 {
   color: #696592;
   font-weight: 400;
   font-size: 18px;
+  margin-top: 10px;
 }
 
 #dsc .btn-learn-more {
@@ -669,20 +666,20 @@ h6 {
   letter-spacing: 1px;
   display: inline-block;
   padding: 10px 32px;
+  margin-top: 10px;
   border-radius: 4px;
-  border: 2px solid black;
+  border: 2px solid rgb(53, 134, 215);
   transition: all 1s ease;
-  color: black;
+  color: rgb(53, 134, 215);
   overflow: hidden;
   position: relative;
   background: transparent;
 }
 
 #dsc .btn-learn-more span {
+  top: calc(2em - 0.25px);
   position: absolute;
   content: '';
-  top: calc(2em - 0.25px);
-  left: 50%;
   width: 20em;
   height: 20em;
   margin-left: -10em;
@@ -701,23 +698,21 @@ h6 {
 }
 
 #dsc .wave1 {
+  left: 50%;
   background: rgb(253, 72, 72);
   animation: smallwave 3s infinite linear;
 }
 
 #dsc .wave2 {
+  left: 45%;
   background: rgb(255, 255, 98);
   animation: smallwave 4s infinite linear;
 }
 
 #dsc .wave3 {
+  left: 55%;
   background: rgb(63, 180, 63);
   animation: smallwave 5s infinite linear;
-}
-
-#dsc .wave4 {
-  background: rgb(53, 134, 215);
-  animation: smallwave 6s infinite linear;
 }
 
 @keyframes smallwave {
@@ -738,28 +733,30 @@ h6 {
 /* Join Us Section
 --------------------------------*/
 
-#join {
+#membershipModal {
   padding: 60px 0 40px 0;
 }
 
-#join .box {
+#membershipModal .content {
+  padding: 10px 40px ;
+  background: #f8fcff;
+}
+
+#membershipModal .box {
   padding: 30px;
+  margin-bottom: 20px;
   position: relative;
-  overflow: hidden;
   border-radius: 10px;
-  margin: 0 10px 40px 10px;
   background: #fff;
   box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
   transition: all 0.3s ease-in-out;
-  text-align: center;
 }
 
-#join .box:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+#membershipModal span {
+  font-size: 15px;
 }
 
-#join .icon {
+#membershipModal .icon {
   margin: 0 auto 15px auto;
   padding-top: 12px;
   display: inline-block;
@@ -769,32 +766,102 @@ h6 {
   height: 60px;
 }
 
-#join .icon i {
+#membershipModal .icon i {
   font-size: 36px;
   line-height: 1;
 }
 
-#join .title {
+#membershipModal .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-#join .title a {
+#membershipModal .title a {
   color: #111;
 }
 
-#join .box:hover .title a {
-  color: #1bb1dc;
-}
-
-#join .description {
+#membershipModal .description {
   font-size: 14px;
   line-height: 28px;
   margin-bottom: 0;
   text-align: left;
 }
 
+#membershipModal .material-check, 
+#membershipModal .material-radio {
+  background-color: #fff;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+}
+
+#membershipModal .material-check label, 
+#membershipModal .material-radio label {
+  padding: 10px 20px;
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: #3C454C;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 200ms ease-in;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 1px 10px 0 rgba(68, 88, 144, 0.1);
+}
+
+#membershipModal .material-check label:after, 
+#membershipModal .material-radio label:after {
+  width: 20px;
+  height: 20px;
+  content: '';
+  border: 2px solid #D1D7DC;
+  background-color: #fff;
+  z-index: 2;
+  float: right;
+  transform: translateY(10%);
+  cursor: pointer;
+  transition: all 0.5s;
+  transform-origin: center;
+}
+
+#membershipModal .material-check label:after {
+  border-radius: 15%;
+}
+
+#membershipModal .material-radio label:after {
+  border-radius: 50%;
+}
+
+#membershipModal .material-check input, 
+#membershipModal .material-radio input {
+  width: 32px;
+  height: 32px;
+  order: 1;
+  z-index: 2;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+#membershipModal .material-check input:checked ~ label,
+#membershipModal .material-radio input:checked ~ label {
+  color: #fff;
+  background-color: #44ce6f;
+  transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+#membershipModal .material-check input:checked ~ label:after,
+#membershipModal .material-radio input:checked ~ label:after {
+  transform: scale(0.5, 0.5);
+  opacity: 0;
+}
 
 /* Call To Action Section
 --------------------------------*/
@@ -1384,6 +1451,10 @@ h6 {
   .section-header p {
     width: 100%;
   }
+
+  #membershipModal .content {
+    padding: 25px ;
+  }  
 }
 
 @media (max-width: 574px) {

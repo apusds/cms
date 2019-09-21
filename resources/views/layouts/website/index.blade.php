@@ -144,14 +144,13 @@
         <section id="dsc">
           <div class="container">
             <div class="dsc-content">
-              <img src="{{ asset('img/dscapu-full.png') }}" alt="DSC APU" style="width: 300px">
+              <img src="{{ asset('img/dscapu-full.png') }}" alt="DSC APU" style="width: 400px">
               <h3>{{ $data->dsc_apu }}</h3>
               <div>
                 <a href="#" class="btn-learn-more">
-                  <span class="wave1"></span>
-                  <span class="wave2"></span>
                   <span class="wave3"></span>
-                  <span class="wave4"></span>
+                  <span class="wave2"></span>
+                  <span class="wave1"></span>
                   Learn More
                 </a>
               </div>
@@ -257,10 +256,12 @@
                   <!-- Modal Header -->
                   <div class="modal-header">
                       <h4 class="modal-title">Membership Form</h4>
+                      <button type="button" class="btn btn-secondary float-right" data-dismiss="modal"><i class="fa fa-times-circle-o"></i></button>
                   </div>
 
                   <!-- Modal body -->
-                  <div class="modal-body">
+                  <div class="modal-body content">
+                    <div class="box">
                       <h3>Benefits</h3>
                       <div>
                           <ul>
@@ -274,11 +275,12 @@
                                   Collaborate and build cool projects
                               </li>
                               <li>
-                                  Access to our Secret Base &#1F609
+                                  Access to our Secret Base #1F609
                               </li>
                           </ul>
                       </div>
-                      <b><i>Note: Open to APU Students only</i></b>
+                    </div>
+                      <span><b><i>Note: Open to APU Students only</i></b></span>
 
                       <hr />
 
@@ -286,117 +288,116 @@
                           {{ csrf_field() }}
 
                           <div class="form-group">
-                              <label for="email">Email Address (<span class="red">*</span>)</label>
+                              <label for="email">Email Address <span class="red">*</span></label>
                               <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                           </div>
 
                           <div class="form-group">
-                              <label for="name">Name (<span class="red">*</span>)</label>
+                              <label for="name">Name <span class="red">*</span></label>
                               <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
                           </div>
 
                           <div class="form-group">
-                              <label for="mobile">Mobile (<span class="red">*</span>)</label>
+                              <label for="mobile">Mobile <span class="red">*</span></label>
                               <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
                           </div>
 
                           <div class="form-group">
-                              <label for="tp">TP Number (<span class="red">*</span>)</label>
+                              <label for="tp">TP Number <span class="red">*</span></label>
                               <input type="text" class="form-control" id="tp" name="tp" placeholder="Enter TP Number" required>
                               <small style="padding-left: 15px;" class="red" id="tpError"></small>
                           </div>
 
                           <div class="form-group">
-                              <label for="intake">Intake (<span class="red">*</span>)</label>
+                              <label for="intake">Intake <span class="red">*</span></label>
                               <input type="text" class="form-control" id="intake" name="intake" placeholder="Enter Intake" required>
                               <small style="padding-left: 15px;" class="red" id="intakeError"></small>
                           </div>
 
-                          <label for="skills">Skills (<span class="red">*</span>)</label>
+                          <label for="skills">Skills <span class="red">*</span></label>
 
-                          <div class="form-check">
+                          <div class="">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
                               <label class="form-check-label" for="beginner">
                                   Beginner
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
                               <label class="form-check-label" for="web dev">
                                   Web Dev
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
                               <label class="form-check-label" for="backend">
                                  Backend
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
                               <label class="form-check-label" for="android">
                                   Android
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
                               <label class="form-check-label" for="deployment">
                                   Deployment
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
                               <label class="form-check-label" for="database">
                                   Database
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-check">
                               <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
                               <label class="form-check-label" for="networking">
                                   Networking
                               </label>
                           </div>
+                          </div>
 
                           <br>
 
-                          <label for="find-us">How did you find us? (<span class="red">*</span>)</label>
+                          <label for="find-us">How did you find us? <span class="red">*</span></label>
 
-                          <div class="form-check">
+                          <div class="material-radio">
                               <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
                               <label class="form-check-label" for="facebook">
-                                  Facebook
+                                  Social Media
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-radio">
                               <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
                               <label class="form-check-label" for="heard">
-                                  Heard from friend
+                                  Heard From Friend
                               </label>
                           </div>
 
-                          <div class="form-check">
+                          <div class="material-radio">
                               <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
                               <label class="form-check-label" for="attended">
-                                  Attended our Event/Workshop
+                                  Attended Event/Workshop
                               </label>
                           </div>
-
-                          <br>
-
-                          <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+                          
                       </form>
                   </div>
 
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
                   </div>
 
               </div>
