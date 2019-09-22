@@ -1189,9 +1189,14 @@ h6 {
   font-size: 15px;
 }
 
-#membershipModal .material-check, 
+#membershipModal .material-check {
+  display: block;
+  margin: 5px 0;
+  position: relative;
+  padding: 0 10px;
+}
+
 #membershipModal .material-radio {
-  background-color: #fff;
   display: block;
   margin: 10px 0;
   position: relative;
@@ -1199,7 +1204,7 @@ h6 {
 
 #membershipModal .material-check label, 
 #membershipModal .material-radio label {
-  padding: 10px 20px;
+  padding: 10px 15px;
   width: 100%;
   display: block;
   text-align: left;

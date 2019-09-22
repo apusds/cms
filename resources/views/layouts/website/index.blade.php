@@ -282,7 +282,7 @@
                 </div>
                 <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionJoin">
                   <div class="card-body" style="background-image: url(https://media.giphy.com/media/Q9aBxHn9fTqKs/giphy.gif); height: 250px;">
-                    Web development, Mobile app, Meme automation, AI girlfriend......
+                    <span style="color: white;">Web development, Flutter mobile app</span>, Meme automation, AI girlfriend......
                   </div>
                 </div>
               </div>
@@ -362,61 +362,75 @@
 
                           <label for="skills">Skills <span class="red">*</span></label>
 
-                          <div class="">
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
-                              <label class="form-check-label" for="beginner">
-                                  Beginner
-                              </label>
-                          </div>
+                          <div class="row">
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
+                                <label class="form-check-label" for="beginner">
+                                    Beginner
+                                </label>
+                            </div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
-                              <label class="form-check-label" for="web dev">
-                                  Web Dev
-                              </label>
-                          </div>
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
+                                <label class="form-check-label" for="web dev">
+                                    Web Dev
+                                </label>
+                            </div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
-                              <label class="form-check-label" for="backend">
-                                 Backend
-                              </label>
-                          </div>
+                            <div class="w-100"></div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
-                              <label class="form-check-label" for="android">
-                                  Android
-                              </label>
-                          </div>
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
+                                <label class="form-check-label" for="backend">
+                                  Backend
+                                </label>
+                            </div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
-                              <label class="form-check-label" for="deployment">
-                                  Deployment
-                              </label>
-                          </div>
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
+                                <label class="form-check-label" for="android">
+                                    Android
+                                </label>
+                            </div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
-                              <label class="form-check-label" for="database">
-                                  Database
-                              </label>
-                          </div>
+                            <div class="w-100"></div>
 
-                          <div class="material-check">
-                              <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
-                              <label class="form-check-label" for="networking">
-                                  Networking
-                              </label>
-                          </div>
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
+                                <label class="form-check-label" for="deployment">
+                                    Deployment
+                                </label>
+                            </div>
+
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
+                                <label class="form-check-label" for="database">
+                                    Database
+                                </label>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="material-check col">
+                                <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
+                                <label class="form-check-label" for="networking">
+                                    Networking
+                                </label>
+                            </div>
+
+                            <div class="material-check col invisible">
+                                <input class="form-check-input">
+                                <label class="form-check-label">
+                                </label>
+                            </div>
+
                           </div>
 
                           <br>
 
                           <label for="find-us">How did you find us? <span class="red">*</span></label>
 
+                          <div>
                           <div class="material-radio">
                               <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
                               <label class="form-check-label" for="facebook">
@@ -436,6 +450,7 @@
                               <label class="form-check-label" for="attended">
                                   Attended Event/Workshop
                               </label>
+                          </div>
                           </div>
                           <hr>
                           <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
