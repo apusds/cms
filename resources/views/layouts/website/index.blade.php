@@ -543,7 +543,7 @@
             &copy; Copyright <strong>APU SDS</strong>. All Rights Reserved
           </div>
           <div class="credits">
-            Designed by <a href="https://rtgnetworks.com/">Raeveen Pasupathy</a>
+            Designed by <a href="https://rtgnetworks.com/" target="_blank">Raeveen Pasupathy</a> and <a href="https://www.linkedin.com/in/almondheng/" target="_blank">Almond Heng</a>
           </div>
         </div>
       </footer>

@@ -539,7 +539,7 @@ h6 {
 }
 
 .section-dark {
-  background: cornsilk;
+  background: ghostwhite;
 }
 
 .section-colorful-wakiki {
@@ -1102,7 +1102,7 @@ h6 {
   margin-bottom: 0;
   text-align: left;
   background-size: cover;
-  background-position: center;
+  background-position-x: center;
   height: auto;
 }
 
@@ -1146,7 +1146,7 @@ h6 {
   justify-content: center;
 }
 
-.btn-rainbow:hover{
+.btn-rainbow:hover {
   color: black;
   background-image: linear-gradient(
      to right, 
@@ -1169,7 +1169,7 @@ h6 {
 
 @keyframes slidebg {
   to {
-    background-position:20vw;
+    background-position:18.5vw;
   }
 }
 
