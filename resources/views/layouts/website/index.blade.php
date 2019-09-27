@@ -226,13 +226,16 @@
                         <span>{{ $committee->role }}</span>
                         <div class="social">
                           @if ($committee->facebook !== null)
-                            <a href="{{ $committee->facebook }}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ $committee->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
                           @endif
                           @if ($committee->twitter !== null)
-                            <a href="{{ $committee->twitter }}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ $committee->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
                           @endif
-                           @if ($committee->linkedln !== null)
-                            <a href="{{ $committee->linkedln }}"><i class="fa fa-linkedin"></i></a>
+                          @if ($committee->linkedln !== null)
+                              <a href="{{ $committee->linkedln }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                          @endif
+                          @if($committee->instagram !== null)
+                              <a href="{{ $committee->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
                           @endif
                         </div>
                       </div>
