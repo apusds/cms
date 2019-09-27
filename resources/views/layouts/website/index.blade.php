@@ -91,7 +91,7 @@
                   <li class="drop-down"><a href="#">DSC Events</a>
                     <ul>
                         @foreach($dscEvents as $dsc)
-                            <li><a href="e/{{ $ae->identifier }}">{{ $dsc->title }}</a></li>
+                            <li><a href="e/{{ $dsc->identifier }}">{{ $dsc->title }}</a></li>
                         @endforeach
                     </ul>
                   </li>
