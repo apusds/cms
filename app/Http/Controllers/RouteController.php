@@ -70,7 +70,8 @@ class RouteController extends Controller
         $event = Event::all()->where('identifier', trim(strtolower($name)))->first();
         if (!$event) return view('errors.404');
 
-        return view('layouts.website.event', ['data' => $event]);
+        return view('errors.404');
+//        return view('layouts.website.event', ['data' => $event]);
     }
 
     // Serve [Event Page]

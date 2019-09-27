@@ -84,7 +84,7 @@
                   <li class="drop-down"><a href="#">Past</a>
                     <ul>
                     @foreach($expiredEvents as $ee)
-                        <li><a href="e/{{ $ae->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
+                        <li><a href="e/{{ $ee->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
                     @endforeach
                     </ul>
                   </li>
