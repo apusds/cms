@@ -23,12 +23,14 @@ class APIController extends Controller
         $member = Member::all()->where('email', $email)->first();
         if ($member == null)  {
             return response()->json([
+                'status' => 'OK',
                 'valid' => 'false',
                 'message' => "{$email} is not a valid Member."
             ]);
         }
 
         return response()->json([
+            'status' => 'OK',
             'valid' => 'true',
             'name' => $member->name
         ]);
