@@ -33,17 +33,22 @@
 
         <div class="form-group">
             <label for="facebook">Facebook</label>
-            <input type="text" class="form-control" id="facebook" name="facebook" value="{{ $data->facebook }}" placeholder="Example: https://facebook.com/raeveen">
+            <input type="text" class="form-control" id="facebook" name="facebook" value="{{ $data->facebook }}" placeholder="Example: Facebook Link">
         </div>
 
         <div class="form-group">
             <label for="twitter">Twitter</label>
-            <input type="text" class="form-control" id="twitter" name="twitter" value="{{ $data->twitter }}" placeholder="Example: https://twitter.com/raeveen_28">
+            <input type="text" class="form-control" id="twitter" name="twitter" value="{{ $data->twitter }}" placeholder="Example: Twitter Link">
+        </div>
+
+        <div class="form-group">
+            <label for="instagram">Instagram</label>
+            <input type="text" class="form-control" id="instagram" name="instagram" value="{{ $data->instagram }}" placeholder="Example: Instagram Link">
         </div>
 
         <div class="form-group">
             <label for="linkedln">Linkedln</label>
-            <input type="text" class="form-control" id="linkedln" name="linkedln" value="{{ $data->linkedln }}" placeholder="Example: https://www.linkedin.com/in/raeveen-p/">
+            <input type="text" class="form-control" id="linkedln" name="linkedln" value="{{ $data->linkedln }}" placeholder="Example: Linkedln Link">
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Update</button>

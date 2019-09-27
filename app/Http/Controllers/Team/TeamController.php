@@ -37,6 +37,7 @@ class TeamController extends Controller
                 'file' => $fileNameToStore,
                 'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
                 'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
+                'instagram' => trim($request->input('instagram')) == "" ? null : trim($request->input('instagram')),
                 'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
             ]);
 
@@ -63,10 +64,7 @@ class TeamController extends Controller
     public function update(Request $request, $id) {
         $validate = Validator::make($request->all(), [
             'name' => 'required',
-            'role' => 'required',
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'linkedln' => 'required',
+            'role' => 'required'
         ]);
 
         if (!$validate) return back()->with('error', 'Malformed Request');
@@ -78,6 +76,7 @@ class TeamController extends Controller
                 'role' => trim($request->input('role')),
                 'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
                 'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
+                'instagram' => trim($request->input('instagram')) == "" ? null : trim($request->input('instagram')),
                 'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
             ]);
 
