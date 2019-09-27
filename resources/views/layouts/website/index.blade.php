@@ -164,7 +164,7 @@
                     <h2>Our Partners</h2>
                 </header>
                 <div class="owl-carousel partners-carousel">
-                    <img src="{{ asset('img/DSC_APU_Logo.png') }}" alt="">
+                    <img src="{{ asset('img/dscmy.png') }}" alt="">
                 </div>
             </div>
         </section>
@@ -474,7 +474,7 @@
 
             <div class="row">
 
-              <div class="col-lg-6">
+              <div class="col footer-info">
 
                 <div class="row">
 
@@ -508,7 +508,7 @@
 
               </div>
 
-              <div class="col-lg-6">
+              <div class="col footer-info">
 
                 <div class="form">
 
@@ -534,6 +534,11 @@
                   </form>
                 </div>
 
+              </div>
+
+              <div class="col footer-info">
+                <h4>Our Discord Guild</h4>
+                <iframe src="https://discordapp.com/widget?id=625938559819317268&theme=dark" height="400" allowtransparency="true" frameborder="0"></iframe>
               </div>
 
             </div>

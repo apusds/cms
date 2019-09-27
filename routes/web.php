@@ -14,6 +14,9 @@ Route::post('/api/member/submit', ['as' => 'membership.post', 'uses' => 'Member\
 /** Inquiry [Form] */
 Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\WebsiteController@inquire']);
 
+/** Member [Verification] */
+Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
+
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
