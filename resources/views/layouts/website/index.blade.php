@@ -7,7 +7,17 @@
       <meta content="{{ $data->keyword }}" name="keywords">
       <meta content="APU Student Developer Society" name="description">
 
-      <!-- Favicons -->
+        <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148897965-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-148897965-1');
+      </script>
+
+        <!-- Favicons -->
       <link href="{{ asset('img/favicon.png') }}" rel="icon">
       <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
