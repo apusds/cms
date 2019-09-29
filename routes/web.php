@@ -15,7 +15,9 @@ Route::post('/api/member/submit', ['as' => 'membership.post', 'uses' => 'Member\
 Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\WebsiteController@inquire']);
 
 /** Member [Verification] */
-Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
+Route::group(['middleware', ['cors']], function() {
+    Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
+});
 
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
