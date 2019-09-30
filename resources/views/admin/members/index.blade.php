@@ -4,7 +4,7 @@
 
 @section('content')
     <div>
-        <h2 class="float-left">Members</h2>
+        <h2 class="float-left">Members ({{ count(\App\Member::all()) }})</h2>
     </div>
 
 
