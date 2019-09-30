@@ -34,4 +34,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure your Pull Request is satisfying the required fields in the PR Guideline/Template. 
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the **GNU General Public License v3.0** License - see the [LICENSE](LICENSE) file for details
