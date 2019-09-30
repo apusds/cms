@@ -22,9 +22,11 @@ php artisan serve
 
 Now, the CMS should be live on `http://127.0.0.1:8000`!
 
-Default Credentials:
-Username: `root`
-Password: `password`
+<u>Default Credentials:</u>
+<br>
+<b>Username:</b> `root`
+<br>
+<b>Password:</b> `password`
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
