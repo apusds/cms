@@ -1,14 +1,35 @@
-# CMS @ Student Developer Society
+# CMS @ APU SDS / DSC APU
 
-### <u>Installation</u>
-- `git clone git@github.com:InspectorGadget/sds-cms.git`
-- `cd sds-cms`
-- `composer install`
-- `cp .env.example .env`
-- Update MySQL Details in `.env`
-- `php artisan key:generate`
-- `php artisan migrate`
-- `php artisan db:seed`
-- `php artisan storage:link`
-- `php artisan serve`
-- Open Browser and go to `http://127.0.0.1:8000`
+CMS is purely built on Modern Technologies like [Bootstrap](https://getboostrap.com), [Laravel Framework](https://laravel.com/), [NodeJS](https://nodejs.org/en/) and more.
+
+## Installation
+
+Use the PHP package manager [Composer](https://getcomposer.org/download/) to install this CMS.
+
+```bash
+git clone https://github.com/APU-SDS/cms.git
+cd cms/
+cp .env.example .env
+nano .env OR vim .env
+Edit MySQL Settings according to your Database setup locally
+composer install
+php artisan key:generate
+chmod -R o+w storage/
+php artisan migrate --seed
+php artisan storage:link
+php artisan serve
+```
+
+Now, the CMS should be live on `http://127.0.0.1:8000`!
+
+Default Credentials:
+Username: `root`
+Password: `password`
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure your Pull Request is satisfying the required fields in the PR Guideline/Template. 
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
