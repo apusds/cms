@@ -51,4 +51,12 @@ class MemberController extends Controller
             : back()->with('alert', 'Unable to submit your Form');
     }
 
+    public function joinedToday() {
+        $result = DB::table(env('DB_MEMBER'))
+            ->where(DB::raw('DATE(created_at)'), '=', '19-10-01')
+            ->get();
+
+        return $result;
+    }
+
 }

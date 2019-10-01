@@ -3,7 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\{Committee, Event, Http\Controllers\Event\EventController, Page, Role, Template, User, Website};
+use App\{Committee,
+    Event,
+    Http\Controllers\Event\EventController,
+    Http\Controllers\Member\MemberController,
+    Page,
+    Role,
+    Template,
+    User,
+    Website};
 
 class RouteController extends Controller
 {
@@ -22,7 +30,9 @@ class RouteController extends Controller
     }
 
     public function showDashboard() {
-        return view('admin.index');
+        return view('admin.index', [
+            'joinedToday' => app(MemberController::class)->joinedToday()
+        ]);
     }
 
     public function showProfile() {

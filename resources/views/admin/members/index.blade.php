@@ -7,10 +7,13 @@
         <h2 class="float-left">Members ({{ count(\App\Member::all()) }})</h2>
     </div>
 
-
     <br><br>
 
     <hr />
+
+    <br>
+    <input type="text" id="myInput" class="form-control border border-info" placeholder="Filter here..">
+    <br>
 
     <div>
         <table class="table table-responsive-sm">
@@ -23,7 +26,7 @@
                 <th>Action</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
             @foreach (\App\Member::all() as $member)
                 <tr>
                     <td>{{ $member->email }}</td>
@@ -61,4 +64,16 @@
             </tbody>
         </table>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 @stop
