@@ -53,7 +53,7 @@ class MemberController extends Controller
 
     public function joinedToday() {
         $result = DB::table(env('DB_MEMBER'))
-            ->where(DB::raw('DATE(created_at)'), '=', '19-10-01')
+            ->where(DB::raw('DATE(created_at)'), '=', date('y-m-d'))
             ->get();
 
         return $result;
