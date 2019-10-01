@@ -566,7 +566,7 @@
 
               <div class="col footer-info">
                 <h4>Our Discord Guild</h4>
-                <iframe src="https://discordapp.com/widget?id=625938559819317268&theme=dark" height="400" allowtransparency="true" frameborder="0"></iframe>
+                <iframe src="https://discordapp.com/widget?id=625938559819317268&theme=dark" height="350" allowtransparency="true" frameborder="0"></iframe>
               </div>
 
             </div>
