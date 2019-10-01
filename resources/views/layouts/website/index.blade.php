@@ -373,6 +373,24 @@
                               <small style="padding-left: 15px;" class="red" id="intakeError"></small>
                           </div>
 
+                          <label for="gender">Gender? <span class="red">*</span></label>
+
+                          <div>
+                              <div class="material-radio">
+                                  <input class="form-check-input" type="checkbox" value="male" id="male" name="gender">
+                                  <label class="form-check-label" for="male">
+                                      Male
+                                  </label>
+                              </div>
+
+                              <div class="material-radio">
+                                  <input class="form-check-input" type="checkbox" value="female" id="female" name="gender">
+                                  <label class="form-check-label" for="female">
+                                      Female
+                                  </label>
+                              </div>
+                          </div>
+
                           <label for="skills">Skills <span class="red">*</span></label>
 
                           <div class="row">
@@ -444,26 +462,26 @@
                           <label for="find-us">How did you find us? <span class="red">*</span></label>
 
                           <div>
-                          <div class="material-radio">
-                              <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
-                              <label class="form-check-label" for="facebook">
-                                  Social Media
-                              </label>
-                          </div>
+                              <div class="material-radio">
+                                  <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
+                                  <label class="form-check-label" for="facebook">
+                                      Social Media
+                                  </label>
+                              </div>
 
-                          <div class="material-radio">
-                              <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
-                              <label class="form-check-label" for="heard">
-                                  Heard From Friend
-                              </label>
-                          </div>
+                              <div class="material-radio">
+                                  <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
+                                  <label class="form-check-label" for="heard">
+                                      Heard From Friend
+                                  </label>
+                              </div>
 
-                          <div class="material-radio">
-                              <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
-                              <label class="form-check-label" for="attended">
-                                  Attended Event/Workshop
-                              </label>
-                          </div>
+                              <div class="material-radio">
+                                  <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
+                                  <label class="form-check-label" for="attended">
+                                      Attended Event/Workshop
+                                  </label>
+                              </div>
                           </div>
                           <hr>
                           <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>

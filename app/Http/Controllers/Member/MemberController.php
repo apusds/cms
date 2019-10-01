@@ -24,6 +24,7 @@ class MemberController extends Controller
             'mobile' => 'required',
             'tp' => 'required|regex:/[tpTP0-9]{6}/g',
             'intake' => 'required|regex:/[ucUC]{2}/g',
+            'gender' => 'required',
             'skills' => 'required',
             'check' => 'required'
         ]);
@@ -31,7 +32,7 @@ class MemberController extends Controller
         if (!$validate) return back()->with('error', 'Malformed Request!');
 
         if (count(Member::all()->where('email', strtolower($request->input('email')))) > 0) {
-            return back()->with('alert', 'You already sent an Application. Please wait patiently :O');
+            return back()->with('alert', 'You are already an APU SDS Member! :D');
         }
 
         $result = DB::table('members')
@@ -41,6 +42,7 @@ class MemberController extends Controller
                 'mobile' => trim($request->input('mobile')),
                 'student_id' => trim($request->input('tp')),
                 'intake' => trim($request->input('intake')),
+                'gender' => $request->input('gender'),
                 'skills' => implode(", ", $request->input('skills')),
                 'found_us' => $data[trim($request->input('check'))],
                 'created_at' => new \DateTime()

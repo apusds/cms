@@ -19,6 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->string('mobile');
             $table->string('student_id');
+            $table->string('gender')->nullable();
             $table->string('intake');
             $table->string('skills');
             $table->string('found_us');

@@ -111,6 +111,10 @@
           $('input[name="check"]').not(this).prop('checked', false);
       });
 
+      $('input[name="gender"]').on('change', function() {
+        $('input[name="gender"]').not(this).prop('checked', false);
+      });
+
       // Intake Filter
       const intakeError = $('#intakeError');
       intakeError.hide();
