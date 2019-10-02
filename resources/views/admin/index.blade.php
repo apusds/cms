@@ -23,7 +23,7 @@
                 <div class="card-header" style="border-bottom: 2px solid red; width: 100%;"></div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <h4 class="header-title mb-0">Joined Today (Total Member)</h4>
+                        <h4 class="header-title mb-0">Joined Today (Members)</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h2>{{ count($joinedToday) }}</h2>
