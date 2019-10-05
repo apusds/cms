@@ -339,7 +339,7 @@
 
                   <!-- Modal body -->
                   <div class="modal-body content">
-                      <span><b><i>Note: Open to APU Students/Alumni only</i></b></span>
+                      <span><b><i>Note: Open to APU Students & Alumni only</i></b></span>
 
                       <hr />
 
