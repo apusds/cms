@@ -97,9 +97,6 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     // ***************************************************************
     /** [Members] */
     Route::get('/dashboard/members', ['as' => 'dashboard.members', 'uses' => 'RouteController@showMembers']);
-    Route::get('/dashboard/members/export', function() {
-        return app(\App\Http\Controllers\Member\MemberController::class)->exportAsCSV();
-    })->name('dashboard.members.export');
 });
 
 // Special Perms for SuperAdmin Only
