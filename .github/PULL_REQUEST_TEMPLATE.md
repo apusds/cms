@@ -1,4 +1,4 @@
-**Your PR should to the Master Branch**
+**Your PR should be to the Master Branch**
 
 ## Introduction
 <!-- Explain existing problems or why this pull request is necessary -->
