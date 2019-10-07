@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Member;
 use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\NewSignup;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class MemberController extends Controller
 {
@@ -49,6 +51,9 @@ class MemberController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
+        Mail::to(trim(strtolower($request->input('email'))))
+            ->send(new NewSignup(trim(strtoupper($request->input('name')))));
+
         return $result
             ? back()->with('alert', 'Done! You will hear from us very soon :)')
             : back()->with('alert', 'Unable to submit your Form');
@@ -87,5 +92,4 @@ class MemberController extends Controller
 
         return Response::stream($callback, 200, $headers);
     }
-
 }
