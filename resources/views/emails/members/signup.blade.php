@@ -29,12 +29,16 @@
 <br>
 <div>P.S. Here's a little advice from us:</div>
 <br>
+<img src="{{ $message->embed('img/welcome_meme_01.jpg') }}">
+<br>
 <div>
     Best Regards,
     <br>
     APU Student Developer Society
 
     <br>
+    <br>
+    <img src="{{ $message->embed('img/sds.png') }}" style="width:450px;height:200px;">
     <br>
     <a href="http://apusds.com/" target="_blank">apusds.com</a>
     <br>

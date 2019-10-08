@@ -58,7 +58,7 @@ class MemberController extends Controller
             ->send(new NewSignup($name));
 
         return $result
-            ? back()->with('alert', 'Done! You will hear from us very soon :)')
+            ? back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)')
             : back()->with('alert', 'Unable to submit your Form');
     }
 
