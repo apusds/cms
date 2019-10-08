@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Reporter\ErrorReporter;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\{DB, Mail, Validator};
 
 class WebsiteController extends Controller
 {
+
+    public function getErrorReporter(): ErrorReporter {
+        return new ErrorReporter();
+    }
 
     public function update(Request $request) {
         $validate = Validator::make($request->all(), [
@@ -54,6 +59,7 @@ class WebsiteController extends Controller
                 $message->subject('[Contact Form @ CMS]');
             });
         } catch (\Exception $exception) {
+            $this->getErrorReporter()->reportToDiscord('Failure', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Email: {$exception->getMessage()}");
             return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
         }
 
