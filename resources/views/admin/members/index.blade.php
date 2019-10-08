@@ -24,6 +24,8 @@
                 <th>Name</th>
                 <th>TP</th>
                 <th>Intake</th>
+                <th>Skills</th>
+                <th>Found us</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -34,6 +36,8 @@
                     <td>{{ $member->name }}</td>
                     <td>{{ $member->student_id }}</td>
                     <td>{{ $member->intake }}</td>
+                    <td>{{ ucfirst($member->skills) }}</td>
+                    <td>{{ $member->found_us }}</td>
                     <td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $member->id }}">Details</button> </td>
 
                     <div class="modal fade" id="myModal-{{ $member->id }}">
@@ -46,9 +50,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <b>Skills</b>: {{ $member->skills }}
-                                    <br>
-                                    <b>Found us:</b> {{ $member->found_us }}
+                                    <b>Raw Joined:</b> {{ $member->created_at }}
                                     <br>
                                     <b>Joined:</b> {{ $member->created_at->diffForHumans() }}
                                 </div>
