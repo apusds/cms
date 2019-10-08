@@ -17,14 +17,14 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if ($validator->fails()) return back()->with('error', 'Trying to spoof the System? ;P');
+        if ($validator->fails()) return back()->with('error', env('ERROR_INVALID_PARAMS'));
 
         $data = [
             'username' => trim(strtolower($request->input('username'))),
             'password' => trim($request->input('password'))
         ];
 
-        if (!Auth::attempt($data)) return back()->with('error', 'Invalid Credentials!');
+        if (!Auth::attempt($data)) return back()->with('error', env('ERROR_INVALID_CREDS'));
         return redirect()->intended(route('dashboard'));
     }
 
@@ -36,7 +36,7 @@ class AuthController extends Controller
             'role_id' => 'required'
         ]);
 
-        if (!$validate) return back()->with('error', 'Malformed Request.');
+        if (!$validate) return back()->with('error', env('ERROR_INVALID_PARAMS'));
 
         $data = [
             'username' => strtolower($request->input('username')),
@@ -49,7 +49,7 @@ class AuthController extends Controller
         $result = DB::table(env("DB_USERS"))
             ->insert($data);
 
-        if (!$result) return back()->with('error', 'Unable to register new User');
+        if (!$result) return back()->with('error', env('ERROR_UNABLE_REGIS_USER'));
         return back()->with('message', 'Done!');
     }
 
@@ -58,7 +58,7 @@ class AuthController extends Controller
             'email' => 'required|email'
         ]);
 
-        if (!$validate) return back()->with('error', 'Malformed Request. Please check your params.');
+        if (!$validate) return back()->with('error', env('ERROR_INVALID_PARAMS'));
 
         $user = User::all()->find($id);
         $data = [
@@ -83,7 +83,7 @@ class AuthController extends Controller
             'confirm' => 'required'
         ]);
 
-        if (!$validate) return back()->with('error', 'Malformed Request!');
+        if (!$validate) return back()->with('error', env('ERROR_INVALID_PARAMS'));
 
         $password = trim(strtolower($request->input('password')));
         $confirm = trim(strtolower($request->input('confirm')));
