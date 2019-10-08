@@ -6,9 +6,11 @@ use App\Http\Controllers\Reporter\ErrorReporter;
 use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\NewSignup;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class MemberController extends Controller
 {
@@ -41,10 +43,13 @@ class MemberController extends Controller
             return back()->with('alert', 'You are already an APU SDS Member! :D');
         }
 
+        $email = trim(strtolower($request->input('email')));
+        $name = trim(strtoupper($request->input('name')));
+
         $result = DB::table('members')
             ->insert([
-                'email' => trim(strtolower($request->input('email'))),
-                'name' => trim(strtoupper($request->input('name'))),
+                'email' => $email,
+                'name' => $name,
                 'mobile' => trim($request->input('mobile')),
                 'student_id' => trim($request->input('tp')),
                 'intake' => trim($request->input('intake')),
@@ -54,7 +59,15 @@ class MemberController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        if ($result) return back()->with('alert', 'Done! You will hear from us very soon :)');
+        try {
+            Mail::to($email)
+                ->send(new NewSignup($name));
+        } catch (\Exception $exception) {
+            $this->getErrorReporter()->reportToDiscord('Member Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
+            return back()->with('alert', 'We were unable to send you a Welcome Email! We have traced back this Error.');
+        }
+
+        if ($result) return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
 
         // Else
         $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Sign-up failure @ {$request->input('email')}");
@@ -94,5 +107,4 @@ class MemberController extends Controller
 
         return Response::stream($callback, 200, $headers);
     }
-
 }
