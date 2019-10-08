@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gateway Timeout!</title>
+    <title>Gateway Timed Out!</title>
 
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
@@ -23,7 +23,7 @@
 <div id="notfound">
     <div class="notfound">
         <div class="notfound-404">
-            <h3>Gateway Timeout!</h3>
+            <h3>Gateway Timed Out!</h3>
             <h1><span>5</span><span>0</span><span>4</span></h1>
         </div>
         <h2>Oops, looks like our System did not respond in time, try again later!</h2>
