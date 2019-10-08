@@ -58,9 +58,14 @@ class MemberController extends Controller
                 'found_us' => $data[trim($request->input('check'))],
                 'created_at' => new \DateTime()
             ]);
-            
-        Mail::to($email)
-            ->send(new NewSignup($name));
+
+        try {
+            Mail::to($email)
+                ->send(new NewSignup($name));
+        } catch (\Exception $exception) {
+            $this->getErrorReporter()->reportToDiscord('Member Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
+            return back()->with('alert', 'We were unable to send you a Welcome Email! We have traced back this Error.');
+        }
 
         if ($result) return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
 
