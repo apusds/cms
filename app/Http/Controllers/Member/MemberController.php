@@ -82,6 +82,15 @@ class MemberController extends Controller
         return $result;
     }
 
+    public function totalPerDate() {
+        $result = DB::table(env('DB_MEMBER'))
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as joined'))
+            ->groupBy('date')
+            ->get();
+
+        return $result;
+    }
+
     public function exportAsCSV() {
         $headers = [
             'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'

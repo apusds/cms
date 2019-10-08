@@ -28,6 +28,9 @@ Route::group(['middleware', ['member']], function() {});
 
 Route::group(['middleware' => ['allowed', 'auth']], function() {
 
+    /** [Stats (Per Date)] */
+    Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
+
     /** [Dashboard] */
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
 
