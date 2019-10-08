@@ -7,9 +7,7 @@ use App\{Committee,
     Event,
     Http\Controllers\Event\EventController,
     Http\Controllers\Member\MemberController,
-    Page,
     Role,
-    Template,
     User,
     Website};
 

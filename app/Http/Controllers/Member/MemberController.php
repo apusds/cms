@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Http\Controllers\Reporter\ErrorReporter;
 use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Mail;
 
 class MemberController extends Controller
 {
+
+    public function getErrorReporter(): ErrorReporter {
+        return new ErrorReporter();
+    }
 
     public function register(Request $request) {
         $data = [
@@ -53,13 +58,15 @@ class MemberController extends Controller
                 'found_us' => $data[trim($request->input('check'))],
                 'created_at' => new \DateTime()
             ]);
-
+            
         Mail::to($email)
             ->send(new NewSignup($name));
 
-        return $result
-            ? back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)')
-            : back()->with('alert', 'Unable to submit your Form');
+        if ($result) return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
+
+        // Else
+        $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Sign-up failure @ {$request->input('email')}");
+        return back()->with('alert', 'Unable to submit your Form');
     }
 
     public function joinedToday() {
