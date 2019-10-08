@@ -27,7 +27,7 @@ class ErrorReporter extends Controller
                 "embeds" => [
                     [
                         "color" => hexdec("FF0000"),
-                        "title" => "Emit: " . strtoupper($type),
+                        "title" => "Reported by: " . strtoupper($type),
                         "type" => "rich",
                         "description" => str_replace("{timestamp}", Carbon::now()->toDateTimeString(), $info),
                         "footer" => [
