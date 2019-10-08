@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class InquiryMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     private $data;
 
     public function __construct(array $data)

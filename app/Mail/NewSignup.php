@@ -11,15 +11,11 @@ class NewSignup extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($name)
+    private $name;
+
+    public function __construct(String $name)
     {
         $this->name = $name;
-
     }
 
     /**
@@ -30,9 +26,9 @@ class NewSignup extends Mailable
     public function build()
     {
         return $this->subject('Welcome to APUSDS')
-                    ->view('emails.members.signup')
-                    ->with([
-                        'name' =>$this->name
-                    ]);
+            ->view('emails.members.signup')
+            ->with([
+                'name' =>$this->name
+            ]);
     }
 }
