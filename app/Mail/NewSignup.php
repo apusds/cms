@@ -33,7 +33,6 @@ class NewSignup extends Mailable
                     ->view('emails.members.signup')
                     ->with([
                         'name' =>$this->name
-
                     ]);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Reporter\ErrorReporter;
+use App\Mail\InquiryMail;
+use App\Mail\NewSignup;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\{DB, Mail, Validator};
@@ -53,11 +55,8 @@ class WebsiteController extends Controller
         if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
 
         try {
-            Mail::send('layouts.email.index', ['data' => $request->input()], function (Message $message) {
-                $message->to('studentdevelopersociety@gmail.com')->cc('igadget28@gmail.com');
-                $message->from('system@rtgnetworks.com', 'CMS');
-                $message->subject('[Contact Form @ CMS]');
-            });
+            Mail::to("studentdevelopersociety@gmail.com")
+                ->send(new InquiryMail($request->input()));
         } catch (\Exception $exception) {
             $this->getErrorReporter()->reportToDiscord('Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
             return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
