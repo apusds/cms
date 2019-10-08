@@ -57,7 +57,7 @@ class MemberController extends Controller
         if ($result) return back()->with('alert', 'Done! You will hear from us very soon :)');
 
         // Else
-        $this->getErrorReporter()->reportToDiscord('Failure', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Unable to Sign-up {$request->input('email')} as a Member!");
+        $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Sign-up failure @ {$request->input('email')}");
         return back()->with('alert', 'Unable to submit your Form');
     }
 

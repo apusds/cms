@@ -59,7 +59,7 @@ class WebsiteController extends Controller
                 $message->subject('[Contact Form @ CMS]');
             });
         } catch (\Exception $exception) {
-            $this->getErrorReporter()->reportToDiscord('Failure', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Email: {$exception->getMessage()}");
+            $this->getErrorReporter()->reportToDiscord('Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
             return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
         }
 
