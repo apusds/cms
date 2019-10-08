@@ -38,10 +38,13 @@ class MemberController extends Controller
             return back()->with('alert', 'You are already an APU SDS Member! :D');
         }
 
+        $email = trim(strtolower($request->input('email')));
+        $name = trim(strtoupper($request->input('name')));
+
         $result = DB::table('members')
             ->insert([
-                'email' => trim(strtolower($request->input('email'))),
-                'name' => trim(strtoupper($request->input('name'))),
+                'email' => $email,
+                'name' => $name,
                 'mobile' => trim($request->input('mobile')),
                 'student_id' => trim($request->input('tp')),
                 'intake' => trim($request->input('intake')),
@@ -51,8 +54,8 @@ class MemberController extends Controller
                 'created_at' => new \DateTime()
             ]);
 
-        Mail::to(trim(strtolower($request->input('email'))))
-            ->send(new NewSignup(trim(strtoupper($request->input('name')))));
+        Mail::to($email)
+            ->send(new NewSignup($name));
 
         return $result
             ? back()->with('alert', 'Done! You will hear from us very soon :)')
