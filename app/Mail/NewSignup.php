@@ -28,7 +28,7 @@ class NewSignup extends Mailable
         return $this->subject('Welcome to APUSDS')
             ->view('emails.members.signup')
             ->with([
-                'name' =>$this->name
+                'name' => $this->name
             ]);
     }
 }
