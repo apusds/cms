@@ -69,7 +69,7 @@ class MemberController extends Controller
 
         if ($result) return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
 
-        // Else
+        // Report and redirect
         $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Sign-up failure @ {$request->input('email')}");
         return back()->with('alert', 'Unable to submit your Form');
     }
@@ -107,7 +107,7 @@ class MemberController extends Controller
 
         if ($result) return back()->with('message', 'Done! Member details has been updated.');
 
-        // Report
+        // Report and redirect
         $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Member update failure @ {$request->input('email')}");
         return back()->with('error', 'Unable to update Member details!');
     }
@@ -119,6 +119,7 @@ class MemberController extends Controller
             Member::all()->find($id)->delete();
             return redirect(route('dashboard.members'))->with('message', 'Done! Member has been deleted.');
         } catch (\Exception $exception) {
+            // Report and redirect
             $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Member deletion failed");
             return back()->with('error', 'An unknown error has occurred. This has been reported to the Admins.');
         }
