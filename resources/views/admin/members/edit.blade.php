@@ -39,7 +39,7 @@
 
         <div class="form-group">
             <label for="tp">TP Number (<span class="red">*</span>)</label>
-            <h6><span class="red">Example: TP055641</span> <br>*Should begin with TP followed by 6 Digits</h6>
+            <h6><span class="red">Example: TP055641</span></h6>
             <input type="text" class="form-control" id="tp" name="tp" value="{{ $data->student_id }}" placeholder="Enter TP Number" required>
         </div>
 
@@ -47,6 +47,7 @@
 
         <div class="form-group">
             <label for="intake">Intake Code (<span class="red">*</span>)</label>
+            <h6><span class="red">Example: UC3F1906CS(DA)</span></h6>
             <input type="text" class="form-control" id="intake" name="intake" value="{{ $data->intake }}" placeholder="Enter Intake" required>
         </div>
 
