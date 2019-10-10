@@ -100,6 +100,9 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     // ***************************************************************
     /** [Members] */
     Route::get('/dashboard/members', ['as' => 'dashboard.members', 'uses' => 'RouteController@showMembers']);
+    Route::get('/dashboard/members/{id}/edit', ['as' => 'dashboard.members.edit', 'uses' => 'RouteController@showEditMember']);
+    Route::get('/dashboard/members/{id}/delete', ['as' => 'dashboard.members.delete', 'uses' => 'Member\MemberController@deleteMember']);
+    Route::post('/dashboard/members/{id}/edit', ['as' => 'dashboard.members.edit', 'uses' => 'Member\MemberController@updateMember']);
     Route::get('/dashboard/members/export', function() {
         return app(\App\Http\Controllers\Member\MemberController::class)->exportAsCSV();
     })->name('dashboard.members.export');

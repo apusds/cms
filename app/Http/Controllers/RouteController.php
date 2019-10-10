@@ -7,6 +7,7 @@ use App\{Committee,
     Event,
     Http\Controllers\Event\EventController,
     Http\Controllers\Member\MemberController,
+    Member,
     Role,
     User,
     Website};
@@ -131,6 +132,11 @@ class RouteController extends Controller
     // [Members]
     public function showMembers() {
         return view('admin.members.index');
+    }
+
+    public function showEditMember($id) {
+        if (!(Member::all()->find($id))) return back()->with('error', 'Member not found!');
+        return view('admin.members.edit', ['data' => Member::all()->find($id)]);
     }
     // End [Members]
 
