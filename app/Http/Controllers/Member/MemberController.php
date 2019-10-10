@@ -114,10 +114,7 @@ class MemberController extends Controller
 
     public function deleteMember($id) {
         try {
-            DB::table(env('DB_MEMBER'))
-                ->where('id', $id)
-                ->delete();
-
+            Member::all()->find($id)->delete();
             return redirect(route('dashboard.members'))->with('message', 'Done! Member has been deleted.');
         } catch (\Exception $exception) {
             $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Member deletion failed");
