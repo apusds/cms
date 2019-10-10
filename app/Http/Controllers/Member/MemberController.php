@@ -115,8 +115,8 @@ class MemberController extends Controller
     public function deleteMember($id) {
         try {
             if (!(Member::all()->find($id))) return redirect(route('dashboard.members'))->with('error', 'Oops! Member does not exist!');
-
             Member::all()->find($id)->delete();
+
             return redirect(route('dashboard.members'))->with('message', 'Done! Member has been deleted.');
         } catch (\Exception $exception) {
             // Report and redirect

@@ -20,18 +20,31 @@
             <label for="email">Email address (<span class="red">*</span>)</label>
             <input type="email" class="form-control" id="email" name="email" value="{{ $data->email }}" placeholder="Enter email" required>
         </div>
+
+        <hr />
+
         <div class="form-group">
             <label for="name">Name (<span class="red">*</span>)</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $data->name }}" placeholder="Enter Name" required>
         </div>
+
+        <hr />
+
         <div class="form-group">
             <label for="mobile">Mobile Number (<span class="red">*</span>)</label>
             <input type="text" class="form-control" id="mobile" name="mobile" value="{{ $data->mobile }}" placeholder="Enter Mobile" required>
         </div>
+
+        <hr />
+
         <div class="form-group">
             <label for="tp">TP Number (<span class="red">*</span>)</label>
+            <h6><span class="red">Example: TP055641</span> <br>*Should begin with TP followed by 6 Digits</h6>
             <input type="text" class="form-control" id="tp" name="tp" value="{{ $data->student_id }}" placeholder="Enter TP Number" required>
         </div>
+
+        <hr />
+
         <div class="form-group">
             <label for="intake">Intake Code (<span class="red">*</span>)</label>
             <input type="text" class="form-control" id="intake" name="intake" value="{{ $data->intake }}" placeholder="Enter Intake" required>
