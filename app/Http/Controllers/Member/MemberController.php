@@ -15,29 +15,29 @@ use Illuminate\Support\Facades\Mail;
 class MemberController extends Controller
 {
 
+    private $data = [
+        '0' => 'Facebook',
+        '1' => 'Heard from Friend',
+        '2' => 'Attended our Event/Workshop',
+    ];
+
     public function getErrorReporter(): ErrorReporter {
         return new ErrorReporter();
     }
 
     public function register(Request $request) {
-        $data = [
-          '0' => 'Facebook',
-          '1' => 'Heard from Friend',
-          '2' => 'Attended our Event/Workshop',
-        ];
-
-        $validate = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'name' => 'required',
             'mobile' => 'required',
-            'tp' => 'required|regex:/[tpTP0-9]{6}/g',
-            'intake' => 'required|regex:/[ucUC]{2}/g',
+            'tp' => 'required|regex:/[tpTP0-9]{6}/',
+            'intake' => 'required|regex:/[ucUC]{2}/',
             'gender' => 'required',
             'skills' => 'required',
             'check' => 'required'
         ]);
 
-        if (!$validate) return back()->with('error', 'Malformed Request!');
+        if ($validator->fails()) return back()->with('error', 'Malformed Request! Please try again!');
 
         if (count(Member::all()->where('email', strtolower($request->input('email')))) > 0) {
             return back()->with('alert', 'You are already an APU SDS Member! :D');
@@ -55,7 +55,7 @@ class MemberController extends Controller
                 'intake' => trim($request->input('intake')),
                 'gender' => $request->input('gender'),
                 'skills' => implode(", ", $request->input('skills')),
-                'found_us' => $data[trim($request->input('check'))],
+                'found_us' => $this->data[trim($request->input('check'))],
                 'created_at' => new \DateTime()
             ]);
 
@@ -69,9 +69,60 @@ class MemberController extends Controller
 
         if ($result) return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
 
-        // Else
+        // Report and redirect
         $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Sign-up failure @ {$request->input('email')}");
         return back()->with('alert', 'Unable to submit your Form');
+    }
+
+    public function updateMember(Request $request, $id) {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'name' => 'required',
+            'mobile' => 'required',
+            'tp' => 'required|regex:/[tpTP0-9]{6}/',
+            'intake' => 'required|regex:/[ucUC]{2}/',
+            'gender' => 'required',
+            'skills' => 'required',
+            'check' => 'required'
+        ]);
+
+        if ($validator->fails()) return back()->with('error', 'Required tags MUST be filled!');
+
+        $email = trim(strtolower($request->input('email')));
+        $name = trim(strtoupper($request->input('name')));
+
+        $result = DB::table(env('DB_MEMBER'))
+            ->where('id', $id)
+            ->update([
+                'email' => $email,
+                'name' => $name,
+                'mobile' => trim($request->input('mobile')),
+                'student_id' => trim($request->input('tp')),
+                'intake' => trim($request->input('intake')),
+                'gender' => $request->input('gender'),
+                'skills' => implode(", ", $request->input('skills')),
+                'found_us' => $this->data[trim($request->input('check'))],
+                'created_at' => new \DateTime()
+            ]);
+
+        if ($result) return back()->with('message', 'Done! Member details has been updated.');
+
+        // Report and redirect
+        $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Member update failure @ {$request->input('email')}");
+        return back()->with('error', 'Unable to update Member details!');
+    }
+
+    public function deleteMember($id) {
+        try {
+            if (!(Member::all()->find($id))) return redirect(route('dashboard.members'))->with('error', 'Oops! Member does not exist!');
+            Member::all()->find($id)->delete();
+
+            return redirect(route('dashboard.members'))->with('message', 'Done! Member has been deleted.');
+        } catch (\Exception $exception) {
+            // Report and redirect
+            $this->getErrorReporter()->reportToDiscord('Member', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: Member deletion failed");
+            return back()->with('error', 'An unknown error has occurred. This has been reported to the Admins.');
+        }
     }
 
     public function joinedToday() {
