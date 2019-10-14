@@ -79,4 +79,32 @@ $(document).ready(function() {
         const fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
+
+    // Upload Field Add/Rm
+    let btnAdd = $('#addField');
+    let formField = $('#form-field');
+    let i = $('#customFile div').size() + 1;
+
+    btnAdd.on('click', function () {
+        if (i <= 4) {
+            $('<div class="main">\n' +
+                '<br>' +
+                '<div class="custom-file file-' + i + '">\n' +
+                '<label class="custom-file-label" for="customFile">Choose file</label>\n' +
+                '<input type="file" class="custom-file-input" id="customFile" name="file[]" required>\n' +
+                '<a href="#" style="text-decoration: underline; color: blue; cursor: pointer" id="rm">Remove</a>' +
+                '</div>' +
+                '<div>/n').appendTo(formField);
+            i++;
+        }
+        return false;
+    });
+
+    $(document).on('click', '#rm', function () {
+        if (i > 1) {
+            $(this).parents('div .main').remove();
+            i--;
+        }
+        return false;
+    })
 });

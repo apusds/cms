@@ -122,33 +122,35 @@ class EventController extends Controller
     public function addToGallery(Request $request) {
         $validate = Validator::make($request->all(), [
             'event' => 'required',
-            'title' => 'required',
             'file' => 'image|required'
         ]);
 
         if (!$validate) return back()->with('error', 'Malformed request');
         if (!$request->hasFile('file')) return back()->with('error', 'Malformed request');
 
-        $fileNameWithExt = $request->file('file')->getClientOriginalName();
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        $ext = $request->file('file')->getClientOriginalExtension();
-        $fileNameToStore = $fileName . '_' . time() . '.' . $ext;
+        try {
+            foreach ($request->file('file') as $file) {
+                $fileNameWithExt = $file->getClientOriginalName();
+                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                $ext = $file->getClientOriginalExtension();
+                $fileNameToStore = $fileName . '_' . time() . '.' . $ext;
 
-        // Finally store the Image
-        $request->file('file')->storeAs('public/gallery', $fileNameToStore);
+                // Finally store the Image
+                $file->storeAs('public/gallery', $fileNameToStore);
 
-        // Now to DB
-        $result = DB::table(env('DB_GALLERY'))
-            ->insert([
-                'event' => $request->input('event'),
-                'title' => trim($request->input('title')),
-                'file' => $fileNameToStore,
-                'created_at' => new \DateTime()
-            ]);
+                // Write to  DB
+                DB::table(env('DB_GALLERY'))
+                    ->insert([
+                        'event' => $request->input('event'),
+                        'file' => $fileNameToStore,
+                        'created_at' => new \DateTime()
+                    ]);
+            }
 
-        return $result
-            ? back()->with('message', 'Done! Image uploaded')
-            : back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
+            return back()->with('message', 'Done! Image uploaded');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
+        }
     }
 
     public function removeFromGallery($id) {
