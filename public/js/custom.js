@@ -96,6 +96,8 @@ $(document).ready(function() {
                 '</div>' +
                 '<div>/n').appendTo(formField);
             i++;
+        } else {
+            btnAdd.hide();
         }
         return false;
     });
@@ -104,6 +106,8 @@ $(document).ready(function() {
         if (i > 1) {
             $(this).parents('div .main').remove();
             i--;
+
+            btnAdd.show();
         }
         return false;
     })
