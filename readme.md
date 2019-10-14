@@ -1,5 +1,7 @@
 # CMS @ APU SDS / DSC APU
 
+## PHP 7.2++ required!
+
 CMS is purely built on Modern Technologies like [Bootstrap](https://getboostrap.com), [Laravel Framework](https://laravel.com/), [NodeJS](https://nodejs.org/en/) and more.
 
 ## Installation
