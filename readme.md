@@ -30,10 +30,20 @@ Now, the CMS should be live on `http://127.0.0.1:8000`!
 <br>
 <b>Password:</b> `password`
 
+## Linter Installation
+
+To install the linter
+
+```bash
+composer global require tightenco/tlint
+```
+
+For more information, check out the [repo](https://github.com/tightenco/tlint)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure your Pull Request is satisfying the required fields in the PR Guideline/Template. 
+Please make sure your Pull Request is satisfying the required fields in the PR Guideline/Template.
 
 ## License
 This project is licensed under the **GNU General Public License v3.0** License - see the [LICENSE](LICENSE) file for details
