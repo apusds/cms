@@ -14,9 +14,11 @@ class CreateMeetupsTable extends Migration
     public function up()
     {
         Schema::create('meetups', function (Blueprint $table) {
-            $table->timestamps();
-            $table->string('student_id');
+            $table->increments('id'); // This is the meetup unique key
             $table->string('title');
+            $table->longText('description')->nullable(); // Not necessary, just "incase"
+            $table->timestamp('held_on'); // So Carbon() can kick in
+            $table->timestamps(); // created_at, updated_at for tracking
         });
     }
 

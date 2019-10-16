@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Meetup extends Model
 {
 
     /**
@@ -12,10 +12,10 @@ class Gallery extends Model
      *
      * @var string
      */
-    protected $table = "galleries";
+    protected $table = "meetups";
 
-    public function eventData() {
-        return Event::all()->find($this->event);
+    public function attendees() {
+        return $this->hasMany('App\Attendee', 'event', 'id');
     }
 
 }

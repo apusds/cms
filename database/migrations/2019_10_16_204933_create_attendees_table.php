@@ -14,13 +14,11 @@ class CreateAttendeesTable extends Migration
     public function up()
     {
         Schema::create('attendees', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('email');
-            $table->string('name');
-            $table->string('student_id');
-            $table->string('intake');
-            $table->string('file');
-            $table->timestamps();
+            $table->increments('id')->unsigned(); // This is the attendees unique key
+            $table->string('event'); // Meetup ID
+            $table->string('email')->nullable(); // Just "incase"
+            $table->string('student_id'); // Their student ID
+            $table->timestamp('joined_on');
         });
     }
 
