@@ -18,7 +18,7 @@ class CreateMeetupsTable extends Migration
             $table->string('title')->unique(); // needed for FK with meetup_attendees
             $table->longText('description')->nullable(); // Not necessary, just "incase"
             $table->timestamp('event_start');
-            $table->timestamp('event_end');
+            $table->timestamp('event_end')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('location');
             $table->timestamps(); // created_at, updated_at for tracking
         });

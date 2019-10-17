@@ -14,7 +14,6 @@ class UpdateActiveMeetup extends Migration
     public function up()
     {
         Schema::table('active_meetups', function (Blueprint $table) {
-
             $table->foreign('event_id')->references('id')->on('meetups')->onDelete('cascade')->onUpdate('cascade');
         });
     }

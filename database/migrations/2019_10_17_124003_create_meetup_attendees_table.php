@@ -14,10 +14,10 @@ class CreateMeetupAttendeesTable extends Migration
     public function up()
     {
         Schema::create('meetup_attendees', function (Blueprint $table) {
-
+            $table->increments('id');
             $table->string('student_id');
             $table->string('meetup_title');
-            $table->timestamps();
+            $table->timestamp('joined_at');
         });
 
 

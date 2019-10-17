@@ -26,11 +26,9 @@ class RouteController extends Controller
         ]);
     }
 
-    public function checkin() {
+    public function showCheckin() {
         $result = (ActiveMeetup::first()) ? ActiveMeetup::first()->meetup : '';
-        return view('layouts.website.checkin',[
-            'data' => $result
-        ]);
+        return view('layouts.website.checkin', ['data' => $result]);
     }
 
     public function showAdminLogin() {

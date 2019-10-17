@@ -5,7 +5,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 /** End [Landing] */
 
 /** [Checkin] */
-Route::get('/checkin', ['as' => 'checkin', 'uses' => 'RouteController@checkin']);
+Route::get('/checkin', ['as' => 'checkin', 'uses' => 'RouteController@showCheckin']);
 /** End [Checkin] */
 
 /** [Event Page] */

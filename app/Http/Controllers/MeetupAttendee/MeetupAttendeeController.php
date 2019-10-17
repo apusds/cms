@@ -21,7 +21,7 @@ class MeetupAttendeeController extends Controller
 
         if (!$meetup_title) return back()->with('error', 'No active meetups now');
 
-        if(count(MeetupAttendee::where('student_id', '=', $student_id)->where('meetup_title', '=', $meetup_title)->get())>0) {
+        if(count(MeetupAttendee::where('student_id', '=', $student_id)->where('meetup_title', '=', $meetup_title)->get()) > 0) {
 
             return back()->with('message', 'You have already been checked-in for this event!');
         }
@@ -29,8 +29,9 @@ class MeetupAttendeeController extends Controller
         try {
             $result = DB::table(env('DB_MEETUP_ATTENDEES'))
                 ->insert([
-                    'student_id' => $student_id,
+                    'student_id' => strtoupper($student_id),
                     'meetup_title' => $meetup_title,
+                    'joined_at' => new \DateTime()
                 ]);
         } catch (\Exception $e) {
             return back()->with('error', 'TP Number not found. If you are not a member, why not join SDS today!');

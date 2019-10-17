@@ -25,15 +25,15 @@
         <div class="form-group">
             <label for="event_start">Start Date and Time(<span class="red">*</span>)</label>
             <br>
-            <span class="red">EXAMPLE: 2019-10-18, 18:00</span>
-            <input type="datetime-local" class="form-control" id="event_start" name="event_start" value="{{ $data->event_start }}" required>
+            <span class="red">EXAMPLE: 2019-10-18, 06:00 PM/AM</span>
+            <input type="datetime-local" class="form-control" id="event_start" name="event_start" value="{{ \Carbon\Carbon::parse($data->event_start)->format('Y-m-d\TH:i') }}" required>
         </div>
 
         <div class="form-group">
             <label for="event_end">End Date (<span class="red">*</span>)</label>
             <br>
-            <span class="red">EXAMPLE: 2019-10-18, 20:00</span>
-            <input type="datetime-local" class="form-control" id="event_end" name="event_end" value="{{ $data->event_end }}" required>
+            <span class="red">EXAMPLE: 2019-10-18, 06:00 PM/AM</span>
+            <input type="datetime-local" class="form-control" id="event_end" name="event_end" value="{{ \Carbon\Carbon::parse($data->event_end)->format('Y-m-d\TH:i') }}" required>
         </div>
 
         <div class="form-group">
@@ -45,8 +45,16 @@
         <div class="form-group">
             <label for="description">Description (<span class="red">*</span>)</label>
             <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required rows="5">{{ $data->description }}</textarea>
+
         </div>
-        <input type="checkbox" class="form-control" id="isActive" name="isActive" value="True">Active Event?<br><br>
+
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-control float-right" id="isActive" name="isActive" value="True">Active Event?
+            </label>
+        </div>
+
+        <br><br>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
