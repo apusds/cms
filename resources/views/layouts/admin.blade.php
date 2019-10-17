@@ -106,6 +106,9 @@
                                 <li class="nav-item {{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
                                 </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.meetups') || Request::routeIs('dashboard.meetups.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.meetups') }}">Meetups</a>
+                                </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.website') }}">Website</a>
                                 </li>

@@ -67,6 +67,25 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
     // ***************************************************************
 
+    // ***************************************************************
+    /** [Meetups] */
+    Route::get('/dashboard/meetups', ['as' => 'dashboard.meetups', 'uses' => 'RouteController@showMeetups']);
+
+    /** Create [Meetups] */
+    Route::get('/dashboard/meetups/create', ['as' => 'dashboard.meetups.create', 'uses' => 'RouteController@showMeetupCreate']);
+    Route::post('/dashboard/meetups/create', ['as' => 'dashboard.meetups.create', 'uses' => 'Meetup\MeetupController@register']);
+
+    /** Edit [Meetups] */
+    Route::get('/dashboard/meetups/{id}/edit', ['as' => 'dashboard.meetups.edit', 'uses' => 'RouteController@showMeetupEdit']);
+    Route::post('/dashboard/meetups/{id}/edit', ['as' => 'dashboard.meetups.edit', 'uses' => 'Meetup\MeetupController@update']);
+
+    /** Delete [Meetups] */
+    Route::get('/dashboard/meetups/{id}/delete', ['as' => 'dashboard.meetups.delete', 'uses' => 'Meetup\MeetupController@delete']);
+
+    /** Event [Feedback] */
+    // Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
+    // ***************************************************************
+
 
 
 
