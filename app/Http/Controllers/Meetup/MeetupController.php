@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Meetup;
 
-use App\{Meetup, Http\Controllers\Controller};
+use App\{Meetup, Http\Controllers\Controller, ActiveMeetup};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\{Auth, DB, Validator};
@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\{Auth, DB, Validator};
 class MeetupController extends Controller
 {
     public function register(Request $request) {
+        $err = '';
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -20,7 +21,7 @@ class MeetupController extends Controller
         if (!$validate) return back()->with('error', 'Malformed Request!');
 
         $result = DB::table(env('DB_MEETUPS'))
-            ->insert([
+            ->insertGetId([
                 'title' => trim($request->input('title')),
                 'description' => trim($request->input('description')),
                 'location' => trim($request->input('location')),
@@ -28,13 +29,24 @@ class MeetupController extends Controller
                 'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
                 'created_at' => new \DateTime()
             ]);
+        if ($request->input('isActive')) {
+            $new_active = new ActiveMeetup;
+            if($new_active::first()) {
+                $new_active->update(['event_id'=>$id]);
+            }else {
+                $new_active->event_id = $result;
+                $new_active->save();
+            }
+
+        }
 
         return $result
-            ? redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup created!')
+            ? redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup created! ' . $err)
             : back()->with('error', 'Unable to create Meetup');
     }
 
     public function update(Request $request, $id) {
+        $err = '';
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -54,9 +66,21 @@ class MeetupController extends Controller
                 'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
                 'created_at' => new \DateTime()
             ]);
+        if ($request->input('isActive')) {
+            if ($request->input('isActive')) {
+                $new_active = new ActiveMeetup;
+                if($new_active::first()) {
+                    $new_active->update(['event_id'=>$id]);
+                }else {
+                    $new_active->event_id = $id;
+                    $new_active->save();
+                }
+
+            }
+        }
 
         return $result
-            ? back()->with('message', 'Done! Meetup updated')
+            ? back()->with('message', 'Done! Meetup updated' . $err)
             : back()->with('error', 'Unable to update Meetup');
     }
 
@@ -70,5 +94,18 @@ class MeetupController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', 'Unable to delete Meetup!');
         }
+    }
+
+    public function deactivate() {
+        $result = ActiveMeetup::all()->first();
+        if (!$result) return view('errors.404');
+
+        try {
+            $result->delete();
+            return redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup no longer active!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Unable to deactivate Meetup!'.$e);
+        }
+
     }
 }

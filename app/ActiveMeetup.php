@@ -21,6 +21,8 @@ class ActiveMeetup extends Model
     protected  $primaryKey = 'event_id';
     public $incrementing = false;
 
+    protected $fillable = ['event_id'];
+
     public function meetup()
     {
         return $this->belongsTo('App\Meetup', 'event_id', 'id');

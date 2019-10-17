@@ -87,7 +87,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/meetups/{id}/delete', ['as' => 'dashboard.meetups.delete', 'uses' => 'Meetup\MeetupController@delete']);
 
     /** Meetups [Feedback] */
-    // Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
+    Route::get('/dashboard/meetups/deactivate', ['as' => 'dashboard.meetups.deactivate', 'uses' => 'Meetup\MeetupController@deactivate']);
     // ***************************************************************
 
 

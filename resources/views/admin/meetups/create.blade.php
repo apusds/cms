@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <label for="location">Meetup Location (<span class="red">*</span>)</label>
-            <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location" required>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location">
         </div>
 
         <br>
@@ -50,6 +50,7 @@
             <label for="description">Description (<span class="red">*</span>)</label>
             <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required rows="5"></textarea>
         </div>
+        <input type="checkbox" class="form-control" id="isActive" name="isActive" value="True">Active Event?<br><br>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
