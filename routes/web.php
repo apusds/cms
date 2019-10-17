@@ -4,6 +4,10 @@
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 /** End [Landing] */
 
+/** [Checkin] */
+Route::get('/checkin', ['as' => 'checkin', 'uses' => 'RouteController@checkin']);
+/** End [Checkin] */
+
 /** [Event Page] */
 Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
 /** End [Event Page] */
@@ -82,7 +86,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     /** Delete [Meetups] */
     Route::get('/dashboard/meetups/{id}/delete', ['as' => 'dashboard.meetups.delete', 'uses' => 'Meetup\MeetupController@delete']);
 
-    /** Event [Feedback] */
+    /** Meetups [Feedback] */
     // Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
     // ***************************************************************
 

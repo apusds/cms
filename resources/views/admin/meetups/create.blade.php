@@ -14,6 +14,8 @@
 
     <hr />
 
+    <span>P/S: Dates will be fixed as soon as we get frontend ppl</span>
+
     <form method="POST" action="{{ route('dashboard.meetups.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
@@ -23,7 +25,21 @@
             <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
         </div>
 
-        <br><br>
+        <div class="form-group">
+            <label for="event_start">Start Date and Time(<span class="red">*</span>)</label>
+            <br>
+            <span class="red">EXAMPLE: 2019-10-18, 18:00</span>
+            <input type="datetime-local" class="form-control" id="event_start" name="event_start" required>
+        </div>
+
+        <div class="form-group">
+            <label for="event_end">End Date (<span class="red">*</span>)</label>
+            <br>
+            <span class="red">EXAMPLE: 2019-10-18, 20:00</span>
+            <input type="datetime-local" class="form-control" id="event_end" name="event_end" required>
+        </div>
+
+        <br>
 
         <div class="form-group">
             <label for="description">Description (<span class="red">*</span>)</label>
@@ -32,4 +48,5 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
 @stop

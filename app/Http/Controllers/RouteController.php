@@ -25,6 +25,10 @@ class RouteController extends Controller
         ]);
     }
 
+    public function checkin() {
+        return view('layouts.website.checkin');
+    }
+
     public function showAdminLogin() {
         return view('login.index');
     }

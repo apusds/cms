@@ -14,8 +14,4 @@ class Meetup extends Model
      */
     protected $table = "meetups";
 
-    public function attendees() {
-        return $this->hasMany('App\Attendee', 'event', 'id');
-    }
-
 }
