@@ -37,6 +37,12 @@
         </div>
 
         <div class="form-group">
+            <label for="location">Meetup Location (<span class="red">*</span>)</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location" value="{{ $data->location }}" required>
+        </div>
+
+
+        <div class="form-group">
             <label for="description">Description (<span class="red">*</span>)</label>
             <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required rows="5">{{ $data->description }}</textarea>
         </div>

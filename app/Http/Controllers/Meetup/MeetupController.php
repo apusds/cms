@@ -23,6 +23,7 @@ class MeetupController extends Controller
             ->insert([
                 'title' => trim($request->input('title')),
                 'description' => trim($request->input('description')),
+                'location' => trim($request->input('location')),
                 'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H'),
                 'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
                 'created_at' => new \DateTime()
@@ -48,6 +49,7 @@ class MeetupController extends Controller
             ->update([
                 'title' => trim($request->input('title')),
                 'description' => trim($request->input('description')),
+                'location' => trim($request->input('location')),
                 'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H'),
                 'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
                 'created_at' => new \DateTime()

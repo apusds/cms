@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\{Committee,
     Event,
     Meetup,
+    ActiveMeetup,
     Http\Controllers\Event\EventController,
     Http\Controllers\Member\MemberController,
     Member,
@@ -26,7 +27,10 @@ class RouteController extends Controller
     }
 
     public function checkin() {
-        return view('layouts.website.checkin');
+        $result = (ActiveMeetup::first()) ? ActiveMeetup::first()->meetup : '';
+        return view('layouts.website.checkin',[
+            'data' => $result
+        ]);
     }
 
     public function showAdminLogin() {

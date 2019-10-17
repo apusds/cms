@@ -39,6 +39,11 @@
             <input type="datetime-local" class="form-control" id="event_end" name="event_end" required>
         </div>
 
+        <div class="form-group">
+            <label for="location">Meetup Location (<span class="red">*</span>)</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location" required>
+        </div>
+
         <br>
 
         <div class="form-group">
