@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Meetup;
 use App\{Meetup, Http\Controllers\Controller, ActiveMeetup};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\{Auth, DB, Validator};
+use Illuminate\Support\Facades\{DB, Validator};
 
 class MeetupController extends Controller
 {
@@ -29,13 +29,10 @@ class MeetupController extends Controller
                 'created_at' => new \DateTime()
             ]);
         if ($request->input('isActive')) {
+
             $new_active = new ActiveMeetup;
-            if($new_active::first()) {
-                $new_active->update(['event_id'=>$id]);
-            }else {
-                $new_active->event_id = $result;
-                $new_active->save();
-            }
+            $new_active->event_id = $result;
+            $new_active->save();
 
         }
 
@@ -64,17 +61,13 @@ class MeetupController extends Controller
                 'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
                 'created_at' => new \DateTime()
             ]);
-        if ($request->input('isActive')) {
-            if ($request->input('isActive')) {
-                $new_active = new ActiveMeetup;
-                if($new_active::first()) {
-                    $new_active->update(['event_id'=>$id]);
-                }else {
-                    $new_active->event_id = $id;
-                    $new_active->save();
-                }
 
-            }
+        if ($request->input('isActive')) {
+
+            $new_active = new ActiveMeetup;
+            $new_active->event_id = $id;
+            $new_active->save();
+
         }
 
         return $result

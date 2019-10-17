@@ -1,6 +1,19 @@
 @extends('layouts.auth')
 
 @section('content')
+@if ($message = Session::get('message'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
+@if ($message = Session::get('error'))
+    <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 @if ($data)
     <div class="logo mb-3">
         <div class="col-md-12 text-center">
@@ -24,7 +37,7 @@
       @endif
     </div>
 
-    <form action="{{ route('admin.post') }}" method="post">
+    <form action="{{ route('member.checkin') }}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="student_id">TP Number</label>

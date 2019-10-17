@@ -23,6 +23,9 @@ Route::group(['middleware', ['cors']], function() {
     Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
 });
 
+/** Member Checkin */
+Route::post('/api/member/checkin', ['as' => 'member.checkin', 'uses' => 'MeetupAttendee\MeetupAttendeeController@checkin']);
+
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
