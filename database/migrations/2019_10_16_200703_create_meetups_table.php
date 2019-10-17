@@ -15,9 +15,11 @@ class CreateMeetupsTable extends Migration
     {
         Schema::create('meetups', function (Blueprint $table) {
             $table->increments('id'); // This is the meetup unique key
-            $table->string('title');
+            $table->string('title')->unique(); // needed for FK with meetup_attendees
             $table->longText('description')->nullable(); // Not necessary, just "incase"
-            $table->timestamp('held_on'); // So Carbon() can kick in
+            $table->timestamp('event_start');
+            $table->timestamp('event_end');
+            $table->string('location');
             $table->timestamps(); // created_at, updated_at for tracking
         });
     }

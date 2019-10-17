@@ -17,7 +17,7 @@ class CreateAttendeesTable extends Migration
             $table->increments('id')->unsigned(); // This is the attendees unique key
             $table->string('event'); // Meetup ID
             $table->string('email')->nullable(); // Just "incase"
-            $table->string('student_id'); // Their student ID
+            $table->string('student_id')->unique(); // Their student ID
             $table->timestamp('joined_on');
         });
     }
