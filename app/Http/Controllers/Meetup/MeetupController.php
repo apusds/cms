@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\{Auth, DB, Validator};
 class MeetupController extends Controller
 {
     public function register(Request $request) {
-        $err = '';
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -41,12 +40,11 @@ class MeetupController extends Controller
         }
 
         return $result
-            ? redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup created! ' . $err)
+            ? redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup created! ')
             : back()->with('error', 'Unable to create Meetup');
     }
 
     public function update(Request $request, $id) {
-        $err = '';
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -80,7 +78,7 @@ class MeetupController extends Controller
         }
 
         return $result
-            ? back()->with('message', 'Done! Meetup updated' . $err)
+            ? back()->with('message', 'Done! Meetup updated')
             : back()->with('error', 'Unable to update Meetup');
     }
 
@@ -104,7 +102,7 @@ class MeetupController extends Controller
             $result->delete();
             return redirect(route('dashboard.meetups'))->with('message', 'Done! Meetup no longer active!');
         } catch (\Exception $e) {
-            return back()->with('error', 'Unable to deactivate Meetup!'.$e);
+            return back()->with('error', 'Unable to deactivate Meetup!');
         }
 
     }
