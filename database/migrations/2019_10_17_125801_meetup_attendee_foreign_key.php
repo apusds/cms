@@ -14,8 +14,8 @@ class MeetupAttendeeForeignKey extends Migration
     public function up()
     {
         Schema::table('meetup_attendees', function (Blueprint $table) {
-            $table->foreign('student_id')->references('student_id')->on('members');
-            $table->foreign('meetup_title')->references('title')->on('meetups');
+            $table->foreign('student_id')->references('student_id')->on('members')->onDelete('cascade');
+            $table->foreign('meetup_title')->references('title')->on('meetups')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
