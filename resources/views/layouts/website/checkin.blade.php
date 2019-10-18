@@ -34,17 +34,28 @@
         <div>
             <span>Location : {{ $data->location ?? "To be decided" }}</span>
         </div>
+        @php
+            $now = \Carbon\Carbon::now();
+            $start = $data->event_start;
+            $end = $data->event_end;
+        @endphp
+        @if ($now->between( $start , $end ))
+            <form action="{{ route('member.checkin') }}" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="student_id">TP Number</label>
+                    <input type="text" name="student_id"  class="form-control" id="student_id" placeholder="Enter your TP Number" required>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Check in!</button>
+                </div>
+            </form>
+        @elseif ($now->greaterThan($end))
+            <span> The meetup is now over! </span>
+        @else
+            <span> It's not time to check in yet </span>
 
-        <form action="{{ route('member.checkin') }}" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label for="student_id">TP Number</label>
-                <input type="text" name="student_id"  class="form-control" id="student_id" placeholder="Enter your TP Number" required>
-            </div>
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Check in!</button>
-            </div>
-        </form>
+        @endif
 
     @else
       <h2> There are no meetup scheduled </h2>

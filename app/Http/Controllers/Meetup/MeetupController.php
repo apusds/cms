@@ -24,8 +24,8 @@ class MeetupController extends Controller
                 'title' => trim($request->input('title')),
                 'description' => trim($request->input('description')),
                 'location' => trim($request->input('location')),
-                'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H'),
-                'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
+                'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H:i:s'),
+                'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H:i:s'),
                 'created_at' => new \DateTime()
             ]);
         if ($request->input('isActive')) {
@@ -63,8 +63,8 @@ class MeetupController extends Controller
                 'title' => trim($request->input('title')),
                 'description' => trim($request->input('description')),
                 'location' => trim($request->input('location')),
-                'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H'),
-                'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H'),
+                'event_start' => Carbon::make($request->input('event_start'))->format('Y-m-d H:i:s'),
+                'event_end' => Carbon::make($request->input('event_end'))->format('Y-m-d H:i:s'),
                 'created_at' => new \DateTime()
             ]);
 
