@@ -41,17 +41,14 @@
 
     <div class="row">
         @if (\App\ActiveMeetup::first())
-            @php
-            $meetup = \App\ActiveMeetup::first()->meetup;
-            @endphp
             <div class="col-sm-12 col-lg-3" style="width: 18rem;">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ $meetup->title }} </h5>
+                        <h5 class="card-title text-center">{{ \App\ActiveMeetup::first()->meetup->title }} </h5>
                         @if(Auth::user()->hasAllowedRole())
                             <div class="card-footer">
                                 <div class="text-center">
-                                    <a href="{{ route('dashboard.meetups.edit', ['id' => $meetup->id]) }}" class="btn btn-primary">Edit Meetup</a>
+                                    <a href="{{ route('dashboard.meetups.edit', ['id' => \App\ActiveMeetup::first()->meetup->id]) }}" class="btn btn-primary">Edit Meetup</a>
                                     <a href="{{ route('dashboard.meetups.deactivate') }}" class="btn btn-danger">Unactive</a>
                                 </div>
                             </div>

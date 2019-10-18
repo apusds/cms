@@ -34,12 +34,7 @@
         <div>
             <span>Location : {{ $data->location ?? "To be decided" }}</span>
         </div>
-        @php
-            $now = \Carbon\Carbon::now();
-            $start = $data->event_start;
-            $end = $data->event_end;
-        @endphp
-        @if ($now->between( $start , $end ))
+        @if (\Carbon\Carbon::now()->between( $data->event_start , $data->event_end ))
             <form action="{{ route('member.checkin') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -50,14 +45,11 @@
                     <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Check in!</button>
                 </div>
             </form>
-        @elseif ($now->greaterThan($end))
-            <span> The meetup is now over! </span>
         @else
-            <span> It's not time to check in yet </span>
-
+            <span> {{ \Carbon\Carbon::now()->greaterThan($data->event_end) ? 'The meetup is now over!' : 'It is not time to check in yet' }} </span>
         @endif
 
     @else
-      <h2> There are no meetup scheduled </h2>
+      <h2> There is no meetup scheduled </h2>
     @endif
 @stop
