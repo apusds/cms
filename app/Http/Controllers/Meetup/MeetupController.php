@@ -30,9 +30,15 @@ class MeetupController extends Controller
             ]);
         if ($request->input('isActive')) {
 
-            $new_active = new ActiveMeetup;
-            $new_active->event_id = $result;
-            $new_active->save();
+            if (ActiveMeetup::first()) {
+                ActiveMeetup::first()->update(['event_id' => $result]);
+
+            }else{
+                $new_active = new ActiveMeetup;
+                $new_active->event_id = $result;
+                $new_active->save();
+            }
+
 
         }
 
@@ -63,11 +69,14 @@ class MeetupController extends Controller
             ]);
 
         if ($request->input('isActive')) {
+            if (ActiveMeetup::first()) {
+                ActiveMeetup::first()->update(['event_id' => $id]);
 
-            $new_active = new ActiveMeetup;
-            $new_active->event_id = $id;
-            $new_active->save();
-
+            }else{
+                $new_active = new ActiveMeetup;
+                $new_active->event_id = $id;
+                $new_active->save();
+            }
         }
 
         return $result
