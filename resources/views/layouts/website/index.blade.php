@@ -72,9 +72,11 @@
               }
           </script>
 
+
+
           <div class="logo float-left">
             <a href="#header" class="scrollto"><img src="{{ asset('img/sds.png') }}" alt="" class="img-fluid"></a>
-            
+
           </div>
 
           <div class="float-right" style="display: flex">

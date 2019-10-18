@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Meetup extends Model
 {
 
     /**
@@ -12,6 +12,6 @@ class Member extends Model
      *
      * @var string
      */
-    protected $table = "members";
+    protected $table = "meetups";
 
 }

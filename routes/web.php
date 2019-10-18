@@ -4,6 +4,10 @@
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 /** End [Landing] */
 
+/** [Checkin] */
+Route::get('/checkin', ['as' => 'checkin', 'uses' => 'RouteController@showCheckin']);
+/** End [Checkin] */
+
 /** [Event Page] */
 Route::get('/e/{name}', ['as' => 'event', 'uses' => 'RouteController@showEvent']);
 /** End [Event Page] */
@@ -18,6 +22,9 @@ Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\W
 Route::group(['middleware', ['cors']], function() {
     Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
 });
+
+/** Member Checkin */
+Route::post('/api/member/checkin', ['as' => 'member.checkin', 'uses' => 'MeetupAttendee\MeetupAttendeeController@checkin']);
 
 /** [Admin] */
 Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
@@ -67,6 +74,25 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::post('/dashboard/events/{id}/feedback', ['as' => 'dashboard.feedback.submit', 'uses' => 'Feedback\FeedbackController@submit']);
     // ***************************************************************
 
+    // ***************************************************************
+    /** [Meetups] */
+    Route::get('/dashboard/meetups', ['as' => 'dashboard.meetups', 'uses' => 'RouteController@showMeetups']);
+
+    /** Create [Meetups] */
+    Route::get('/dashboard/meetups/create', ['as' => 'dashboard.meetups.create', 'uses' => 'RouteController@showMeetupCreate']);
+    Route::post('/dashboard/meetups/create', ['as' => 'dashboard.meetups.create', 'uses' => 'Meetup\MeetupController@register']);
+
+    /** Edit [Meetups] */
+    Route::get('/dashboard/meetups/{id}/edit', ['as' => 'dashboard.meetups.edit', 'uses' => 'RouteController@showMeetupEdit']);
+    Route::post('/dashboard/meetups/{id}/edit', ['as' => 'dashboard.meetups.edit', 'uses' => 'Meetup\MeetupController@update']);
+
+    /** Delete [Meetups] */
+    Route::get('/dashboard/meetups/{id}/delete', ['as' => 'dashboard.meetups.delete', 'uses' => 'Meetup\MeetupController@delete']);
+
+    /** Meetups [Feedback] */
+    Route::get('/dashboard/meetups/deactivate', ['as' => 'dashboard.meetups.deactivate', 'uses' => 'Meetup\MeetupController@deactivate']);
+    // ***************************************************************
+
 
 
 
@@ -106,6 +132,17 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/members/export', function() {
         return app(\App\Http\Controllers\Member\MemberController::class)->exportAsCSV();
     })->name('dashboard.members.export');
+    // ***************************************************************
+
+
+
+
+
+    // ***************************************************************
+    /** [TestBed] */
+    Route::get('/dashboard/testbed/', function () {
+        return view('admin.testbed.index');
+    });
 });
 
 // Special Perms for SuperAdmin Only

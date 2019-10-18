@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\{Committee,
     Event,
+    Meetup,
+    ActiveMeetup,
     Http\Controllers\Event\EventController,
     Http\Controllers\Member\MemberController,
     Member,
@@ -22,6 +24,11 @@ class RouteController extends Controller
             'dscEvents' => app(EventController::class)->getDSCEvents(),
             'data' => Website::all()->find(1)
         ]);
+    }
+
+    public function showCheckin() {
+        $result = (ActiveMeetup::first()) ? ActiveMeetup::first()->meetup : '';
+        return view('layouts.website.checkin', ['data' => $result]);
     }
 
     public function showAdminLogin() {
@@ -53,6 +60,22 @@ class RouteController extends Controller
     }
 
     // End [Events]
+
+    // [Meetups]
+
+    public function showMeetups() {
+        return view('admin.meetups.index');
+    }
+
+    public function showMeetupCreate() {
+        return view('admin.meetups.create');
+    }
+
+    public function showMeetupEdit($id) {
+        return view('admin.meetups.edit', ['data' => Meetup::all()->find($id)]);
+    }
+
+    // End [Meetups]
 
     // [Users]
 

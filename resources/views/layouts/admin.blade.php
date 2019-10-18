@@ -106,6 +106,9 @@
                                 <li class="nav-item {{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.events') }}">Events</a>
                                 </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.meetups') || Request::routeIs('dashboard.meetups.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.meetups') }}">Meetups</a>
+                                </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.website') }}">Website</a>
                                 </li>
@@ -164,6 +167,8 @@
         <script src="{{ asset('js/custom.js') }}"></script>
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
     </body>
 
 </html>
