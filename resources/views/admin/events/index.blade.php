@@ -29,10 +29,8 @@
                                 <b class="red">Note: This event will end soon.</b>
                             @endif
                             @if(Auth::user()->hasAllowedRole())
-                                <div class="card-footer">
-                                    <div class="text-center">
-                                        <a href="{{ route('dashboard.events.edit', ['id' => $event->id]) }}" class="btn btn-primary">Edit Event</a>
-                                    </div>
+                                <div class="text-center">
+                                    <a href="{{ route('dashboard.events.edit', ['id' => $event->id]) }}" class="btn btn-primary">Edit Event</a>
                                 </div>
                             @endif
                         </div>
