@@ -51,6 +51,7 @@
               <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
               <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="https://github.com/APU-SDS" target="_blank" class="github"><i class="fa fa-github"></i></a>
             </div>
           </div>
         </div>
@@ -526,10 +527,10 @@
                       </div>
 
                       <div class="social-links">
-                        <!-- <a href="" class="twitter"><i class="fa fa-twitter"></i></a> -->
                         <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
                         <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://github.com/APU-SDS" target="_blank" class="github"><i class="fa fa-github"></i></a>
                       </div>
 
                     </div>
