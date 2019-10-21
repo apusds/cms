@@ -314,7 +314,8 @@
                 </div>
                 <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionJoin">
                   <div class="card-body">
-                    Search cuts.snored.swanky at <a href="https://what3words.com/" target="_blank">https://what3words.com/</a>
+                    <i>Under construction!</i><br>
+                    Hint: Level 6
                   </div>
                 </div>
               </div>
