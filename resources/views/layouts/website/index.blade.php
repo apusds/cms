@@ -177,8 +177,7 @@
                     <h2>Our Partners</h2>
                 </header>
                 <div class="owl-carousel partners-carousel">
-                    <img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia">
-                    <img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL">
+                    <img src="{{ asset('img/dscmy.png') }}" alt="">
                 </div>
             </div>
         </section>
@@ -200,8 +199,7 @@
                 </ul>
               </div>
             </div>
-            
-            
+
             <div class="row gallery-container">
                 @foreach(\App\Gallery::all() as $i)
                     <div class="col-lg-4 col-md-6 gallery-item filter-{{ str_replace(' ', '-', strtolower($i->eventData()->title)) }}" data-wow-delay="0.2s">
