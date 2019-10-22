@@ -173,17 +173,17 @@
         </section>
 
         <section id="partners" class="section-light">
-          <div class="container">
-            <header class="section-header">
-              <h2>Our Partners</h2>
-            </header>
-            <div class="owl-carousel partners-carousel owl-theme align-center">
-                <img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia" style="width:200px">
-                <img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL" style="width:300px">
-                <img src="{{ asset('img/apca.png') }}" alt="APCA" style="width:200px">
-                <img src="{{ asset('img/um-app-club.jpg') }}" alt="APCA" style="width:150px">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Our Partners</h2>
+                </header>
+                <div class="owl-carousel partners-carousel">
+                    <img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia">
+                    <img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL">
+                    <img src="{{ asset('img/apca.png') }}" alt="APCA">
+                    <img src="{{ asset('img/um-app-club.jpg') }}" alt="APCA">
+                </div>
             </div>
-          </div>
         </section>
 
         <section id="gallery" class="section-dark wow fadeInRightBig">
