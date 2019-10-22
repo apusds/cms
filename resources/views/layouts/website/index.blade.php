@@ -505,7 +505,7 @@
 
             <div class="row">
 
-              <div class="col footer-info">
+              <div class="col-sm footer-info">
 
                 <div class="row">
 
@@ -539,7 +539,7 @@
 
               </div>
 
-              <div class="col footer-info">
+              <div class="col-sm footer-info">
 
                 <div class="form">
 
@@ -567,7 +567,7 @@
 
               </div>
 
-              <div class="col footer-info">
+              <div class="col-sm footer-info">
                 <h4>Our Discord Guild</h4>
                 <iframe src="https://discordapp.com/widget?id=625938559819317268&theme=light" height="350" allowtransparency="true" frameborder="0"></iframe>
               </div>
