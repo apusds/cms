@@ -800,7 +800,7 @@ h6 {
   padding: 6px 10px;
   font-size: 16px;
   line-height: 20px;
-  color: black;
+  color: #413e66;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
   border: 2px solid black;
@@ -809,9 +809,8 @@ h6 {
 
 #gallery #gallery-flters li:hover,
 #gallery #gallery-flters li.filter-active {
-  color: white;
-  background: #44ce6f;
-  border-color: #44ce6f;
+  color: yellow;
+  background: black;
 }
 
 #gallery #gallery-flters li:last-child {
