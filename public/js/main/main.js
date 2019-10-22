@@ -102,7 +102,13 @@
         autoplay: false,
         dots: true,
         loop: false,
-        responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 }
+        margin: 30,
+        nav: false,
+        autoWidth: true,
+        responsive: { 
+          0: { items: 2 }, 
+          768: { items: 4 }, 
+          900: { items: 6 }
         }
       });
 
