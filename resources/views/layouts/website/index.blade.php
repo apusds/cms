@@ -514,7 +514,7 @@
 
                 <div class="row">
 
-                    <div class="col-sm">
+                    <div class="col-sm-6">
                       <div class="footer-links">
                         <h4>Useful Links</h4>
                         <ul>
@@ -526,7 +526,7 @@
 
                       <div class="footer-links">
                         <h4>Contact Us</h4>
-                          <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
+                          <strong>Email:</strong> <a href="mailto:info@apusds.com">info@apusds.com</a><br>
                           <strong>Mobile:</strong> <a href="tel:60173762015">+60173762015</a><br>
                         </p>
                       </div>

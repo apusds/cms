@@ -13,14 +13,14 @@ body {
 }
 
 a {
-  color: #44ce6f;
+  color: #1bb1dc;
   transition: 0.5s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #f6b765;
+  color: #0a98c0;
   outline: none;
   text-decoration: none;
 }
@@ -47,7 +47,7 @@ h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: #44ce6f;
+  background: #1bb1dc;
   color: #fff;
   width: 44px;
   height: 44px;
@@ -1198,7 +1198,7 @@ h6 {
   display: block;
   margin: 5px 0;
   position: relative;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 #membershipModal .material-radio {
@@ -1316,7 +1316,7 @@ h6 {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #44ce6f;
+  background: #1bb1dc;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1329,7 +1329,7 @@ h6 {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #f6b765;
+  background: #0a98c0;
   color: #fff;
 }
 
@@ -1361,11 +1361,11 @@ h6 {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #44ce6f;
+  color: #696592;
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #f6b765;
+  color: #1bb1dc;
 }
 
 #footer .footer-top .footer-contact {
@@ -1382,7 +1382,7 @@ h6 {
 
 #footer .footer-top .form #sendmessage {
   color: #fff;
-  background: #44ce6f;
+  background: #1bb1dc;
   display: none;
   text-align: center;
   padding: 15px;
@@ -1448,7 +1448,7 @@ h6 {
 }
 
 #footer .footer-top .form button[type="submit"] {
-  background: #44ce6f;
+  background: #1bb1dc;
   border: 0;
   border-radius: 3px;
   padding: 8px 30px;
@@ -1457,7 +1457,7 @@ h6 {
 }
 
 #footer .footer-top .form button[type="submit"]:hover {
-  background: #f6b765;
+  background: #0a98c0;
   cursor: pointer;
 }
 
@@ -1476,11 +1476,11 @@ h6 {
 }
 
 #footer .credits a {
-  color: #44ce6f;
+  color: #1bb1dc;
 }
 
 #footer .credits a:hover {
-  color: #f6b765;
+  color: #0a98c0;
 }
 
 /*--------------------------------------------------------------
