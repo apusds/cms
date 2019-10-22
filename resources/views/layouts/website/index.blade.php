@@ -179,8 +179,6 @@
                 <div class="owl-carousel partners-carousel">
                     <img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia">
                     <img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL">
-                    <img src="{{ asset('img/apca.png') }}" alt="APCA">
-                    <img src="{{ asset('img/um-app-club.jpg') }}" alt="APCA">
                 </div>
             </div>
         </section>
