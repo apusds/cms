@@ -81,44 +81,43 @@
           </div>
 
           <div class="float-right" style="display: flex">
-            <span><a href="#join" class="btn-join scrollto">Join Us</a></span>
-            
-            <nav class="main-nav d-none d-lg-block">
-              <ul>
-                <li class="active"><a href="#intro">Home</a></li>
-                <li class="drop-down"><a href="">Events</a>
-                  <ul>
-                    <li class="drop-down"><a href="#">Upcoming</a>
-                      <ul>
-                      @foreach($activeEvents as $ae)
-                          <li><a href="e/{{ $ae->identifier }}">{{ $ae->title }}</a></li>
-                      @endforeach
-                      </ul>
-                    </li>
-                    <li class="drop-down"><a href="#">Past</a>
-                      <ul>
-                      @foreach($expiredEvents as $ee)
-                          <li><a href="e/{{ $ee->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
-                      @endforeach
-                      </ul>
-                    </li>
-                    <li class="drop-down"><a href="#">DSC Events</a>
-                      <ul>
-                          @foreach($dscEvents as $dsc)
-                              <li><a href="e/{{ $dsc->identifier }}">{{ $dsc->title }}</a></li>
-                          @endforeach
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#dsc">DSC</a></li>
-                <li><a href="#partners">Partners</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#footer">Contact</a></li>
-              </ul>
-            </nav>
+          <span><a href="#join" class="btn-join">Join Us</a></span>
+          <nav class="main-nav d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="#intro">Home</a></li>
+              <li class="drop-down"><a href="">Events</a>
+                <ul>
+                  <li class="drop-down"><a href="#">Upcoming</a>
+                    <ul>
+                    @foreach($activeEvents as $ae)
+                        <li><a href="e/{{ $ae->identifier }}">{{ $ae->title }}</a></li>
+                    @endforeach
+                    </ul>
+                  </li>
+                  <li class="drop-down"><a href="#">Past</a>
+                    <ul>
+                    @foreach($expiredEvents as $ee)
+                        <li><a href="e/{{ $ee->identifier }}" class="disabled">{{ $ee->title }} ({{ strtoupper($ee->organisation) }})</a></li>
+                    @endforeach
+                    </ul>
+                  </li>
+                  <li class="drop-down"><a href="#">DSC Events</a>
+                    <ul>
+                        @foreach($dscEvents as $dsc)
+                            <li><a href="e/{{ $dsc->identifier }}">{{ $dsc->title }}</a></li>
+                        @endforeach
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#dsc">DSC</a></li>
+              <li><a href="#partners">Partners</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#footer">Contact</a></li>
+            </ul>
+          </nav>
           </div>
 
         </div>
@@ -504,7 +503,7 @@
           </div>
     </div>
 
-      <footer id="footer" class="wow fadeInUp">
+      <footer id="footer">
         <div class="footer-top">
           <div class="container">
 
