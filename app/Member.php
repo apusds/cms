@@ -13,5 +13,6 @@ class Member extends Model
      * @var string
      */
     protected $table = "members";
+    const UPDATED_AT = null;
 
 }
