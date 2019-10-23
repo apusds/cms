@@ -38,5 +38,9 @@ class DatabaseSeeder extends Seeder
             ]);
 
         Artisan::call('storage:link');
+
+        $this->call([
+            MembersTableSeeder::class,
+        ]);
     }
 }

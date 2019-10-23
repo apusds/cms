@@ -40,6 +40,15 @@ composer global require tightenco/tlint
 
 For more information, check out the [repo](https://github.com/tightenco/tlint)
 
+## Database seeding
+
+By default, db:seed will seed the user and members table. If you wish to seed the member table:
+
+```bash
+php artisan db:seed --class=MembersTableSeeder
+```
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
