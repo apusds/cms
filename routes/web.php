@@ -93,8 +93,11 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     Route::get('/dashboard/meetups/deactivate', ['as' => 'dashboard.meetups.deactivate', 'uses' => 'Meetup\MeetupController@deactivate']);
     // ***************************************************************
 
+    // ***************************************************************
+    /** [Meetup Attendees] */
+    Route::get('/dashboard/meetups/{id}/attendees', ['as' => 'dashboard.meetups.attendees', 'uses' => 'RouteController@showMeetupsAttendees']);
 
-
+    // ***************************************************************
 
 
     // ***************************************************************

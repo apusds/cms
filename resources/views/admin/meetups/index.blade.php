@@ -21,6 +21,9 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ $meetup->title }} </h5>
+                            <div class="text-center">
+                                <a href="{{ route('dashboard.meetups.attendees', ['id' => $meetup->id]) }}">Attendees</a>
+                            </div>
                             @if(Auth::user()->hasAllowedRole())
                                 <div class="card-footer">
                                     <div class="text-center">
