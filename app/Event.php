@@ -21,4 +21,13 @@ class Event extends Model
      */
     protected $table = 'events';
 
+    protected $fillable = [
+        'created_by', 'organisation', 'title', 'identifier', 'file', 'description', 'form', 'expiry'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];
+
 }

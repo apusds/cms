@@ -14,6 +14,14 @@ class Gallery extends Model
      */
     protected $table = "galleries";
 
+    protected $fillable = [
+        'event', 'file'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
+
     public function eventData() {
         return Event::all()->find($this->event);
     }

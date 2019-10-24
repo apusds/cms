@@ -13,6 +13,13 @@ class Member extends Model
      * @var string
      */
     protected $table = "members";
-    const UPDATED_AT = null;
+
+    protected $fillable = [
+        'email', 'name', 'mobile', 'student_id', 'gender', 'intake', 'skills', 'found_us'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
 
 }
