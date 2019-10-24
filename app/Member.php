@@ -14,4 +14,12 @@ class Member extends Model
      */
     protected $table = "members";
 
+    protected $fillable = [
+        'email', 'name', 'mobile', 'student_id', 'gender', 'intake', 'skills', 'found_us'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
+
 }

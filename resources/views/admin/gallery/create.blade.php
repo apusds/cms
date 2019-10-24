@@ -25,18 +25,18 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="title">Image Title (<span class="red">*</span>)</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Page Title" required>
-        </div>
-
         <label>Upload the Image (<span class="red">*</span>)</label>
+        <a class="btn btn-primary" style="margin-left: 20px" href="#" id="addField">Add more</a>
+        <hr />
+
         <div class="custom-file">
             <label class="custom-file-label" for="customFile">Choose file</label>
-            <input type="file" class="custom-file-input" id="customFile" name="file" required>
+            <input type="file" class="custom-file-input" id="customFile" name="file[]" required>
         </div>
 
-        <br><br>
+        <div id="form-field"></div>
+
+        <hr />
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
         <a href="{{ route('dashboard.gallery.upload') }}" class="btn btn-success">Reset Fields</a>

@@ -19,9 +19,12 @@ class ActiveMeetup extends Model
      * @var unsigned integer
      */
     protected  $primaryKey = 'event_id';
+
     public $incrementing = false;
 
-    protected $fillable = ['event_id'];
+    protected $fillable = [
+        'event_id'
+    ];
 
     public function meetup()
     {

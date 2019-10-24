@@ -38,18 +38,14 @@ class AuthController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed Request.');
 
-        $data = [
-            'username' => strtolower($request->input('username')),
-            'email' => strtolower($request->input('email')),
-            'password' => Hash::make($request->input('password')),
-            'role_id' => strtolower($request->input('role_id')),
-            'created_at' => new \DateTime()
-        ];
+        $user = new User;
+        $user->username = strtolower($request->input('username'));
+        $user->email = strtolower($request->input('email'));
+        $user->password = Hash::make($request->input('password'));
+        $user->role_id = strtolower($request->input('role_id'));
+        $user->save();
 
-        $result = DB::table(env("DB_USERS"))
-            ->insert($data);
-
-        if (!$result) return back()->with('error', 'Unable to register new User');
+        if (!$user) return back()->with('error', 'Unable to register new User');
         return back()->with('message', 'Done!');
     }
 
@@ -61,19 +57,13 @@ class AuthController extends Controller
         if (!$validate) return back()->with('error', 'Malformed Request. Please check your params.');
 
         $user = User::all()->find($id);
-        $data = [
-            'username' => strtolower($request->input('username')),
-            'password' => $request->input('password') === "" ? bcrypt($request->input('password')) : $user->password,
-            'email' => strtolower($request->input('email')),
-            'role_id' => $request->input('role_id'),
-            'updated_at' => new \DateTime()
-        ];
+        $user->username = strtolower($request->input('username'));
+        $user->password = $request->input('password') !== "" ? Hash::make($request->input('password')) : $user->password;
+        $user->email = strtolower($request->input('email'));
+        $user->role_id = strtolower($request->input('role_id'));
+        $user->update();
 
-        $result = DB::table(env("DB_USERS"))
-            ->where('id', $id)
-            ->update($data);
-
-        if (!$result) return back()->with('error', 'Unable to update User details or no changes!');
+        if (!$user) return back()->with('error', 'Unable to update User details or no changes!');
         return back()->with('message', 'Done!');
     }
 
@@ -90,13 +80,11 @@ class AuthController extends Controller
 
         if ($password !== $confirm) return back()->with('error', 'Both your Password isn\' the same!');
 
-        $result = DB::table(env('DB_USERS'))
-            ->where('id', Auth::user()->id)
-            ->update([
-                'password' => Hash::make(trim($request->input('password')))
-            ]);
+        $user = User::all()->find(Auth::user()->id);
+        $user->password = Hash::make(trim($request->input('password')));
+        $user->save();
 
-        if ($result) {
+        if ($user) {
             auth()->logout();
             return redirect(route('admin'))->with('message', 'Please login with your new Password!');
         } else {

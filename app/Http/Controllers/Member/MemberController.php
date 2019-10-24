@@ -46,18 +46,16 @@ class MemberController extends Controller
         $email = trim(strtolower($request->input('email')));
         $name = trim(strtoupper($request->input('name')));
 
-        $result = DB::table('members')
-            ->insert([
-                'email' => $email,
-                'name' => $name,
-                'mobile' => trim($request->input('mobile')),
-                'student_id' => trim($request->input('tp')),
-                'intake' => trim($request->input('intake')),
-                'gender' => $request->input('gender'),
-                'skills' => implode(", ", $request->input('skills')),
-                'found_us' => $this->data[trim($request->input('check'))],
-                'created_at' => new \DateTime()
-            ]);
+        $result = new Member;
+        $result->email = $email;
+        $result->name = $name;
+        $result->mobile = trim($request->input('mobile'));
+        $result->student_id = trim($request->input('tp'));
+        $result->intake = trim($request->input('intake'));
+        $result->gender = trim($request->input('gender'));
+        $result->skills = implode(", ", $request->input('skills'));
+        $result->found_us = $this->data[trim($request->input('check'))];
+        $result->save();
 
         try {
             Mail::to($email)
@@ -91,19 +89,16 @@ class MemberController extends Controller
         $email = trim(strtolower($request->input('email')));
         $name = trim(strtoupper($request->input('name')));
 
-        $result = DB::table(env('DB_MEMBER'))
-            ->where('id', $id)
-            ->update([
-                'email' => $email,
-                'name' => $name,
-                'mobile' => trim($request->input('mobile')),
-                'student_id' => trim($request->input('tp')),
-                'intake' => trim($request->input('intake')),
-                'gender' => $request->input('gender'),
-                'skills' => implode(", ", $request->input('skills')),
-                'found_us' => $this->data[trim($request->input('check'))],
-                'created_at' => new \DateTime()
-            ]);
+        $result = Member::all()->find($id);
+        $result->email = $email;
+        $result->name = $name;
+        $result->mobile = trim($request->input('mobile'));
+        $result->student_id = trim($request->input('tp'));
+        $result->intake = trim($request->input('intake'));
+        $result->gender = trim($request->input('gender'));
+        $result->skills = implode(", ", $request->input('skills'));
+        $result->found_us = $this->data[trim($request->input('check'))];
+        $result->update();
 
         if ($result) return back()->with('message', 'Done! Member details has been updated.');
 

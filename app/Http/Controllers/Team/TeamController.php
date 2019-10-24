@@ -30,16 +30,14 @@ class TeamController extends Controller
         $request->file('file')->storeAs('public/committee', $fileNameToStore);
 
         // Now to the DB
-        $result = DB::table(env('DB_TEAM'))
-            ->insert([
-                'name' => trim($request->input('name')),
-                'role' => trim($request->input('role')),
-                'file' => $fileNameToStore,
-                'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
-                'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
-                'instagram' => trim($request->input('instagram')) == "" ? null : trim($request->input('instagram')),
-                'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
-            ]);
+        $result = new Committee;
+        $result->name = trim($request->input('name'));
+        $result->role = trim($request->input('role'));
+        $result->file = $fileNameToStore;
+        $result->facebook = trim($request->input('facebook')) == "" ? null : trim($request->input('facebook'));
+        $result->instagram = trim($request->input('instagram')) == "" ? null : trim($request->input('instagram'));
+        $result->linkedln = trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'));
+        $result->save();
 
         return $result
             ? back()->with('message', 'Done! Committee Member has been added')
@@ -69,16 +67,13 @@ class TeamController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed Request');
 
-        $result = DB::table(env('DB_TEAM'))
-            ->where('id', $id)
-            ->update([
-                'name' => trim($request->input('name')),
-                'role' => trim($request->input('role')),
-                'facebook' => trim($request->input('facebook')) == "" ? null : trim($request->input('facebook')),
-                'twitter' => trim($request->input('twitter')) == "" ? null : trim($request->input('twitter')),
-                'instagram' => trim($request->input('instagram')) == "" ? null : trim($request->input('instagram')),
-                'linkedln' => trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'))
-            ]);
+        $result = Committee::all()->find($id);
+        $result->name = trim($request->input('name'));
+        $result->role = trim($request->input('role'));
+        $result->facebook = trim($request->input('facebook')) == "" ? null : trim($request->input('facebook'));
+        $result->instagram = trim($request->input('instagram')) == "" ? null : trim($request->input('instagram'));
+        $result->linkedln = trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'));
+        $result->update();
 
         return $result
             ? back()->with('message', 'Done! Committee Member has been updated')

@@ -14,4 +14,13 @@ class Meetup extends Model
      */
     protected $table = "meetups";
 
+    protected $fillable = [
+        'title', 'description', 'event_start', 'event_end', 'location'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];
+
 }
