@@ -14,7 +14,9 @@ class Feedback extends Model
      */
     protected $primaryKey = 'id';
 
-    protected $fillable = ['email'];
+    protected $fillable = [
+        'email'
+    ];
 
     protected $casts = [
         'created_at' => 'datetime',
