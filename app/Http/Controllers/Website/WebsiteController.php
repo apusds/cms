@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Reporter\ErrorReporter;
 use App\Mail\InquiryMail;
 use App\Mail\NewSignup;
+use App\Website;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\{DB, Mail, Validator};
@@ -27,17 +28,14 @@ class WebsiteController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed request');
 
-        $result = DB::table(env('DB_WEBSITE'))
-            ->where('id', '1')
-            ->update([
-                'title' => trim($request->input('title')),
-                'philosophy' => trim($request->input('philosophy')),
-                'keyword' => trim($request->input('keyword')) == "" ? null : trim($request->input('keyword')),
-                'about_us' => trim($request->input('about-us')),
-                'dsc_apu' => trim($request->input('dsc_apu')),
-                'announcement' => trim($request->input('announcement')) == "" ? null : trim($request->input('announcement')),
-                'updated_at' => new \DateTime()
-            ]);
+        $result = Website::all()->find(1);
+        $result->title = trim($request->input('title'));
+        $result->philosophy = trim($request->input('philosophy'));
+        $result->keyword = trim($request->input('keyword')) == "" ? null : trim($request->input('keyword'));
+        $result->about_us = trim($request->input('about-us'));
+        $result->dsc_apu = trim($request->input('dsc_apu'));
+        $result->announcement = trim($request->input('announcement')) == "" ? null : trim($request->input('announcement'));
+        $result->update();
 
         return $result
             ? back()->with('message', 'Website data has been updated')

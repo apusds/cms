@@ -59,18 +59,16 @@ class EventController extends Controller
         // Finally store them
         $request->file('file')->storeAs('public/posters', $fileNameToStore);
 
-        $result = DB::table(env('DB_EVENTS'))
-            ->insert([
-                'created_by' => Auth::user()->id,
-                'organisation' => trim($request->input('organisation')),
-                'title' => trim($request->input('title')),
-                'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
-                'file' => $fileNameToStore,
-                'description' => trim($request->input('description')),
-                'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
-                'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
-                'created_at' => new \DateTime()
-            ]);
+        $result = new Event;
+        $result->created_by = Auth::user()->id;
+        $result->organisation = trim($request->input('organisation'));
+        $result->title = trim($request->input('title'));
+        $result->identifier = str_replace(' ', '-', trim(strtolower($request->input('title'))));
+        $result->file = $fileNameToStore;
+        $result->description = trim($request->input('description'));
+        $result->form = trim($request->input('form')) == "" ? '0' : trim($request->input('form'));
+        $result->expiry = Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s');
+        $result->save();
 
         return $result
             ? back()->with('message', 'Done! Event created')
@@ -87,17 +85,14 @@ class EventController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed POST, please check your Input.');
 
-        $result = DB::table(env('DB_EVENTS'))
-            ->where('id', $id)
-            ->update([
-                'organisation' => trim($request->input('organisation')),
-                'title' => trim($request->input('title')),
-                'identifier' => str_replace(' ', '-', trim(strtolower($request->input('title')))),
-                'description' => trim($request->input('description')),
-                'form' => trim($request->input('form')) == "" ? '0' : trim($request->input('form')),
-                'expiry' => Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s'),
-                'updated_at' => new \DateTime()
-            ]);
+        $result = Event::all()->find($id);
+        $result->organisation = trim($request->input('organisation'));
+        $result->title = trim($request->input('title'));
+        $result->identifier = str_replace(' ', '-', trim(strtolower($request->input('title'))));
+        $result->description = trim($request->input('description'));
+        $result->form = trim($request->input('form')) == "" ? '0' : trim($request->input('form'));
+        $result->expiry = Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s');
+        $result->update();
 
         return $result
             ? back()->with('message', 'Done! Event updated')
@@ -139,16 +134,15 @@ class EventController extends Controller
                 $file->storeAs('public/gallery', $fileNameToStore);
 
                 // Write to  DB
-                DB::table(env('DB_GALLERY'))
-                    ->insert([
-                        'event' => $request->input('event'),
-                        'file' => $fileNameToStore,
-                        'created_at' => new \DateTime()
-                    ]);
+                $result = new Gallery;
+                $result->event = $request->input('event');
+                $result->file = $fileNameToStore;
+                $result->save();
             }
 
             return back()->with('message', 'Done! Image uploaded');
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return back()->with('error', 'Unable to upload Image, contact InspectorGadget.');
         }
     }

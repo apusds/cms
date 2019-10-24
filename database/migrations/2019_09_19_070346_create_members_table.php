@@ -23,7 +23,7 @@ class CreateMembersTable extends Migration
             $table->string('intake');
             $table->string('skills');
             $table->string('found_us');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 

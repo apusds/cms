@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->increments('id');
             $table->integer('event')->unsigned();
             $table->longText('file');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

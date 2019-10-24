@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{ DB, Validator };
 
@@ -16,13 +17,13 @@ class RoleController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed submission, please try again!');
 
-        $result = DB::table(env('DB_ROLES'))
-            ->insert([
-                'name' => trim($request->input('name')),
-                'created_at' => new \DateTime()
-            ]);
+        $result = new Role;
+        $result->name = trim($request->input('name'));
+        $result->save();
 
-        return $result ? back()->with('message', 'Success! Role created.') : back()->with('error', 'Unable to create Role.');
+        return $result
+            ? back()->with('message', 'Success! Role created.')
+            : back()->with('error', 'Unable to create Role.');
     }
 
     public function update(Request $request, $id) {
@@ -32,14 +33,13 @@ class RoleController extends Controller
 
         if (!$validate) return back()->with('error', 'Malformed submission, please try again!');
 
-        $result = DB::table(env('DB_ROLES'))
-            ->where('id', $id)
-            ->update([
-                'name' => trim($request->input('name')),
-                'updated_at' => new \DateTime()
-            ]);
+        $result = Role::all()->find($id);
+        $result->name = trim($request->input('name'));
+        $result->update();
 
-        return $result ? back()->with('message', 'Success! Role updated.') : back()->with('error', 'Unable to update Role');
+        return $result
+            ? back()->with('message', 'Success! Role updated.')
+            : back()->with('error', 'Unable to update Role');
     }
 
 }
