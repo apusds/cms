@@ -211,7 +211,6 @@
                         <div class="gallery-wrap">
                             <img src="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="img-fluid" alt="">
                             <div class="gallery-info">
-                                <h4><a href="#">{{ $i->title }}</a></h4>
                                 <p>{{ $i->eventData()->title }}</p>
                                 <div>
                                     <a href="{{ asset(env('PUBLIC_PATH') . '/gallery/' . $i->file) }}" class="link-preview" data-lightbox="gallery" data-title="{{ $i->title }}" title="Preview"><i class="ion ion-eye"></i></a>
