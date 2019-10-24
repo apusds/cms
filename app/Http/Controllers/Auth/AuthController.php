@@ -58,10 +58,10 @@ class AuthController extends Controller
 
         $user = User::all()->find($id);
         $user->username = strtolower($request->input('username'));
-        $user->password = $request->input('password') === "" ? Hash::make($request->input('password')) : $user->password;
+        $user->password = $request->input('password') !== "" ? Hash::make($request->input('password')) : $user->password;
         $user->email = strtolower($request->input('email'));
         $user->role_id = strtolower($request->input('role_id'));
-        $user->save();
+        $user->update();
 
         if (!$user) return back()->with('error', 'Unable to update User details or no changes!');
         return back()->with('message', 'Done!');
