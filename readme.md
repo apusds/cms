@@ -16,9 +16,8 @@ nano .env OR vim .env
 Edit MySQL Settings according to your Database setup locally
 composer install
 php artisan key:generate
-chmod -R o+w storage/
+chmod -R o+w storage/ (Linux/Mac Only)
 php artisan migrate --seed
-php artisan storage:link
 php artisan serve
 ```
 
