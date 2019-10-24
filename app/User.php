@@ -18,12 +18,14 @@ class User extends Authenticatable
         'username', 'email', 'password', 'role_id'
     ];
 
+    protected $casts = ['created_at' => 'datetime'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = ['password'];
 
     public function role() {
         return $this->belongsTo('App\Role');

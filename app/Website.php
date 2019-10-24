@@ -14,4 +14,10 @@ class Website extends Model
      */
     protected $table = "website";
 
+    protected $fillable = [
+      'title', 'keyword', 'philosophy', 'about_us', 'dsc_apu', 'announcement'
+    ];
+
+    protected $casts = ['created_at' => 'datetime'];
+
 }
