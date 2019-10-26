@@ -65,7 +65,9 @@
                 @endif
 
             @else
-                <h2> There is no meetup scheduled </h2>
+                <div class="text-center">
+                    <h2> No meetup scheduled </h2>
+                </div>
             @endif
             </div>
 
