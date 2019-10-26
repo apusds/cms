@@ -17,4 +17,9 @@ class MeetupAttendee extends Model
         'joined_at' => 'datetime'
     ];
 
+    public function member()
+    {
+        return $this->belongsTo('App\Member', 'student_id', 'student_id');
+    }
+
 }
