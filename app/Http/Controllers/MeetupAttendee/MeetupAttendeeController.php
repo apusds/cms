@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\MeetupAttendee;
 
-use App\{MeetupAttendee, Http\Controllers\Controller, ActiveMeetup};
+use App\{MeetupAttendee, Meetup, Http\Controllers\Controller, ActiveMeetup};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\{DB, Validator};
 
 class MeetupAttendeeController extends Controller
@@ -40,5 +41,30 @@ class MeetupAttendeeController extends Controller
         return $result
             ? back()->with('message', 'Done! You have been checked-in! ')
             : back()->with('error', 'Unable to check in');
+    }
+
+    public function export ($id) {
+        $headers = [
+            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+            ,   'Content-type'        => 'text/csv'
+            ,   'Content-Disposition' => 'attachment; filename=members.csv'
+            ,   'Expires'             => '0'
+            ,   'Pragma'              => 'public'
+        ];
+
+        $list = MeetupAttendee::where('meetup_title', Meetup::find($id)->title)->with('member')->get()->toArray();
+        # add headers for each column in the CSV download
+        array_unshift($list, array_keys($list[0]));
+
+        $callback = function() use ($list)
+        {
+            $FH = fopen('php://output', 'w');
+            foreach ($list as $row) {
+
+                fputcsv($FH, $row);
+            }
+            fclose($FH);
+        };
+        return Response::stream($callback, 200, $headers);
     }
 }
