@@ -77,6 +77,13 @@ class RouteController extends Controller
 
     // End [Meetups]
 
+    // [Meetup Attendees]
+    public function showMeetupAttendees($id) {
+        return view('admin.meetups.attendees', ['title' => Meetup::find($id)->title]);
+    }
+
+    // End [Meetups]
+
     // [Users]
 
     public function showUsers() {

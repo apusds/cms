@@ -95,7 +95,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 
     // ***************************************************************
     /** [Meetup Attendees] */
-    Route::get('/dashboard/meetups/{id}/attendees', ['as' => 'dashboard.meetups.attendees', 'uses' => 'RouteController@showMeetupsAttendees']);
+    Route::get('/dashboard/meetups/{id}/attendees', ['as' => 'dashboard.meetups.attendees', 'uses' => 'RouteController@showMeetupAttendees']);
 
     // ***************************************************************
 
