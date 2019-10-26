@@ -71,4 +71,16 @@ class MeetupAttendeeController extends Controller
 
         return Response::stream($callback, 200, $headers);
     }
+
+    public function delete ($id) {
+        $result = MeetupAttendee::find($id);
+        try {
+            $result->delete();
+            return back()->with('message', 'Done! Member Attendance removed!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Unable to delete attendance!');
+        }
+
+
+    }
 }

@@ -38,7 +38,7 @@
                     <td>{{ $member->member->intake }}</td>
                     <td>{{ ucfirst($member->member->skills) }}</td>
                     <td>{{ $member->member->found_us }}</td>
-                    <td><a class="btn btn-primary" href="{{ route('dashboard.members.edit', ['id' => $member->id]) }}">Edit</a></td>
+                    <td><a class="btn btn-danger" href="{{ route('dashboard.attendees.delete', ['id' => $member->id]) }}">REMOVE ATTENDANCE</a></td>
                 </tr>
             @endforeach
             </tbody>
