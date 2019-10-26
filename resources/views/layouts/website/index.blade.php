@@ -151,6 +151,11 @@
             <div class="about-content">
               <h2>About Us</h2>
               <h3>{{ $data->about_us }}</h3>
+              <br>
+              <blockquote class="blockquote text-center">
+                <p class="mb-0">"Everybody should know how to program a computer, because it teaches you how to think."</p>
+                <footer class="blockquote-footer"><cite title="Source Title">Steve Jobs</cite></footer>
+              </blockquote>
             </div>
           </div>
         </section>
