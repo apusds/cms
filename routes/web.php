@@ -96,7 +96,8 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
     // ***************************************************************
     /** [Meetup Attendees] */
     Route::get('/dashboard/meetups/{id}/attendees', ['as' => 'dashboard.meetups.attendees', 'uses' => 'RouteController@showMeetupAttendees']);
-    // Route::get('/dashboard/meetups/{id}/attendees/export', ['as' => 'dashboard.meetups.attendees.export', 'uses' => 'MeetupAttendee\MeetupAttendeeController@export']);
+
+    Route::get('/dashboard/attendees/{id}', ['as' => 'dashboard.attendees.delete', 'uses' => 'MeetupAttendee\MeetupAttendeeController@delete']);
 
     Route::get('/dashboard/meetups/{id}/attendees/export', function($id) {
         return app(\App\Http\Controllers\MeetupAttendee\MeetupAttendeeController::class)->export($id);
