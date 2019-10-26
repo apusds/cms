@@ -183,10 +183,10 @@
               <h2>Our Partners</h2>
             </header>
             <div class="owl-carousel partners-carousel owl-theme align-center">
-                <img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia" style="width:200px">
-                <img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL" style="width:300px">
-                <img src="{{ asset('img/apca.png') }}" alt="APCA" style="width:200px">
-                <img src="{{ asset('img/um-app-club.jpg') }}" alt="APCA" style="width:150px">
+                <figure><img src="{{ asset('img/dscmy.png') }}" alt="DSC Malaysia" style="width:200px"></figure>
+                <figure><img src="{{ asset('img/gdg-cloud-kl.png') }}" alt="GDG Cloud KL" style="width:300px"></figure>
+                <figure><img src="{{ asset('img/apca.png') }}" alt="APCA" style="width:200px"></figure>
+                <figure><img src="{{ asset('img/um-app-club.jpg') }}" alt="APCA" style="width:150px"></figure>
             </div>
           </div>
         </section>
