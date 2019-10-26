@@ -29,12 +29,12 @@ class MeetupAttendeeController extends Controller
         }
 
         try {
-            $result = DB::table(env('DB_MEETUP_ATTENDEES'))
-                ->insert([
-                    'student_id' => strtoupper($student_id),
-                    'meetup_title' => $meetup_title,
-                    'joined_at' => new \DateTime()
-                ]);
+
+            $result = new MeetupAttendee;
+            $result->student_id = strtoupper($student_id);
+            $result->meetup_title = $meetup_title;
+            $result->save();
+
         } catch (\Exception $e) {
             return back()->with('error', 'TP Number not found. If you are not a member, why not join SDS today!');
         }
