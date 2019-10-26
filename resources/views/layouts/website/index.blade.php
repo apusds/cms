@@ -132,7 +132,7 @@
               <h3><b>Student Developer Society</b></h3>
               <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
-                <a href="#join" class="btn-get-started">Join Us</a>
+                <a href="#join" class="btn-get-started scrollto">Join Us</a>
               </div>
             </div>
 

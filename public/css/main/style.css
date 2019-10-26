@@ -276,7 +276,7 @@ h6 {
   margin-bottom: 5px;
 }
 
-#intro .intro-info .btn-get-started,
+.btn-get-started,
 #intro .intro-info .btn-services {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
@@ -291,8 +291,9 @@ h6 {
   background: #44ce6f;
 }
 
-#intro .intro-info .btn-get-started:hover,
-#intro .btn-get-started:focus {
+.btn-get-started:hover,
+.btn-get-started:focus {
+  color: #fff;
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   animation: gradient 0.2s linear;
 }
@@ -1134,21 +1135,21 @@ h6 {
 
 .btn-rainbow {
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
   padding: 10px 32px;
   margin-top: 10px;
-  color: black;
-  border: 2px solid;
+  color: #fff;
+  background-color: #44ce6f;
   border-radius: 4px;
   justify-content: center;
 }
 
 .btn-rainbow:hover {
-  color: black;
+  color: #fff;
   background-image: linear-gradient(
      to right, 
      #E7484F,
@@ -1170,7 +1171,7 @@ h6 {
 
 @keyframes slidebg {
   to {
-    background-position:18.5vw;
+    background-position:21vw;
   }
 }
 
