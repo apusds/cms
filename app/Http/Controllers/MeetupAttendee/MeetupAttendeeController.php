@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\{DB, Validator};
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class MeetupAttendeeController extends Controller
 {
@@ -52,7 +53,8 @@ class MeetupAttendeeController extends Controller
             ,   'Pragma'              => 'public'
         ];
 
-        $list = MeetupAttendee::where('meetup_title', Meetup::find($id)->title)->with('member')->get()->toArray();
+        $list = MeetupAttendee::with('member')->where('meetup_title', '=', Meetup::all()->find($id)->title)->get()->toArray();
+
         # add headers for each column in the CSV download
         array_unshift($list, array_keys($list[0]));
 
@@ -60,11 +62,11 @@ class MeetupAttendeeController extends Controller
         {
             $FH = fopen('php://output', 'w');
             foreach ($list as $row) {
-
                 fputcsv($FH, $row);
             }
             fclose($FH);
         };
+
         return Response::stream($callback, 200, $headers);
     }
 }
