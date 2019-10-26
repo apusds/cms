@@ -45,15 +45,17 @@ class MeetupAttendeeController extends Controller
     }
 
     public function export ($id) {
+        $title = Meetup::all()->find($id)->title;
+        $filename = str_replace(' ', '_', $title);
         $headers = [
             'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
             ,   'Content-type'        => 'text/csv'
-            ,   'Content-Disposition' => 'attachment; filename=members.csv'
+            ,   'Content-Disposition' => "attachment; filename={$filename}_attendee.csv"
             ,   'Expires'             => '0'
             ,   'Pragma'              => 'public'
         ];
 
-        $list = MeetupAttendee::with('member')->where('meetup_title', '=', Meetup::all()->find($id)->title)->get()->pluck('member')->toArray();
+        $list = MeetupAttendee::with('member')->where('meetup_title', '=', $title)->get()->pluck('member')->toArray();
 
         # add headers for each column in the CSV download
         array_unshift($list, array_keys($list[0]));
