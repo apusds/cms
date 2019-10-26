@@ -53,7 +53,7 @@ class MeetupAttendeeController extends Controller
             ,   'Pragma'              => 'public'
         ];
 
-        $list = MeetupAttendee::with('member')->where('meetup_title', '=', Meetup::all()->find($id)->title)->get()->toArray();
+        $list = MeetupAttendee::with('member')->where('meetup_title', '=', Meetup::all()->find($id)->title)->get()->pluck('member')->toArray();
 
         # add headers for each column in the CSV download
         array_unshift($list, array_keys($list[0]));
