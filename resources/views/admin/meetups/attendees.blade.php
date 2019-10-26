@@ -4,7 +4,8 @@
 
 @section('content')
     <div>
-        <h2 class="float-left">{{ $title }} Attendees ({{ \App\MeetupAttendee::where('meetup_title', $title)->count() }})</h2>
+        <h2 class="float-left">{{ $meetup->title }} Attendees ({{ \App\MeetupAttendee::where('meetup_title', $meetup->title)->count() }})</h2>
+        <a class="btn btn-primary float-right" href="{{ route('dashboard.meetups.attendees.export', ['id' => $meetup->id]) }}">Download</a>
     </div>
 
     <br><br>
@@ -29,7 +30,7 @@
             </tr>
             </thead>
             <tbody id="myTable">
-            @foreach (\App\MeetupAttendee::where('meetup_title', $title)->with('member')->get() as $member)
+            @foreach (\App\MeetupAttendee::where('meetup_title', $meetup->title)->with('member')->get() as $member)
                 <tr>
                     <td>{{ $member->member->email }}</td>
                     <td>{{ $member->member->name }}</td>
