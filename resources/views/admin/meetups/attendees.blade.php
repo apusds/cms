@@ -30,7 +30,7 @@
             </tr>
             </thead>
             <tbody id="myTable">
-            @foreach (\App\MeetupAttendee::where('meetup_title', $meetup->title)->with('member')->get() as $member)
+            @foreach (\App\MeetupAttendee::where('meetup_title', '=',  $meetup->title)->with('member')->get() as $member)
                 <tr>
                     <td>{{ $member->member->email }}</td>
                     <td>{{ $member->member->name }}</td>
