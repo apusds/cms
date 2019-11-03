@@ -33,7 +33,7 @@ Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@logi
 
 Route::group(['middleware', ['member']], function() {});
 
-Route::group(['middleware' => ['allowed', 'auth']], function() {
+Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function() {
 
     /** [Stats (Per Date)] */
     Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
@@ -155,7 +155,7 @@ Route::group(['middleware' => ['allowed', 'auth']], function() {
 });
 
 // Special Perms for SuperAdmin Only
-Route::group(['middleware' => ['superadmin', 'auth']], function () {
+Route::group(['middleware' => ['superadmin', 'auth', 'optimizeImages']], function () {
 
     // ***************************************************************
     /** Create [User] */
