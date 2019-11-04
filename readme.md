@@ -17,6 +17,7 @@ Edit MySQL Settings according to your Database setup locally
 composer install
 php artisan key:generate
 chmod -R o+w storage/ (Linux/Mac Only)
+mysql -u root -e 'create database cms'
 php artisan migrate --seed
 php artisan queue:listen - Make sure this is in a different terminal or screen (background process)
 php artisan serve
