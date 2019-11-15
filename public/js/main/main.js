@@ -105,9 +105,9 @@
         margin: 30,
         nav: false,
         autoWidth: true,
-        responsive: { 
-          0: { items: 2 }, 
-          768: { items: 4 }, 
+        responsive: {
+          0: { items: 2 },
+          768: { items: 4 },
           900: { items: 6 }
         }
       });
@@ -126,7 +126,7 @@
       intakeError.hide();
       $('input[name="intake"]').on('keyup', function() {
           const input = $('input[name="intake"]');
-          if (!input.val().trim().match('[ucUC]{2}')) {
+          if (!input.val().trim().match('(^UC)|(^APU)|(^APT)|(^AFC)')) {
               intakeError.text('Invalid Intake');
               intakeError.show();
           } else {
@@ -139,7 +139,7 @@
     tpError.hide();
     $('input[name="tp"]').on('keyup', function() {
         const input = $('input[name="tp"]');
-        if (!input.val().trim().match('[tpTP0-9]{6}')) {
+        if (!input.val().trim().match('[TP0-9]{6}')) {
             tpError.text('Invalid TP Number');
             tpError.show();
         } else {

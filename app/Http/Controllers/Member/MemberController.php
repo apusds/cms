@@ -30,8 +30,8 @@ class MemberController extends Controller
             'email' => 'required|email',
             'name' => 'required',
             'mobile' => 'required',
-            'tp' => 'required|regex:/[tpTP0-9]{6}/',
-            'intake' => 'required|regex:/[ucUC]{2}/',
+            'tp' => 'required|regex:/[TP0-9]{6}/',
+            'intake' => 'required|regex:/(^UC)|(^APU)|(^APT)|(^AFC)/',
             'gender' => 'required',
             'skills' => 'required',
             'check' => 'required'
@@ -45,12 +45,13 @@ class MemberController extends Controller
 
         $email = trim(strtolower($request->input('email')));
         $name = trim(strtoupper($request->input('name')));
+        $tp = trim(strtoupper($request->input('tp')));
 
         $result = new Member;
         $result->email = $email;
         $result->name = $name;
         $result->mobile = trim($request->input('mobile'));
-        $result->student_id = trim($request->input('tp'));
+        $result->student_id = $tp;
         $result->intake = trim($request->input('intake'));
         $result->gender = trim($request->input('gender'));
         $result->skills = implode(", ", $request->input('skills'));
