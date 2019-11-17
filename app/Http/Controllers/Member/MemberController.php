@@ -31,7 +31,7 @@ class MemberController extends Controller
             'name' => 'required',
             'mobile' => 'required',
             'tp' => 'required|regex:/[TP0-9]{6}/',
-            'intake' => 'required|regex:/(^UC)|(^APU)|(^APT)|(^AFC)/',
+            'intake' => ['required', 'regex:/(^UC)|(^APU)|(^APT)|(^AFC)/'],
             'gender' => 'required',
             'skills' => 'required',
             'check' => 'required'
