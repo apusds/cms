@@ -37,7 +37,7 @@
         <br>
         <div>P.S. Here's a little advice from us:</div>
         <br>
-        <img src="{{ $message->embed(public_path('\img\welcome_meme_01.jpg')) }}">
+        <img src="{{ $message->embed(public_path('img/welcome_meme_01.jpg')) }}">
         <br>
         <div>
             Best Regards,
@@ -46,7 +46,7 @@
 
             <br>
             <br>
-            <img src="{{ $message->embed(public_path('\img\sds.png')) }}" style="max-width:200px;height:auto;">
+            <img src="{{ $message->embed(public_path('img/sds.png')) }}" style="max-width:200px;height:auto;">
             <br>
             <a href="http://apusds.com/" target="_blank">apusds.com</a>
             <br>
