@@ -170,6 +170,12 @@ class RouteController extends Controller
     }
     // End [Members]
 
+    // [Emailer]
+    public function showEmailer() {
+        return view('admin.emailer.index');
+    }
+    // End [Emailer]
+
     // [Global Settings]
     public function showWebsite() {
         return view('admin.website.index', [

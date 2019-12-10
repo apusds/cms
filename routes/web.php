@@ -102,7 +102,12 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/dashboard/meetups/{id}/attendees/export', function($id) {
         return app(\App\Http\Controllers\MeetupAttendee\MeetupAttendeeController::class)->export($id);
     })->name('dashboard.meetups.attendees.export');
+    // ***************************************************************
 
+    // ***************************************************************
+    /** [Emailer] */
+    Route::get('/dashboard/emailer', ['as' => 'dashboard.emailer', 'uses' => 'RouteController@showEmailer']);
+    Route::post('/dashboard/emailer', ['as' => 'dashboard.emailer', 'uses' => 'API\APIController@massSendEmail']);
     // ***************************************************************
 
 
@@ -127,7 +132,6 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     /** Delete [Gallery] */
     Route::get('/dashboard/gallery/{id}/delete', ['as' => 'dashboard.gallery.delete', 'uses' => 'Event\EventController@removeFromGallery']);
     // ***************************************************************
-
 
 
 

@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Reporter\ErrorReporter;
 use App\Mail\InquiryMail;
-use App\Mail\NewSignup;
 use App\Website;
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\{DB, Mail, Validator};
+use Illuminate\Support\Facades\{Mail, Validator};
 
 class WebsiteController extends Controller
 {

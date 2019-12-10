@@ -64,6 +64,10 @@
                         <a href="{{ route('dashboard.gallery') }}">Gallery</a>
                     </li>
 
+                    <li class="{{ Request::routeIs('dashboard.emailer') || Request::routeIs('dashboard.emailer.*') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.emailer') }}">Emailer</a>
+                    </li>
+
                     @if (Auth::user()->isSuperAdmin())
                         <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">
                             <a href="{{ route('dashboard.users') }}">Users</a>
@@ -117,6 +121,9 @@
                                 </li>
                                 <li class="nav-item {{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('dashboard.gallery') }}">Gallery</a>
+                                </li>
+                                <li class="nav-item {{ Request::routeIs('dashboard.emailer') || Request::routeIs('dashboard.emailer.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('dashboard.emailer') }}">Emailer</a>
                                 </li>
 
                                 @if (Auth::user()->isSuperAdmin())
