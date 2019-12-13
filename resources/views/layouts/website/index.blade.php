@@ -81,7 +81,7 @@
           </div>
 
           <div class="float-right" style="display: flex">
-            <span><a href="/register" class="btn-join">Join Us</a></span>
+            <span><a href="{{ route('register') }}" class="btn-join">Join Us</a></span>
             
             <nav class="main-nav d-none d-lg-block">
               <ul>
@@ -132,7 +132,7 @@
               <h3><b>Student Developer Society</b></h3>
               <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
-                <a href="/register" class="btn-get-started">Join Us</a>
+                <a href="{{ route('register') }}" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
@@ -329,7 +329,7 @@
             <div class="register">
               <h4>Be part of the coolest student-run tech community in Malaysia! *</h4>
             </div>
-            <div class="register"><a href="/register" class="btn-rainbow">Register</a></div>
+            <div class="register"><a href="{{ route('register') }}" class="btn-rainbow">Register</a></div>
             <div class="disclaimer float-right">* Weird flex but ok.</div>
 
           </div>
