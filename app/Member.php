@@ -22,4 +22,8 @@ class Member extends Model
         'created_at' => 'datetime'
     ];
 
+    public function events() {
+        return $this->hasMany(MeetupAttendee::class, 'student_id', 'student_id');
+    }
+
 }
