@@ -46,6 +46,14 @@
 </head>
 
 <body>
+    <script>
+        const msg = '{{ Session::get('alert') }}';
+        const exist = '{{ Session::has('alert') }}';
+        if (exist){
+            alert(msg);
+        }
+    </script>
+
   <div class="container">
     <div id="membershipForm">
       <div class="content rounded">
@@ -197,6 +205,7 @@
           </div>
           <hr>
           <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+          <a href="{{ route('home') }}" class="btn btn-danger">Back</a>
         </form>
       </div>
     </div>

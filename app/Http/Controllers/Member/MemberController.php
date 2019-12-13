@@ -39,7 +39,10 @@ class MemberController extends Controller
 
         if ($validator->fails()) return back()->with('error', 'Malformed Request! Please try again!');
 
-        if (count(Member::all()->where('email', strtolower($request->input('email')))) > 0) {
+        if (
+            count(Member::all()->where('email', strtolower($request->input('email')))) > 0
+            || count(Member::all()->where('student_id', strtoupper($request->input('tp')))) > 0
+        ) {
             return back()->with('alert', 'You are already an APU SDS Member! :D');
         }
 
