@@ -81,7 +81,7 @@
           </div>
 
           <div class="float-right" style="display: flex">
-            <span><a href="#join" class="btn-join scrollto">Join Us</a></span>
+            <span><a href="/register" class="btn-join">Join Us</a></span>
             
             <nav class="main-nav d-none d-lg-block">
               <ul>
@@ -132,7 +132,7 @@
               <h3><b>Student Developer Society</b></h3>
               <p class="wow fadeInRightBig">{{ $data->philosophy }}</p>
               <div>
-                <a href="#join" class="btn-get-started scrollto">Join Us</a>
+                <a href="/register" class="btn-get-started">Join Us</a>
               </div>
             </div>
 
@@ -329,185 +329,13 @@
             <div class="register">
               <h4>Be part of the coolest student-run tech community in Malaysia! *</h4>
             </div>
-            <div class="register"><a href="#membershipModal" data-toggle="modal" data-target="#membershipModal" class="btn-rainbow">Register</a></div>
+            <div class="register"><a href="/register" class="btn-rainbow">Register</a></div>
             <div class="disclaimer float-right">* Weird flex but ok.</div>
 
           </div>
         </section>
 
       </main>
-
-    <!-- The Modal -->
-    <div class="modal fade" id="membershipModal">
-          <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                      <h4 class="modal-title">Membership Form</h4>
-                      <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">
-                        <i class="fa fa-times"></i>
-                      </button>
-                  </div>
-
-                  <!-- Modal body -->
-                  <div class="modal-body content">
-                      <span><b><i>Note: Open to APU Students & Alumni only</i></b></span>
-
-                      <hr />
-
-                      <form method="POST" action="{{ route('membership.post') }}">
-                          {{ csrf_field() }}
-
-                          <div class="form-group">
-                              <label for="email">Email Address <span class="red">*</span></label>
-                              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="name">Name <span class="red">*</span></label>
-                              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="mobile">Mobile <span class="red">*</span></label>
-                              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="tp">TP Number <span class="red">*</span></label>
-                              <input type="text" class="form-control" id="tp" name="tp" placeholder="Enter TP Number" required>
-                              <small style="padding-left: 15px;" class="red" id="tpError"></small>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="intake">Intake <span class="red">*</span></label>
-                              <input type="text" class="form-control" id="intake" name="intake" placeholder="Enter Intake" required>
-                              <small style="padding-left: 15px;" class="red" id="intakeError"></small>
-                          </div>
-
-                          <label for="gender">Gender? <span class="red">*</span></label>
-
-                          <div>
-                              <div class="material-radio">
-                                  <input class="form-check-input" type="checkbox" value="male" id="male" name="gender">
-                                  <label class="form-check-label" for="male">
-                                      Male
-                                  </label>
-                              </div>
-
-                              <div class="material-radio">
-                                  <input class="form-check-input" type="checkbox" value="female" id="female" name="gender">
-                                  <label class="form-check-label" for="female">
-                                      Female
-                                  </label>
-                              </div>
-                          </div>
-
-                          <label for="skills">Skills <span class="red">*</span></label>
-
-                          <div class="row">
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
-                                <label class="form-check-label" for="beginner">
-                                    Beginner
-                                </label>
-                            </div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
-                                <label class="form-check-label" for="web dev">
-                                    Web Dev
-                                </label>
-                            </div>
-
-                            <div class="w-100"></div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
-                                <label class="form-check-label" for="backend">
-                                  Backend
-                                </label>
-                            </div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
-                                <label class="form-check-label" for="android">
-                                    Android
-                                </label>
-                            </div>
-
-                            <div class="w-100"></div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
-                                <label class="form-check-label" for="deployment">
-                                    Deployment
-                                </label>
-                            </div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
-                                <label class="form-check-label" for="database">
-                                    Database
-                                </label>
-                            </div>
-
-                            <div class="w-100"></div>
-
-                            <div class="material-check col">
-                                <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
-                                <label class="form-check-label" for="networking">
-                                    Networking
-                                </label>
-                            </div>
-
-                            <div class="material-check col invisible">
-                                <input class="form-check-input">
-                                <label class="form-check-label">
-                                </label>
-                            </div>
-
-                          </div>
-
-                          <br>
-
-                          <label for="find-us">How did you find us? <span class="red">*</span></label>
-
-                          <div>
-                              <div class="material-radio">
-                                  <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
-                                  <label class="form-check-label" for="facebook">
-                                      Social Media
-                                  </label>
-                              </div>
-
-                              <div class="material-radio">
-                                  <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
-                                  <label class="form-check-label" for="heard">
-                                      Heard From Friend
-                                  </label>
-                              </div>
-
-                              <div class="material-radio">
-                                  <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
-                                  <label class="form-check-label" for="attended">
-                                      Attended Event/Workshop
-                                  </label>
-                              </div>
-                          </div>
-                          <hr>
-                          <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
-                      </form>
-                  </div>
-
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                  </div>
-
-              </div>
-          </div>
-    </div>
 
       <footer id="footer" class="wow fadeInUp">
         <div class="footer-top">

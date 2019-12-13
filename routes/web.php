@@ -4,6 +4,10 @@
 Route::get('/', ['as' => 'home', 'uses' => 'RouteController@home']);
 /** End [Landing] */
 
+/** [Register] */
+Route::get('/register', ['as' => 'register', 'uses' => 'RouteController@showRegister']);
+/** End [Register] */
+
 /** [Checkin] */
 Route::get('/checkin', ['as' => 'checkin', 'uses' => 'RouteController@showCheckin']);
 /** End [Checkin] */
