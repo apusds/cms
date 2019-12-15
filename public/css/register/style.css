@@ -23,12 +23,24 @@ body {
     font-size: 15px;
 }
 
+#membershipForm .row .col {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#membershipForm .row .left {
+    padding-right: 5px !important;
+}
+
+#membershipForm .row .right {
+    padding-left: 5px !important;
+}
+
 #membershipForm .material-check,
 #membershipForm .material-radio {
     display: block;
     margin: 5px 0;
     position: relative;
-    padding: 0 5px;
 }
 
 #membershipForm .material-check label,

@@ -37,7 +37,6 @@
   <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
 
   <!-- Register Stylesheet File -->
@@ -93,119 +92,127 @@
             <small style="padding-left: 15px;" class="red" id="intakeError"></small>
           </div>
 
-          <label for="gender">Gender? <span class="red">*</span></label>
+          <div class="form-group">
+            <label for="gender">Gender? <span class="red">*</span></label>
 
-          <div>
-            <div class="material-radio">
-              <input class="form-check-input" type="checkbox" value="male" id="male" name="gender">
-              <label class="form-check-label" for="male">
-                Male
-              </label>
+            <div class="row">
+              <div class="material-radio col left">
+                <input class="form-check-input" type="checkbox" value="male" id="male" name="gender">
+                <label class="form-check-label" for="male">
+                  Male
+                </label>
+              </div>
+
+              <div class="material-radio col right">
+                <input class="form-check-input" type="checkbox" value="female" id="female" name="gender">
+                <label class="form-check-label" for="female">
+                  Female
+                </label>
+              </div>
             </div>
+          </div>
 
-            <div class="material-radio">
-              <input class="form-check-input" type="checkbox" value="female" id="female" name="gender">
-              <label class="form-check-label" for="female">
-                Female
-              </label>
+          <div class="form-group">
+            <label for="skills">Skills <span class="red">*</span></label>
+
+            <div class="row">
+              <div class="material-check col left">
+                <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
+                <label class="form-check-label" for="beginner">
+                  Beginner
+                </label>
+              </div>
+
+              <div class="material-check col right">
+                <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
+                <label class="form-check-label" for="web dev">
+                  Web Dev
+                </label>
+              </div>
+
+              <div class="w-100"></div>
+
+              <div class="material-check col left">
+                <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
+                <label class="form-check-label" for="backend">
+                  Backend
+                </label>
+              </div>
+
+              <div class="material-check col right">
+                <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
+                <label class="form-check-label" for="android">
+                  Android
+                </label>
+              </div>
+
+              <div class="w-100"></div>
+
+              <div class="material-check col left">
+                <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
+                <label class="form-check-label" for="deployment">
+                  Deployment
+                </label>
+              </div>
+
+              <div class="material-check col right">
+                <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
+                <label class="form-check-label" for="database">
+                  Database
+                </label>
+              </div>
+
+              <div class="w-100"></div>
+
+              <div class="material-check col left">
+                <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
+                <label class="form-check-label" for="networking">
+                  Networking
+                </label>
+              </div>
+
+              <div class="material-check col right invisible">
+                <input class="form-check-input">
+                <label class="form-check-label">
+                </label>
+              </div>
+
             </div>
           </div>
 
-          <label for="skills">Skills <span class="red">*</span></label>
+          <div class="form-group">
+            <label for="find-us">How did you find us? <span class="red">*</span></label>
 
-          <div class="row">
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="skills[]">
-              <label class="form-check-label" for="beginner">
-                Beginner
-              </label>
-            </div>
+            <div>
+              <div class="material-radio">
+                <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
+                <label class="form-check-label" for="facebook">
+                  Social Media
+                </label>
+              </div>
 
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="web dev" id="web dev" name="skills[]">
-              <label class="form-check-label" for="web dev">
-                Web Dev
-              </label>
-            </div>
+              <div class="material-radio">
+                <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
+                <label class="form-check-label" for="heard">
+                  Heard From Friend
+                </label>
+              </div>
 
-            <div class="w-100"></div>
-
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="backend" id="backend" name="skills[]">
-              <label class="form-check-label" for="backend">
-                Backend
-              </label>
-            </div>
-
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="android" id="android" name="skills[]">
-              <label class="form-check-label" for="android">
-                Android
-              </label>
-            </div>
-
-            <div class="w-100"></div>
-
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="deployment" id="deployment" name="skills[]">
-              <label class="form-check-label" for="deployment">
-                Deployment
-              </label>
-            </div>
-
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="database" id="database" name="skills[]">
-              <label class="form-check-label" for="database">
-                Database
-              </label>
-            </div>
-
-            <div class="w-100"></div>
-
-            <div class="material-check col">
-              <input class="form-check-input" type="checkbox" value="networking" id="networking" name="skills[]">
-              <label class="form-check-label" for="networking">
-                Networking
-              </label>
-            </div>
-
-            <div class="material-check col invisible">
-              <input class="form-check-input">
-              <label class="form-check-label">
-              </label>
-            </div>
-
-          </div>
-
-          <br>
-
-          <label for="find-us">How did you find us? <span class="red">*</span></label>
-
-          <div>
-            <div class="material-radio">
-              <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
-              <label class="form-check-label" for="facebook">
-                Social Media
-              </label>
-            </div>
-
-            <div class="material-radio">
-              <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
-              <label class="form-check-label" for="heard">
-                Heard From Friend
-              </label>
-            </div>
-
-            <div class="material-radio">
-              <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
-              <label class="form-check-label" for="attended">
-                Attended Event/Workshop
-              </label>
+              <div class="material-radio">
+                <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
+                <label class="form-check-label" for="attended">
+                  Attended Event/Workshop
+                </label>
+              </div>
             </div>
           </div>
+
           <hr>
-          <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
-          <a href="{{ route('home') }}" class="btn btn-danger">Back</a>
+          
+          <div class="text-center">
+            <a href="{{ route('home') }}" class="btn btn-danger" style="margin-right: 5px;">Back</a>
+            <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -221,7 +228,6 @@
   <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
   <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
   <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
-  <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('lib/isotope/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
 
