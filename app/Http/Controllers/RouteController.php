@@ -182,6 +182,12 @@ class RouteController extends Controller
     }
     // End [Emailer]
 
+    // [Redirector]
+    public function showRedirector() {
+        return view('admin.redirector.index');
+    }
+    // End [Redirector]
+
     // [Global Settings]
     public function showWebsite() {
         return view('admin.website.index', [

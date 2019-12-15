@@ -55,10 +55,6 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     /** [User] */
     Route::get('/dashboard/users', ['as' => 'dashboard.users', 'uses' => 'RouteController@showUsers']);
 
-
-
-
-
     // ***************************************************************
     /** [Event] */
     Route::get('/dashboard/events', ['as' => 'dashboard.events', 'uses' => 'RouteController@showEvents']);
@@ -121,10 +117,6 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::post('/dashboard/website', ['as' => 'dashboard.website', 'uses' => 'Website\WebsiteController@update']);
     // ***************************************************************
 
-
-
-
-
     // ***************************************************************
     /** [Gallery] */
     Route::get('/dashboard/gallery', ['as' => 'dashboard.gallery', 'uses' => 'RouteController@showGallery']);
@@ -137,9 +129,6 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/dashboard/gallery/{id}/delete', ['as' => 'dashboard.gallery.delete', 'uses' => 'Event\EventController@removeFromGallery']);
     // ***************************************************************
 
-
-
-
     // ***************************************************************
     /** [Members] */
     Route::get('/dashboard/members', ['as' => 'dashboard.members', 'uses' => 'RouteController@showMembers']);
@@ -151,9 +140,10 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     })->name('dashboard.members.export');
     // ***************************************************************
 
-
-
-
+    // ***************************************************************
+    /** [Redirector] */
+    Route::get('/dashboard/redirector', ['as' => 'redirector', 'uses' => 'RouteController@showRedirector']);
+    // ***************************************************************
 
     // ***************************************************************
     /** [TestBed] */
@@ -177,10 +167,6 @@ Route::group(['middleware' => ['superadmin', 'auth', 'optimizeImages']], functio
     /** Delete [User] */
     Route::get('/dashboard/users/{id}/delete', ['as' => 'dashboard.users.delete', 'uses' => 'Auth\AuthController@delete']);
     // ***************************************************************
-
-
-
-
 
     // ***************************************************************
     /** [Role] */
