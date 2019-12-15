@@ -47,11 +47,11 @@
         <div id="topbar">
           <div class="container">
             <div class="social-links">
-              <!-- <i href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
               <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
               <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="https://github.com/apusds" target="_blank" class="github"><i class="fa fa-github"></i></a>
+              <a href="mailto:info@apusds.com" target="_blank"><i class="fa fa-envelope"></i></a>
             </div>
           </div>
         </div>
@@ -350,7 +350,6 @@
                       <div class="footer-links">
                         <h4>Contact Us</h4>
                           <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
-                        </p>
                       </div>
 
                       <div class="social-links">
@@ -403,7 +402,9 @@
 
           </div>
 
-          <div class="container">
+        </div>
+
+        <div class="container">
             <div class="copyright">
               <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
             </div>
@@ -411,7 +412,6 @@
               Designed by <a href="https://rtgnetworks.com/" target="_blank">Raeveen Pasupathy</a> and <a href="https://www.linkedin.com/in/almondheng/" target="_blank">Almond Heng</a>
             </div>
           </div>
-        </div>
 
       </footer>
 
