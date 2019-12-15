@@ -191,7 +191,7 @@
           </div>
         </section>
 
-        <section id="gallery" class="section-dark wow fadeInRightBig">
+        <!--section id="gallery" class="section-dark wow fadeInRightBig">
           <div class="container">
 
             <header class="section-header">
@@ -227,7 +227,7 @@
             </div>
 
           </div>
-        </section>
+        </section-->
 
         <section id="team">
           <div class="container">
