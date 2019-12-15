@@ -97,14 +97,14 @@
 
             <div class="row">
               <div class="material-radio col left">
-                <input class="form-check-input" type="checkbox" value="male" id="male" name="gender">
+                <input class="form-check-input" type="radio" value="male" id="male" name="gender">
                 <label class="form-check-label" for="male">
                   Male
                 </label>
               </div>
 
               <div class="material-radio col right">
-                <input class="form-check-input" type="checkbox" value="female" id="female" name="gender">
+                <input class="form-check-input" type="radio" value="female" id="female" name="gender">
                 <label class="form-check-label" for="female">
                   Female
                 </label>
@@ -185,21 +185,21 @@
 
             <div>
               <div class="material-radio">
-                <input class="form-check-input" type="checkbox" value="0" id="facebook" name="check">
+                <input class="form-check-input" type="radio" value="0" id="facebook" name="check">
                 <label class="form-check-label" for="facebook">
                   Social Media
                 </label>
               </div>
 
               <div class="material-radio">
-                <input class="form-check-input" type="checkbox" value="1" id="heard" name="check">
+                <input class="form-check-input" type="radio" value="1" id="heard" name="check">
                 <label class="form-check-label" for="heard">
                   Heard From Friend
                 </label>
               </div>
 
               <div class="material-radio">
-                <input class="form-check-input" type="checkbox" value="2" id="attended" name="check">
+                <input class="form-check-input" type="radio" value="2" id="attended" name="check">
                 <label class="form-check-label" for="attended">
                   Attended Event/Workshop
                 </label>
