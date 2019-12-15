@@ -347,16 +347,6 @@
 
                 <div class="row">
 
-                    <div class="col-sm">
-                      <div class="footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                          <li><a href="#">Home</a></li>
-                          <li><a href="#">Terms of service</a></li>
-                          <li><a href="#">Privacy policy</a></li>
-                        </ul>
-                      </div>
-
                       <div class="footer-links">
                         <h4>Contact Us</h4>
                           <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
@@ -413,16 +403,17 @@
             </div>
 
           </div>
+
+          <div class="container">
+            <div class="copyright">
+              <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            </div>
+            <div class="credits">
+              Designed by <a href="https://rtgnetworks.com/" target="_blank">Raeveen Pasupathy</a> and <a href="https://www.linkedin.com/in/almondheng/" target="_blank">Almond Heng</a>
+            </div>
+          </div>
         </div>
 
-        <div class="container">
-          <div class="copyright">
-            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-          </div>
-          <div class="credits">
-            Designed by <a href="https://rtgnetworks.com/" target="_blank">Raeveen Pasupathy</a> and <a href="https://www.linkedin.com/in/almondheng/" target="_blank">Almond Heng</a>
-          </div>
-        </div>
       </footer>
 
       <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
