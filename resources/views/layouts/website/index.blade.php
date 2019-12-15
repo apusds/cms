@@ -350,7 +350,6 @@
                       <div class="footer-links">
                         <h4>Contact Us</h4>
                           <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
-                          <strong>Mobile:</strong> <a href="tel:60173762015">+60173762015</a><br>
                         </p>
                       </div>
 
