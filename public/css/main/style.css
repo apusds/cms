@@ -668,6 +668,7 @@ h6 {
   font-weight: 400;
   font-size: 18px;
   margin-top: 10px;
+  line-height: 2;
 }
 
 #dsc .btn-learn-more {
@@ -1118,14 +1119,14 @@ h6 {
 #join .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: FontAwesome;
-  content: '\f078';
+  content: '\f077';
   float: right;
   color: grey;
 }
 
 #join .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
-  content: "\f054";    /* adjust as needed, taken from bootstrap.css */
+  content: "\f078";    /* adjust as needed, taken from bootstrap.css */
 }
 
 #join .card-header {
