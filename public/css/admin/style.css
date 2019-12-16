@@ -205,3 +205,10 @@ a.article:hover {
         border: 2px solid gray !important;
     }    
 }
+
+/* ---------------------------------------------------
+    PAGINATION STYLE
+----------------------------------------------------- */
+.pagination a{
+    margin: 0 !important;
+}
