@@ -10,7 +10,6 @@ building:
     - php artisan cache:clear
     - php artisan config:clear
     - php artisan storage:link
-    - chgrp -R www-data storage bootstrap/cache
     - chmod -R ug+rwx storage bootstrap/cache
 deploying:
   stage: deploy
