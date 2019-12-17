@@ -359,8 +359,6 @@
                         <a href="https://github.com/apusds" target="_blank" class="github"><i class="fa fa-github"></i></a>
                       </div>
 
-                    </div>
-
                 </div>
 
               </div>
