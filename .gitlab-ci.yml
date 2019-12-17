@@ -14,12 +14,7 @@ building:
     - php artisan storage:link
     - chgrp -R www-data storage bootstrap/cache
     - chmod -R ug+rwx storage bootstrap/cache
-testing:
-  stage: test
-  script:
-    - php ./vendor/bin/phpunit
 deploying:
   stage: deploy
   script:
     - echo "Deployed"
-    - php artisan queue:restart #if you use queue
