@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
+use Illuminate\{
+    Support\Facades\Auth,
+    Http\Request
+};
+
 use App\{
     Committee,
     Event,
@@ -166,8 +170,22 @@ class RouteController extends Controller
     // End [Roles]
 
     // [Members]
-    public function showMembers() {
-        return view('admin.members.index');
+    public function showMembers(Request $request) {
+        $perPage = 20;
+        $q = null;
+        $page = 1;
+
+        if ($request->filled('perPage')) $perPage = $request->query('perPage');
+        if ($request->filled('q')) $q = $request->query('q');
+        if ($request->filled('page')) $page = $request->query('page');
+
+        $members = Member::search($q)->with('events')->paginate($perPage);
+
+        if ($request->ajax()) {
+            return view('admin.members.load', ['members'=>$members, 'perPage'=>$perPage, 'q'=>$q, 'page'=>$page])->render();
+        }
+
+        return view('admin.members.index', compact('members', 'perPage', 'q', 'page'));
     }
 
     public function showEditMember($id) {
