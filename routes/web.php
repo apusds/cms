@@ -35,10 +35,11 @@ Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
 /** End [Admin] */
 
-Route::group(['middleware', ['member']], function() {});
+Route::group(['middleware', ['member']], function() {
+    /** TODO [Member Area] */
+});
 
 Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function() {
-
     /** [Stats (Per Date)] */
     Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
 
@@ -109,7 +110,6 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/dashboard/emailer', ['as' => 'dashboard.emailer', 'uses' => 'RouteController@showEmailer']);
     Route::post('/dashboard/emailer', ['as' => 'dashboard.emailer', 'uses' => 'API\APIController@massSendEmail']);
     // ***************************************************************
-
 
     // ***************************************************************
     /** [Website] */
