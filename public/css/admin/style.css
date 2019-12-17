@@ -209,6 +209,6 @@ a.article:hover {
 /* ---------------------------------------------------
     PAGINATION STYLE
 ----------------------------------------------------- */
-.pagination a{
-    margin: 0 !important;
+.pagination .page-link{
+    margin-left: -1px !important;
 }

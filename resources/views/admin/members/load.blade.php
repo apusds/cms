@@ -6,8 +6,7 @@
         {{ $members->links() }} 
     </div>
     <div class="p-2">
-        Number of Rows 
-        <select name="perPage" id="perPage">
+        <select class="custom-select" name="perPage" id="perPage">
             @foreach (['20', '50', '100', '250'] as $rowsPerPage)
                 <option @if ($rowsPerPage == $perPage) selected @endif value="{{ $rowsPerPage }}">{{ $rowsPerPage }} </option>
             @endforeach
@@ -73,8 +72,7 @@
         {{ $members->links() }} 
     </div>
     <div class="p-2">
-        Number of Rows 
-        <select name="perPage" id="perPage">
+        <select class="custom-select" name="perPage" id="perPage">
             @foreach (['20', '50', '100', '250'] as $rowsPerPage)
                 <option @if ($rowsPerPage == $perPage) selected @endif value="{{ $rowsPerPage }}">{{ $rowsPerPage }} </option>
             @endforeach

@@ -4,7 +4,7 @@
 
 @section('content')
     <div>
-        <h2 class="float-left">Members ({{ count(\App\Member::all()) }})</h2>
+        <h2 class="float-left">Members ({{ $members->total() }})</h2>
         <a class="btn btn-primary float-right" href="{{ route('dashboard.members.export') }}">Download</a>
     </div>
 
