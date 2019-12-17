@@ -10,7 +10,7 @@ building:
     - php artisan cache:clear
     - php artisan config:clear
     - php artisan storage:link
-    - chmod -R ug+rwx storage
+    - chmod -R o+w storage
 deploying:
   stage: deploy
   script:
