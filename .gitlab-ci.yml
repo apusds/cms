@@ -6,7 +6,7 @@ building:
   script:
     - git reset --hard
     - git pull origin master
-    - composer install
+    - composer install --no-ansi --no-interaction
     - php artisan cache:clear
     - php artisan config:clear
     - php artisan storage:link
