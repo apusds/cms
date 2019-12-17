@@ -7,8 +7,6 @@ building:
     - git reset --hard
     - git pull origin master
     - composer install
-    - cp .env.example .env
-    - php artisan key:generate
     - php artisan cache:clear
     - php artisan config:clear
     - php artisan storage:link
