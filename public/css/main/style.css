@@ -562,7 +562,7 @@ h6 {
 --------------------------------*/
 
 #about {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 #about .about-content {
@@ -1477,7 +1477,7 @@ h6 {
 
   #intro {
     height: auto;
-    padding: 80px 0 60px 0;
+    padding: 100px 0 90px 0;
   }
 
   #intro .container {
