@@ -26,6 +26,7 @@ php artisan serve
 Now, the CMS should be live on `http://127.0.0.1:8000`!
 
 Admin Panel: `http://127.0.0.1:8000/admin`.
+<br>
 <u>Default Credentials:</u>
 <br>
 <b>Username:</b> `root`
