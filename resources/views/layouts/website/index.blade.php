@@ -344,23 +344,16 @@
             <div class="row">
 
               <div class="col-sm footer-info">
-
-                <div class="row">
-
-                      <div class="footer-links">
-                        <h4>Contact Us</h4>
-                          <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
-                      </div>
-
-                      <div class="social-links">
-                        <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                        <a href="https://github.com/apusds" target="_blank" class="github"><i class="fa fa-github"></i></a>
-                      </div>
-
+                <div class="footer-links">
+                  <h4>Contact Us</h4>
+                    <strong>Email:</strong> <a href="mailto:info@apusds.com" target="_blank">info@apusds.com</a><br>
                 </div>
-
+                <div class="social-links">
+                  <a href="https://www.facebook.com/apusds" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/dsc.apu/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/company/apusds/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://github.com/apusds" target="_blank" class="github"><i class="fa fa-github"></i></a>
+                </div>
               </div>
 
               <div class="col-sm footer-info">
