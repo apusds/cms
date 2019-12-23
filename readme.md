@@ -19,12 +19,13 @@ php artisan key:generate
 chmod -R o+w storage/ (Linux/Mac Only)
 mysql -u root -e 'create database cms'
 php artisan migrate --seed
-php artisan queue:listen - Make sure this is in a different terminal or screen (background process)
+php artisan queue:listen - (Optional) Make sure this is in a different terminal or screen (background process)
 php artisan serve
 ```
 
 Now, the CMS should be live on `http://127.0.0.1:8000`!
 
+Admin Panel: `http://127.0.0.1:8000/admin`.
 <u>Default Credentials:</u>
 <br>
 <b>Username:</b> `root`
