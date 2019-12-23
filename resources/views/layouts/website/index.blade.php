@@ -146,7 +146,7 @@
 
       <main id="main">
 
-        <section id="about" class="section-colorful-wakiki wow fadeIn">
+        <section id="about" class="wow fadeIn">
           <div class="container">
             <div class="about-content">
               <h2>About Us</h2>
