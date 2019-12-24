@@ -35,6 +35,9 @@ Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
 /** End [Admin] */
 
+/** [CAS] Get TGT */
+// Route::get('/api/cas/auth/{username}/{password}', ['uses' => 'API\CASController@getTGT']);
+
 Route::group(['middleware', ['member']], function() {
     /** TODO [Member Area] */
 });
