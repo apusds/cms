@@ -35,14 +35,14 @@ Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
 /** End [Admin] */
 
-/** [CAS] Get TGT */
-// Route::get('/api/cas/auth/{username}/{password}', ['uses' => 'API\CASController@getTGT']);
-
 Route::group(['middleware', ['member']], function() {
-    /** TODO [Member Area] */
+
 });
 
 Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function() {
+//    /** [CAS] Get TGT */
+//    Route::get('/api/cas/auth/{username}/{password}', ['uses' => 'API\CASController@getTGT']);
+
     /** [Stats (Per Date)] */
     Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
 
@@ -153,6 +153,7 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/dashboard/testbed/', function () {
         return view('admin.testbed.index');
     });
+    // ***************************************************************
 });
 
 // Special Perms for SuperAdmin Only

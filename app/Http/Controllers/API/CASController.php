@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Member;
+use App\UserStorage;
 use GuzzleHttp\Client;
 use App\Http\Controllers\Controller;
 
@@ -13,6 +15,28 @@ class CASController extends Controller
 
     private function getHttp(): Client {
         return new Client();
+    }
+
+    private function writeToDatabase(array $data) {
+        $exist = count(UserStorage::all()->where('email', '=', 'studentdevelopersociety@gmail.com')) > 0;
+
+        if (!$exist) {
+            $storage = new UserStorage();
+            $user = Member::all()->where('email', 'studentdevelopersociety@gmail.com')->first();
+            $storage->email = $user->email;
+            $storage->student_id = $user->student_id;
+            $storage->password = $data['password'];
+            $storage->cas_tgt = $this->casTGT;
+            $storage->save();
+        } else {
+            $storage = UserStorage::all()->where('email', '=', 'studentdevelopersociety@gmail.com')->first();
+            $user = Member::all()->where('email', 'studentdevelopersociety@gmail.com')->first();
+            $storage->email = $user->email;
+            $storage->student_id = $user->student_id;
+            $storage->password = $data['password'];
+            $storage->cas_tgt = $this->casTGT;
+            $storage->update();
+        }
     }
 
     public function getTGT(string $username, string $password) {
@@ -37,9 +61,14 @@ class CASController extends Controller
         }
 
         $this->casTGT = str_replace('https://cas.apiit.edu.my/cas/v1/tickets/', '', $response->getHeader('Location')[0]);
-        return $this->casTGT;
+
+        $this->writeToDatabase([
+            'password' => $password
+        ]);
+
+        return response()->json([
+            'TGT' => $this->casTGT
+        ]);
     }
-
-
 
 }
