@@ -4,6 +4,9 @@
 
 CMS is purely built on Modern Technologies like [Bootstrap](https://getboostrap.com), [Laravel Framework](https://laravel.com/), [NodeJS](https://nodejs.org/en/) and more.
 
+## Amazing Contributors
+- [euseanwoon2016](https://github.com/euseanwoon2016)
+
 ## Installation
 
 Use the PHP package manager [Composer](https://getcomposer.org/download/) to install this CMS.
@@ -50,7 +53,6 @@ By default, db:seed will seed the user and members table. If you wish to seed th
 ```bash
 php artisan db:seed --class=MembersTableSeeder
 ```
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
