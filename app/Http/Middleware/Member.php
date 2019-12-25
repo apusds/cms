@@ -16,7 +16,7 @@ class Member
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role->id != 0) return redirect(route('login'))->with('error', "You don't have access to that section.");
+        if (!Auth::guard('member')->check()) return redirect(route('member.login'))->with('error', "You don't have access to that section.");
         return $next($request);
     }
 }

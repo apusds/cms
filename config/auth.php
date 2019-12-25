@@ -49,7 +49,7 @@ return [
 
         'member' => [
             'driver' => 'session',
-            'provider' => 'members'
+            'provider' => 'member'
         ]
     ],
 

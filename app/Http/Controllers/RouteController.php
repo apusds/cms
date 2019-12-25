@@ -41,11 +41,19 @@ class RouteController extends Controller
         return view('layouts.website.checkin', ['data' => $result]);
     }
 
-    public function showAdminLogin() {
+    public function showLogin() {
         return view('login.index');
     }
 
     public function showDashboard() {
+        return "Logged in!: " . \auth()->guard('member');
+    }
+
+    public function showAdminLogin() {
+        return view('login.index');
+    }
+
+    public function showAdminDashboard() {
         return view('admin.index', [
             'joinedToday' => app(MemberController::class)->joinedToday()
         ]);

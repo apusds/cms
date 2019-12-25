@@ -103,7 +103,7 @@ class AuthController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect()->intended(route('admin'));
+        return redirect()->intended(route('home'));
     }
 
     /** [Member] Auth
@@ -124,6 +124,6 @@ class AuthController extends Controller
         ];
 
         if (!Auth::guard('member')->attempt($data)) return back()->with('error', 'Invalid Credentials!');
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('member.dashboard'));
     }
 }

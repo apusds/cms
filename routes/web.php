@@ -22,21 +22,25 @@ Route::post('/api/member/submit', ['as' => 'membership.post', 'uses' => 'Member\
 /** Inquiry [Form] */
 Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\WebsiteController@inquire']);
 
+/** Member Checkin */
+Route::post('/api/member/checkin', ['as' => 'member.checkin', 'uses' => 'MeetupAttendee\MeetupAttendeeController@checkin']);
+
+/** [Admin] Login */
+Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
+Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
+/** End [Admin] Login */
+
 /** Member [Verification] */
 Route::group(['middleware', ['cors']], function() {
     Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
 });
 
-/** Member Checkin */
-Route::post('/api/member/checkin', ['as' => 'member.checkin', 'uses' => 'MeetupAttendee\MeetupAttendeeController@checkin']);
-
-/** [Admin] */
-Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin']);
-Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
-/** End [Admin] */
+/** [Member] Login */
+Route::get('/member', ['as' => 'member.login', 'uses' => 'RouteController@showLogin']);
+/** End [Member] Login */
 
 Route::group(['middleware' => ['member']], function() {
-
+    Route::get('/my-profile', ['as' => 'member.dashboard', 'uses' => 'RouteController@showDashboard']);
 });
 
 Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function() {
@@ -47,7 +51,7 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
 
     /** [Dashboard] */
-    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showDashboard']);
+    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'RouteController@showAdminDashboard']);
 
     /** [Profile] */
     Route::get('/dashboard/profile', ['as' => 'dashboard.profile', 'uses' => 'RouteController@showProfile']);
