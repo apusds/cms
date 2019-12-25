@@ -2,73 +2,41 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Member;
-use App\UserStorage;
 use GuzzleHttp\Client;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class CASController extends Controller
 {
 
     private $casUrl = 'https://cas.apiit.edu.my';
-    private $casTGT = '';
+    private $casST = '';
 
     private function getHttp(): Client {
         return new Client();
     }
 
-    private function writeToDatabase(array $data) {
-        $exist = count(UserStorage::all()->where('email', '=', 'studentdevelopersociety@gmail.com')) > 0;
+//    private function writeToDatabase() {
+//        $exist = count(UserStorage::all()->where('email', '=', auth()->guard('member')->user()->email)) > 0;
+//
+//        if (!$exist) {
+//            $storage = new UserStorage();
+//            $user = Member::all()->where('email', auth()->guard('member')->user()->email)->first();
+//            $storage->email = $user->email;
+//            $storage->casST = $this->casST;
+//            $storage->save();
+//        } else {
+//            $storage = UserStorage::all()->where('email', '=', auth()->guard('member')->user()->email)->first();
+//            $user = Member::all()->where('email', auth()->guard('member')->user()->email)->first();
+//            $storage->email = $user->email;
+//            $storage->casST = $this->casST;
+//            $storage->update();
+//        }
+//    }
 
-        if (!$exist) {
-            $storage = new UserStorage();
-            $user = Member::all()->where('email', 'studentdevelopersociety@gmail.com')->first();
-            $storage->email = $user->email;
-            $storage->student_id = $user->student_id;
-            $storage->password = $data['password'];
-            $storage->cas_tgt = $this->casTGT;
-            $storage->save();
-        } else {
-            $storage = UserStorage::all()->where('email', '=', 'studentdevelopersociety@gmail.com')->first();
-            $user = Member::all()->where('email', 'studentdevelopersociety@gmail.com')->first();
-            $storage->email = $user->email;
-            $storage->student_id = $user->student_id;
-            $storage->password = $data['password'];
-            $storage->cas_tgt = $this->casTGT;
-            $storage->update();
-        }
-    }
-
-    public function getTGT(string $username, string $password) {
-        if (!$username || !$password) return response()->json([
-           'message' => 'Invalid Username or Password. Try again.'
-        ]);
-
-        try {
-            $response = $this->getHttp()->request('POST', $this->casUrl . '/cas/v1/tickets', [
-                'headers' => [
-                    'Content-type' => 'application/x-www-form-urlencoded'
-                ],
-                'form_params' => [
-                    'username' => strtoupper($username),
-                    'password' => $password
-                ]
-            ]);
-        } catch (\Exception $exception) {
-            return response()->json([
-               'message' => 'CAS Handshake failed'
-            ]);
-        }
-
-        $this->casTGT = str_replace('https://cas.apiit.edu.my/cas/v1/tickets/', '', $response->getHeader('Location')[0]);
-
-        $this->writeToDatabase([
-            'password' => $password
-        ]);
-
-        return response()->json([
-            'TGT' => $this->casTGT
-        ]);
-    }
-
+   public function getStudentProfile(Request $request) {
+        if (!$request->get('ticket')) return redirect($this->casUrl . '/cas/login?service=http://127.0.0.1:8000/api/cas/auth');
+        $this->casST = $request->get('ticket');
+        return redirect(route('member.dashboard'))->with('ticket', $this->casST);
+   }
 }

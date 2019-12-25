@@ -16,9 +16,7 @@ class CreateUserStoragesTable extends Migration
         Schema::create('user_storages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
-            $table->string('student_id');
-            $table->string('password');
-            $table->string('cas_tgt')->nullable();
+            $table->string('casST')->nullable();
             $table->timestamps();
         });
     }

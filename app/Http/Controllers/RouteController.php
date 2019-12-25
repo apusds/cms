@@ -7,9 +7,9 @@ use Illuminate\{
     Http\Request
 };
 
-use App\{
-    Committee,
+use App\{Committee,
     Event,
+    Http\Controllers\API\CASController,
     Meetup,
     ActiveMeetup,
     Http\Controllers\Event\EventController,
@@ -17,11 +17,14 @@ use App\{
     Member,
     Role,
     User,
-    Website
-};
+    Website};
 
 class RouteController extends Controller
 {
+
+    public function getCASController(): CASController {
+        return new CASController();
+    }
 
     public function home() {
         return view('layouts.website.index', [
@@ -46,7 +49,7 @@ class RouteController extends Controller
     }
 
     public function showDashboard() {
-        return "Logged in!: " . \auth()->guard('member')->user()->name;
+         return view('member.index');
     }
 
     public function showAdminLogin() {

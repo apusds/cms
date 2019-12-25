@@ -42,13 +42,13 @@ Route::group(['middleware', ['cors']], function() {
 /** End Member [Verification] */
 
 Route::group(['middleware' => ['member']], function() {
+    /** [CAS] Get TGT */
+    Route::get('/api/cas/auth', ['uses' => 'API\CASController@getStudentProfile']);
+
     Route::get('/my-profile', ['as' => 'member.dashboard', 'uses' => 'RouteController@showDashboard']);
 });
 
 Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function() {
-//    /** [CAS] Get TGT */
-//    Route::get('/api/cas/auth/{username}/{password}', ['uses' => 'API\CASController@getTGT']);
-
     /** [Stats (Per Date)] */
     Route::get('/api/stats/members/sort', ['as' => 'api.stats.members', 'uses' => 'Member\MemberController@totalPerDate']);
 
