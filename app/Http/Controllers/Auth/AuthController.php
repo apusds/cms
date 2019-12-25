@@ -106,5 +106,24 @@ class AuthController extends Controller
         return redirect()->intended(route('admin'));
     }
 
+    /** [Member] Auth
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function loginAsMember(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
+        if ($validator->fails()) return back()->with('error', 'Trying to spoof the System? ;P');
+
+        $data = [
+            'email' => trim(strtolower($request->input('email'))),
+            'password' => trim($request->input('password'))
+        ];
+
+        if (!Auth::guard('member')->attempt($data)) return back()->with('error', 'Invalid Credentials!');
+        return redirect()->intended(route('dashboard'));
+    }
 }

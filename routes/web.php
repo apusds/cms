@@ -35,7 +35,7 @@ Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
 /** End [Admin] */
 
-Route::group(['middleware', ['member']], function() {
+Route::group(['middleware' => ['member']], function() {
 
 });
 
