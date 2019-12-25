@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\NewSignup;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -90,6 +91,7 @@ class MemberController extends Controller
         $result = Member::all()->find($id);
         $result->email = $email;
         $result->name = $name;
+        $result->password = Hash::make(trim($request->input('password')));
         $result->mobile = trim($request->input('mobile'));
         $result->student_id = trim($request->input('tp'));
         $result->intake = trim($request->input('intake'));

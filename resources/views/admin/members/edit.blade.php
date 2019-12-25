@@ -17,8 +17,19 @@
         {{ csrf_field() }}
 
         <div class="form-group">
+            <label for="gender">Account Status: {{ $data->activated ? 'Activated' : 'Yet to be activated' }}</label>
+        </div>
+
+        <div class="form-group">
             <label for="email">Email address (<span class="red">*</span>)</label>
             <input type="email" class="form-control" id="email" name="email" value="{{ $data->email }}" placeholder="Enter email" required>
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            <label for="name">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Name">
         </div>
 
         <hr />
