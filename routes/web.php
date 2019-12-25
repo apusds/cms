@@ -30,14 +30,16 @@ Route::get('/admin', ['as' => 'admin', 'uses' => 'RouteController@showAdminLogin
 Route::post('/admin', ['as' => 'admin.post', 'uses' => 'Auth\AuthController@login']);
 /** End [Admin] Login */
 
+/** [Member] Login */
+Route::get('/member', ['as' => 'member.login', 'uses' => 'RouteController@showLogin']);
+Route::post('/member', ['as' => 'member.login.post', 'uses' => 'Auth\AuthController@loginAsMember']);
+/** End [Member] Login */
+
 /** Member [Verification] */
 Route::group(['middleware', ['cors']], function() {
     Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
 });
-
-/** [Member] Login */
-Route::get('/member', ['as' => 'member.login', 'uses' => 'RouteController@showLogin']);
-/** End [Member] Login */
+/** End Member [Verification] */
 
 Route::group(['middleware' => ['member']], function() {
     Route::get('/my-profile', ['as' => 'member.dashboard', 'uses' => 'RouteController@showDashboard']);

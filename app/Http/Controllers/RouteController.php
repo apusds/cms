@@ -42,11 +42,11 @@ class RouteController extends Controller
     }
 
     public function showLogin() {
-        return view('login.index');
+        return view('login.member');
     }
 
     public function showDashboard() {
-        return "Logged in!: " . \auth()->guard('member');
+        return "Logged in!: " . \auth()->guard('member')->user()->name;
     }
 
     public function showAdminLogin() {

@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Member extends Model
+class Member extends Authenticatable
 {
 
     /**
@@ -15,12 +15,14 @@ class Member extends Model
     protected $table = "members";
 
     protected $fillable = [
-        'email', 'name', 'mobile', 'student_id', 'gender', 'intake', 'skills', 'found_us'
+        'email', 'name', 'mobile', 'student_id', 'gender', 'intake', 'skills', 'found_us', 'password'
     ];
 
     protected $casts = [
         'created_at' => 'datetime'
     ];
+
+    protected $hidden = ['password'];
 
     public function events() {
         return $this->hasMany(MeetupAttendee::class, 'student_id', 'student_id');

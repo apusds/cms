@@ -16,6 +16,7 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
+            $table->string('password')->nullable();
             $table->string('name');
             $table->string('mobile');
             $table->string('student_id')->unique();
@@ -23,6 +24,7 @@ class CreateMembersTable extends Migration
             $table->string('intake');
             $table->string('skills');
             $table->string('found_us');
+            $table->boolean('activated')->default(false);
             $table->timestamps();
         });
     }
