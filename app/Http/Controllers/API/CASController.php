@@ -18,23 +18,25 @@ class CASController extends Controller
     }
 
    public function getStudentProfile(Request $request) {
-        $baseUrl = \Illuminate\Support\Facades\Request::root();
-        if (!$request->get('ticket')) return redirect($this->casUrl . "/cas/login?service=$baseUrl/api/cas/auth");
-        $this->casST = $request->get('ticket');
+        try {
+            $baseUrl = \Illuminate\Support\Facades\Request::root();
+            if (!$request->get('ticket')) return redirect($this->casUrl . "/cas/login?service=$baseUrl/api/cas/auth");
+            $this->casST = $request->get('ticket');
 
-        $response = $this->getHttp()->request('GET', $this->casUrl . "/cas/p3/serviceValidate?service=$baseUrl/api/cas/auth&ticket={$this->casST}&format=json", [
-            'headers' => [
-                'Content-type' => 'application/x-www-form-urlencoded'
-            ]
-        ]);
+            $response = $this->getHttp()->request('GET', $this->casUrl . "/cas/p3/serviceValidate?service=$baseUrl/api/cas/auth&ticket={$this->casST}&format=json", [
+                'headers' => [
+                    'Content-type' => 'application/x-www-form-urlencoded'
+                ]
+            ]);
 
-        $this->casData = json_decode($response->getBody()->getContents());
-        
-        dd($this->casData);
+            $this->casData = json_decode($response->getBody()->getContents());
 
-        return redirect(route('member.dashboard'))->with([
-            'ticket', $this->casST,
-            'data' => $this->casData
-        ]);
+            return redirect(route('member.dashboard'))->with([
+                'ticket', $this->casST,
+                'data' => $this->casData->serviceResponse->authenticationSuccess
+            ]);
+        } catch (\Exception $exception) {
+            return response()->json(['message' => 'CAS Authentication Failed']);
+        }
    }
 }
