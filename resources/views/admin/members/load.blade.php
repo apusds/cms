@@ -3,7 +3,7 @@
         {{ $members->total() }} result(s).
     </div>
     <div class="p-2">
-        {{ $members->links() }} 
+        {{ $members->links() }}
     </div>
     <div class="p-2">
         <select class="custom-select" name="perPage" id="perPage">
@@ -52,7 +52,7 @@
                                 <h5>- {{ $event->meetup_title }}</h5>
                             @endforeach
                         @else
-                            <h5 class="text-muted text-center">No attended events.</h5>
+                            <h5 class="text-muted text-center">No events attended.</h5>
                         @endif
                     </div>
                     <div class="modal-footer">
@@ -69,7 +69,7 @@
         {{ $members->total() }} result(s).
     </div>
     <div class="p-2">
-        {{ $members->links() }} 
+        {{ $members->links() }}
     </div>
     <div class="p-2">
         <select class="custom-select" name="perPage" id="perPage">
