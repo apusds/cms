@@ -32,7 +32,7 @@ class CASController extends Controller
             $this->casData = json_decode($response->getBody()->getContents());
 
             return redirect(route('member.dashboard'))->with([
-                'ticket', $this->casST,
+                'ticket' => $this->casST,
                 'data' => $this->casData->serviceResponse->authenticationSuccess
             ]);
         } catch (\Exception $exception) {
