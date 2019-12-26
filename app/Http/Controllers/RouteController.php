@@ -49,6 +49,7 @@ class RouteController extends Controller
     }
 
     public function showDashboard() {
+
          return view('member.index');
     }
 
