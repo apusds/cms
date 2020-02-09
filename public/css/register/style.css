@@ -1,0 +1,122 @@
+/*--------------------------------
+ # Modal Section
+--------------------------------*/
+.red {
+    color: red;
+}
+
+body {
+    background: #f8f8f8;
+}
+
+#membershipForm {
+    padding: 60px 0 60px 0;
+}
+
+#membershipForm .content {
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
+
+#membershipForm span {
+    font-size: 15px;
+}
+
+#membershipForm .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#membershipForm .row .col {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#membershipForm .row .left {
+    padding-right: 5px !important;
+}
+
+#membershipForm .row .right {
+    padding-left: 5px !important;
+}
+
+#membershipForm .material-check,
+#membershipForm .material-radio {
+    display: block;
+    margin: 5px 0;
+    position: relative;
+}
+
+#membershipForm .material-check label,
+#membershipForm .material-radio label {
+    padding: 10px 15px;
+    width: 100%;
+    display: block;
+    text-align: left;
+    color: #3C454C;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: all 200ms ease-in;
+    overflow: hidden;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 1px 10px 0 rgba(68, 88, 144, 0.1);
+}
+
+#membershipForm .material-check label:after,
+#membershipForm .material-radio label:after {
+    width: 20px;
+    height: 20px;
+    content: '';
+    border: 2px solid #D1D7DC;
+    background-color: #fff;
+    z-index: 2;
+    float: right;
+    transform: translateY(10%);
+    cursor: pointer;
+    transition: all 0.5s;
+    transform-origin: center;
+}
+
+#membershipForm .material-check label:after {
+    border-radius: 15%;
+}
+
+#membershipForm .material-radio label:after {
+    border-radius: 50%;
+}
+
+#membershipForm .material-check input,
+#membershipForm .material-radio input {
+    width: 32px;
+    height: 32px;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#membershipForm .material-check input:checked~label,
+#membershipForm .material-radio input:checked~label {
+    color: #fff;
+    background-color: #44ce6f;
+    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+#membershipForm .material-check input:checked~label:after,
+#membershipForm .material-radio input:checked~label:after {
+    transform: scale(0.5, 0.5);
+    opacity: 0;
+}
+
+@media (max-width: 767px) {
+    #membershipForm .content {
+        padding: 25px;
+    }
+}

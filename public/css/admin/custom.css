@@ -1,0 +1,20 @@
+.card {
+    margin-bottom: 20px !important;
+}
+
+a {
+    margin-left: 10px !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.green {
+    color: green !important;
+}
+
+.href {
+    color: blue !important;
+    text-decoration: underline !important;
+}
