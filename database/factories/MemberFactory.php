@@ -2,13 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
-use Faker\Factory as Local;
+use App\Member;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
-    $faker = Local::create('ms_MY');
-
+$factory->define(Member::class, function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
         'password' => null,
