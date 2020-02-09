@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call([
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
+            WebsiteTableSeeder::class,
+            MembersTableSeeder::class,
+        ]);
+
+        Artisan::call('storage:link');
     }
 }
