@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Event;
 
-use App\{Event, Gallery, Http\Controllers\Controller};
+use App\{Event, EventAttendees, Gallery, Http\Controllers\Controller};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\{Auth, DB, File, Validator};
@@ -160,6 +160,38 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', 'Unable to delete Image from Gallery');
         }
+    }
+
+    public function addEventAttendee($id, Request $request) {
+        $validate = Validator::make($request->all(), [
+            'student_name' => 'required',
+            'student_id' => 'required',
+            'email' => 'required'
+        ]);
+        if (!$validate) return back()->with('error', 'Malformed request');
+
+        $result = new EventAttendees;
+        $result->student_name = $request->input('name');
+        $result->student_id = $request->input('tp');
+        $result->email = $request->input('email');
+        $result->event_id = $id;
+        $result->save();
+
+        return $result
+            ? back()->with('message', 'Done! Attendee added')
+            : back()->with('error', 'Unable to add Attendee');
+    }
+
+    public function markEventAttendees($eid, $aid) {
+        $result = EventAttendees::all()->where('event_id', '=', $eid)->where('id', $aid)->first();
+        if (!$result) return view('errors.500');
+
+        $result->has_checkin = 'True';
+        $result->update();
+
+        return $result
+            ? back()->with('message', 'Done! Attendance marked')
+            : back()->with('error', 'Unable to mark attendance');
     }
 
 }

@@ -9,6 +9,7 @@ use Illuminate\{
 
 use App\{Committee,
     Event,
+    EventAttendees,
     Http\Controllers\API\CASController,
     Meetup,
     ActiveMeetup,
@@ -79,6 +80,10 @@ class RouteController extends Controller
 
     public function showEventEdit($id) {
         return view('admin.events.edit', ['data' => Event::all()->find($id)]);
+    }
+
+    public function showEventAttendees($id) {
+        return view('admin.events.attendees', ['data' => EventAttendees::all()->where('event_id', $id), 'id' => $id]);
     }
 
     // End [Events]

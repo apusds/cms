@@ -77,6 +77,11 @@ Route::group(['middleware' => ['allowed', 'auth', 'optimizeImages']], function()
     Route::get('/dashboard/events/{id}/edit', ['as' => 'dashboard.events.edit', 'uses' => 'RouteController@showEventEdit']);
     Route::post('/dashboard/events/{id}/edit', ['as' => 'dashboard.events.edit', 'uses' => 'Event\EventController@update']);
 
+    /** Attendees [Event] */
+    Route::get('/dashboard/events/{id}/attendees', ['as' => 'dashboard.events.attendees', 'uses' => 'RouteController@showEventAttendees']);
+    Route::get('/dashboard/events/{eid}/attendees/{aid}/mark', ['as' => 'dashboard.events.attendees.mark', 'uses' => 'Event\EventController@markEventAttendees']);
+    Route::post('/dashboard/events/{id}/attendees/add', ['as' => 'dashboard.events.attendees.add', 'uses' => 'Event\EventController@addEventAttendee']);
+
     /** Delete [Event] */
     Route::get('/dashboard/events/{id}/delete', ['as' => 'dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
 
