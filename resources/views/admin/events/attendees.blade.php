@@ -4,7 +4,7 @@
 
 @section('content')
     <div>
-        <h2 class="float-left">Events | Attendees</h2>
+        <h2 class="float-left">Events | Attendees ({{ count($data) }})</h2>
         <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
         <a class="btn btn-success float-right" data-toggle="modal" href="" data-target="#myModal">New Attendee</a>
     </div>
@@ -12,6 +12,10 @@
     <br><br>
 
     <hr />
+
+    <br>
+    <input type="text" id="myInput" class="form-control border border-info" placeholder="Filter here..">
+    <br>
 
     <table class="table">
         <thead class="thead-dark">
@@ -22,7 +26,7 @@
             <th>Action</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
         @foreach ($data as $d)
             <tr>
                 <td>{{ $d->student_name }}</td>
@@ -83,4 +87,16 @@
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 @stop
