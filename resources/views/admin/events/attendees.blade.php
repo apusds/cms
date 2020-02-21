@@ -36,7 +36,7 @@
                     @if (!$d->has_checkin)
                         <a class="btn btn-success" href="{{ route('dashboard.events.attendees.mark', ['eid' => $d->event_id, 'uid' => $d->id]) }}">Mark Attendance</a>
                         @else
-                        <a class="btn btn-danger disabled" href="">Mark Attendance</a>
+                        <a class="btn btn-danger disabled" href="">Attendance Marked</a>
                     @endif
                 </td>
             </tr>
