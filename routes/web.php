@@ -36,13 +36,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     /** [Event] */
     Route::get('/admin/dashboard/events', ['as' => 'admin.dashboard.events', 'uses' => 'Route\RouteController@showEvents']);
-    /** Create [Event] */
     Route::get('/admin/dashboard/events/create', ['as' => 'admin.dashboard.events.create', 'uses' => 'Route\RouteController@showEventCreate']);
 //    Route::post('/admin/dashboard/events/create', ['as' => 'admin.dashboard.events.create', 'uses' => 'Event\EventController@register']);
-    /** Edit [Event] */
     Route::get('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Route\RouteController@showEventEdit']);
 //    Route::post('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Event\EventController@update']);
-    /** Delete [Event] */
     Route::get('/admin/dashboard/events/{id}/delete', ['as' => 'admin.dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
     /** End [Event] */
 });
