@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <form action="{{ route('admin.post') }}" method="post">
+    <form action="{{ route('admin.login.post') }}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="username">Username</label>
