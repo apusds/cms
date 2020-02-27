@@ -7,6 +7,7 @@ use App\PasswordSession;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
@@ -70,7 +71,9 @@ class MemberController extends Controller
         }
     }
 
-    public function memberUpdatePassword(Request $request) {
+    public function memberVerifyAccount(Request $request) {
+        // TODO Send SDS Email
+//        SendEmail::dispatch($email, new NewSignup($name, $token));
         dd($request->input());
     }
 
@@ -119,6 +122,32 @@ class MemberController extends Controller
         } catch (\Exception $exception) {
             return back()->with('error', 'An unknown error has occurred. This has been reported to the Admins.');
         }
+    }
+
+    public function exportAsCSV() {
+        $headers = [
+            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+            ,   'Content-type'        => 'text/csv'
+            ,   'Content-Disposition' => 'attachment; filename=members.csv'
+            ,   'Expires'             => '0'
+            ,   'Pragma'              => 'public'
+        ];
+
+        $list = Member::all()->toArray();
+
+        # add headers for each column in the CSV download
+        array_unshift($list, array_keys($list[0]));
+
+        $callback = function() use ($list)
+        {
+            $FH = fopen('php://output', 'w');
+            foreach ($list as $row) {
+                fputcsv($FH, $row);
+            }
+            fclose($FH);
+        };
+
+        return Response::stream($callback, 200, $headers);
     }
 
 }

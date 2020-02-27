@@ -16,6 +16,7 @@ class CreateCommitteesTable extends Migration
         Schema::create('committees', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('email')->nullable();
             $table->string('role');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
