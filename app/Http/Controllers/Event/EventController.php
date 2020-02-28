@@ -124,6 +124,11 @@ class EventController extends Controller
         $result = Event::all()->find($id);
         if (!$result) return view('errors.500');
 
+        $attendee = Attendees::all()->where('student_id', Auth::user()->student_id)->where('event_title', $result->title);
+        if (count($attendee) > 0) {
+            return redirect(route('member.dashboard'))->with('error', "Please do not cheat the System!");
+        }
+
         try {
             $attendance = new Attendees;
             $attendance->student_id = Auth::user()->student_id;

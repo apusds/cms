@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Route;
 
+use App\Attendees;
 use App\Committee;
 use App\Event;
 use App\Http\Controllers\Event\EventController;
@@ -61,6 +62,14 @@ class RouteController extends Controller
 
     public function showEventEdit($id) {
         return view('admin.events.edit', ['data' => Event::all()->find($id)]);
+    }
+
+    public function showEventAttendees($id) {
+        $result = Event::all()->find($id);
+        if (!$result) return view('errors.500');
+
+        $data = Attendees::all()->where('event_title', $result->title);
+        return view('admin.events.attendees', ['data' => $data]);
     }
 
     public function showRoles() {

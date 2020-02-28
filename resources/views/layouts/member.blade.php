@@ -45,9 +45,9 @@
             <li class="{{ Request::routeIs('member.dashboard') ? 'active' : '' }}">
                 <a href="{{ route('member.dashboard') }}">Home</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('member.logout') }}">Logout</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('member.logout') }}">Logout</a>
+            </li>
 {{--            <li class="nav-item">--}}
 {{--                <a class="nav-link" href="https://cas.apiit.edu.my/cas/login?service={{ Request::root() }}/api/cas/auth">{{ Session::has('ticket') ? Session::get('ticket') : 'Link to CAS' }}</a>--}}
 {{--            </li>--}}
@@ -72,9 +72,9 @@
                         <li class="nav-item {{ Request::routeIs('member.dashboard') ? 'active' : '' }}">
                              <a class="nav-link" href="{{ route('member.dashboard') }}">Home</a>
                         </li>
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{ route('member.logout') }}">Logout</a>--}}
-{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('member.logout') }}">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>

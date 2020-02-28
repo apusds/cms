@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Route\RouteController@showEventEdit']);
     Route::post('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Event\EventController@update']);
     Route::get('/admin/dashboard/events/{id}/delete', ['as' => 'admin.dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
+    Route::get('/admin/dashboard/events/{id}/attendees', ['as' => 'admin.dashboard.events.attendees', 'uses' => 'Route\RouteController@showEventAttendees']);
     Route::get('/admin/dashboard/events/{id}/qr', function($id) {
         $pngImage = QrCode::format('png')
             ->size(500)->errorCorrection('H')

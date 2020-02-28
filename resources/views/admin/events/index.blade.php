@@ -30,6 +30,7 @@
                                 <div class="text-center">
                                     <a href="{{ route('admin.dashboard.events.edit', ['id' => $event->id]) }}" class="btn btn-primary">Edit Event</a>
                                     <a href="{{ route('admin.dashboard.events.qr', ['id' => $event->id]) }}" class="btn btn-primary">Generate QR</a>
+                                    <a href="{{ route('admin.dashboard.events.attendees', ['id' => $event->id]) }}" class="btn btn-danger">Attendees</a>
                                 </div>
 {{--                            @endif--}}
                         </div>
