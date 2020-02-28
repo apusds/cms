@@ -47,7 +47,7 @@ class WebsiteController extends Controller
         if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
 
         try {
-            Mail::to("raeveen@staffemail.apu.edu.my")
+            Mail::to("studentdevelopersociety@gmail.com")
                 ->send(new InquiryMail($request->input()));
         } catch (\Exception $exception) {
             dd($exception->getMessage());

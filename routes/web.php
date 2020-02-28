@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/dashboard/members', ['as' => 'admin.dashboard.members', 'uses' => 'Route\RouteController@showAllMembers']);
     Route::get('/admin/dashboard/members/{id}/edit', ['as' => 'admin.dashboard.members.edit', 'uses' => 'Route\RouteController@showEditMember']);
     Route::get('/admin/dashboard/members/{id}/delete', ['as' => 'admin.dashboard.members.delete', 'uses' => 'Member\MemberController@adminDeleteMember']);
+    Route::get('/admin/dashboard/members/remind', ['as' => 'admin.dashboard.members.remind', 'uses' => 'Member\MemberController@sendEmailToInactiveAccounts']);
     Route::post('/admin/dashboard/members/{id}/edit', ['as' => 'admin.dashboard.members.edit', 'uses' => 'Member\MemberController@adminUpdateMember']);
     Route::get('/admin/dashboard/members/export', function() { return app(\App\Http\Controllers\Member\MemberController::class)->exportAsCSV(); })->name('admin.dashboard.members.export');
     /** End [Members] */

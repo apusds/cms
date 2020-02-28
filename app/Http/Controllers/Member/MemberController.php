@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Member;
 
 use App\Jobs\SendEmail;
 use App\Mail\NewSignup;
+use App\Mail\PasswordReminder;
 use App\Member;
 use App\PasswordSession;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Mockery\Exception;
 
 class MemberController extends Controller
 {
@@ -90,6 +92,29 @@ class MemberController extends Controller
             return redirect(route('member.login'))->with('message', 'Your password has been updated!');
         } catch (\Exception $exception) {
             return back()->with('error', 'Unable to update Member details!');
+        }
+    }
+
+    public function sendEmailToInactiveAccounts() {
+        $members = Member::all()->where('password', '=', null);
+
+        if (count($members) < 1) return redirect(route('admin.dashboard.members'))->with('error', 'No one to send to!');
+
+        try {
+            foreach ($members as $member) {
+                $token = substr(uniqid('', true), -5);
+
+                $session = new PasswordSession;
+                $session->email = $member->email;
+                $session->token = $token;
+                $session->save();
+
+                SendEmail::dispatch($member->email, new PasswordReminder(strtoupper($member->name), $token));
+
+                return redirect(route('admin.dashboard.members'))->with('message', 'Done!');
+            }
+        } catch (Exception $exception) {
+            return back()->with('error', 'Unable to Mass send emails!');
         }
     }
 
