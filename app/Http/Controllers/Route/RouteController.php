@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Route;
 
 use App\Event;
 use App\Http\Controllers\Event\EventController;
+use App\Http\Controllers\Member\MemberController;
 use App\Member;
 use App\Role;
 use App\Website;
@@ -35,7 +36,9 @@ class RouteController extends Controller
     }
 
     public function showAdminDashboard() {
-        return view('admin.index');
+        return view('admin.index', [
+            'joinedToday' => app(MemberController::class)->joinedToday()
+        ]);
     }
 
     public function showMemberDashboard() {

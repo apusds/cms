@@ -12,10 +12,12 @@ class NewSignup extends Mailable
     use Queueable, SerializesModels;
 
     private $name;
+    private $token;
 
-    public function __construct(String $name)
+    public function __construct(String $name, String $token)
     {
         $this->name = $name;
+        $this->token = $token;
     }
 
     /**
@@ -28,7 +30,8 @@ class NewSignup extends Mailable
         return $this->subject('Welcome to APUSDS')
             ->view('emails.members.signup')
             ->with([
-                'name' => $this->name
+                'name' => $this->name,
+                'token' => $this->token
             ]);
     }
 }

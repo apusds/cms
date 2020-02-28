@@ -17,7 +17,7 @@
             @foreach(\App\Event::all() as $event)
                 <div class="col-sm-12 col-lg-3" style="width: 18rem;">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset(env('PUBLIC_PATH') . '/posters/' . $event->file) }}" alt="Image is broken">
+                        <img class="card-img-top" src="{{ asset('storage' . '/posters/' . $event->file) }}" alt="Image is broken">
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->title }} ({{ strtoupper($event->organisation) }})</h5>
                             <p class="card-text">Expiry: <span class="red">{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() }} ({{ $event->expiry }})</span></p>

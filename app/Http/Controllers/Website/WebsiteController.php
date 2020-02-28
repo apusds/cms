@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Mail\InquiryMail;
 use App\Website;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class WebsiteController extends Controller
@@ -44,13 +46,13 @@ class WebsiteController extends Controller
 
         if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
 
-//        try {
-//            Mail::to("studentdevelopersociety@gmail.com")
-//                ->send(new InquiryMail($request->input()));
-//        } catch (\Exception $exception) {
-//            $this->getErrorReporter()->reportToDiscord('Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
-//            return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
-//        }
+        try {
+            Mail::to("raeveen@staffemail.apu.edu.my")
+                ->send(new InquiryMail($request->input()));
+        } catch (\Exception $exception) {
+            dd($exception->getMessage());
+            return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
+        }
 
         return back()->with('alert', "Done! We will get back to you soon!");
     }

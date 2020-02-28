@@ -24,6 +24,13 @@
         </div>
         <br>
         <div>
+            <span style="color: red;">Please verify your Email and set a Password in order to access our Cool Member's Dashboard :)</span>
+            <br>
+            <a href="https://apusds.com/verify/member/{{ $token }}" target="_blank">https://apusds.com/verify/member/{{ $token }}</a>
+            <br>
+        </div>
+        <br>
+        <div>
             Also, to always stay connected with us and enjoy exclusively curated content follow us on our socials:
             <br>
             Facebook - <a href="https://www.facebook.com/apusds/" target="_blank">https://www.facebook.com/apusds/</a>

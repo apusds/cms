@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Jobs\SendEmail;
+use App\Mail\NewSignup;
 use App\Member;
 use App\PasswordSession;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
@@ -64,7 +67,7 @@ class MemberController extends Controller
             $session->token = $token;
             $session->save();
 
-//            SendEmail::dispatch($email, new NewSignup($name, $token));
+            SendEmail::dispatch($email, new NewSignup($name, $token));
             return back()->with('alert', 'Done! We have sent you a welcome email. (If you cannot find it, try checking your Spam or Junk folder.)');
         } catch (\Exception $exception) {
             return back()->with('alert', 'Unable to register you as a Member');
@@ -122,6 +125,23 @@ class MemberController extends Controller
         } catch (\Exception $exception) {
             return back()->with('error', 'An unknown error has occurred. This has been reported to the Admins.');
         }
+    }
+
+    public function joinedToday() {
+        $result = DB::table('members')
+            ->where(DB::raw('DATE(created_at)'), '=', date('y-m-d'))
+            ->get();
+
+        return $result;
+    }
+
+    public function totalPerDate() {
+        $result = DB::table('members')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as joined'))
+            ->groupBy('date')
+            ->get();
+
+        return $result;
     }
 
     public function exportAsCSV() {
