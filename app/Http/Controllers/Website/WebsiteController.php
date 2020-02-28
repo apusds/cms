@@ -34,16 +34,16 @@ class WebsiteController extends Controller
             : back()->with('error', 'Unable to update Website Data!');
     }
 
-//    public function inquire(Request $request) {
-//        $validate = Validator::make($request->all(), [
-//            'name' => 'required',
-//            'email' => 'required|email',
-//            'subject' => 'required',
-//            'message' => 'required'
-//        ]);
-//
-//        if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
-//
+    public function inquire(Request $request) {
+        $validate = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('alert', 'Oops! Please check your Contact Form fields');
+
 //        try {
 //            Mail::to("studentdevelopersociety@gmail.com")
 //                ->send(new InquiryMail($request->input()));
@@ -51,8 +51,8 @@ class WebsiteController extends Controller
 //            $this->getErrorReporter()->reportToDiscord('Email', \Illuminate\Support\Facades\Request::url(), "[{timestamp}] Stack: {$exception->getMessage()}");
 //            return back()->with('alert', 'Unable to send your Inquiry right now. Internal Error');
 //        }
-//
-//        return back()->with('alert', "Done! We will get back to you soon!");
-//    }
+
+        return back()->with('alert', "Done! We will get back to you soon!");
+    }
 
 }

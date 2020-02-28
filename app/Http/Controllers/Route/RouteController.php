@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Route;
 
 use App\Event;
+use App\Http\Controllers\Event\EventController;
 use App\Member;
 use App\Role;
 use App\Website;
@@ -13,7 +14,16 @@ class RouteController extends Controller
 {
 
     public function showHome() {
-        return view('layouts.website.index');
+        return view('layouts.website.index', [
+            'activeEvents' => app(EventController::class)->getActiveEvents(),
+            'expiredEvents' => app(EventController::class)->getExpiredEvents(),
+            'dscEvents' => app(EventController::class)->getDSCEvents(),
+            'data' => Website::all()->find(1)
+        ]);
+    }
+
+    public function showRegister() {
+        return view('layouts.website.register', ['data' => Website::all()->find(1)]);
     }
 
     public function showAdminLogin() {

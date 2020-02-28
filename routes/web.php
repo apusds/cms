@@ -3,6 +3,15 @@
 Route::get('/', ['as' => 'home', 'uses' => 'Route\RouteController@showHome']);
 Route::post('/', ['as' => 'member.register', 'uses' => 'Member\MemberController@register']);
 
+/** [Register] */
+Route::get('/register', ['as' => 'register', 'uses' => 'Route\RouteController@showRegister']);
+
+/** Membership [Form] */
+Route::post('/api/member/submit', ['as' => 'membership.post', 'uses' => 'Member\MemberController@register']);
+
+/** Inquiry [Form] */
+Route::post('/api/inquiry/submit', ['as' => 'inquiry.post', 'uses' => 'Website\WebsiteController@inquire']);
+
 /** [Admin] Login */
 Route::get('/admin', ['as' => 'admin.login', 'uses' => 'Route\RouteController@showAdminLogin']);
 Route::post('/admin', ['as' => 'admin.login.post', 'uses' => 'Auth\AuthController@loginAsAdmin']);
