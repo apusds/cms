@@ -1,5 +1,6 @@
 <?php
 
+Route::get('/', ['as' => 'home', 'uses' => 'Route\RouteController@showHome']);
 Route::post('/', ['as' => 'member.register', 'uses' => 'Member\MemberController@register']);
 
 /** [Admin] Login */
@@ -8,7 +9,7 @@ Route::post('/admin', ['as' => 'admin.login.post', 'uses' => 'Auth\AuthControlle
 /** End [Admin] Login */
 
 /** [Member] Verification & Password Set */
-Route::get('/verify/member', ['as' => 'member.verify', 'uses' => 'Member\MemberController@memberVerifyAccount']);
+Route::get('/verify/member/{token}', ['as' => 'member.verify', 'uses' => 'Route\RouteController@showMemberVerifyAccount']);
 /** End [Member] Verification & Password Set */
 
 /** [Member] Login */
@@ -37,11 +38,23 @@ Route::group(['middleware' => 'auth:admin'], function () {
     /** [Event] */
     Route::get('/admin/dashboard/events', ['as' => 'admin.dashboard.events', 'uses' => 'Route\RouteController@showEvents']);
     Route::get('/admin/dashboard/events/create', ['as' => 'admin.dashboard.events.create', 'uses' => 'Route\RouteController@showEventCreate']);
-//    Route::post('/admin/dashboard/events/create', ['as' => 'admin.dashboard.events.create', 'uses' => 'Event\EventController@register']);
+    Route::post('/admin/dashboard/events/create', ['as' => 'admin.dashboard.events.create', 'uses' => 'Event\EventController@register']);
     Route::get('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Route\RouteController@showEventEdit']);
-//    Route::post('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Event\EventController@update']);
+    Route::post('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Event\EventController@update']);
     Route::get('/admin/dashboard/events/{id}/delete', ['as' => 'admin.dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
     /** End [Event] */
+
+    /** [Role] */
+    Route::get('/admin/dashboard/roles', ['as' => 'admin.dashboard.roles', 'uses' => 'Route\RouteController@showRoles']);
+    /** Create [Role] */
+    Route::post('/admin/dashboard/roles/create', ['as' => 'admin.dashboard.roles.create', 'uses' => 'Role\RoleController@create']);
+    /** Edit [Role] */
+    Route::get('/admin/dashboard/roles/{id}/edit', ['as' => 'admin.dashboard.roles.edit', 'uses' => 'Route\RouteController@showRoleEdit']);
+    Route::post('/admin/dashboard/roles/{id}/edit', ['as' => 'admin.dashboard.roles.edit', 'uses' => 'Role\RoleController@update']);
+
+    /** [Website] */
+    Route::get('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Route\RouteController@showWebsite']);
+    Route::post('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Website\WebsiteController@update']);
 });
 
 Route::group(['middleware' => 'auth:member'], function () {

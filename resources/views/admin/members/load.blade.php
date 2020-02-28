@@ -34,7 +34,7 @@
             <td>{{ $member->intake }}</td>
             <td>{{ ucfirst($member->skills) }}</td>
             <td>{{ $member->found_us }}</td>
-            <td><a class="btn btn-primary" href="{{ route('dashboard.members.edit', ['id' => $member->id]) }}">Edit</a></td>
+            <td><a class="btn btn-primary" href="{{ route('admin.dashboard.members.edit', ['id' => $member->id]) }}">Edit</a></td>
         </tr>
 
         <div class="modal fade" id="showEventsAttended-{{ $member->id }}" tabindex="-1" role="dialog" aria-labelledby="showEventsAttendedLabel" aria-hidden="true">

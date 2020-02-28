@@ -11,7 +11,7 @@
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.website') }}">
+    <form method="POST" action="{{ route('admin.dashboard.website') }}">
         {{ csrf_field() }}
 
         <h3><u>SEO (Page Meta)</u></h3>
@@ -52,6 +52,6 @@
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
-        <a href="{{ route('dashboard.website') }}" class="btn btn-success">Reset Fields</a>
+        <a href="{{ route('admin.dashboard.website') }}" class="btn btn-success">Reset Fields</a>
     </form>
 @stop

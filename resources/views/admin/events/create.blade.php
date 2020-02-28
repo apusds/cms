@@ -6,7 +6,7 @@
     <div>
         <h2 class="float-left">Events | Create</h2>
         <div class="float-right">
-            <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
+            <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.events') }}">Back</a>
         </div>
     </div>
 
@@ -14,7 +14,7 @@
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.events.create') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.dashboard.events.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group checkbox">
-            <label><input type="checkbox" value="1" name="form">Enable Sign-up Form</label>
+            <label><input type="checkbox" value="1" name="attendance"> Attendance</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

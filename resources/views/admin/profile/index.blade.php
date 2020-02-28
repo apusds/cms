@@ -6,7 +6,7 @@
     <div>
         <h2 class="float-left">My Profile</h2>
         <div class="float-right">
-            <a href="{{ route('dashboard.roles') }}" class="btn btn-danger">Back</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">Back</a>
         </div>
     </div>
 
@@ -14,7 +14,7 @@
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.profile') }}">
+    <form method="POST" action="{{ route('admin.dashboard.profile') }}">
         {{ csrf_field() }}
 
         <div class="form-group">

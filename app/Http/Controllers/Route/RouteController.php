@@ -4,11 +4,17 @@ namespace App\Http\Controllers\Route;
 
 use App\Event;
 use App\Member;
+use App\Role;
+use App\Website;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class RouteController extends Controller
 {
+
+    public function showHome() {
+        return view('layouts.website.index');
+    }
 
     public function showAdminLogin() {
         return view('login.admin');
@@ -35,11 +41,27 @@ class RouteController extends Controller
     }
 
     public function showEventCreate() {
-        return view('admin.events.index');
+        return view('admin.events.create');
     }
 
     public function showEventEdit($id) {
         return view('admin.events.edit', ['data' => Event::all()->find($id)]);
+    }
+
+    public function showRoles() {
+        return view('admin.roles.index');
+    }
+
+    public function showWebsite() {
+        return view('admin.website.index', [
+            'data' => Website::all()->find(1)
+        ]);
+    }
+
+    public function showMemberVerifyAccount($id) {
+        // TODO Send SDS Email
+//        SendEmail::dispatch($email, new NewSignup($name, $token));
+        dd($id);
     }
 
     public function showAllMembers(Request $request) {
@@ -63,6 +85,14 @@ class RouteController extends Controller
     public function showEditMember($id) {
         if (!(Member::all()->find($id))) return back()->with('error', 'Member not found!');
         return view('admin.members.edit', ['data' => Member::all()->find($id)]);
+    }
+
+
+    public function showRoleEdit($id) {
+        if ($id == 1) return back()->with('error', 'You cannot edit this role!');
+        if (!(Role::all()->find($id))) return back()->with('error', 'Invalid Role, Role not found!');
+
+        return view('admin.roles.edit', ['role' => Role::all()->find($id)]);
     }
 
 }

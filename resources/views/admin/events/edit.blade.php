@@ -5,17 +5,17 @@
 @section('content')
     <div>
         <h2 class="float-left">Events | Edit</h2>
-        <a class="btn btn-primary float-right" href="{{ route('dashboard.events') }}">Back</a>
-        @if (Auth::user()->hasAllowedRole())
-            <a class="btn btn-danger float-right" href="{{ route('dashboard.events.delete', ['id' => $data->id]) }}">Delete</a>
-        @endif
+        <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.events') }}">Back</a>
+{{--        @if (Auth::user()->hasAllowedRole())--}}
+            <a class="btn btn-danger float-right" href="{{ route('admin.dashboard.events.delete', ['id' => $data->id]) }}">Delete</a>
+{{--        @endif--}}
     </div>
 
     <br><br>
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.events.edit', ['id' => $data->id]) }}">
+    <form method="POST" action="{{ route('admin.dashboard.events.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group checkbox">
-            <label><input type="checkbox" value="1" name="form" {{ $data->form == '1' ? 'checked' : '' }}>Enable Sign-up Form</label>
+            <label><input type="checkbox" value="1" name="attendance" {{ $data->attendance == '1' ? 'checked' : '' }}>  Attendance</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

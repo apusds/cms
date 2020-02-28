@@ -6,7 +6,7 @@
     <div>
         <h2 class="float-left">Roles | Edit</h2>
         <div class="float-right">
-            <a href="{{ route('dashboard.roles') }}" class="btn btn-danger">Back</a>
+            <a href="{{ route('admin.dashboard.roles') }}" class="btn btn-danger">Back</a>
         </div>
     </div>
 
@@ -14,7 +14,7 @@
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.roles.edit', ['id' => $role->id]) }}">
+    <form method="POST" action="{{ route('admin.dashboard.roles.edit', ['id' => $role->id]) }}">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="inputName">Role Name (<span class="red">*</span>)</label>

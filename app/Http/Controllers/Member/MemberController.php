@@ -71,10 +71,10 @@ class MemberController extends Controller
         }
     }
 
-    public function memberVerifyAccount(Request $request) {
+    public function memberVerifyAccount(Request $request, $id) {
         // TODO Send SDS Email
 //        SendEmail::dispatch($email, new NewSignup($name, $token));
-        dd($request->input());
+        dd($id);
     }
 
     public function adminUpdateMember(Request $request, $id) {
@@ -118,7 +118,7 @@ class MemberController extends Controller
             if (!(Member::all()->find($id))) return redirect(route('dashboard.members'))->with('error', 'Oops! Member does not exist!');
             Member::all()->find($id)->delete();
 
-            return redirect(route('dashboard.members'))->with('message', 'Done! Member has been deleted.');
+            return redirect(route('admin.dashboard.members'))->with('message', 'Done! Member has been deleted.');
         } catch (\Exception $exception) {
             return back()->with('error', 'An unknown error has occurred. This has been reported to the Admins.');
         }

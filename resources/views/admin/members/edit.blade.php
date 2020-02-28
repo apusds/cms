@@ -5,19 +5,19 @@
 @section('content')
     <div>
         <h2 class="float-left">Members | Edit</h2>
-        <a class="btn btn-primary float-right" href="{{ route('dashboard.members') }}">Back</a>
-        <a class="btn btn-danger float-right" href="{{ route('dashboard.members.delete', ['id' => $data->id]) }}">Delete</a>
+        <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.members') }}">Back</a>
+        <a class="btn btn-danger float-right" href="{{ route('admin.dashboard.members.delete', ['id' => $data->id]) }}">Delete</a>
     </div>
 
     <br><br>
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.members.edit', ['id' => $data->id]) }}">
+    <form method="POST" action="{{ route('admin.dashboard.members.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="gender">Account Status: {{ $data->activated ? 'Activated' : 'Yet to be activated' }}</label>
+            <label for="status" style="font-weight: bold;">Account Status: {{ $data->password !== null ? 'Activated' : 'Yet to be activated' }}</label>
         </div>
 
         <div class="form-group">

@@ -5,7 +5,7 @@
 @section('content')
     <div>
         <h2 class="float-left">Members ({{ $members->total() }})</h2>
-        <a class="btn btn-primary float-right" href="{{ route('dashboard.members.export') }}">Download</a>
+        <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.members.export') }}">Download</a>
     </div>
 
     <br><br>

@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-center">
-                                <a href="{{ $role->name === 'SuperAdmin' ? '' : route('dashboard.roles.edit', ['id' => $role->id]) }}" class="btn btn-primary {{ $role->name === 'SuperAdmin' ? 'disabled' : '' }}">Edit</a>
+                                <a href="{{ $role->name === 'SuperAdmin' ? '' : route('admin.dashboard.roles.edit', ['id' => $role->id]) }}" class="btn btn-primary {{ $role->name === 'SuperAdmin' ? 'disabled' : '' }}">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
     <h3> Add Role </h3>
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.roles.create') }}">
+    <form method="POST" action="{{ route('admin.dashboard.roles.create') }}">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="inputName">Role Name (<span class="red">*</span>)</label>

@@ -23,15 +23,15 @@ class Member extends Model
         return $this->hasMany(Attendees::class, 'student_id', 'student_id');
     }
 
-//    public function scopeSearch($query, $q) {
-//        if ($q == null) return $query;
-//        return $query
-//            ->where('email', 'LIKE', "%{$q}%")
-//            ->orWhere('name', 'LIKE', "%{$q}%")
-//            ->orWhere('student_id', 'LIKE', "%{$q}%")
-//            ->orWhere('intake', 'LIKE', "%{$q}%")
-//            ->orWhere('skills', 'LIKE', "%{$q}%")
-//            ->orWhere('found_us', 'LIKE', "%{$q}%");
-//    }
+    public function scopeSearch($query, $q) {
+        if ($q == null) return $query;
+        return $query
+            ->where('email', 'LIKE', "%{$q}%")
+            ->orWhere('name', 'LIKE', "%{$q}%")
+            ->orWhere('student_id', 'LIKE', "%{$q}%")
+            ->orWhere('intake', 'LIKE', "%{$q}%")
+            ->orWhere('skills', 'LIKE', "%{$q}%")
+            ->orWhere('found_us', 'LIKE', "%{$q}%");
+    }
 
 }
