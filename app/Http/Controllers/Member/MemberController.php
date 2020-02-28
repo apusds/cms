@@ -110,9 +110,9 @@ class MemberController extends Controller
                 $session->save();
 
                 SendEmail::dispatch($member->email, new PasswordReminder(strtoupper($member->name), $token));
-
-                return redirect(route('admin.dashboard.members'))->with('message', 'Done!');
             }
+
+            return redirect(route('admin.dashboard.members'))->with('message', 'Done!');
         } catch (Exception $exception) {
             return back()->with('error', 'Unable to Mass send emails!');
         }
