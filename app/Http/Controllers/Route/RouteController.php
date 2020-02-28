@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Route;
 
+use App\Committee;
 use App\Event;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Member\MemberController;
@@ -100,12 +101,24 @@ class RouteController extends Controller
         return view('admin.members.edit', ['data' => Member::all()->find($id)]);
     }
 
-
     public function showRoleEdit($id) {
         if ($id == 1) return back()->with('error', 'You cannot edit this role!');
         if (!(Role::all()->find($id))) return back()->with('error', 'Invalid Role, Role not found!');
 
         return view('admin.roles.edit', ['role' => Role::all()->find($id)]);
+    }
+
+    public function showTeams() {
+        return view('admin.teams.index');
+    }
+
+    public function showTeamsCreate() {
+        return view('admin.teams.create');
+    }
+
+    public function showTeamsEdit($id) {
+        if (!(Committee::all()->find($id))) return back()->with('error', 'This Member is not found!');
+        return view('admin.teams.edit', ['data' => Committee::all()->find($id)]);
     }
 
 }

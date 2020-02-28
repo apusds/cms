@@ -5,14 +5,14 @@
 @section('content')
     <div>
         <h2 class="float-left">Teams | Upload</h2>
-        <a class="btn btn-danger float-right" href="{{ route('dashboard.teams') }}">Back</a>
+        <a class="btn btn-danger float-right" href="{{ route('admin.dashboard.teams') }}">Back</a>
     </div>
 
     <br><br>
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.teams.create') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.dashboard.teams.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -58,6 +58,6 @@
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
-        <a href="{{ route('dashboard.teams.create') }}" class="btn btn-success">Reset Fields</a>
+        <a href="{{ route('admin.dashboard.teams.create') }}" class="btn btn-success">Reset Fields</a>
     </form>
 @stop

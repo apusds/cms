@@ -64,6 +64,17 @@ Route::group(['middleware' => 'auth:admin'], function () {
     /** [Website] */
     Route::get('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Route\RouteController@showWebsite']);
     Route::post('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Website\WebsiteController@update']);
+
+    /** [Teams] */
+    Route::get('/admin/dashboard/teams', ['as' => 'admin.dashboard.teams', 'uses' => 'Route\RouteController@showTeams']);
+    /** Create [Teams] */
+    Route::get('/admin/dashboard/teams/create', ['as' => 'admin.dashboard.teams.create', 'uses' => 'Route\RouteController@showTeamsCreate']);
+    Route::post('/admin/dashboard/teams/create', ['as' => 'admin.dashboard.teams.create', 'uses' => 'Team\TeamController@addToTeam']);
+    /** Delete [Teams] */
+    Route::get('/admin/dashboard/teams/{id}/delete', ['as' => 'admin.dashboard.teams.delete', 'uses' => 'Team\TeamController@removeFromTeams']);
+    /** Edit [Teams] */
+    Route::get('/admin/dashboard/teams/{id}/edit', ['as' => 'admin.dashboard.teams.edit', 'uses' => 'Route\RouteController@showTeamsEdit']);
+    Route::post('/admin/dashboard/teams/{id}/edit', ['as' => 'admin.dashboard.teams.edit', 'uses' => 'Team\TeamController@update']);
 });
 
 Route::group(['middleware' => 'auth:member'], function () {

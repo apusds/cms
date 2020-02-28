@@ -5,14 +5,14 @@
 @section('content')
     <div>
         <h2 class="float-left">Teams | Edit</h2>
-        <a class="btn btn-danger float-right" href="{{ route('dashboard.teams') }}">Back</a>
+        <a class="btn btn-danger float-right" href="{{ route('admin.dashboard.teams') }}">Back</a>
     </div>
 
     <br><br>
 
     <hr />
 
-    <form method="POST" action="{{ route('dashboard.teams.edit', ['id' => $data->id]) }}">
+    <form method="POST" action="{{ route('admin.dashboard.teams.edit', ['id' => $data->id]) }}">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -52,6 +52,6 @@
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Update</button>
-        <a href="{{ route('dashboard.teams.edit', ['id' => $data->id]) }}" class="btn btn-success">Reset Fields</a>
+        <a href="{{ route('admin.dashboard.teams.edit', ['id' => $data->id]) }}" class="btn btn-success">Reset Fields</a>
     </form>
 @stop
