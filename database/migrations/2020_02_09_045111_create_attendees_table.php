@@ -13,11 +13,14 @@ class CreateAttendeesTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+        // To be cascaded
         Schema::create('attendees', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('student_id');
             $table->string('event_title');
-            $table->timestamp('joined_at');
+            $table->timestamps();
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
 
     protected $guard = 'admin';
@@ -28,4 +29,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
 }

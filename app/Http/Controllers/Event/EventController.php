@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Event;
 
+use App\Attendees;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Mockery\Exception;
 
 class EventController extends Controller
 {
@@ -115,6 +117,22 @@ class EventController extends Controller
             return redirect(route('admin.dashboard.events'))->with('message', 'Done! Event deleted!');
         } catch (\Exception $e) {
             return redirect(route('admin.dashboard.events'))->with('error', 'Unable to delete Event!');
+        }
+    }
+
+    public function signAttendance($id) {
+        $result = Event::all()->find($id);
+        if (!$result) return view('errors.500');
+
+        try {
+            $attendance = new Attendees;
+            $attendance->student_id = Auth::user()->student_id;
+            $attendance->event_title = $result->title;
+            $attendance->save();
+
+            return redirect(route('member.dashboard'))->with('message', 'Done! Attendance has been recorded.');
+        } catch (Exception $exception) {
+            return redirect(route('member.dashboard'))->with('error', "Couldn't sign you the attendance!");
         }
     }
 

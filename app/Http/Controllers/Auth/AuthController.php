@@ -44,4 +44,9 @@ class AuthController extends Controller
         return redirect()->intended(route('member.dashboard'));
     }
 
+    public function logoutAsMember() {
+        \auth('member')->logout();
+        return redirect(route('member.login'));
+    }
+
 }

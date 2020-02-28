@@ -51,6 +51,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Route\RouteController@showEventEdit']);
     Route::post('/admin/dashboard/events/{id}/edit', ['as' => 'admin.dashboard.events.edit', 'uses' => 'Event\EventController@update']);
     Route::get('/admin/dashboard/events/{id}/delete', ['as' => 'admin.dashboard.events.delete', 'uses' => 'Event\EventController@delete']);
+    Route::get('/admin/dashboard/events/{id}/qr', function($id) {
+        $pngImage = QrCode::format('png')
+            ->size(500)->errorCorrection('H')
+            ->generate("https://apusds.com/api/attendance/" . $id . "/sign");
+
+        return response($pngImage)->header('Content-type','image/png');
+    })->name('admin.dashboard.events.qr');
     /** End [Event] */
 
     /** [Role] */
@@ -81,4 +88,10 @@ Route::group(['middleware' => 'auth:member'], function () {
     /** [Member] Dashboard */
     Route::get('/member/dashboard', ['as' => 'member.dashboard', 'uses' => 'Route\RouteController@showMemberDashboard']);
     /** End [Member] Dashboard */
+
+    /** Sign [Attendance] */
+    Route::get('/api/attendance/{id}/sign', ['as' => 'member.attendance.sign', 'uses' => 'Event\EventController@signAttendance']);
+
+    /** Logout */
+    Route::get('/member/dashboard/logout', ['as' => 'member.logout', 'uses' => 'Auth\AuthController@logoutAsMember']);
 });
