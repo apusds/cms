@@ -2,6 +2,7 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'Route\RouteController@showHome']);
 Route::post('/', ['as' => 'member.register', 'uses' => 'Member\MemberController@register']);
+Route::get('/api/member/email/{email}', ['as' => 'member.verification', 'uses' => 'API\APIController@verify']);
 
 /** [Register] */
 Route::get('/register', ['as' => 'register', 'uses' => 'Route\RouteController@showRegister']);
