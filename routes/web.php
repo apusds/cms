@@ -19,6 +19,7 @@ Route::post('/admin', ['as' => 'admin.login.post', 'uses' => 'Auth\AuthControlle
 
 /** [Member] Verification & Password Set */
 Route::get('/verify/member/{token}', ['as' => 'member.verify', 'uses' => 'Route\RouteController@showMemberVerifyAccount']);
+Route::post('/verify/member/{token}/{email}', ['as' => 'member.verify.post', 'uses' => 'Member\MemberController@memberVerifyAccount']);
 /** End [Member] Verification & Password Set */
 
 /** [Member] Login */

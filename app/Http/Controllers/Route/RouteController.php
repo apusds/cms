@@ -7,6 +7,7 @@ use App\Event;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Member\MemberController;
 use App\Member;
+use App\PasswordSession;
 use App\Role;
 use App\Website;
 use Illuminate\Http\Request;
@@ -72,10 +73,10 @@ class RouteController extends Controller
         ]);
     }
 
-    public function showMemberVerifyAccount($id) {
-        // TODO Send SDS Email
-//        SendEmail::dispatch($email, new NewSignup($name, $token));
-        dd($id);
+    public function showMemberVerifyAccount($token) {
+        $data = PasswordSession::all()->where('token', '=', $token);
+        if (count(($data)) < 1)return view('errors.502');
+        return view('member.verify.index', ['token' => $token, 'email' => $data->first()->email]);
     }
 
     public function showAllMembers(Request $request) {

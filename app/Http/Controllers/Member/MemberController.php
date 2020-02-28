@@ -74,10 +74,23 @@ class MemberController extends Controller
         }
     }
 
-    public function memberVerifyAccount(Request $request, $id) {
-        // TODO Send SDS Email
-//        SendEmail::dispatch($email, new NewSignup($name, $token));
-        dd($id);
+    public function memberVerifyAccount(Request $request, $token, $email) {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required',
+            'confirm_password' => 'required'
+        ]);
+
+        if ($validator->fails()) return back()->with('error', 'Incorrect Password. Please try again!');
+
+        try {
+            $result = Member::all()->where('email', $email)->first();
+            $result->password = Hash::make(trim($request->input('password')));
+            $result->update();
+
+            return redirect(route('member.login'))->with('message', 'Your password has been updated!');
+        } catch (\Exception $exception) {
+            return back()->with('error', 'Unable to update Member details!');
+        }
     }
 
     public function adminUpdateMember(Request $request, $id) {
