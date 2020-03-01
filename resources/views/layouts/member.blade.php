@@ -42,14 +42,14 @@
         <div class="section__content section__content--p35">
             <div class="header3-wrap">
                 <div class="header__logo">
-                    <a href="#">
+                    <a href="{{ route('member.dashboard') }}">
                         <img src="{{ asset('img/sds.png') }}" style="max-width: 12% !important;" alt="CoolAdmin" />
                     </a>
                 </div>
                 <div class="header__navbar">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('member.dashboard') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                                 <span class="bot-line"></span>
                             </a>

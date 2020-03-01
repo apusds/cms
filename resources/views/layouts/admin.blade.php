@@ -42,23 +42,28 @@
             <div class="section__content section__content--p35">
                 <div class="header3-wrap">
                     <div class="header__logo">
-                        <a href="#">
+                        <a href="{{ route('admin.dashboard') }}">
                             <img src="{{ asset('img/sds.png') }}" style="max-width: 12% !important;" alt="CoolAdmin" />
                         </a>
                     </div>
                     <div class="header__navbar">
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">
+                                <a href="{{ route('admin.dashboard') }}">
                                     <i class="fas fa-tachometer-alt"></i>Dashboard
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.dashboard.members') }}">
+                                    <i class="fas fa-tachometer-alt"></i>Members
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="header__tool">
-
-
                         <div class="account-wrap">
                             <div class="account-item account-item--style2 clearfix js-item-menu">
                                 <div class="content">

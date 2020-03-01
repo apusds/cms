@@ -1,90 +1,69 @@
-@extends('layouts.old')
+@extends('layouts.admin')
 
 @section('title', 'Members')
 
 @section('content')
-    <div>
-        <h2 class="float-left">Members ({{ $members->total() }})</h2>
-        <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.members.export') }}">Download</a>
-    </div>
+    <!-- DATA TABLE-->
+    <section class="p-t-20">
+        <div class="container">
+            <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.members.export') }}" target="_blank">Download</a>
 
-    <br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="myInput" class="form-control" placeholder="Filter here.." autofocus>
+                    <br>
 
-    <hr />
-
-    <br>
-    <input type="text" id="myInput" class="form-control border border-info" placeholder="Filter here..">
-    <br>
-    @if (count($members) > 0)
-    <div id="memberTableArea" style="position: relative;">
-        @include('admin.members.load')
-    </div>
-    @else 
-        <h1 class="text-muted text-center">No members</h1>
-    @endif
+                    <h3 class="title-5 m-b-35">Members</h3>
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>TP Number</th>
+                                <th>Intake</th>
+                                <th>Skills</th>
+                                <th>Found us</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            @foreach ($members as $member)
+                                <tr class="tr-shadow">
+                                    <td>
+                                        <span class="block-email" style="color: red;">{{ $member->email }}</span>
+                                    </td>
+                                    <td><b>{{ $member->name }}</b></td>
+                                    <td>{{ strtoupper($member->student_id) }}</td>
+                                    <td>{{ strtoupper($member->intake) }}</td>
+                                    <td>{{ $member->skills }}</td>
+                                    <td>{{ $member->found_us }}</td>
+                                    <td>
+                                        <span class="block-email" style="color: red;">{{ $member->password == null ? 'Inactive' : 'Active' }}</span>
+                                    </td>
+                                    <td><a class="btn btn-primary" href="{{ route('admin.dashboard.members.edit', ['id' => $member->id]) }}">Edit</a></td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END DATA TABLE-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            const pageUrl = window.location.href.split('?')[0];
-            var $_perPage = {{ $perPage }};
-            var $q = '{{ $q }}';
-            var $_page = {{ $page }};
-            
-            // Get members on page change
-            $('body').on('click', '.pagination a', function(e) {
-                e.preventDefault();
-
-                $_page = (new URL($(this).attr('href'))).searchParams.get('page');
-                
-                if ($q){
-                    var url = pageUrl+'?page='+$_page+'&perPage='+$_perPage+'&q='+$q;
-                } else {
-                    var url = pageUrl+'?page='+$_page+'&perPage='+$_perPage;
-                }
-
-                getMembers(url);
-            });
-
-            // Live search
-            // doneTyping function in custom.js
-            $('#myInput').doneTyping(function(callback){
-                $q = $(this).val().toLowerCase();
-
-                if ($q){
-                    var url = pageUrl+'?page=1&perPage='+$_perPage+'&q='+$q;
-                } else {
-                    var url = pageUrl+'?page=1&perPage='+$_perPage;
-                }
-
-                getMembers(url);
-            });
-
-            // Get members on number of rows change
-            $('body').on('change', '#perPage', function() {
-                $_perPage = $(this).val();
-                $q = $('#myInput').val();
-
-                if ($q){
-                    var url = pageUrl+'?page=1&perPage='+$_perPage+'&q='+$q;
-                } else {
-                    var url = pageUrl+'?page=1&perPage='+$_perPage;
-                }
-                
-                getMembers(url);
-            });
-
-            // AJAX function to load data from external file
-            function getMembers(url) {
-                window.history.pushState("", "", url);
-                $.ajax({
-                    url : url
-                }).done(function (data) {
-                    $('#memberTableArea').html(data);  
-                }).fail(function () {
-                    $('#memberTableArea').html('<h1 class="text-muted text-center">Failed to get members.</h1>');
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-            }
+            });
         });
     </script>
 @stop
