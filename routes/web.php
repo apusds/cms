@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/dashboard', ['as' => 'admin.dashboard', 'uses' => 'Route\RouteController@showAdminDashboard']);
     /** End [Admin] Dashboard */
 
+    /** Logout [Admin] */
+    Route::get('/admin/dashboard/logout', ['as' => 'admin.logout', 'uses' => 'Auth\AuthController@logoutAsAdmin']);
+
     /** [Profile] */
     Route::get('/admin/dashboard/profile', ['as' => 'admin.dashboard.profile', 'uses' => 'Route\RouteController@showAdminProfile']);
     Route::post('/admin/dashboard/profile', ['as' => 'admin.dashboard.profile', 'uses' => 'Auth\AuthController@updateAdminProfile']);
@@ -96,6 +99,6 @@ Route::group(['middleware' => 'auth:member'], function () {
     /** Sign [Attendance] */
     Route::get('/api/attendance/{id}/sign', ['as' => 'member.attendance.sign', 'uses' => 'Event\EventController@signAttendance']);
 
-    /** Logout */
+    /** Logout [Member] */
     Route::get('/member/dashboard/logout', ['as' => 'member.logout', 'uses' => 'Auth\AuthController@logoutAsMember']);
 });

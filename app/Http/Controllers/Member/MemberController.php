@@ -90,6 +90,9 @@ class MemberController extends Controller
             $result->password = Hash::make(trim($request->input('password')));
             $result->update();
 
+            $session = PasswordSession::all()->where('token', $token)->first();
+            $session->delete();
+
             return redirect(route('member.login'))->with('message', 'Your password has been updated!');
         } catch (\Exception $exception) {
             return back()->with('error', 'Unable to update Member details!');

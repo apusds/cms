@@ -71,12 +71,12 @@
                                     </h5>
                                     <span class="email">{{ auth()->user()->email }}</span>
                                 </div>
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                </div>
+{{--                                <div class="account-dropdown__body">--}}
+{{--                                    <div class="account-dropdown__item">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <i class="zmdi zmdi-account"></i>Account</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="account-dropdown__footer">
                                     <a href="#">
                                         <i class="zmdi zmdi-power"></i>Logout</a>
@@ -110,7 +110,7 @@
             <div class="container-fluid">
                 <ul class="navbar-mobile__list list-unstyled">
                     <li>
-                        <a class="js-arrow" href="#">
+                        <a class="js-arrow" href="{{ route('member.dashboard') }}">
                             <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
                     </li>
@@ -124,14 +124,14 @@
             <div class="account-wrap">
                 <div class="account-item account-item--style2 clearfix js-item-menu">
                     <div class="content">
-                        <a class="js-acc-btn" href="#">{{ auth()->user()->username }}</a>
+                        <a class="js-acc-btn" href="#">{{ auth()->user()->name }}</a>
                     </div>
                     <div class="account-dropdown js-dropdown">
                         <div class="info clearfix">
                             <h5 class="name">
-                                <h3>{{ auth()->user()->username }}</h3>
+                                <h3>{{ auth()->user()->name }}</h3>
                             </h5>
-                            <span class="email">{{ auth()->user()->username }}@apusds.com</span>
+                            <span class="email">{{ auth()->user()->email }}</span>
                         </div>
                         <div class="account-dropdown__footer">
                             <a href="#">

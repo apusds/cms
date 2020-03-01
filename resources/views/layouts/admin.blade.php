@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
+                                        <a href="{{ route('admin.logout') }}">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
                                     </div>
                                 </div>
@@ -129,8 +129,30 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a class="js-arrow" href="#">
+                            <a href="{{ route('admin.dashboard') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
+                                <span class="bot-line"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('admin.dashboard.profile') }}">
+                                <i class="fas fa-user"></i>My Profile
+                                <span class="bot-line"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('admin.dashboard.members') }}">
+                                <i class="fas fa-users"></i>Members
+                                <span class="bot-line"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('admin.dashboard.events') }}">
+                                <i class="fas fa-list"></i>Event Management
+                                <span class="bot-line"></span>
                             </a>
                         </li>
                     </ul>
@@ -152,8 +174,14 @@
                                 </h5>
                                 <span class="email">{{ auth()->user()->email }}</span>
                             </div>
+                            <div class="account-dropdown__body">
+                                <div class="account-dropdown__item">
+                                    <a href="{{ route('admin.dashboard.profile') }}">
+                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                </div>
+                            </div>
                             <div class="account-dropdown__footer">
-                                <a href="#">
+                                <a href="{{ route('admin.logout') }}">
                                     <i class="zmdi zmdi-power"></i>Logout</a>
                             </div>
                         </div>

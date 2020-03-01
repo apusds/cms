@@ -76,4 +76,9 @@ class AuthController extends Controller
         return redirect(route('member.login'));
     }
 
+    public function logoutAsAdmin() {
+        \auth('admin')->logout();
+        return redirect(route('admin.login'));
+    }
+
 }
