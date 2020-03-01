@@ -32,7 +32,6 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('dashboard/css/theme.css') }}" rel="stylesheet" media="all">
-
 </head>
 
 <body class="animsition">
@@ -72,6 +71,13 @@
                             <li>
                                 <a href="{{ route('admin.dashboard.events') }}">
                                     <i class="fas fa-list"></i>Event Management
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/forms/builder">
+                                    <i class="fas fa-list"></i>Form Builder
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
@@ -257,7 +263,6 @@
 
     <!-- Main JS-->
     <script src="{{ asset('dashboard/js/main.js') }}"></script>
-
 </body>
 
 </html>
