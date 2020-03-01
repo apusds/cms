@@ -1,184 +1,217 @@
 <!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Admin Dashboard">
+    <meta name="author" content="APUSDS">
+    <meta name="keywords" content="sds apu google">
 
-        <?php
-            header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-            header("Cache-Control: post-check=0, pre-check=0", false);
-            header("Pragma: no-cache");
-        ?>
+    <!-- Title Page-->
+    <title>SDS | @yield('title') </title>
 
-        <title>SDS | @yield('title') </title>
+    <!-- Fontfaces CSS-->
+    <link href="{{ asset('dashboard/css/font-face.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
-        <!-- Bootstrap CSS CDN -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
-        <!-- Scrollbar Custom CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-        <!-- Custom Icons -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <!-- Font Awesome JS -->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS-->
+    <link href="{{ asset('dashboard/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
 
-    </head>
+    <!-- Vendor CSS-->
+    <link href="{{ asset('dashboard/vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/wow/animate.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
-    <body>
-        <div class="wrapper">
-            <!-- Sidebar  -->
-            <nav id="sidebar">
-                <div id="dismiss">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
+    <!-- Main CSS-->
+    <link href="{{ asset('dashboard/css/theme.css') }}" rel="stylesheet" media="all">
 
-                <div class="sidebar-header">
-                    <h3>Welcome!</h3>
-                </div>
+</head>
 
-{{--                <ul class="list-unstyled components">--}}
-{{--                    <li class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard') }}">Home</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.profile') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.profile') }}">My Profile</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.members') || Request::routeIs('dashboard.members.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.members') }}">Members</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.events') || Request::routeIs('dashboard.events.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.events') }}">Events</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{ Request::routeIs('dashboard.meetups') || Request::routeIs('dashboard.meetups.*') ? 'active' : '' }}">--}}
-{{--                        <a class="nav-link" href="{{ route('dashboard.meetups') }}">Meetups</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.website') || Request::routeIs('dashboard.website.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.website') }}">Website</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="{{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.gallery') }}">Gallery</a>--}}
-{{--                    </li>--}}
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop3 d-none d-lg-block">
+            <div class="section__content section__content--p35">
+                <div class="header3-wrap">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="{{ asset('img/sds.png') }}" style="max-width: 12% !important;" alt="CoolAdmin" />
+                        </a>
+                    </div>
+                    <div class="header__navbar">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__tool">
 
-{{--                    <li class="{{ Request::routeIs('dashboard.emailer') || Request::routeIs('dashboard.emailer.*') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('dashboard.emailer') }}">Emailer</a>--}}
-{{--                    </li>--}}
 
-{{--                    @if (Auth::user()->isSuperAdmin())--}}
-{{--                        <li class="{{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">--}}
-{{--                            <a href="{{ route('dashboard.users') }}">Users</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{ Request::routeIs('dashboard.roles') || Request::routeIs('dashboard.roles.*') ? 'active' : '' }}">--}}
-{{--                            <a href="{{ route('dashboard.roles') }}">Roles</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">--}}
-{{--                            <a href="{{ route('dashboard.teams') }}">Teams</a>--}}
-{{--                        </li>--}}
-{{--                    @endif--}}
-
-{{--                    <li>--}}
-{{--                        <a href="{{ route('logout') }}">Logout</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-            </nav>
-
-            <!-- Page Content  -->
-            <div id="content">
-
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                                <li class="nav-item {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('admin.dashboard') }}">Home</a>
-                                </li>
-                                <li class="nav-item {{ Request::routeIs('admin.dashboard.profile') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('admin.dashboard.profile') }}">My Profile</a>
-                                </li>
-                                <li class="nav-item {{ Request::routeIs('admin.dashboard.members') || Request::routeIs('admin.dashboard.members.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('admin.dashboard.members') }}">Members</a>
-                                </li>
-                                <li class="nav-item {{ Request::routeIs('admin.dashboard.events') || Request::routeIs('admin.dashboard.events.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('admin.dashboard.events') }}">Events</a>
-                                </li>
-{{--                                <li class="nav-item {{ Request::routeIs('dashboard.meetups') || Request::routeIs('dashboard.meetups.*') ? 'active' : '' }}">--}}
-{{--                                    <a class="nav-link" href="{{ route('dashboard.meetups') }}">Meetups</a>--}}
-{{--                                </li>--}}
-                                <li class="nav-item {{ Request::routeIs('admin.dashboard.website') || Request::routeIs('admin.dashboard.website.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('admin.dashboard.website') }}">Website</a>
-                                </li>
-{{--                                <li class="nav-item {{ Request::routeIs('dashboard.gallery') || Request::routeIs('dashboard.gallery.*') ? 'active' : '' }}">--}}
-{{--                                    <a class="nav-link" href="{{ route('dashboard.gallery') }}">Gallery</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item {{ Request::routeIs('dashboard.emailer') || Request::routeIs('dashboard.emailer.*') ? 'active' : '' }}">--}}
-{{--                                    <a class="nav-link" href="{{ route('dashboard.emailer') }}">Emailer</a>--}}
-{{--                                </li>--}}
-
-{{--                                @if (Auth::user()->isSuperAdmin())--}}
-{{--                                    <li class="nav-item {{ Request::routeIs('dashboard.users') || Request::routeIs('dashboard.users.*') ? 'active' : '' }}">--}}
-{{--                                        <a class="nav-link" href="{{ route('dashboard.users') }}">Users</a>--}}
-{{--                                    </li>--}}
-                                    <li class="nav-item {{ Request::routeIs('admin.dashboard.roles') || Request::routeIs('admin.dashboard.roles.*') ? 'active' : '' }}">
-                                        <a class="nav-link" href="{{ route('admin.dashboard.roles') }}">Roles</a>
-                                    </li>
-{{--                                    <li class="nav-item {{ Request::routeIs('dashboard.teams') || Request::routeIs('dashboard.teams.*') ? 'active' : '' }}">--}}
-{{--                                        <a class="nav-link" href="{{ route('dashboard.teams') }}">Teams</a>--}}
-{{--                                    </li>--}}
-{{--                                @endif--}}
-                            </ul>
+                        <div class="account-wrap">
+                            <div class="account-item account-item--style2 clearfix js-item-menu">
+                                <div class="content">
+                                    <a class="js-acc-btn" href="#">{{ auth()->user()->username }}</a>
+                                </div>
+                                <div class="account-dropdown js-dropdown">
+                                    <div class="info clearfix">
+                                        <h5 class="name">
+                                            <h3>{{ auth()->user()->username }}</h3>
+                                        </h5>
+                                        <span class="email">{{ auth()->user()->username }}@apusds.com</span>
+                                    </div>
+                                    <div class="account-dropdown__body">
+                                        <div class="account-dropdown__item">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-account"></i>Account</a>
+                                        </div>
+                                    </div>
+                                    <div class="account-dropdown__footer">
+                                        <a href="#">
+                                            <i class="zmdi zmdi-power"></i>Logout</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </nav>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP-->
 
-                @if ($message = Session::get('message'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">x</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @endif
-
-                @if ($message = Session::get('error'))
-                    <div class="alert alert-danger alert-block">
-                        <button type="button" class="close" data-dismiss="alert">x</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @endif
-
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile header-mobile-2 d-block d-lg-none">
+            <div class="header-mobile__bar">
                 <div class="container-fluid">
-                    @yield('content')
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="#">
+                            <img src="{{ asset('img/sds.png') }}" style="max-width: 40% !important;" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="sub-header-mobile-2 d-block d-lg-none">
+            <div class="header__tool">
+                <div class="account-wrap">
+                    <div class="account-item account-item--style2 clearfix js-item-menu">
+                        <div class="content">
+                            <a class="js-acc-btn" href="#">{{ auth()->user()->username }}</a>
+                        </div>
+                        <div class="account-dropdown js-dropdown">
+                            <div class="info clearfix">
+                                <h5 class="name">
+                                    <h3>{{ auth()->user()->username }}</h3>
+                                </h5>
+                                <span class="email">{{ auth()->user()->email }}</span>
+                            </div>
+                            <div class="account-dropdown__footer">
+                                <a href="#">
+                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- END HEADER MOBILE -->
 
-        <div class="overlay"></div>
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            <!-- BREADCRUMB-->
+            <section class="au-breadcrumb2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="au-breadcrumb-content">
+                                <div class="au-breadcrumb-left">
+                                    <span class="au-breadcrumb-span">You are here:</span>
+                                    <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                        <li class="list-inline-item active">
+                                            <a href="{{ route('admin.dashboard') }}" style="color: red;">Home</a>
+                                        </li>
+                                        <li class="list-inline-item seprate">
+                                            <span>/</span>
+                                        </li>
+                                        <li class="list-inline-item">@yield('title')</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END BREADCRUMB-->
 
-        <!-- jQuery CDN - Minified version -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-        <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <!-- jQuery Custom Scroller CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-        <!-- include summernote css/js -->
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-        <!-- Custom -->
-        <script src="{{ asset('js/custom.js') }}"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+            @yield('content')
+        </div>
 
+        <!-- COPYRIGHT-->
+        <section class="p-t-60 p-b-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2020 APUSDS. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END COPYRIGHT-->
 
-    </body>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{{ asset('dashboard/vendor/jquery-3.2.1.min.js') }}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{ asset('dashboard/vendor/bootstrap-4.1/popper.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{ asset('dashboard/vendor/slick/slick.min.js') }}">
+    </script>
+    <script src="{{ asset('dashboard/vendor/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/animsition/animsition.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/counter-up/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/chartjs/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/select2/select2.min.js') }}"></script>
+
+    <!-- Main JS-->
+    <script src="{{ asset('dashboard/js/main.js') }}"></script>
+
+</body>
 
 </html>
+<!-- end document-->

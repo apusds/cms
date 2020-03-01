@@ -40,7 +40,9 @@ class RouteController extends Controller
 
     public function showAdminDashboard() {
         return view('admin.index', [
-            'joinedToday' => app(MemberController::class)->joinedToday()
+            'joinedToday' => app(MemberController::class)->joinedToday(),
+            'pastEvents' => app(EventController::class)->getExpiredEvents(),
+            'activeEvents' => app(EventController::class)->getActiveEvents()
         ]);
     }
 
