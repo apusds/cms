@@ -56,8 +56,15 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('admin.dashboard.profile') }}">
+                                    <i class="fas fa-user"></i>My Profile
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('admin.dashboard.members') }}">
-                                    <i class="fas fa-tachometer-alt"></i>Members
+                                    <i class="fas fa-users"></i>Members
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
@@ -74,11 +81,11 @@
                                         <h5 class="name">
                                             <h3>{{ auth()->user()->username }}</h3>
                                         </h5>
-                                        <span class="email">{{ auth()->user()->username }}@apusds.com</span>
+                                        <span class="email">{{ auth()->user()->email }}</span>
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
-                                            <a href="#">
+                                            <a href="{{ route('admin.dashboard.profile') }}">
                                                 <i class="zmdi zmdi-account"></i>Account</a>
                                         </div>
                                     </div>

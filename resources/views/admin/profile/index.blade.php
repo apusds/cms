@@ -1,35 +1,49 @@
-@extends('layouts.old')
+@extends('layouts.admin')
 
 @section('title', 'My Profile')
 
 @section('content')
-    <div>
-        <h2 class="float-left">My Profile</h2>
-        <div class="float-right">
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">Back</a>
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="text-center">
+            <a class="btn btn-primary" href="{{ route('admin.dashboard') }}">Go Back</a>
         </div>
-    </div>
-
-    <br><br>
-
-    <hr />
-
-    <form method="POST" action="{{ route('admin.dashboard.profile') }}">
-        {{ csrf_field() }}
-
-        <div class="form-group">
-            <label for="password">Password (<span class="red">*</span>)</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter New Password" required>
-        </div>
-
-        <div class="form-group">
-            <label for="confirm">Confirm Password (<span class="red">*</span>)</label>
-            <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirm your Password" required>
-        </div>
-
-        <span class="red">Please note that your changes cannot be undone & you will be automatically logged out.</span>
         <hr />
 
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+        <div class="card">
+            <div class="card-body card-block">
+                <form method="post" action="{{ route('admin.dashboard.profile') }}" class="form-horizontal">
+                    {{ csrf_field() }}
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="password-input" class=" form-control-label">Password</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="password" id="password-input" name="password" placeholder="Enter Password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="password-input" class=" form-control-label">Confirm Password</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="password" id="password-input" name="confirm" placeholder="Confirm Password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                            <i class="fa fa-ban"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @stop

@@ -83,6 +83,7 @@ class MemberController extends Controller
         ]);
 
         if ($validator->fails()) return back()->with('error', 'Incorrect Password. Please try again!');
+        if (strtolower($request->input('password')) !== strtolower($request->input('confirm_password'))) return back()->with('error', 'Incorrect Password. Please try again!');
 
         try {
             $result = Member::all()->where('email', $email)->first();

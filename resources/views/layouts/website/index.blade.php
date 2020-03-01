@@ -26,17 +26,17 @@
       <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
       <!-- Bootstrap CSS File -->
-      <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
       <!-- Libraries CSS Files -->
-      <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/animate/animate.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
 
       <!-- Main Stylesheet File -->
-      <link href="{{ asset('css/main/style.css') }}" rel="stylesheet">
+      <link href="{{ asset('website/css/main/style.css') }}" rel="stylesheet">
 
     </head>
 
@@ -410,19 +410,19 @@
 
       <div id="preloader"></div>
 
-      <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-      <script src="{{ asset('lib/jquery/jquery-migrate.min.js') }}"></script>
-      <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-      <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
-      <script src="{{ asset('lib/mobile-nav/mobile-nav.js') }}"></script>
-      <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
-      <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
-      <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
-      <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
-      <script src="{{ asset('lib/isotope/isotope.pkgd.min.js') }}"></script>
-      <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
+      <script src="{{ asset('website/lib/jquery/jquery.min.js') }}"></script>
+      <script src="{{ asset('website/lib/jquery/jquery-migrate.min.js') }}"></script>
+      <script src="{{ asset('website/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('website/lib/easing/easing.min.js') }}"></script>
+      <script src="{{ asset('website/lib/mobile-nav/mobile-nav.js') }}"></script>
+      <script src="{{ asset('website/lib/wow/wow.min.js') }}"></script>
+      <script src="{{ asset('website/lib/waypoints/waypoints.min.js') }}"></script>
+      <script src="{{ asset('website/lib/counterup/counterup.min.js') }}"></script>
+      <script src="{{ asset('website/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+      <script src="{{ asset('website/lib/isotope/isotope.pkgd.min.js') }}"></script>
+      <script src="{{ asset('website/lib/lightbox/js/lightbox.min.js') }}"></script>
 
-      <script src="{{ asset('js/main/main.js') }}"></script>
+      <script src="{{ asset('website/js/main/main.js') }}"></script>
 
     </body>
 </html>
