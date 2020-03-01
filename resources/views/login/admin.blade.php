@@ -1,24 +1,48 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="logo mb-3">
-        <div class="col-md-12 text-center">
-            <h1>Login</h1>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="{{ asset('login/images/img-01.png') }}" alt="IMG">
+            </div>
+
+            <form class="login100-form validate-form" method="POST" action="{{ route('admin.login.post') }}">
+                {{ csrf_field() }}
+
+                <span class="login100-form-title">
+                    Admin Login
+                </span>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="username" placeholder="Username" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="password" placeholder="Password" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="#">
+                        Our Privacy Policy
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
-
-    <form action="{{ route('admin.login.post') }}" method="post">
-        {{ csrf_field() }}
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username"  class="form-control" id="username" placeholder="Enter username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password"  class="form-control" placeholder="Enter Password" autocomplete>
-        </div>
-        <div class="col-md-12 text-center ">
-            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-        </div>
-    </form>
 @stop
