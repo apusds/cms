@@ -17,7 +17,7 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="selectSm" class=" form-control-label">Select Small</label>
+                            <label for="selectSm" class=" form-control-label">Organisation</label>
                         </div>
                         <div class="col-12 col-md-9">
                             <select class="form-control" id="selectSm" name="organisation" required>
