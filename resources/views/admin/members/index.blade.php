@@ -6,14 +6,19 @@
     <!-- DATA TABLE-->
     <section class="p-t-20">
         <div class="container">
-            <a class="btn btn-primary float-right" href="{{ route('admin.dashboard.members.export') }}" target="_blank">Download</a>
+            <div class="text-center">
+                <a class="btn btn-primary" href="{{ route('admin.dashboard') }}">Go Back</a>
+                <a class="btn btn-danger" href="{{ route('admin.dashboard.members.export') }}" target="_blank">Export as CSV (Excel)</a>
+            </div>
+
+            <hr />
 
             <div class="row">
                 <div class="col-md-12">
                     <input type="text" id="myInput" class="form-control" placeholder="Filter here.." autofocus>
                     <br>
 
-                    <h3 class="title-5 m-b-35">Members</h3>
+                    <h3 class="title-5 m-b-35">Members ({{ count(\App\Member::all()) }})</h3>
                     <div class="table-responsive table-responsive-data2">
                         <table class="table table-data2">
                             <thead>

@@ -68,6 +68,13 @@
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('admin.dashboard.events') }}">
+                                    <i class="fas fa-list"></i>Event Management
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="header__tool">

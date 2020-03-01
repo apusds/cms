@@ -50,7 +50,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Upcoming Events</h3>
+                    <h3 class="title-5 m-b-35">Upcoming Events ({{ count($activeEvents) }})</h3>
                     <div class="table-responsive table-responsive-data2">
                         <table class="table table-data2">
                             <thead>
@@ -69,7 +69,7 @@
                                         <td>
                                             <span class="block-email" style="color: red;">{{ strtoupper($event->organisation) }}</span>
                                         </td>
-                                        <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') . " (Ended)" : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
                                         <td><a href="{{ route('admin.dashboard.events') }}" class="btn btn-success">View</a></td>
                                     </tr>
                                     <tr class="spacer"></tr>
@@ -99,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Past Events</h3>
+                    <h3 class="title-5 m-b-35">Past Events ({{ count($pastEvents) }})</h3>
                     <div class="table-responsive table-responsive-data2">
                         <table class="table table-data2">
                             <thead>
@@ -118,7 +118,7 @@
                                         <td>
                                             <span class="block-email" style="color: red;">{{ strtoupper($event->organisation) }}</span>
                                         </td>
-                                        <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') . " (Ended)" : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i A') . " (Ended)" : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
                                         <td><a href="{{ route('admin.dashboard.events') }}" class="btn btn-success">View</a></td>
                                     </tr>
                                     <tr class="spacer"></tr>
