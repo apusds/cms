@@ -94,21 +94,21 @@ class RouteController extends Controller
     }
 
     public function showAllMembers(Request $request) {
-        $perPage = 20;
-        $q = null;
-        $page = 1;
+//        $perPage = 20;
+//        $q = null;
+//        $page = 1;
+//
+//        if ($request->filled('perPage')) $perPage = $request->query('perPage');
+//        if ($request->filled('q')) $q = $request->query('q');
+//        if ($request->filled('page')) $page = $request->query('page');
+//
+//        $members = Member::search($q)->with('events')->paginate($perPage);
+//
+//        if ($request->ajax()) {
+//            return view('admin.members.load', ['members'=>$members, 'perPage'=>$perPage, 'q'=>$q, 'page'=>$page])->render();
+//        }
 
-        if ($request->filled('perPage')) $perPage = $request->query('perPage');
-        if ($request->filled('q')) $q = $request->query('q');
-        if ($request->filled('page')) $page = $request->query('page');
-
-        $members = Member::search($q)->with('events')->paginate($perPage);
-
-        if ($request->ajax()) {
-            return view('admin.members.load', ['members'=>$members, 'perPage'=>$perPage, 'q'=>$q, 'page'=>$page])->render();
-        }
-
-        return view('admin.members.index', compact('members', 'perPage', 'q', 'page'));
+        return view('admin.members.index', ['members' => Member::all()]);
     }
 
     public function showEditMember($id) {
