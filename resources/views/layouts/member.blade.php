@@ -78,7 +78,7 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
+                                    <a href="{{ route('member.logout') }}">
                                         <i class="zmdi zmdi-power"></i>Logout</a>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                             <span class="email">{{ auth()->user()->email }}</span>
                         </div>
                         <div class="account-dropdown__footer">
-                            <a href="#">
+                            <a href="{{ route('member.logout') }}">
                                 <i class="zmdi zmdi-power"></i>Logout</a>
                         </div>
                     </div>

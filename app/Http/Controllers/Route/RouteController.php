@@ -47,7 +47,10 @@ class RouteController extends Controller
     }
 
     public function showMemberDashboard() {
-        return view('member.index');
+        return view('member.index', [
+            'activeEvents' => app(EventController::class)->getActiveEvents(),
+            'pastEvents' => app(EventController::class)->getExpiredEvents()
+        ]);
     }
 
     public function showAdminProfile() {

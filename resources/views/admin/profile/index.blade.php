@@ -11,6 +11,22 @@
         <hr />
 
         <div class="card">
+            <div class="card-header">
+                <strong class="card-title mb-3">Your Profile</strong>
+            </div>
+            <div class="card-body">
+                <div class="mx-auto d-block">
+                    <img class="rounded-circle mx-auto d-block border border-danger shadow-lg" src="{{ asset('img/user_icon.png') }}" style="max-width: 120px;" alt="Profile Image Broken">
+                    <hr />
+                    <h5 class="text-sm-center mt-2 mb-1 text-center">{{ auth()->user()->username }}</h5>
+                    <div class="location text-center">
+                        <i class="fa fa-envelope"></i> {{ auth()->user()->email }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
             <div class="card-body card-block">
                 <form method="post" action="{{ route('admin.dashboard.profile') }}" class="form-horizontal">
                     {{ csrf_field() }}
