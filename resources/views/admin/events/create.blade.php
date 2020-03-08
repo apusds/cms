@@ -30,7 +30,7 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="file-input" class=" form-control-label">Event Poster (Webspace)</label>
+                            <label for="file-input" class=" form-control-label">Event Poster (Webspace Poster)</label>
                         </div>
                         <div class="col-12 col-md-9">
                             <input type="file" id="file-input" name="file" class="form-control-file" required>
@@ -48,6 +48,15 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
+                            <label for="registration-input" class=" form-control-label">Registration Form (Optional)</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="text" class="form-control" id="registration-input" name="registration" placeholder="Paste Link">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
                             <label for="desc-input" class=" form-control-label">Description</label>
                         </div>
                         <div class="col-12 col-md-9">
@@ -57,7 +66,7 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="expiry-input" class=" form-control-label">Expires On</label>
+                            <label for="expiry-input" class=" form-control-label">Happening On</label>
                         </div>
                         <div class="col-12 col-md-9">
                             <input type="datetime-local" class="form-control" id="expiry-input" name="expiry" required>
@@ -72,7 +81,7 @@
                             <div class="form-check">
                                 <div class="checkbox">
                                     <label for="checkbox1" class="form-check-label">
-                                        <input type="checkbox" value="1" name="attendance">Attendance
+                                        <input type="checkbox" value="1" name="attendance">Built-in Attendance
                                     </label>
                                 </div>
                             </div>

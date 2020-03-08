@@ -18,7 +18,7 @@ class EventController extends Controller
 
     public function getActiveEvents() {
         $events = DB::table('events')
-            ->select('id', 'title', 'expiry', 'organisation', 'identifier')
+            ->select('id', 'title', 'expiry', 'organisation', 'identifier', 'registration')
             ->where('expiry', '>', Carbon::now()->toDateString())
             ->get();
 
@@ -27,7 +27,7 @@ class EventController extends Controller
 
     public function getExpiredEvents() {
         $events = DB::table('events')
-            ->select('id', 'title', 'expiry', 'organisation', 'identifier')
+            ->select('id', 'title', 'expiry', 'organisation', 'identifier', 'registration')
             ->where('expiry', '<=', Carbon::now()->toDateString())
             ->get();
 
@@ -68,6 +68,7 @@ class EventController extends Controller
         $result->created_by = Auth::user()->id;
         $result->organisation = trim($request->input('organisation'));
         $result->title = trim($request->input('title'));
+        $result->registration = trim($request->input('registration')) ?? null;
         $result->identifier = str_replace(' ', '-', trim(strtolower($request->input('title'))));
         $result->file = $fileNameToStore;
         $result->description = trim($request->input('description'));
@@ -94,6 +95,7 @@ class EventController extends Controller
         $result->organisation = trim($request->input('organisation'));
         $result->title = trim($request->input('title'));
         $result->identifier = str_replace(' ', '-', trim(strtolower($request->input('title'))));
+        $result->registration = trim($request->input('registration')) ?? null;
         $result->description = trim($request->input('description'));
         $result->attendance = trim($request->input('attendance')) == "" ? '0' : trim($request->input('attendance'));
         $result->expiry = Carbon::make($request->input('expiry'))->format('Y-m-d H:i:s');

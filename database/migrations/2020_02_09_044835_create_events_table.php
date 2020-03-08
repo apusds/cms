@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('created_by');
             $table->string('organisation');
+            $table->string('registration')->nullable();
             $table->string('title');
             $table->string('identifier');
             $table->string('file');

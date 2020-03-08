@@ -40,6 +40,16 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
+                            <label for="registration-input" class=" form-control-label">Registration Form (Optional)</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="text" class="form-control" id="registration-input" name="registration" value="{{ $data->registration }}" placeholder="Paste Link">
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
                             <label for="desc-input" class=" form-control-label">Description</label>
                         </div>
                         <div class="col-12 col-md-9">

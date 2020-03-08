@@ -58,7 +58,7 @@
                                             <span class="block-email" style="color: red;">{{ $event->title }}</span>
                                         </td>
                                         <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
-                                        <td><a href="#" class="btn btn-success disabled">I wanna join!</a></td>
+                                        <td><a href="{{ $event->registration !== null ? $event->registration : "#" }}" target="_blank" class="btn btn-success {{ $event->registration !== null ? "" : "disabled" }}">Register!</a></td>
                                     </tr>
                                     <tr class="spacer"></tr>
                                 @endforeach
@@ -68,7 +68,7 @@
                                         <span class="block-email" style="color: red;">-</span>
                                     </td>
                                     <td>-</td>
-                                    <td><a href="#" class="btn btn-success disabled">I wanna join!</a></td>
+                                    <td><a href="#" class="btn btn-danger disabled">Aww :(</a></td>
                                 </tr>
                                 <tr class="spacer"></tr>
                             @endif
