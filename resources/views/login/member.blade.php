@@ -5,8 +5,27 @@
 @section('content')
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
-                <img src="{{ asset('login/images/img-01.png') }}" alt="IMG">
+            <div class="login100-pic">
+                @if (count($activeEvents) > 0)
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="color: white; background-color: black; border-color: white">Upcoming Event(s)</th>
+                            <th style="color: white; background-color: black; border-color: white">Countdown</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($activeEvents as $e)
+                            <tr>
+                                <td>{{ $e->title }}</td>
+                                <td>{{ \Carbon\Carbon::parse($e->expiry)->diffInDays() }} Day(s)</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <img src="{{ asset('login/images/img-01.png') }}" alt="IMG">
+                @endif
             </div>
 
             <form class="login100-form validate-form" method="POST" action="{{ route('member.login.post') }}">

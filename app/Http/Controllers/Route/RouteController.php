@@ -35,7 +35,9 @@ class RouteController extends Controller
     }
 
     public function showMemberLogin() {
-        return view('login.member');
+        return view('login.member', [
+            'activeEvents' => app(EventController::class)->getActiveEvents()
+        ]);
     }
 
     public function showAdminDashboard() {
