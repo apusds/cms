@@ -58,9 +58,38 @@
                                             <span class="block-email" style="color: red;">{{ $event->title }}</span>
                                         </td>
                                         <td>{{ \Carbon\Carbon::parse($event->expiry)->diffForHumans() < 3 ? \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') : \Carbon\Carbon::parse($event->expiry)->format('d/m/Y H:i') }}</td>
-                                        <td><a href="{{ $event->registration !== null ? $event->registration : "#" }}" target="_blank" class="btn btn-success {{ $event->registration !== null ? "" : "disabled" }}">Register!</a></td>
+                                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Event</button></td>
                                     </tr>
                                     <tr class="spacer"></tr>
+
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{{ $event->title }}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <img class="card-img-top" src="{{ asset('storage' . '/posters/' . $event->file) }}" alt="Image is broken">
+                                                    <hr />
+
+                                                    <h5>{!! $event->description !!}</h5>
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <a href="{{ $event->registration }}" target="_blank" type="button" class="btn btn-primary">Register</a>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             @else
                                 <tr class="tr-shadow">

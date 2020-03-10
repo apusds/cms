@@ -48,7 +48,7 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="registration-input" class=" form-control-label">Registration Form (Optional)</label>
+                            <label for="registration-input" class=" form-control-label">Embedded Registration Form (Optional)</label>
                         </div>
                         <div class="col-12 col-md-9">
                             <input type="text" class="form-control" id="registration-input" name="registration" placeholder="Paste Link">
@@ -81,7 +81,7 @@
                             <div class="form-check">
                                 <div class="checkbox">
                                     <label for="checkbox1" class="form-check-label">
-                                        <input type="checkbox" value="1" name="attendance">Built-in Attendance
+                                        <input type="checkbox" value="1" name="attendance"><span style="padding-left: 10px">Built-in Attendance</span>
                                     </label>
                                 </div>
                             </div>

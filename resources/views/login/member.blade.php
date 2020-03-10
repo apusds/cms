@@ -18,7 +18,7 @@
                         @foreach ($activeEvents as $e)
                             <tr>
                                 <td>{{ $e->title }}</td>
-                                <td>{{ \Carbon\Carbon::parse($e->expiry)->diffInDays() }} Day(s)</td>
+                                <td>{{ \Carbon\Carbon::parse($e->expiry)->diffForHumans() }}</td>
                             </tr>
                         @endforeach
                         </tbody>

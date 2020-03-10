@@ -99,6 +99,11 @@ Route::group(['middleware' => 'auth:member'], function () {
     /** Sign [Attendance] */
     Route::get('/api/attendance/{id}/sign', ['as' => 'member.attendance.sign', 'uses' => 'Event\EventController@signAttendance']);
 
+    /** [Profile] */
+    Route::get('/member/dashboard/profile', ['as' => 'member.dashboard.profile', 'uses' => 'Route\RouteController@showMemberProfile']);
+    Route::post('/member/dashboard/profile', ['as' => 'member.dashboard.profile', 'uses' => 'Auth\AuthController@updateMemberPassword']);
+    /** End [Member] Profile */
+
     /** Logout [Member] */
     Route::get('/member/dashboard/logout', ['as' => 'member.logout', 'uses' => 'Auth\AuthController@logoutAsMember']);
 });

@@ -54,6 +54,13 @@
                                 <span class="bot-line"></span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="{{ route('member.dashboard.profile') }}">
+                                <i class="fas fa-user"></i>My Profile
+                                <span class="bot-line"></span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="header__tool">
@@ -71,12 +78,12 @@
                                     </h5>
                                     <span class="email">{{ auth()->user()->email }}</span>
                                 </div>
-{{--                                <div class="account-dropdown__body">--}}
-{{--                                    <div class="account-dropdown__item">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <i class="zmdi zmdi-account"></i>Account</a>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="account-dropdown__body">
+                                    <div class="account-dropdown__item">
+                                        <a href="{{ route('member.dashboard.profile') }}">
+                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                    </div>
+                                </div>
                                 <div class="account-dropdown__footer">
                                     <a href="{{ route('member.logout') }}">
                                         <i class="zmdi zmdi-power"></i>Logout</a>
@@ -114,6 +121,13 @@
                             <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{ route('member.dashboard.profile') }}">
+                            <i class="fas fa-user"></i>My Profile
+                            <span class="bot-line"></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -132,6 +146,12 @@
                                 <h3>{{ auth()->user()->name }}</h3>
                             </h5>
                             <span class="email">{{ auth()->user()->email }}</span>
+                        </div>
+                        <div class="account-dropdown__body">
+                            <div class="account-dropdown__item">
+                                <a href="{{ route('member.dashboard.profile') }}">
+                                    <i class="zmdi zmdi-account"></i>Account</a>
+                            </div>
                         </div>
                         <div class="account-dropdown__footer">
                             <a href="{{ route('member.logout') }}">

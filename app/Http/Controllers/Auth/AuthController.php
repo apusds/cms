@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Member;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -66,6 +67,31 @@ class AuthController extends Controller
         if ($user) {
             auth('admin')->logout();
             return redirect(route('admin.login'))->with('message', 'Please login with your new Password!');
+        } else {
+            return back()->with('error', 'Unable to update your Password!');
+        }
+    }
+
+    public function updateMemberPassword(Request $request) {
+        $validate = Validator::make($request->all(), [
+            'password' => 'required',
+            'confirm' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Malformed Request!');
+
+        $password = trim(strtolower($request->input('password')));
+        $confirm = trim(strtolower($request->input('confirm')));
+
+        if ($password !== $confirm) return back()->with('error', 'Both your Password isn\' the same!');
+
+        $user = Member::all()->find(Auth::user()->id);
+        $user->password = Hash::make(trim($request->input('password')));
+        $user->save();
+
+        if ($user) {
+            auth('member')->logout();
+            return redirect(route('member.login'))->with('message', 'Please login with your new Password!');
         } else {
             return back()->with('error', 'Unable to update your Password!');
         }
