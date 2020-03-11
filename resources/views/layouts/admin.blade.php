@@ -30,6 +30,8 @@
     <link href="{{ asset('dashboard/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+
     <!-- Main CSS-->
     <link href="{{ asset('dashboard/css/theme.css') }}" rel="stylesheet" media="all">
 </head>
@@ -260,9 +262,21 @@
     <script src="{{ asset('dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('dashboard/vendor/select2/select2.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
 
     <!-- Main JS-->
     <script src="{{ asset('dashboard/js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summer-note').summernote(
+                {
+                    height: 250,
+                    placeholder: 'Type here, this is really friendly',
+                }
+            );
+        });
+    </script>
 </body>
 
 </html>

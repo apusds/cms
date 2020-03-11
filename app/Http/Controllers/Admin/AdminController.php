@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
 
-    public function updateAdminProfile(Request $request) {
+    public function broadcastEmail(Request $request) {
         dd($request->input());
     }
 

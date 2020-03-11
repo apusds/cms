@@ -232,19 +232,12 @@
                                         <b>Subject</b>: {{ $data['subject'] }}
                                         <br>
                                         <b>Message</b>: {{ $data['message'] }}
-
                                     </p>
-
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-
-
-
-
-
             </table>
 
         </td>

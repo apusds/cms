@@ -142,4 +142,8 @@ class RouteController extends Controller
         return view('admin.teams.edit', ['data' => Committee::all()->find($id)]);
     }
 
+    public function showEmailer() {
+        return view('admin.emailer.index');
+    }
+
 }

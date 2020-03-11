@@ -75,9 +75,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/dashboard/roles/{id}/edit', ['as' => 'admin.dashboard.roles.edit', 'uses' => 'Route\RouteController@showRoleEdit']);
     Route::post('/admin/dashboard/roles/{id}/edit', ['as' => 'admin.dashboard.roles.edit', 'uses' => 'Role\RoleController@update']);
 
+    /** [Emailer] */
+    Route::get('/admin/dashboard/emailer', ['as' => 'admin.dashboard.emailer', 'uses' => 'Route\RouteController@showEmailer']);
+    Route::post('/admin/dashboard/emailer', ['as' => 'admin.dashboard.emailer', 'uses' => 'Admin\AdminController@broadcastEmail']);
+
     /** [Website] */
     Route::get('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Route\RouteController@showWebsite']);
-    Route::post('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Website\WebsiteController@update']);
+    Route::post('/admin/dashboard/website', ['as' => 'admin.dashboard.website', 'uses' => 'Admin\AdminController@broadcastEmail']);
 
     /** [Teams] */
     Route::get('/admin/dashboard/teams', ['as' => 'admin.dashboard.teams', 'uses' => 'Route\RouteController@showTeams']);
