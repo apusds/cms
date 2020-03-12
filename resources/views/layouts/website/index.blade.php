@@ -82,7 +82,7 @@
 
           <div class="float-right" style="display: flex">
             <span><a href="{{ route('register') }}" class="btn-join">Join Us</a></span>
-            
+
             <nav class="main-nav d-none d-lg-block">
               <ul>
                 <li class="active"><a href="#intro">Home</a></li>
@@ -208,8 +208,8 @@
                 </ul>
               </div>
             </div>
-            
-            
+
+
             <div class="row gallery-container">
                 @foreach(\App\Gallery::all() as $i)
                     <div class="col-lg-4 col-md-6 gallery-item filter-{{ str_replace(' ', '-', strtolower($i->eventData()->title)) }}" data-wow-delay="0.2s">
@@ -232,7 +232,7 @@
         <section id="team">
           <div class="container">
             <div class="section-header">
-              <h2>Core Team</h2>
+                <h2>Core Team <button class="btn btn-outline-dark" onclick="showGrave()">Graveyard :(</button></h2>
               <p>These are the wizards behind Student Developer Society!</p>
             </div>
 
@@ -265,75 +265,118 @@
                   </div>
                 </div>
               @endforeach
-
             </div>
-
           </div>
         </section>
 
-        <section id="join" class="section-colorful-yellow wow fadeInUp">
+      <section id="grave" style="display: none">
           <div class="container">
-            <div class="section-header">
-              <h2>Join Us</h2>
-            </div>
-
-            <h3>Why become a member?</h3>
-            <div class="accordion" id="accordionJoin">
-
-              <div class="card">
-                <div class="card-header accordion-toggle collapsed" id="heading1" href="#collapse1" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                  Get member price for our workshops and events.
-                </div>
-                <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionJoin">
-                  <div class="card-body" style="background-image: url(https://i.kym-cdn.com/photos/images/newsfeed/000/574/974/013.gif); height: 250px;">
-                  </div>
-                </div>
+              <div class="section-header">
+                  <h2>Committee Graveyard</h2>
+                  <p>These please were the heart and soul of APUSDS. They may have left, but never forgotten! <br> Please hover on their face :)</p>
               </div>
 
-              <div class="card">
-                <div class="card-header accordion-toggle collapsed" id="heading2" href="#collapse2" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                  Get invited to gatherings and activities with our partners.
-                </div>
-                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionJoin">
-                  <div class="card-body">
-                    GDG Cloud KL Meetup, Google DSC Malaysia, UM App Club, Internal Workshop
-                  </div>
-                </div>
+              <div class="row">
+                  @if (count(\App\Committee::all()->where('isActive', 0)) > 0)
+                      @foreach (\App\Committee::all()->where('isActive', 0) as $committee)
+                          <div class="col-lg-3 col-md-6 wow fadeInUp">
+                              <div class="member">
+                                  <img src="{{ asset('storage' . '/committee/' . $committee->file) }}" class="img-fluid" alt="">
+                                  <div class="member-info">
+                                      <div class="member-info-content">
+                                          <h4>{{ $committee->name }}</h4>
+                                          <span>Former {{ $committee->role }}</span>
+                                          <div class="social">
+                                              <p style="color: #fff">{{ $committee->summary }}</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      @endforeach
+                  @else
+                      <div class="col-lg-3 col-md-6 wow fadeInUp">
+                          <div class="member">
+                              <img src="https://rufiojones.files.wordpress.com/2011/08/casper2.jpg" class="img-fluid" alt="">
+                              <div class="member-info">
+                                  <div class="member-info-content">
+                                      <h4>Casper</h4>
+                                      <span>Former Casperion</span>
+                                      <div class="social">
+                                          <p style="color: #fff">Join me!</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  @endif
               </div>
-
-              <div class="card">
-                <div class="card-header accordion-toggle collapsed" id="heading3" href="#collapse3" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                  Collaborate and build cool projects.
-                </div>
-                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionJoin">
-                  <div class="card-body" style="background-image: url(https://media.giphy.com/media/Q9aBxHn9fTqKs/giphy.gif); height: 250px;">
-                    <span style="color: white;">Web development, Flutter mobile app</span>, Meme automation, AI girlfriend......
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-header accordion-toggle collapsed" id="heading4" href="#collapse4" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                  Access to our Secret Base. <i class="far fa-smile-wink"></i>
-                </div>
-                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionJoin">
-                  <div class="card-body">
-                    <i>Under construction!</i><br>
-                    Hint: Level 6
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="register">
-              <h4>Be part of the coolest student-run tech community in Malaysia! *</h4>
-            </div>
-            <div class="register"><a href="{{ route('register') }}" class="btn-rainbow">Register</a></div>
-            <div class="disclaimer float-right">* Weird flex but ok.</div>
-
           </div>
-        </section>
+      </section>
+
+    <section id="join" class="section-colorful-yellow wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Join Us</h2>
+        </div>
+
+        <h3>Why become a member?</h3>
+        <div class="accordion" id="accordionJoin">
+
+          <div class="card">
+            <div class="card-header accordion-toggle collapsed" id="heading1" href="#collapse1" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+              Get member price for our workshops and events.
+            </div>
+            <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionJoin">
+              <div class="card-body" style="background-image: url(https://i.kym-cdn.com/photos/images/newsfeed/000/574/974/013.gif); height: 250px;">
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header accordion-toggle collapsed" id="heading2" href="#collapse2" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+              Get invited to gatherings and activities with our partners.
+            </div>
+            <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionJoin">
+              <div class="card-body">
+                GDG Cloud KL Meetup, Google DSC Malaysia, UM App Club, Internal Workshop
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header accordion-toggle collapsed" id="heading3" href="#collapse3" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+              Collaborate and build cool projects.
+            </div>
+            <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionJoin">
+              <div class="card-body" style="background-image: url(https://media.giphy.com/media/Q9aBxHn9fTqKs/giphy.gif); height: 250px;">
+                <span style="color: white;">Web development, Flutter mobile app</span>, Meme automation, AI girlfriend......
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header accordion-toggle collapsed" id="heading4" href="#collapse4" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+              Access to our Secret Base. <i class="far fa-smile-wink"></i>
+            </div>
+            <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionJoin">
+              <div class="card-body">
+                <i>Under construction!</i><br>
+                Hint: Level 6
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="register">
+          <h4>Be part of the coolest student-run tech community in Malaysia! *</h4>
+        </div>
+        <div class="register"><a href="{{ route('register') }}" class="btn-rainbow">Register</a></div>
+        <div class="disclaimer float-right">* Weird flex but ok.</div>
+
+      </div>
+    </section>
 
       </main>
 
@@ -423,6 +466,17 @@
       <script src="{{ asset('website/lib/lightbox/js/lightbox.min.js') }}"></script>
 
       <script src="{{ asset('website/js/main/main.js') }}"></script>
+
+      <script>
+            function showGrave() {
+                var x = document.getElementById("grave");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+      </script>
 
     </body>
 </html>

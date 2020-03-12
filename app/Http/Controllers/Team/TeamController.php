@@ -14,6 +14,7 @@ class TeamController extends Controller
         $validate = Validator::make($request->all(), [
             'name' => 'required',
             'role' => 'required',
+            'email' => 'required',
             'file' => 'image|required'
         ]);
 
@@ -33,6 +34,7 @@ class TeamController extends Controller
         $result = new Committee;
         $result->name = trim($request->input('name'));
         $result->role = trim($request->input('role'));
+        $result->email = trim($request->input('email'));
         $result->file = $fileNameToStore;
         $result->facebook = trim($request->input('facebook')) == "" ? null : trim($request->input('facebook'));
         $result->instagram = trim($request->input('instagram')) == "" ? null : trim($request->input('instagram'));
@@ -49,7 +51,7 @@ class TeamController extends Controller
         if (!$result) return view('errors.500');
 
         $path = $result->file;
-        File::delete(env('PUBLIC_PATH') . '/committee/' . $path);
+        File::delete(asset('storage' . '/committee/' . $path));
 
         try {
             $result->delete();
@@ -69,7 +71,10 @@ class TeamController extends Controller
 
         $result = Committee::all()->find($id);
         $result->name = trim($request->input('name'));
+        $result->email = trim($request->input('email'));
         $result->role = trim($request->input('role'));
+        $result->isActive = trim($request->input('isActive'));
+        $result->summary = trim($request->input('summary'));
         $result->facebook = trim($request->input('facebook')) == "" ? null : trim($request->input('facebook'));
         $result->instagram = trim($request->input('instagram')) == "" ? null : trim($request->input('instagram'));
         $result->linkedln = trim($request->input('linkedln')) == "" ? null : trim($request->input('linkedln'));

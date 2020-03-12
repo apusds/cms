@@ -1010,6 +1010,89 @@ h6 {
   margin: 0 2px;
 }
 
+/* Grave Section
+--------------------------------*/
+
+#grave {
+    padding: 60px 0;
+    background: linear-gradient(120deg, #ffefba 0%, #ffffff 100%);
+}
+
+#grave .member {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#grave .member .member-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.2s;
+    padding: 15px 0;
+    background: rgba(29, 28, 41, 0.6);
+}
+
+#grave .member .member-info-content {
+    transition: margin 0.2s;
+    height: 40px;
+    transition: height 0.4s;
+}
+
+#grave .member:hover .member-info {
+    transition: 0.4s;
+}
+
+#grave .member:hover .member-info-content {
+    height: 80px;
+}
+
+#grave .member h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: #fff;
+}
+
+#grave .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+    color: #fff;
+}
+
+#grave .member .social {
+    margin-top: 15px;
+}
+
+#grave .member .social a {
+    transition: none;
+    color: #fff;
+}
+
+#grave .member .social a:hover {
+    color: #1bb1dc;
+}
+
+#grave .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+}
+
 /* Partners Section
 --------------------------------*/
 
@@ -1189,7 +1272,7 @@ h6 {
 .btn-rainbow:hover {
   color: #fff;
   background-image: linear-gradient(
-     to right, 
+     to right,
      #E7484F,
      #E7484F 16.65%,
      #F68B1D 16.65%,
@@ -1505,7 +1588,7 @@ h6 {
 
   #membershipModal .content {
     padding: 25px ;
-  }  
+  }
 }
 
 @media (max-width: 574px) {

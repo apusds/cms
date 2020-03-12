@@ -8,7 +8,7 @@ class Committee extends Model
 {
 
     protected $fillable = [
-        'name', 'email', 'role', 'facebook', 'twitter', 'linkedln', 'instagram', 'file'
+        'name', 'email', 'role', 'facebook', 'twitter', 'linkedln', 'instagram', 'file', 'isActive', 'summary'
     ];
 
     protected $casts = [

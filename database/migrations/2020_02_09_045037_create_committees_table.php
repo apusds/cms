@@ -23,6 +23,8 @@ class CreateCommitteesTable extends Migration
             $table->string('linkedln')->nullable();
             $table->string('instagram')->nullable();
             $table->longText('file');
+            $table->boolean('isActive')->default(true);
+            $table->longText('summary')->nullable();
             $table->timestamps();
         });
     }
