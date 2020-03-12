@@ -238,7 +238,7 @@
 
             <div class="row">
 
-              @foreach (\App\Committee::all() as $committee)
+              @foreach (\App\Committee::all()->where('isActive', 1) as $committee)
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                   <div class="member">
                     <img src="{{ asset('storage' . '/committee/' . $committee->file) }}" class="img-fluid" alt="">
