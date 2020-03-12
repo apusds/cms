@@ -1058,7 +1058,7 @@ h6 {
 }
 
 #grave .member:hover .member-info-content {
-    height: auto !important;
+    height: 190px !important;
 }
 
 #grave .member h4 {
