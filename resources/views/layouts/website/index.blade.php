@@ -232,7 +232,7 @@
         <section id="team">
           <div class="container">
             <div class="section-header">
-                <h2>Core Team <button class="btn btn-outline-dark" onclick="showGrave()">Graveyard :(</button></h2>
+                <h2>Core Team <button class="btn btn-outline-dark" onclick="showGrave()">Ex-wizards</button></h2>
               <p>These are the wizards behind Student Developer Society!</p>
             </div>
 
@@ -272,7 +272,7 @@
       <section id="grave" style="display: none">
           <div class="container">
               <div class="section-header">
-                  <h2>Committee Graveyard</h2>
+                  <h2>Ex-wizards</h2>
                   <p>These please were the heart and soul of APUSDS. They may have left, but never forgotten! <br> Please hover on their face :)</p>
               </div>
 
