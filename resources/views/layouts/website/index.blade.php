@@ -273,7 +273,7 @@
           <div class="container">
               <div class="section-header">
                   <h2>Ex-wizards</h2>
-                  <p>These please were the heart and soul of APUSDS. They may have left, but never forgotten! <br> Please hover on their face :)</p>
+                  <p>These people were the heart and soul of APUSDS. They may have left, but never forgotten! <br> Please hover on their face :)</p>
               </div>
 
               <div class="row">
