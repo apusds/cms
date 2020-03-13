@@ -232,7 +232,7 @@
         <section id="team">
           <div class="container">
             <div class="section-header">
-                <h2>Core Team <button class="btn btn-outline-dark" onclick="showGrave()">Ex-wizards</button></h2>
+                <h2>Core Team <a type="button" href="#grave" class="btn btn-outline-dark" onclick="showGrave()">Ex-wizards</a></h2>
               <p>These are the wizards behind Student Developer Society!</p>
             </div>
 
